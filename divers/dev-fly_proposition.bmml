@@ -41,9 +41,9 @@
       </controlProperties>
     </control>
     <control controlID="32" controlTypeID="com.balsamiq.mockups::VRule" x="668" y="443" w="-1" h="-1" measuredW="10" measuredH="100" zOrder="8" locked="false" isInGroup="-1"/>
-    <control controlID="33" controlTypeID="com.balsamiq.mockups::Label" x="447" y="416" w="-1" h="-1" measuredW="71" measuredH="21" zOrder="9" locked="false" isInGroup="-1">
+    <control controlID="33" controlTypeID="com.balsamiq.mockups::Label" x="447" y="416" w="-1" h="-1" measuredW="90" measuredH="21" zOrder="9" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Date%20d%E9part</text>
+        <text>Date%20de%20d%E9part</text>
       </controlProperties>
     </control>
     <control controlID="34" controlTypeID="com.balsamiq.mockups::Label" x="684" y="415" w="-1" h="-1" measuredW="87" measuredH="21" zOrder="10" locked="false" isInGroup="-1">
@@ -76,7 +76,7 @@
         <text>09/03/2013%20%E0%2021h12</text>
       </controlProperties>
     </control>
-    <control controlID="40" controlTypeID="com.balsamiq.mockups::TextInput" x="693" y="524" w="-1" h="-1" measuredW="137" measuredH="27" zOrder="16" locked="false" isInGroup="-1">
+    <control controlID="40" controlTypeID="com.balsamiq.mockups::TextInput" x="693" y="524" w="-1" h="-1" measuredW="133" measuredH="27" zOrder="16" locked="false" isInGroup="-1">
       <controlProperties>
         <text>17/03/2013%20%E0%2010h02</text>
       </controlProperties>
