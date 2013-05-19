@@ -25,7 +25,7 @@
         <text>password</text>
       </controlProperties>
     </control>
-    <control controlID="21" controlTypeID="com.balsamiq.mockups::FieldSet" x="419" y="203" w="324" h="177" measuredW="200" measuredH="170" zOrder="5" locked="false" isInGroup="-1">
+    <control controlID="21" controlTypeID="com.balsamiq.mockups::FieldSet" x="419" y="203" w="324" h="217" measuredW="200" measuredH="170" zOrder="5" locked="false" isInGroup="-1">
       <controlProperties>
         <text>votre%20s%E9lection</text>
       </controlProperties>
@@ -68,6 +68,11 @@
     <control controlID="30" controlTypeID="com.balsamiq.mockups::Label" x="543" y="307" w="-1" h="-1" measuredW="72" measuredH="21" zOrder="13" locked="false" isInGroup="-1">
       <controlProperties>
         <text>nbre%20d%27enfts</text>
+      </controlProperties>
+    </control>
+    <control controlID="31" controlTypeID="com.balsamiq.mockups::Button" x="654" y="375" w="-1" h="-1" measuredW="63" measuredH="27" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Valider</text>
       </controlProperties>
     </control>
   </controls>
