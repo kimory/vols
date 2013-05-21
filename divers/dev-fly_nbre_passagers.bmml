@@ -22,7 +22,7 @@
     </control>
     <control controlID="4" controlTypeID="com.balsamiq.mockups::ButtonBar" x="465" y="185" w="388" h="26" measuredW="388" measuredH="27" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
-        <selectedIndex>1</selectedIndex>
+        <selectedIndex>0</selectedIndex>
         <text>Accueil%2CEspace%20Client%2CQui%20sommes-nous%20%3F%2C%20Contact</text>
       </controlProperties>
     </control>
