@@ -2,7 +2,7 @@
   <controls>
     <control controlID="1" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="333" y="3" w="645" h="682" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>DEV-FLY%20-%20propostion%0Aproposition.php</text>
+        <text>DEV-FLY%20-%20Billet%0Abillet.php</text>
       </controlProperties>
     </control>
     <control controlID="4" controlTypeID="com.balsamiq.mockups::Title" x="419" y="93" w="136" h="-1" measuredW="74" measuredH="43" zOrder="1" locked="false" isInGroup="-1">
