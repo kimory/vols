@@ -1,0 +1,11 @@
+-Diagramme + IHM pour présenter le back office
+-Création de la BD
+-Se renseigner sur l'API Google (ou autre méthode pour avoir le temps de trajet)
+-Mettre en place le serveur (dev-fly.fr + www.dev-fly.fr)
+-Trouver un logo pour la companie
+-Code fonctionnalité1
+-Code fonctionnalité2
+-Code fonctionnalité3
+-CSS pour embellir le site (Bootstrap ?)
+-Tester / Faire tester l'appli
+-Cahier des charges fini + mis en forme
