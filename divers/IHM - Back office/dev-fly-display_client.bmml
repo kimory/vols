@@ -11,9 +11,9 @@
         <text>LOGO</text>
       </controlProperties>
     </control>
-    <control controlID="2" controlTypeID="com.balsamiq.mockups::Button" x="812" y="90" w="-1" h="-1" measuredW="99" measuredH="27" zOrder="2" locked="false" isInGroup="-1">
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Button" x="812" y="90" w="-1" h="-1" measuredW="117" measuredH="27" zOrder="2" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>D%E9connecter</text>
+        <text>Se%20d%E9connecter</text>
       </controlProperties>
     </control>
     <control controlID="3" controlTypeID="com.balsamiq.mockups::Label" x="417" y="148" w="-1" h="-1" measuredW="144" measuredH="21" zOrder="3" locked="false" isInGroup="-1">
