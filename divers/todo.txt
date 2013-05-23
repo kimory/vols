@@ -1,4 +1,5 @@
--Diagramme + IHM pour présenter le back office
+-Diagramme + IHM pour présenter le back office (rajouter la recherche par client)
+-Insérer le diagramme de classe dans le cahier des charges
 -Création de la BD
 -Se renseigner sur l'API Google (ou autre méthode pour avoir le temps de trajet)
 -Mettre en place le serveur (dev-fly.fr + www.dev-fly.fr)
