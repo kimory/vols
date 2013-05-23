@@ -1,13 +1,14 @@
 ﻿-- phpMyAdmin SQL Dump
--- version 3.3.9
+-- version 3.5.1
 -- http://www.phpmyadmin.net
 --
--- Serveur: localhost
--- Généré le : Jeu 23 Mai 2013 à 14:58
--- Version du serveur: 5.5.8
--- Version de PHP: 5.3.5
+-- Client: localhost
+-- Généré le: Jeu 23 Mai 2013 à 21:44
+-- Version du serveur: 5.5.24-log
+-- Version de PHP: 5.4.3
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -27,18 +28,18 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 CREATE TABLE IF NOT EXISTS `client` (
   `numclient` varchar(5) NOT NULL,
-  `civilite` varchar(3) NOT NULL,
-  `nom` varchar(50) NOT NULL,
-  `prenom` varchar(50) NOT NULL,
-  `adresse` varchar(50) NOT NULL,
-  `codepostal` varchar(10) NOT NULL,
-  `ville` varchar(20) NOT NULL,
-  `pays` varchar(20) NOT NULL,
-  `mail` varchar(20) NOT NULL,
-  `telfixe` varchar(15) NOT NULL,
-  `mobile` varchar(15) NOT NULL,
-  `login` varchar(10) NOT NULL,
-  `password` varchar(8) NOT NULL,
+  `civilite` varchar(3) DEFAULT NULL,
+  `nom` varchar(50) DEFAULT NULL,
+  `prenom` varchar(50) DEFAULT NULL,
+  `adresse` varchar(50) DEFAULT NULL,
+  `codepostal` varchar(10) DEFAULT NULL,
+  `ville` varchar(20) DEFAULT NULL,
+  `pays` varchar(20) DEFAULT NULL,
+  `mail` varchar(20) DEFAULT NULL,
+  `telfixe` varchar(15) DEFAULT NULL,
+  `mobile` varchar(15) DEFAULT NULL,
+  `login` varchar(10) DEFAULT NULL,
+  `password` varchar(8) DEFAULT NULL,
   PRIMARY KEY (`numclient`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -46,6 +47,15 @@ CREATE TABLE IF NOT EXISTS `client` (
 -- Contenu de la table `client`
 --
 
+INSERT INTO `client` (`numclient`, `civilite`, `nom`, `prenom`, `adresse`, `codepostal`, `ville`, `pays`, `mail`, `telfixe`, `mobile`, `login`, `password`) VALUES
+('CL025', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('CL059', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('CL198', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('CL247', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('CL375', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('CL397', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('CL524', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('CL596', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -214,11 +224,6 @@ CREATE TABLE IF NOT EXISTS `place` (
   KEY `numpassager` (`numpassager`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Contenu de la table `place`
---
-
-
 -- --------------------------------------------------------
 
 --
@@ -232,13 +237,19 @@ CREATE TABLE IF NOT EXISTS `reservation` (
   `numplace` varchar(4) NOT NULL,
   PRIMARY KEY (`numreserv`),
   KEY `numclient` (`numclient`,`numplace`),
-  KEY `numplace` (`numplace`)
+  KEY `numplace` (`numplace`),
+  KEY `numplace_2` (`numplace`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `reservation`
 --
 
+INSERT INTO `reservation` (`numreserv`, `datereserv`, `numclient`, `numplace`) VALUES
+('RV014562AJ', '0000-00-00', 'CL397', 'D100'),
+('RV071526SY', '0000-00-00', 'CL059', 'A001'),
+('RV258014BA', '0000-00-00', 'CL524', 'B175'),
+('RV745860TA', '0000-00-00', 'CL025', 'F047');
 
 -- --------------------------------------------------------
 
@@ -266,6 +277,13 @@ CREATE TABLE IF NOT EXISTS `travailler` (
 -- Contenu de la table `travailler`
 --
 
+INSERT INTO `travailler` (`vol`, `pilote`, `co-pilote`, `hotesse/steward1`, `hotesse/steward2`, `hotesse/steward3`, `date`) VALUES
+('DF0183', 'P0003', 'C0004', 'H0006', 'H0011', 'H0016', '2013-06-20'),
+('DF0810', 'P0006', 'C0003', 'H0001', 'H0012', 'H0017', '2013-07-14'),
+('DF1028', 'P0001', 'C0006', 'H0002', 'H0007', 'H0018', '2013-05-24'),
+('DF4692', 'P0005', 'C0002', 'H0004', 'H0008', 'H0013', '2013-06-01'),
+('DF5609', 'P0004', 'C0005', 'H0003', 'H0009', 'H0014', '2013-06-01'),
+('DF9174', 'P0002', 'C0001', 'H0005', 'H0010', 'H0015', '2013-05-26');
 
 -- --------------------------------------------------------
 
@@ -281,11 +299,6 @@ CREATE TABLE IF NOT EXISTS `user` (
   `droits` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Contenu de la table `user`
---
-
 
 -- --------------------------------------------------------
 
@@ -310,8 +323,8 @@ CREATE TABLE IF NOT EXISTS `vol` (
 --
 
 INSERT INTO `vol` (`numvol`, `lieudep`, `lieuarriv`, `datedep`, `datearrivee`, `heuredep`, `heurearrivee`, `dureetrajet`) VALUES
-('DF0183', 'Paris', 'Guadeloupe', '2013-06-20', '2013-06-21', '10:05:00', '05:59:00', '26:54:00'),
-('DF0810', 'Doha - Qatar', 'Tokyo - Japon', '2013-07-14', '2013-07-15', '22:30:00', '11:50:00', '31:20:00'),
+('DF0183', 'Paris', 'Guadeloupe', '2013-06-20', '2013-06-21', '10:30:00', '13:20:00', '08:15:00'),
+('DF0810', 'Doha - Qatar', 'Tokyo - Japon', '2013-07-14', '2013-07-15', '22:30:00', '10:50:00', '21:20:00'),
 ('DF1028', 'Casablanca - Maroc', 'Honolulu - Hawaï', '2013-05-24', '2013-05-25', '02:20:00', '18:34:00', '27:14:00'),
 ('DF4692', 'Berne - Suisse', 'Sydney - Australie', '2013-06-01', '2013-05-02', '06:50:00', '22:05:00', '31:15:00'),
 ('DF5609', 'Ottawa - Canada', 'Washington', '2013-06-01', '2013-06-01', '12:40:00', '19:34:00', '06:54:00'),
@@ -333,8 +346,7 @@ ALTER TABLE `place`
 -- Contraintes pour la table `reservation`
 --
 ALTER TABLE `reservation`
-  ADD CONSTRAINT `reservation_ibfk_2` FOREIGN KEY (`numplace`) REFERENCES `place` (`numplace`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`numclient`) REFERENCES `client` (`numclient`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `reservation_ibfk_2` FOREIGN KEY (`numclient`) REFERENCES `client` (`numclient`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Contraintes pour la table `travailler`
@@ -346,3 +358,7 @@ ALTER TABLE `travailler`
   ADD CONSTRAINT `travailler_ibfk_3` FOREIGN KEY (`co-pilote`) REFERENCES `employe` (`numemploye`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `travailler_ibfk_4` FOREIGN KEY (`hotesse/steward1`) REFERENCES `employe` (`numemploye`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `travailler_ibfk_5` FOREIGN KEY (`hotesse/steward2`) REFERENCES `employe` (`numemploye`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
