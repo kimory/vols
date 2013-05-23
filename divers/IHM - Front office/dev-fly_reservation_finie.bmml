@@ -26,7 +26,7 @@
         <text>password</text>
       </controlProperties>
     </control>
-    <control controlID="57" controlTypeID="com.balsamiq.mockups::Label" x="419" y="259" w="491" h="-1" measuredW="457" measuredH="21" zOrder="5" locked="false" isInGroup="-1">
+    <control controlID="57" controlTypeID="com.balsamiq.mockups::Label" x="419" y="259" w="491" h="-1" measuredW="458" measuredH="21" zOrder="5" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Vous%20pouvez%20maintenant%20imprimer%20votre%20billet.%20Celui-ci%20reste%20accessible%20%E0%20tout</text>
       </controlProperties>
@@ -46,9 +46,9 @@
         <text>Espace%20Client.</text>
       </controlProperties>
     </control>
-    <control controlID="64" controlTypeID="com.balsamiq.mockups::TextArea" x="415" y="333" w="480" h="223" measuredW="200" measuredH="140" zOrder="9" locked="false" isInGroup="-1">
+    <control controlID="64" controlTypeID="com.balsamiq.mockups::TextArea" x="396" y="333" w="530" h="233" measuredW="200" measuredH="140" zOrder="9" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>%20%0A%20%0A%20%0ANum%E9ro%20de%20r%E9servation%20%3A%20XYZ%0AD%E9part%20%3A%20%22A%E9roportD%E9part%22%20le%20%22date%22%20%E0%20%22heure%22%0AArriv%E9e%20%3A%20%22A%E9roportArriv%E9e%22%20le%20%22date%22%20%E0%20%22heure%22%0A%20%0A%20%0APassager%28s%29%20%3A%0APr%E9nom%2C%20NOM%2C%20n%E9%28e%29%20le%20%22date_de_naissance%22%0APr%E9nom%2C%20NOM%2C%20n%E9%28e%29%20le%20%22date_de_naissance%22%09%09%09%0APr%E9nom%2C%20NOM%2C%20n%E9%28e%29%20le%20%22date_de_naissance%22%09%09%09Prix%20%3A%20X%20%u20AC%09%09%09%09</text>
+        <text>%20%0A%20%0A%09%09%09%09%09%09%09%09%20%0ANum%E9ro%20de%20r%E9servation%20%3A%20XYZ%0AD%E9part%20%3A%20%22A%E9roportD%E9part%22%20le%20%22date%22%20%E0%20%22heure%22%09%09%09Dur%E9e%20de%20vol%20%3A%20xxHxx%0AArriv%E9e%20%3A%20%22A%E9roportArriv%E9e%22%20le%20%22date%22%20%E0%20%22heure%22%0A%20%0A%20%0APassager%28s%29%20%3A%0APr%E9nom%2C%20NOM%2C%20n%E9%28e%29%20le%20%22date_de_naissance%22%0APr%E9nom%2C%20NOM%2C%20n%E9%28e%29%20le%20%22date_de_naissance%22%09%09%09%0APr%E9nom%2C%20NOM%2C%20n%E9%28e%29%20le%20%22date_de_naissance%22%09%09%09Prix%20%3A%20X%20%u20AC%09%09%09%09</text>
       </controlProperties>
     </control>
     <control controlID="65" controlTypeID="com.balsamiq.mockups::SubTitle" x="538" y="339" w="-1" h="-1" measuredW="190" measuredH="27" zOrder="10" locked="false" isInGroup="-1">
@@ -56,9 +56,14 @@
         <text>Billet%20-%20Vol%20N%B0XXX</text>
       </controlProperties>
     </control>
-    <control controlID="66" controlTypeID="com.balsamiq.mockups::Link" x="807" y="609" w="-1" h="-1" measuredW="102" measuredH="19" zOrder="11" locked="false" isInGroup="-1">
+    <control controlID="66" controlTypeID="com.balsamiq.mockups::Link" x="807" y="609" w="-1" h="-1" measuredW="104" measuredH="19" zOrder="11" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Retour%20%E0%20l%27accueil</text>
+      </controlProperties>
+    </control>
+    <control controlID="67" controlTypeID="com.balsamiq.mockups::SubTitle" x="404" y="339" w="-1" h="-1" measuredW="45" measuredH="27" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>logo</text>
       </controlProperties>
     </control>
   </controls>
