@@ -2,7 +2,7 @@
   <controls>
     <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="386" y="0" w="582" h="558" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>DEV-FLY-afficher%20-%20client-result%0Ahttp%3A//affichage_client.php</text>
+        <text>DEV-FLY-affichage%20client%0Ahttp%3A//affichage_client.php</text>
       </controlProperties>
     </control>
     <control controlID="1" controlTypeID="com.balsamiq.mockups::Title" x="401" y="90" w="120" h="-1" measuredW="69" measuredH="27" zOrder="1" locked="false" isInGroup="-1">

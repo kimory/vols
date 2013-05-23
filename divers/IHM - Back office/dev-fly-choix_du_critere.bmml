@@ -146,7 +146,7 @@
     </control>
     <control controlID="36" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="470" y="446" w="427" h="400" measuredW="450" measuredH="400" zOrder="28" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>DEV-FLY%20-%20choix_du_critere%0Achoix_du_critere.php%23employe</text>
+        <text>DEV-FLY%20-%20choix_du_critere%0Achoix_du_critere.php%23client</text>
       </controlProperties>
     </control>
     <control controlID="37" controlTypeID="com.balsamiq.mockups::TabBar" x="515" y="565" w="324" h="193" measuredW="323" measuredH="100" zOrder="29" locked="false" isInGroup="-1">
