@@ -1,3 +1,4 @@
+-#numplace dans table RESERVATION alors qu'une réservation peut concerner plusieurs passagers
 -Demander si cahier des charges = php ou php + Java
 -IHM pour présenter le back office (rajouter la recherche par client)
 -Insérer le diagramme de classe dans le cahier des charges
