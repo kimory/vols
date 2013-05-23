@@ -1,0 +1,5 @@
+#Note : ce fichier .htaccess surcharge la conf d'Apache
+Options -Indexes
+RewriteEngine on
+# pour la récriture d'URL
+RewriteRule ^$ accueil.php [L]
