@@ -1,14 +1,13 @@
 ﻿-- phpMyAdmin SQL Dump
--- version 3.5.1
+-- version 3.3.9
 -- http://www.phpmyadmin.net
 --
--- Client: localhost
--- Généré le: Jeu 23 Mai 2013 à 21:44
--- Version du serveur: 5.5.24-log
--- Version de PHP: 5.4.3
+-- Serveur: localhost
+-- Généré le : Ven 24 Mai 2013 à 13:18
+-- Version du serveur: 5.5.8
+-- Version de PHP: 5.3.5
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -17,7 +16,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données: `dev-fly`
+-- Base de données: `DEV-FLY`
 --
 
 -- --------------------------------------------------------
@@ -35,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `client` (
   `codepostal` varchar(10) DEFAULT NULL,
   `ville` varchar(20) DEFAULT NULL,
   `pays` varchar(20) DEFAULT NULL,
-  `mail` varchar(20) DEFAULT NULL,
+  `mail` varchar(50) DEFAULT NULL,
   `telfixe` varchar(15) DEFAULT NULL,
   `mobile` varchar(15) DEFAULT NULL,
   `login` varchar(10) DEFAULT NULL,
@@ -48,14 +47,13 @@ CREATE TABLE IF NOT EXISTS `client` (
 --
 
 INSERT INTO `client` (`numclient`, `civilite`, `nom`, `prenom`, `adresse`, `codepostal`, `ville`, `pays`, `mail`, `telfixe`, `mobile`, `login`, `password`) VALUES
-('CL025', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('CL059', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('CL198', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('CL247', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('CL375', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('CL397', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('CL524', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('CL596', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('CL025', 'Mme', 'TAYLOR', 'Isabella', '13-657 Hinalo Street  Pāhoa', 'HI 96778', 'Hawaï', 'USA', 'taylorisa@live.com', '+18089656153', '+18084674486', 'isabella', 'taylor'),
+('CL059', 'Mme', 'SYLLA', 'Lala', '33 route de Nouasser', ' 20190', 'Rabat', 'Maroc', 'lalasylla@yahoo.fr', '+21252297797', '+21261149425', 'lalasylla', 'rabat'),
+('CL198', 'M', 'WILLIAMS', 'Brian', '109 Burwood Road', 'Hawthorn V', ' 3122 ', 'Australie', 'willamsbrian@gmail.com', '+61735642342', '+61123456789', 'brian', 'williams'),
+('CL247', 'M', 'VENDA', 'Jonah', '37  Barotanyi. Liechtensteinstrasse', '21 1090 ', 'Wien', 'Autriche', 'jonah@venda.com', '+4392067130', '+4362503253', 'jonah', 'venda'),
+('CL375', 'M', 'MOUNA', 'Karim', '448  rue Radhia Haddad Standard ', '1023', ' Montplaisir', 'Tunisie', 'mounakarim@live.com', ' +216156960', '+216988122244', 'mouna', 'karim'),
+('CL397', 'M', 'AJAMI', 'Abdel', '384 West day', 'PO Box 266', 'Al khawr', 'Qatar', 'abdel.ajami@gmail.com', '+9748232133', '+9746541243', 'ajami', 'qatar'),
+('CL524', 'M', 'BAYOL', 'Simon', '105 rue Boileau', '93000', 'Saint-Denis', 'France', 'simonbayol@yahoo.fr', '+33136786141', '+33625734641', 'simon', 'bayol');
 
 -- --------------------------------------------------------
 
@@ -185,25 +183,27 @@ CREATE TABLE IF NOT EXISTS `passager` (
   `nom` varchar(50) NOT NULL,
   `prenom` varchar(50) NOT NULL,
   `datenaissance` date NOT NULL,
-  PRIMARY KEY (`numpassager`)
+  `numreservation` varchar(10) NOT NULL,
+  PRIMARY KEY (`numpassager`),
+  KEY `numreservation` (`numreservation`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `passager`
 --
 
-INSERT INTO `passager` (`numpassager`, `civilite`, `nom`, `prenom`, `datenaissance`) VALUES
-('P0283', 'Mme', 'SYLLA', 'Lala', '1988-03-23'),
-('P2837', 'M', 'BAYOL', 'Simon', '1980-01-15'),
-('P3610', 'M', 'VENDA', 'Jonah', '1974-05-07'),
-('P3793', 'm', 'MOUNA', 'Madani', '1987-10-11'),
-('P3794', 'Mme', 'MOUNA', 'Farida', '1978-06-04'),
-('P3915', 'M', 'AJAMI', 'Nabil', '1993-08-18'),
-('P3916', 'M', 'AJAMI', 'Noha', '2001-10-10'),
-('P3918', 'Mme', 'AJAMI', 'Zeyna', '1970-07-15'),
-('P4936', 'M', ' Williams', 'Brian', '1966-11-27'),
-('P4937', '', ' Williams', 'ABBIE', '2013-02-25'),
-('P7393', 'Mme', 'TAYLOR', 'Isabella', '1991-02-22');
+INSERT INTO `passager` (`numpassager`, `civilite`, `nom`, `prenom`, `datenaissance`, `numreservation`) VALUES
+('P0283', 'Mme', 'SYLLA', 'Lala', '1988-03-23', 'RV071526SY'),
+('P2837', 'M', 'BAYOL', 'Simon', '1980-01-15', 'RV258014BA'),
+('P3610', 'M', 'VENDA', 'Jonah', '1974-05-07', 'RV622319VE'),
+('P3794', 'Mme', 'MOUNA', 'Farida', '1978-06-04', 'RV476292MO'),
+('P3849', 'M', 'MOUNA', 'Madani', '1987-10-11', 'RV783920MO'),
+('P3915', 'M', 'AJAMI', 'Nabil', '1993-08-18', 'RV014561AJ'),
+('P3916', 'M', 'AJAMI', 'Noha', '2001-10-10', 'RV014561AJ'),
+('P3917', 'Mme', 'AJAMI', 'Zeyna', '1970-07-15', 'RV014561AJ'),
+('P4936', 'M', ' WILLIAMS', 'Brian', '1966-11-27', 'RV923735WI'),
+('P4937', '', ' WILLIAMS', 'Abbie', '2013-02-25', 'RV923735WI'),
+('P7393', 'Mme', 'TAYLOR', 'Isabella', '1991-02-22', 'RV745860TA');
 
 -- --------------------------------------------------------
 
@@ -224,6 +224,22 @@ CREATE TABLE IF NOT EXISTS `place` (
   KEY `numpassager` (`numpassager`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Contenu de la table `place`
+--
+
+INSERT INTO `place` (`numplace`, `prix`, `etat`, `numpassager`, `numvol`, `numreservation`) VALUES
+('A001', '1524', 1, 'P0283', 'DF1028', 'RV071526SY'),
+('B023', '617', 1, 'P2837', 'DF0183', 'RV258014BA'),
+('B57', '1472', 0, 'P4936', 'DF4692', 'RV923735WI'),
+('C093', '1472', 0, 'P3849', 'DF1028', 'RV476292MO'),
+('C58', '1472', 0, 'P4937', 'DF4692', 'RV923735WI'),
+('D12', '600', 1, 'P3917', 'DF5609', 'RV014561AJ'),
+('D165', '799', 1, 'P3794', 'DF0810', 'RV783920MO'),
+('E13', '600', 1, 'P3915', 'DF5609', 'RV014561AJ'),
+('F14', '600', 1, 'P3916', 'DF5609', 'RV014561AJ'),
+('F189', '617', 0, 'P7393', 'DF1028', 'RV745860TA');
+
 -- --------------------------------------------------------
 
 --
@@ -234,22 +250,23 @@ CREATE TABLE IF NOT EXISTS `reservation` (
   `numreserv` varchar(10) NOT NULL,
   `datereserv` date NOT NULL,
   `numclient` varchar(5) NOT NULL,
-  `numplace` varchar(4) NOT NULL,
   PRIMARY KEY (`numreserv`),
-  KEY `numclient` (`numclient`,`numplace`),
-  KEY `numplace` (`numplace`),
-  KEY `numplace_2` (`numplace`)
+  KEY `numclient` (`numclient`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `reservation`
 --
 
-INSERT INTO `reservation` (`numreserv`, `datereserv`, `numclient`, `numplace`) VALUES
-('RV014562AJ', '0000-00-00', 'CL397', 'D100'),
-('RV071526SY', '0000-00-00', 'CL059', 'A001'),
-('RV258014BA', '0000-00-00', 'CL524', 'B175'),
-('RV745860TA', '0000-00-00', 'CL025', 'F047');
+INSERT INTO `reservation` (`numreserv`, `datereserv`, `numclient`) VALUES
+('RV014561AJ', '2013-04-01', 'CL397'),
+('RV071526SY', '2013-04-22', 'CL059'),
+('RV258014BA', '2013-05-17', 'CL524'),
+('RV476292MO', '2013-04-09', 'CL247'),
+('RV622319VE', '2013-07-01', 'CL375'),
+('RV745860TA', '2013-03-23', 'CL025'),
+('RV783920MO', '2013-04-26', 'CL247'),
+('RV923735WI', '2013-03-31', 'CL198');
 
 -- --------------------------------------------------------
 
@@ -293,12 +310,21 @@ INSERT INTO `travailler` (`vol`, `pilote`, `co-pilote`, `hotesse/steward1`, `hot
 
 CREATE TABLE IF NOT EXISTS `user` (
   `id` varchar(5) NOT NULL,
-  `statut` varchar(10) NOT NULL,
+  `statut` varchar(20) NOT NULL,
   `login` varchar(10) NOT NULL,
   `password` varchar(10) NOT NULL,
   `droits` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `user`
+--
+
+INSERT INTO `user` (`id`, `statut`, `login`, `password`, `droits`) VALUES
+('AD129', 'Admistrateur', 'administre', 'admin', 1),
+('CM', 'Comercial', 'vendeur', 'commerce', 0),
+('DR346', 'Directeur', 'general', 'directeur', 0);
 
 -- --------------------------------------------------------
 
@@ -335,6 +361,12 @@ INSERT INTO `vol` (`numvol`, `lieudep`, `lieuarriv`, `datedep`, `datearrivee`, `
 --
 
 --
+-- Contraintes pour la table `passager`
+--
+ALTER TABLE `passager`
+  ADD CONSTRAINT `passager_ibfk_1` FOREIGN KEY (`numreservation`) REFERENCES `reservation` (`numreserv`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Contraintes pour la table `place`
 --
 ALTER TABLE `place`
@@ -346,7 +378,7 @@ ALTER TABLE `place`
 -- Contraintes pour la table `reservation`
 --
 ALTER TABLE `reservation`
-  ADD CONSTRAINT `reservation_ibfk_2` FOREIGN KEY (`numclient`) REFERENCES `client` (`numclient`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`numclient`) REFERENCES `client` (`numclient`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `travailler`
@@ -358,7 +390,3 @@ ALTER TABLE `travailler`
   ADD CONSTRAINT `travailler_ibfk_3` FOREIGN KEY (`co-pilote`) REFERENCES `employe` (`numemploye`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `travailler_ibfk_4` FOREIGN KEY (`hotesse/steward1`) REFERENCES `employe` (`numemploye`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `travailler_ibfk_5` FOREIGN KEY (`hotesse/steward2`) REFERENCES `employe` (`numemploye`) ON DELETE CASCADE ON UPDATE CASCADE;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
