@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: localhost
--- Généré le : Ven 24 Mai 2013 à 13:18
+-- Généré le : Ven 24 Mai 2013 à 14:01
 -- Version du serveur: 5.5.8
 -- Version de PHP: 5.3.5
 
@@ -323,7 +323,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`id`, `statut`, `login`, `password`, `droits`) VALUES
 ('AD129', 'Admistrateur', 'administre', 'admin', 1),
-('CM', 'Comercial', 'vendeur', 'commerce', 0),
+('CM674', 'Commercial', 'vendeur', 'commerce', 0),
 ('DR346', 'Directeur', 'general', 'directeur', 0);
 
 -- --------------------------------------------------------
