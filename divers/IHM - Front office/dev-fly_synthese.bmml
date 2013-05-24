@@ -36,7 +36,7 @@
         <text>Synth%E8se</text>
       </controlProperties>
     </control>
-    <control controlID="25" controlTypeID="com.balsamiq.mockups::Label" x="476" y="245" w="-1" h="-1" measuredW="150" measuredH="21" zOrder="7" locked="false" isInGroup="-1">
+    <control controlID="25" controlTypeID="com.balsamiq.mockups::Label" x="476" y="245" w="-1" h="-1" measuredW="149" measuredH="21" zOrder="7" locked="false" isInGroup="-1">
       <controlProperties>
         <color>0</color>
         <text>Vous%20souhaitez%20r%E9server%20</text>
@@ -59,19 +59,19 @@
     </control>
     <control controlID="43" controlTypeID="com.balsamiq.mockups::Label" x="486" y="329" w="-1" h="-1" measuredW="31" measuredH="21" zOrder="11" locked="false" isInGroup="-1">
       <controlProperties>
-        <color>545684</color>
+        <color>0</color>
         <text>Nom%20</text>
       </controlProperties>
     </control>
-    <control controlID="45" controlTypeID="com.balsamiq.mockups::Label" x="553" y="329" w="-1" h="-1" measuredW="51" measuredH="21" zOrder="12" locked="false" isInGroup="-1">
+    <control controlID="45" controlTypeID="com.balsamiq.mockups::Label" x="553" y="329" w="-1" h="-1" measuredW="49" measuredH="21" zOrder="12" locked="false" isInGroup="-1">
       <controlProperties>
-        <color>545684</color>
+        <color>0</color>
         <text>Pr%E9nom%20</text>
       </controlProperties>
     </control>
     <control controlID="50" controlTypeID="com.balsamiq.mockups::Label" x="684" y="329" w="-1" h="-1" measuredW="115" measuredH="21" zOrder="13" locked="false" isInGroup="-1">
       <controlProperties>
-        <color>545684</color>
+        <color>0</color>
         <text>Date%20de%20naissance%20</text>
       </controlProperties>
     </control>
@@ -80,12 +80,12 @@
         <text>Paiement%20S%E9curis%E9</text>
       </controlProperties>
     </control>
-    <control controlID="54" controlTypeID="com.balsamiq.mockups::Label" x="505" y="440" w="-1" h="-1" measuredW="384" measuredH="21" zOrder="15" locked="false" isInGroup="-1">
+    <control controlID="54" controlTypeID="com.balsamiq.mockups::Label" x="505" y="440" w="-1" h="-1" measuredW="382" measuredH="21" zOrder="15" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Les%20e-cartes%20bleues%20et%20cartes%20transcash%20ne%20sont%20pas%20accept%E9es.</text>
       </controlProperties>
     </control>
-    <control controlID="55" controlTypeID="com.balsamiq.mockups::Label" x="514" y="484" w="-1" h="-1" measuredW="105" measuredH="21" zOrder="16" locked="false" isInGroup="-1">
+    <control controlID="55" controlTypeID="com.balsamiq.mockups::Label" x="514" y="484" w="-1" h="-1" measuredW="104" measuredH="21" zOrder="16" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Num%E9ro%20de%20carte%20</text>
       </controlProperties>
@@ -95,7 +95,7 @@
         <text>Date%20d%27expiration</text>
       </controlProperties>
     </control>
-    <control controlID="57" controlTypeID="com.balsamiq.mockups::Label" x="517" y="586" w="-1" h="-1" measuredW="86" measuredH="21" zOrder="18" locked="false" isInGroup="-1">
+    <control controlID="57" controlTypeID="com.balsamiq.mockups::Label" x="517" y="586" w="-1" h="-1" measuredW="83" measuredH="21" zOrder="18" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Code%20s%E9curit%E9</text>
       </controlProperties>
@@ -138,7 +138,7 @@
         <text>3%20derniers%20chiffres%20au%20dos%20de%20votre%20carte</text>
       </controlProperties>
     </control>
-    <control controlID="65" controlTypeID="com.balsamiq.mockups::Label" x="732" y="552" w="-1" h="-1" measuredW="194" measuredH="20" zOrder="26" locked="false" isInGroup="-1">
+    <control controlID="65" controlTypeID="com.balsamiq.mockups::Label" x="732" y="552" w="-1" h="-1" measuredW="193" measuredH="20" zOrder="26" locked="false" isInGroup="-1">
       <controlProperties>
         <size>12</size>
         <state>disabled</state>
@@ -147,7 +147,7 @@
     </control>
     <control controlID="67" controlTypeID="com.balsamiq.mockups::Label" x="626" y="245" w="-1" h="-1" measuredW="17" measuredH="21" zOrder="27" locked="false" isInGroup="-1">
       <controlProperties>
-        <color>545684</color>
+        <color>0</color>
         <text>%22n%22</text>
       </controlProperties>
     </control>
@@ -158,13 +158,13 @@
     </control>
     <control controlID="69" controlTypeID="com.balsamiq.mockups::Label" x="741" y="245" w="-1" h="-1" measuredW="92" measuredH="21" zOrder="29" locked="false" isInGroup="-1">
       <controlProperties>
-        <color>545684</color>
+        <color>0</color>
         <text>%22JJ/MM/AAAA%22</text>
       </controlProperties>
     </control>
     <control controlID="70" controlTypeID="com.balsamiq.mockups::Label" x="541" y="266" w="-1" h="-1" measuredW="45" measuredH="21" zOrder="30" locked="false" isInGroup="-1">
       <controlProperties>
-        <color>545684</color>
+        <color>0</color>
         <text>%22XXXX%22</text>
       </controlProperties>
     </control>
@@ -173,24 +173,24 @@
         <text>%20de.</text>
       </controlProperties>
     </control>
-    <control controlID="72" controlTypeID="com.balsamiq.mockups::Label" x="604" y="266" w="-1" h="-1" measuredW="39" measuredH="21" zOrder="32" locked="false" isInGroup="-1">
+    <control controlID="72" controlTypeID="com.balsamiq.mockups::Label" x="604" y="266" w="-1" h="-1" measuredW="43" measuredH="21" zOrder="32" locked="false" isInGroup="-1">
       <controlProperties>
-        <color>545684</color>
-        <text>%22Ville1%22</text>
+        <color>0</color>
+        <text>%22Ville1%22%20</text>
       </controlProperties>
     </control>
-    <control controlID="73" controlTypeID="com.balsamiq.mockups::Label" x="643" y="266" w="-1" h="-1" measuredW="10" measuredH="21" zOrder="33" locked="false" isInGroup="-1">
+    <control controlID="73" controlTypeID="com.balsamiq.mockups::Label" x="643" y="266" w="15" h="-1" measuredW="11" measuredH="21" zOrder="33" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>%E0</text>
+        <text>%20%E0</text>
       </controlProperties>
     </control>
-    <control controlID="74" controlTypeID="com.balsamiq.mockups::Label" x="653" y="266" w="-1" h="-1" measuredW="45" measuredH="21" zOrder="34" locked="false" isInGroup="-1">
+    <control controlID="74" controlTypeID="com.balsamiq.mockups::Label" x="653" y="266" w="-1" h="-1" measuredW="49" measuredH="21" zOrder="34" locked="false" isInGroup="-1">
       <controlProperties>
-        <color>545684</color>
-        <text>%22Ville2%22.</text>
+        <color>0</color>
+        <text>%20%22Ville2%22.</text>
       </controlProperties>
     </control>
-    <control controlID="75" controlTypeID="com.balsamiq.mockups::Label" x="626" y="329" w="-1" h="-1" measuredW="53" measuredH="21" zOrder="35" locked="false" isInGroup="-1">
+    <control controlID="75" controlTypeID="com.balsamiq.mockups::Label" x="626" y="329" w="-1" h="-1" measuredW="52" measuredH="21" zOrder="35" locked="false" isInGroup="-1">
       <controlProperties>
         <text>n%E9%28e%29%20le%20%3A</text>
       </controlProperties>
@@ -202,7 +202,7 @@
     </control>
     <control controlID="77" controlTypeID="com.balsamiq.mockups::Label" x="843" y="245" w="-1" h="-1" measuredW="50" measuredH="21" zOrder="37" locked="false" isInGroup="-1">
       <controlProperties>
-        <color>545684</color>
+        <color>0</color>
         <text>%22hh/mm%22</text>
       </controlProperties>
     </control>
