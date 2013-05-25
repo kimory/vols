@@ -87,6 +87,5 @@ abstract class Personne{
     }
 
 
-
 }
 ?>

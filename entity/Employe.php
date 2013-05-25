@@ -3,12 +3,12 @@ namespace entity;
 
 use entity\Personne;
 
-final class Client extends Employe{
+final class Client extends Personne{
     private $fonction;
     
     public function __construct($id, $civilite, $nom, $prenom, $adresse, $cp, $ville, $pays, $fonction) {
         parent::__construct($id, $civilite, $nom, $prenom, $adresse, $cp, $ville, $pays);
-        $this->$fonction = $fonction;
+        $this->fonction = $fonction;
     }
     
     public function getFonction() {
@@ -18,7 +18,6 @@ final class Client extends Employe{
     public function setFonction($fonction) {
         $this->fonction = $fonction;
     }
-
 
 
 }
