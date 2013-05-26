@@ -9,3 +9,7 @@ WHERE date_vol = :date_souhaitee
 
 Si on veut afficher au format standard FR :
 echo $date->format('d/m/Y');
+
+
+// Pour récupérer l'heure :
+SELECT DATE_FORMAT (date_depart, '%Y-%m-%d %H:%i') from vol where DATE_FORMAT("%Y-%m-%d", date_depart)=:date_souhaitee
