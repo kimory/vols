@@ -1,4 +1,5 @@
 -Bouton annuler + retour à l'accueil possible à tout moment ?
+-Nb de places restantes sur un vol ? => ou dans le rapport
 -Voir redondance date + heure / durée trajet => seulement date départ + durée
 -Réflexions sur les dates
 -Demander si cahier des charges = php ou php + Java
