@@ -1,5 +1,5 @@
 -Bouton annuler + retour à l'accueil possible à tout moment ?
--Voir redondance date + heure / durée trajet
+-Voir redondance date + heure / durée trajet => seulement date départ + durée
 -Demander si cahier des charges = php ou php + Java
 -Insérer le diagramme de classe dans le cahier des charges
 -Mettre en place le serveur (dev-fly.fr + www.dev-fly.fr)
