@@ -1,0 +1,11 @@
+En PHP :
+$date_souhaitee = new DateTime("$annee-$mois-$jour"); // le format standard qu'on récupère du formulaire (cf TP Cartougo)
+
+En SQL : (il faudrait aussi prendre en compte les autres critères comme les aéroports de départ et arrivée...)
+SELECT DATE_FORMAT(date_depart, '%Y-%m-%d') AS date_vol FROM vol
+WHERE date_vol = :date_souhaitee
+// on fera une requête préparée...
+// On récupère la bonne entrée, mais on ne récupère pas l'heure
+
+Si on veut afficher au format standard FR :
+echo $date->format('d/m/Y');
