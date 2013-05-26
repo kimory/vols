@@ -1,13 +1,14 @@
 ﻿-- phpMyAdmin SQL Dump
--- version 3.3.9
+-- version 3.5.1
 -- http://www.phpmyadmin.net
 --
--- Serveur: localhost
--- Généré le : Ven 24 Mai 2013 à 14:01
--- Version du serveur: 5.5.8
--- Version de PHP: 5.3.5
+-- Client: localhost
+-- Généré le: Dim 26 Mai 2013 à 19:23
+-- Version du serveur: 5.5.24-log
+-- Version de PHP: 5.4.3
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -16,7 +17,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données: `DEV-FLY`
+-- Base de données: `dev-fly`
 --
 
 -- --------------------------------------------------------
@@ -140,12 +141,12 @@ CREATE TABLE IF NOT EXISTS `employe` (
 --
 
 INSERT INTO `employe` (`numemploye`, `civilite`, `nom`, `prenom`, `adresse`, `codepostal`, `ville`, `pays`, `fonction`) VALUES
-('C0001', 'M', 'GENEALOGIE', 'Doria', 'Kongens Nytorv 4 ', 'DK – 1050', 'København K ', 'Danemark', 'Co-pilote'),
-('C0002', 'Mme', 'PAHATI', 'Christine', ' AFS-UFE, Tanglin  ', '091249', 'Singapour', 'Singapour', 'Co-pilote'),
-('C0003', 'M', 'HAMOUME', 'Slimane', '4, Avenue Tarik Ibn Ziad', ' 6401', ' Abu Thaylah', 'Qatar', 'Co-pilote'),
-('C0004', 'Mme', 'CORDERO', 'Adéle', '1701 East 36th Avenue Anchorage', ' AK 99508 ', 'Alaska', 'USA', 'Co-pilote'),
-('C0005', 'M', 'BALAGNE', 'Diégo', 'Petit Paris 1 rue Paul Lacavé', '97109', 'Basse terre - Guadel', 'France', 'Co-pilote'),
-('C0006', 'M', 'ANDORA', 'Fabio', 'Ronda Universitat 22 bis - 4°', '08007 ', 'Barcelone', 'Espagne', 'Co-pilote'),
+('C0001', 'M', 'GENEALOGIE', 'Doria', 'Kongens Nytorv 4 ', 'DK – 1050', 'København K ', 'Danemark', 'Copilote'),
+('C0002', 'Mme', 'PAHATI', 'Christine', ' AFS-UFE, Tanglin  ', '091249', 'Singapour', 'Singapour', 'Copilote'),
+('C0003', 'M', 'HAMOUME', 'Slimane', '4, Avenue Tarik Ibn Ziad', ' 6401', ' Abu Thaylah', 'Qatar', 'Copilote'),
+('C0004', 'Mme', 'CORDERO', 'Adéle', '1701 East 36th Avenue Anchorage', ' AK 99508 ', 'Alaska', 'USA', 'Copilote'),
+('C0005', 'M', 'BALAGNE', 'Diégo', 'Petit Paris 1 rue Paul Lacavé', '97109', 'Basse terre - Guadel', 'France', 'Copilote'),
+('C0006', 'M', 'ANDORA', 'Fabio', 'Ronda Universitat 22 bis - 4°', '08007 ', 'Barcelone', 'Espagne', 'Copilote'),
 ('H0001', 'M', 'FERNANDEZ', 'Barthelemy', 'Calle Velàzquez 50 6°', '28001', 'Madrid', 'Espagne', 'Steward'),
 ('H0002', 'M', 'RAMONTA', 'Faly', ' 17  avenue de l''Indépendance', '101', 'Antananarivo', 'Madagascar', 'Steward'),
 ('H0003', 'Mme', 'PERANI', 'Aela', ' Piazza Farnese 67', '00186', 'Rome', 'Italie', 'Hôtesse'),
@@ -277,24 +278,25 @@ INSERT INTO `reservation` (`numreserv`, `datereserv`, `numclient`) VALUES
 CREATE TABLE IF NOT EXISTS `travailler` (
   `vol` varchar(10) NOT NULL,
   `pilote` varchar(50) NOT NULL,
-  `co-pilote` varchar(50) NOT NULL,
-  `hotesse/steward1` varchar(50) NOT NULL,
-  `hotesse/steward2` varchar(50) NOT NULL,
-  `hotesse/steward3` varchar(50) NOT NULL,
+  `copilote` varchar(50) NOT NULL,
+  `hotesse_steward1` varchar(50) NOT NULL,
+  `hotesse_steward2` varchar(50) NOT NULL,
+  `hotesse_steward3` varchar(50) NOT NULL,
   `date` date NOT NULL,
-  KEY `vol` (`vol`,`pilote`,`co-pilote`,`hotesse/steward1`,`hotesse/steward2`,`hotesse/steward3`),
+  KEY `vol` (`vol`,`pilote`,`copilote`,`hotesse_steward1`,`hotesse_steward2`,`hotesse_steward3`),
   KEY `pilote` (`pilote`),
-  KEY `co-pilote` (`co-pilote`),
-  KEY `hotess/stewart1` (`hotesse/steward1`),
-  KEY `hotess/stewart2` (`hotesse/steward2`),
-  KEY `hotess/stewart3` (`hotesse/steward3`)
+  KEY `co-pilote` (`copilote`),
+  KEY `hotess/stewart1` (`hotesse_steward1`),
+  KEY `hotess/stewart2` (`hotesse_steward2`),
+  KEY `hotess/stewart3` (`hotesse_steward3`),
+  KEY `co-pilote_2` (`copilote`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `travailler`
 --
 
-INSERT INTO `travailler` (`vol`, `pilote`, `co-pilote`, `hotesse/steward1`, `hotesse/steward2`, `hotesse/steward3`, `date`) VALUES
+INSERT INTO `travailler` (`vol`, `pilote`, `copilote`, `hotesse_steward1`, `hotesse_steward2`, `hotesse_steward3`, `date`) VALUES
 ('DF0183', 'P0003', 'C0004', 'H0006', 'H0011', 'H0016', '2013-06-20'),
 ('DF0810', 'P0006', 'C0003', 'H0001', 'H0012', 'H0017', '2013-07-14'),
 ('DF1028', 'P0001', 'C0006', 'H0002', 'H0007', 'H0018', '2013-05-24'),
@@ -384,9 +386,13 @@ ALTER TABLE `reservation`
 -- Contraintes pour la table `travailler`
 --
 ALTER TABLE `travailler`
-  ADD CONSTRAINT `travailler_ibfk_6` FOREIGN KEY (`hotesse/steward3`) REFERENCES `employe` (`numemploye`),
+  ADD CONSTRAINT `travailler_ibfk_10` FOREIGN KEY (`hotesse_steward3`) REFERENCES `employe` (`numemploye`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `travailler_ibfk_1` FOREIGN KEY (`vol`) REFERENCES `vol` (`numvol`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `travailler_ibfk_2` FOREIGN KEY (`pilote`) REFERENCES `employe` (`numemploye`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `travailler_ibfk_3` FOREIGN KEY (`co-pilote`) REFERENCES `employe` (`numemploye`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `travailler_ibfk_4` FOREIGN KEY (`hotesse/steward1`) REFERENCES `employe` (`numemploye`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `travailler_ibfk_5` FOREIGN KEY (`hotesse/steward2`) REFERENCES `employe` (`numemploye`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `travailler_ibfk_7` FOREIGN KEY (`copilote`) REFERENCES `employe` (`numemploye`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `travailler_ibfk_8` FOREIGN KEY (`hotesse_steward1`) REFERENCES `employe` (`numemploye`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `travailler_ibfk_9` FOREIGN KEY (`hotesse_steward2`) REFERENCES `employe` (`numemploye`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
