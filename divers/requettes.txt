@@ -1,0 +1,9 @@
+Numclient:
+select * from client where numclient=$id;
+
+numpassager:
+select numpassager,civilite,nom,prenom,datenaissance,numreservation,numclient
+from passager,reservation
+where passager.numreservation=reservation.numreserv AND numpassager=$id;
+
+
