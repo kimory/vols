@@ -1,3 +1,4 @@
+-Bouton annuler + retour à l'accueil possible à tout moment ?
 -Voir redondance date + heure / durée trajet
 -Demander si cahier des charges = php ou php + Java
 -Insérer le diagramme de classe dans le cahier des charges
