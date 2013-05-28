@@ -1,7 +1,3 @@
--Bouton annuler + retour à l'accueil possible à tout moment ?
--Nb de places restantes sur un vol ? => ou dans le rapport
--Voir redondance date + heure / durée trajet => seulement date départ + durée
--Réflexions sur les dates
 -Demander si cahier des charges = php ou php + Java
 -Insérer le diagramme de classe dans le cahier des charges
 -Trouver un logo pour la compagnie
@@ -11,4 +7,4 @@
 -CSS pour embellir le site (Bootstrap ?)
 -Tester / Faire tester l'appli
 -Cahier des charges fini + mis en forme
-- requête d'ajout pour un nouveau client
+-Requête d'ajout pour un nouveau client

@@ -6,5 +6,6 @@
     </head>
     <body>
         <p><a href="#">Français</a> | <a href="#">Anglais</a></p>
+        <p>Test</p>
     </body>
 </html>

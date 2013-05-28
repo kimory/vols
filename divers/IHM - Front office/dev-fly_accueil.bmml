@@ -30,22 +30,22 @@
         <text>votre%20s%E9lection</text>
       </controlProperties>
     </control>
-    <control controlID="22" controlTypeID="com.balsamiq.mockups::DateChooser" x="436" y="276" w="-1" h="-1" measuredW="135" measuredH="25" zOrder="6" locked="false" isInGroup="-1">
+    <control controlID="22" controlTypeID="com.balsamiq.mockups::DateChooser" x="436" y="276" w="-1" h="-1" measuredW="136" measuredH="25" zOrder="6" locked="false" isInGroup="-1">
       <controlProperties>
         <text>date%20de%20d%E9part</text>
       </controlProperties>
     </control>
-    <control controlID="23" controlTypeID="com.balsamiq.mockups::DateChooser" x="581" y="276" w="-1" h="-1" measuredW="133" measuredH="25" zOrder="7" locked="false" isInGroup="-1">
+    <control controlID="23" controlTypeID="com.balsamiq.mockups::DateChooser" x="581" y="276" w="-1" h="-1" measuredW="135" measuredH="25" zOrder="7" locked="false" isInGroup="-1">
       <controlProperties>
         <text>%20date%20d%27arriv%E9e</text>
       </controlProperties>
     </control>
-    <control controlID="25" controlTypeID="com.balsamiq.mockups::TextInput" x="436" y="223" w="-1" h="-1" measuredW="99" measuredH="27" zOrder="8" locked="false" isInGroup="-1">
+    <control controlID="25" controlTypeID="com.balsamiq.mockups::TextInput" x="436" y="223" w="-1" h="-1" measuredW="101" measuredH="27" zOrder="8" locked="false" isInGroup="-1">
       <controlProperties>
         <text>ville%20de%20d%E9part</text>
       </controlProperties>
     </control>
-    <control controlID="26" controlTypeID="com.balsamiq.mockups::TextInput" x="543" y="223" w="-1" h="-1" measuredW="93" measuredH="27" zOrder="9" locked="false" isInGroup="-1">
+    <control controlID="26" controlTypeID="com.balsamiq.mockups::TextInput" x="543" y="223" w="-1" h="-1" measuredW="95" measuredH="27" zOrder="9" locked="false" isInGroup="-1">
       <controlProperties>
         <text>ville%20d%27arriv%E9e</text>
       </controlProperties>
@@ -73,6 +73,11 @@
     <control controlID="31" controlTypeID="com.balsamiq.mockups::Button" x="654" y="375" w="-1" h="-1" measuredW="63" measuredH="27" zOrder="14" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Valider</text>
+      </controlProperties>
+    </control>
+    <control controlID="32" controlTypeID="com.balsamiq.mockups::Button" x="572" y="375" w="-1" h="-1" measuredW="68" measuredH="27" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Annuler</text>
       </controlProperties>
     </control>
   </controls>
