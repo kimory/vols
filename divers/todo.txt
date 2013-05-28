@@ -1,5 +1,4 @@
 -Demander si cahier des charges = php ou php + Java
--Insérer le diagramme de classe dans le cahier des charges
 -Trouver un logo pour la compagnie
 -Code fonctionnalité1
 -Code fonctionnalité2
