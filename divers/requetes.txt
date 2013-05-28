@@ -1,0 +1,49 @@
+Numclient:
+select * from client where numclient=$id;
+
+numpassager:
+SELECT passager.numpassager, civilite, nom, prenom, datenaissance, numreservation, numclient
+FROM passager
+INNER JOIN place ON passager.numpassager = place.numpassager
+INNER JOIN reservation ON place.numreservation = reservation.numreserv
+WHERE passager.numpassager = $id
+
+numemployé_vue 1:
+SELECT numemploye, civilite, nom, prenom, fonction
+FROM employe
+WHERE numemploye = $id
+
+numemploye vue 2 - copilote: 
+SELECT numemploye, numvol, lieudep, lieuarriv, dateheuredep
+FROM employe
+INNER JOIN travailler ON employe.numemploye = travailler.copilote
+INNER JOIN vol ON travailler.vol = vol.numvol
+WHERE numemploye = $id
+
+numemploye vue 2 - pilote:
+SELECT numemploye, numvol, lieudep, lieuarriv, dateheuredep
+FROM employe
+INNER JOIN travailler ON employe.numemploye = travailler.pilote
+INNER JOIN vol ON travailler.vol = vol.numvol
+WHERE numemploye = $id
+
+numemploye vue 2 - hotesse_steward:
+SELECT numemploye, numvol, lieudep, lieuarriv, dateheuredep
+FROM employe
+INNER JOIN travailler ON employe.numemploye = travailler.hotesse_steward1
+OR employe.numemploye = travailler.hotesse_steward2
+OR employe.numemploye = travailler.hotesse_steward3
+INNER JOIN vol ON travailler.vol = vol.numvol
+WHERE numemploye = $id
+
+A CORRIGER : (par numéro de réservation)
+SELECT reservation.numreserv,datereserv,vol.numvol,dateheuredep,numclient, passager.numpassager
+FROM reservation 
+INNER JOIN passager ON reservation.numpassager=passager.numpassager
+     INNER JOIN place ON place.numreservation = reservation.numreserv
+INNER JOIN vol ON place.numvol = vol.numvol 
+INNER JOIN passager AS P ON p.numpassager = place.numpassager
+where reservation.numreserv='RV258014BA'
+
+
+

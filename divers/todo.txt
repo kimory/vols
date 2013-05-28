@@ -7,3 +7,4 @@
 -Tester / Faire tester l'appli
 -Cahier des charges fini + mis en forme
 -Requête d'ajout pour un nouveau client
+-Corriger la requête par num réservation

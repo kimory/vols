@@ -1,0 +1,14 @@
+SELECT nom, prenom, numvol
+FROM employe
+INNER JOIN travailler ON employe.numemploye = travailler.copilote
+INNER JOIN vol ON travailler.vol = vol.numvol
+WHERE numemploye = 'C0001'
+
+
+
+SELECT lieudep, lieuarriv, pilote, copilote
+FROM vol, travailler
+WHERE vol.numvol = travailler.vol
+AND numvol = 'DF0183'
+
+SELECT DATE_FORMAT(datedep, '%Y-%m-%d %H:%i') from vol where DATE_FORMAT( datedep,"%Y-%m-%d")='2013-06-20'
