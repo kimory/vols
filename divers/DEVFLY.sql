@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: localhost
--- Généré le : Mar 28 Mai 2013 à 09:08
+-- Généré le : Mar 28 Mai 2013 à 09:19
 -- Version du serveur: 5.5.8
 -- Version de PHP: 5.3.5
 
@@ -337,10 +337,8 @@ CREATE TABLE IF NOT EXISTS `vol` (
   `numvol` varchar(10) NOT NULL,
   `lieudep` varchar(50) NOT NULL,
   `lieuarriv` varchar(50) NOT NULL,
-  `datedep` date NOT NULL,
-  `datearrivee` date NOT NULL,
-  `heuredep` time NOT NULL,
-  `heurearrivee` time NOT NULL,
+  `datedep` datetime NOT NULL,
+  `datearrivee` datetime NOT NULL,
   PRIMARY KEY (`numvol`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -348,13 +346,13 @@ CREATE TABLE IF NOT EXISTS `vol` (
 -- Contenu de la table `vol`
 --
 
-INSERT INTO `vol` (`numvol`, `lieudep`, `lieuarriv`, `datedep`, `datearrivee`, `heuredep`, `heurearrivee`) VALUES
-('DF0183', 'Paris', 'Guadeloupe', '2013-06-20', '2013-06-21', '10:30:00', '13:20:00'),
-('DF0810', 'Doha - Qatar', 'Tokyo - Japon', '2013-07-14', '2013-07-15', '22:30:00', '10:50:00'),
-('DF1028', 'Casablanca - Maroc', 'Honolulu - Hawaï', '2013-05-24', '2013-05-25', '02:20:00', '18:34:00'),
-('DF4692', 'Berne - Suisse', 'Sydney - Australie', '2013-06-01', '2013-05-02', '06:50:00', '22:05:00'),
-('DF5609', 'Ottawa - Canada', 'Washington', '2013-06-01', '2013-06-01', '12:40:00', '19:34:00'),
-('DF9174', 'Addid Adéba - Djibouti', 'Vienne - Autriche', '2013-05-26', '2013-05-27', '22:40:00', '13:30:00');
+INSERT INTO `vol` (`numvol`, `lieudep`, `lieuarriv`, `datedep`, `datearrivee`) VALUES
+('DF0183', 'Paris', 'Guadeloupe', '2013-06-20 10:30:00', '2013-06-21 13:20:00'),
+('DF0810', 'Doha - Qatar', 'Tokyo - Japon', '2013-07-14 22:30:00', '2013-07-15 10:50:00'),
+('DF1028', 'Casablanca - Maroc', 'Honolulu - Hawaï', '2013-05-24 02:20:00', '2013-05-25 18:34:00'),
+('DF4692', 'Berne - Suisse', 'Sydney - Australie', '2013-06-01 06:50:00', '2013-05-02 22:05:00'),
+('DF5609', 'Ottawa - Canada', 'Washington', '2013-06-01 12:40:00', '2013-06-01 19:34:00'),
+('DF9174', 'Addid Adéba - Djibouti', 'Vienne - Autriche', '2013-05-26 22:40:00', '2013-05-27 13:30:00');
 
 --
 -- Contraintes pour les tables exportées
