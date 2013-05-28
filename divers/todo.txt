@@ -6,5 +6,7 @@
 -CSS pour embellir le site (Bootstrap ?)
 -Tester / Faire tester l'appli
 -Cahier des charges fini + mis en forme
--Requête d'ajout pour un nouveau client
+-Requête d'ajout pour un nouveau client + autres requêtes d'ajout
 -Corriger la requête par num réservation
+-Reprendre les entités par rapport à la BDD
+-Importer la bonne BDD sur le serveur
