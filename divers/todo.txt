@@ -4,7 +4,6 @@
 -Réflexions sur les dates
 -Demander si cahier des charges = php ou php + Java
 -Insérer le diagramme de classe dans le cahier des charges
--Mettre en place le serveur (dev-fly.fr + www.dev-fly.fr)
 -Trouver un logo pour la compagnie
 -Code fonctionnalité1
 -Code fonctionnalité2
@@ -12,3 +11,4 @@
 -CSS pour embellir le site (Bootstrap ?)
 -Tester / Faire tester l'appli
 -Cahier des charges fini + mis en forme
+- requête d'ajout pour un nouveau client

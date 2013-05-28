@@ -1,14 +1,13 @@
-﻿-- phpMyAdmin SQL Dump
--- version 3.5.1
+-- phpMyAdmin SQL Dump
+-- version 3.3.9
 -- http://www.phpmyadmin.net
 --
--- Client: localhost
--- Généré le: Dim 26 Mai 2013 à 19:23
--- Version du serveur: 5.5.24-log
--- Version de PHP: 5.4.3
+-- Serveur: localhost
+-- Généré le : Mar 28 Mai 2013 à 09:08
+-- Version du serveur: 5.5.8
+-- Version de PHP: 5.3.5
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -17,7 +16,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données: `dev-fly`
+-- Base de données: `DEVFLY`
 --
 
 -- --------------------------------------------------------
@@ -342,7 +341,6 @@ CREATE TABLE IF NOT EXISTS `vol` (
   `datearrivee` date NOT NULL,
   `heuredep` time NOT NULL,
   `heurearrivee` time NOT NULL,
-  `dureetrajet` time NOT NULL,
   PRIMARY KEY (`numvol`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -350,13 +348,13 @@ CREATE TABLE IF NOT EXISTS `vol` (
 -- Contenu de la table `vol`
 --
 
-INSERT INTO `vol` (`numvol`, `lieudep`, `lieuarriv`, `datedep`, `datearrivee`, `heuredep`, `heurearrivee`, `dureetrajet`) VALUES
-('DF0183', 'Paris', 'Guadeloupe', '2013-06-20', '2013-06-21', '10:30:00', '13:20:00', '08:15:00'),
-('DF0810', 'Doha - Qatar', 'Tokyo - Japon', '2013-07-14', '2013-07-15', '22:30:00', '10:50:00', '21:20:00'),
-('DF1028', 'Casablanca - Maroc', 'Honolulu - Hawaï', '2013-05-24', '2013-05-25', '02:20:00', '18:34:00', '27:14:00'),
-('DF4692', 'Berne - Suisse', 'Sydney - Australie', '2013-06-01', '2013-05-02', '06:50:00', '22:05:00', '31:15:00'),
-('DF5609', 'Ottawa - Canada', 'Washington', '2013-06-01', '2013-06-01', '12:40:00', '19:34:00', '06:54:00'),
-('DF9174', 'Addid Adéba - Djibouti', 'Vienne - Autriche', '2013-05-26', '2013-05-27', '22:40:00', '13:30:00', '13:50:00');
+INSERT INTO `vol` (`numvol`, `lieudep`, `lieuarriv`, `datedep`, `datearrivee`, `heuredep`, `heurearrivee`) VALUES
+('DF0183', 'Paris', 'Guadeloupe', '2013-06-20', '2013-06-21', '10:30:00', '13:20:00'),
+('DF0810', 'Doha - Qatar', 'Tokyo - Japon', '2013-07-14', '2013-07-15', '22:30:00', '10:50:00'),
+('DF1028', 'Casablanca - Maroc', 'Honolulu - Hawaï', '2013-05-24', '2013-05-25', '02:20:00', '18:34:00'),
+('DF4692', 'Berne - Suisse', 'Sydney - Australie', '2013-06-01', '2013-05-02', '06:50:00', '22:05:00'),
+('DF5609', 'Ottawa - Canada', 'Washington', '2013-06-01', '2013-06-01', '12:40:00', '19:34:00'),
+('DF9174', 'Addid Adéba - Djibouti', 'Vienne - Autriche', '2013-05-26', '2013-05-27', '22:40:00', '13:30:00');
 
 --
 -- Contraintes pour les tables exportées
@@ -392,7 +390,3 @@ ALTER TABLE `travailler`
   ADD CONSTRAINT `travailler_ibfk_7` FOREIGN KEY (`copilote`) REFERENCES `employe` (`numemploye`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `travailler_ibfk_8` FOREIGN KEY (`hotesse_steward1`) REFERENCES `employe` (`numemploye`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `travailler_ibfk_9` FOREIGN KEY (`hotesse_steward2`) REFERENCES `employe` (`numemploye`) ON DELETE CASCADE ON UPDATE CASCADE;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
