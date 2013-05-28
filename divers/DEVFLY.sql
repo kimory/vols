@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: localhost
--- Généré le : Mar 28 Mai 2013 à 09:19
+-- Généré le : Mar 28 Mai 2013 à 09:44
 -- Version du serveur: 5.5.8
 -- Version de PHP: 5.3.5
 
@@ -337,8 +337,8 @@ CREATE TABLE IF NOT EXISTS `vol` (
   `numvol` varchar(10) NOT NULL,
   `lieudep` varchar(50) NOT NULL,
   `lieuarriv` varchar(50) NOT NULL,
-  `datedep` datetime NOT NULL,
-  `datearrivee` datetime NOT NULL,
+  `dateheuredep` datetime NOT NULL,
+  `dateheurearrivee` datetime NOT NULL,
   PRIMARY KEY (`numvol`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -346,7 +346,7 @@ CREATE TABLE IF NOT EXISTS `vol` (
 -- Contenu de la table `vol`
 --
 
-INSERT INTO `vol` (`numvol`, `lieudep`, `lieuarriv`, `datedep`, `datearrivee`) VALUES
+INSERT INTO `vol` (`numvol`, `lieudep`, `lieuarriv`, `dateheuredep`, `dateheurearrivee`) VALUES
 ('DF0183', 'Paris', 'Guadeloupe', '2013-06-20 10:30:00', '2013-06-21 13:20:00'),
 ('DF0810', 'Doha - Qatar', 'Tokyo - Japon', '2013-07-14 22:30:00', '2013-07-15 10:50:00'),
 ('DF1028', 'Casablanca - Maroc', 'Honolulu - Hawaï', '2013-05-24 02:20:00', '2013-05-25 18:34:00'),
