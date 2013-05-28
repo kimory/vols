@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: localhost
--- Généré le : Mar 28 Mai 2013 à 09:44
+-- Généré le : Mar 28 Mai 2013 à 13:27
 -- Version du serveur: 5.5.8
 -- Version de PHP: 5.3.5
 
@@ -16,7 +16,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données: `DEVFLY`
+-- Base de données: `devfly`
 --
 
 -- --------------------------------------------------------
@@ -142,7 +142,7 @@ CREATE TABLE IF NOT EXISTS `employe` (
 INSERT INTO `employe` (`numemploye`, `civilite`, `nom`, `prenom`, `adresse`, `codepostal`, `ville`, `pays`, `fonction`) VALUES
 ('C0001', 'M', 'GENEALOGIE', 'Doria', 'Kongens Nytorv 4 ', 'DK – 1050', 'København K ', 'Danemark', 'Copilote'),
 ('C0002', 'Mme', 'PAHATI', 'Christine', ' AFS-UFE, Tanglin  ', '091249', 'Singapour', 'Singapour', 'Copilote'),
-('C0003', 'M', 'HAMOUME', 'Slimane', '4, Avenue Tarik Ibn Ziad', ' 6401', ' Abu Thaylah', 'Qatar', 'Copilote'),
+('C0003', 'M', 'HAMOUM', 'Slimane', '4, Avenue Tarik Ibn Ziad', ' 6401', ' Abu Thaylah', 'Qatar', 'Copilote'),
 ('C0004', 'Mme', 'CORDERO', 'Adéle', '1701 East 36th Avenue Anchorage', ' AK 99508 ', 'Alaska', 'USA', 'Copilote'),
 ('C0005', 'M', 'BALAGNE', 'Diégo', 'Petit Paris 1 rue Paul Lacavé', '97109', 'Basse terre - Guadel', 'France', 'Copilote'),
 ('C0006', 'M', 'ANDORA', 'Fabio', 'Ronda Universitat 22 bis - 4°', '08007 ', 'Barcelone', 'Espagne', 'Copilote'),
@@ -183,27 +183,25 @@ CREATE TABLE IF NOT EXISTS `passager` (
   `nom` varchar(50) NOT NULL,
   `prenom` varchar(50) NOT NULL,
   `datenaissance` date NOT NULL,
-  `numreservation` varchar(10) NOT NULL,
-  PRIMARY KEY (`numpassager`),
-  KEY `numreservation` (`numreservation`)
+  PRIMARY KEY (`numpassager`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `passager`
 --
 
-INSERT INTO `passager` (`numpassager`, `civilite`, `nom`, `prenom`, `datenaissance`, `numreservation`) VALUES
-('P0283', 'Mme', 'SYLLA', 'Lala', '1988-03-23', 'RV071526SY'),
-('P2837', 'M', 'BAYOL', 'Simon', '1980-01-15', 'RV258014BA'),
-('P3610', 'M', 'VENDA', 'Jonah', '1974-05-07', 'RV622319VE'),
-('P3794', 'Mme', 'MOUNA', 'Farida', '1978-06-04', 'RV476292MO'),
-('P3849', 'M', 'MOUNA', 'Madani', '1987-10-11', 'RV783920MO'),
-('P3915', 'M', 'AJAMI', 'Nabil', '1993-08-18', 'RV014561AJ'),
-('P3916', 'M', 'AJAMI', 'Noha', '2001-10-10', 'RV014561AJ'),
-('P3917', 'Mme', 'AJAMI', 'Zeyna', '1970-07-15', 'RV014561AJ'),
-('P4936', 'M', ' WILLIAMS', 'Brian', '1966-11-27', 'RV923735WI'),
-('P4937', '', ' WILLIAMS', 'Abbie', '2013-02-25', 'RV923735WI'),
-('P7393', 'Mme', 'TAYLOR', 'Isabella', '1991-02-22', 'RV745860TA');
+INSERT INTO `passager` (`numpassager`, `civilite`, `nom`, `prenom`, `datenaissance`) VALUES
+('P0283', 'Mme', 'SYLLA', 'Lala', '1988-03-23'),
+('P2837', 'M', 'BAYOL', 'Simon', '1980-01-15'),
+('P3610', 'M', 'VENDA', 'Jonah', '1974-05-07'),
+('P3794', 'Mme', 'MOUNA', 'Farida', '1978-06-04'),
+('P3849', 'M', 'MOUNA', 'Madani', '1987-10-11'),
+('P3915', 'M', 'AJAMI', 'Nabil', '1993-08-18'),
+('P3916', 'M', 'AJAMI', 'Noha', '2001-10-10'),
+('P3917', 'Mme', 'AJAMI', 'Zeyna', '1970-07-15'),
+('P4936', 'M', ' WILLIAMS', 'Brian', '1966-11-27'),
+('P4937', '', ' WILLIAMS', 'Abbie', '2013-02-25'),
+('P7393', 'Mme', 'TAYLOR', 'Isabella', '1991-02-22');
 
 -- --------------------------------------------------------
 
@@ -214,7 +212,6 @@ INSERT INTO `passager` (`numpassager`, `civilite`, `nom`, `prenom`, `datenaissan
 CREATE TABLE IF NOT EXISTS `place` (
   `numplace` varchar(4) NOT NULL,
   `prix` decimal(6,0) NOT NULL,
-  `etat` tinyint(1) NOT NULL,
   `numpassager` varchar(5) NOT NULL,
   `numvol` varchar(10) NOT NULL,
   `numreservation` varchar(10) NOT NULL,
@@ -228,17 +225,17 @@ CREATE TABLE IF NOT EXISTS `place` (
 -- Contenu de la table `place`
 --
 
-INSERT INTO `place` (`numplace`, `prix`, `etat`, `numpassager`, `numvol`, `numreservation`) VALUES
-('A001', '1524', 1, 'P0283', 'DF1028', 'RV071526SY'),
-('B023', '617', 1, 'P2837', 'DF0183', 'RV258014BA'),
-('B57', '1472', 0, 'P4936', 'DF4692', 'RV923735WI'),
-('C093', '1472', 0, 'P3849', 'DF1028', 'RV476292MO'),
-('C58', '1472', 0, 'P4937', 'DF4692', 'RV923735WI'),
-('D12', '600', 1, 'P3917', 'DF5609', 'RV014561AJ'),
-('D165', '799', 1, 'P3794', 'DF0810', 'RV783920MO'),
-('E13', '600', 1, 'P3915', 'DF5609', 'RV014561AJ'),
-('F14', '600', 1, 'P3916', 'DF5609', 'RV014561AJ'),
-('F189', '617', 0, 'P7393', 'DF1028', 'RV745860TA');
+INSERT INTO `place` (`numplace`, `prix`, `numpassager`, `numvol`, `numreservation`) VALUES
+('A001', '1524', 'P0283', 'DF1028', 'RV071526SY'),
+('B023', '617', 'P2837', 'DF0183', 'RV258014BA'),
+('B57', '1472', 'P4936', 'DF4692', 'RV923735WI'),
+('C093', '1472', 'P3849', 'DF1028', 'RV476292MO'),
+('C58', '1472', 'P4937', 'DF4692', 'RV923735WI'),
+('D12', '600', 'P3917', 'DF5609', 'RV014561AJ'),
+('D165', '799', 'P3794', 'DF0810', 'RV783920MO'),
+('E13', '600', 'P3915', 'DF5609', 'RV014561AJ'),
+('F14', '600', 'P3916', 'DF5609', 'RV014561AJ'),
+('F189', '617', 'P7393', 'DF1028', 'RV745860TA');
 
 -- --------------------------------------------------------
 
@@ -359,18 +356,12 @@ INSERT INTO `vol` (`numvol`, `lieudep`, `lieuarriv`, `dateheuredep`, `dateheurea
 --
 
 --
--- Contraintes pour la table `passager`
---
-ALTER TABLE `passager`
-  ADD CONSTRAINT `passager_ibfk_1` FOREIGN KEY (`numreservation`) REFERENCES `reservation` (`numreserv`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Contraintes pour la table `place`
 --
 ALTER TABLE `place`
-  ADD CONSTRAINT `place_ibfk_3` FOREIGN KEY (`numreservation`) REFERENCES `reservation` (`numreserv`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `place_ibfk_1` FOREIGN KEY (`numpassager`) REFERENCES `passager` (`numpassager`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `place_ibfk_2` FOREIGN KEY (`numvol`) REFERENCES `vol` (`numvol`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `place_ibfk_2` FOREIGN KEY (`numvol`) REFERENCES `vol` (`numvol`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `place_ibfk_3` FOREIGN KEY (`numreservation`) REFERENCES `reservation` (`numreserv`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `reservation`
