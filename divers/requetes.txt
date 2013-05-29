@@ -36,14 +36,14 @@ OR employe.numemploye = travailler.hotesse_steward3
 INNER JOIN vol ON travailler.vol = vol.numvol
 WHERE numemploye = $id
 
-A CORRIGER : (par numéro de réservation)
-SELECT reservation.numreserv,datereserv,vol.numvol,dateheuredep,numclient, passager.numpassager
-FROM reservation 
-INNER JOIN passager ON reservation.numpassager=passager.numpassager
-     INNER JOIN place ON place.numreservation = reservation.numreserv
-INNER JOIN vol ON place.numvol = vol.numvol 
-INNER JOIN passager AS P ON p.numpassager = place.numpassager
-where reservation.numreserv='RV258014BA'
+ numreservation:
+SELECT reservation.numreserv, datereserv, vol.numvol, dateheuredep, client.numclient, passager.numpassager
+FROM reservation
+INNER JOIN client ON reservation.numclient = client.numclient
+INNER JOIN place ON place.numreservation = reservation.numreserv
+INNER JOIN vol ON place.numvol = vol.numvol
+INNER JOIN passager ON passager.numpassager = place.numpassager
+WHERE reservation.numreserv = $id
 
 
 
