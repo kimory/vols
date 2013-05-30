@@ -59,7 +59,7 @@
 
             <section class="tab-pane" id="reservation">
                     <h3>Réservation</h3>
-                    <form action="/affichageClientController" method="POST">
+                    <form action="#" method="POST">
                         <label for="numreservation">N° de réservation :</label>
                         <input type="text" id="numreservation" name="numreservation"><br>
                         <input type="submit" value="Valider">
@@ -68,7 +68,7 @@
 
             <section class="tab-pane" id="client">
                     <h3>Client</h3>
-                    <form action="#" method="POST">
+                    <form action="/affichageClientController" method="POST">
                         <label for="numclient">N° de client :</label>
                         <input type="text" id="numclient" name="numclient"><br>
                         <input type="submit" value="Valider">
