@@ -5,6 +5,6 @@
         <title></title>
     </head>
     <body>
-        <p><a href="#">Français</a> | <a href="#">Anglais</a></p>
+        <p><a href="/recherche">Français</a> | <a href="#">Anglais</a></p>
     </body>
 </html>

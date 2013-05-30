@@ -3,3 +3,4 @@ Options -Indexes
 RewriteEngine on
 # pour la récriture d'URL
 RewriteRule ^$ accueil.php [L]
+RewriteRule ^recherche$ recherche.php [L]
