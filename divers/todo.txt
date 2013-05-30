@@ -8,6 +8,6 @@
 -Exporter la base correcte
 -Importer la bonne BDD sur le serveur
 -Réinsérer le bon MCD dans le CDG
--Créer d'autres vols : 2 mois après la date de fin de projet + 2 mois après la date de présentation au jury
+-Créer d'autres vols : dans les 2-3 mois après la date de fin de projet + dans les 2 mois après la date de présentation au jury
 -Donner avec l'appli la liste des vols créés
 -Reprendre les entités si changement dans la BDD
