@@ -1,12 +1,12 @@
 -Demander si cahier des charges = php ou php + Java
--Trouver un logo pour la compagnie
 -Code fonctionnalité1
 -Code fonctionnalité2
 -Code fonctionnalité3
 -CSS pour embellir le site (Bootstrap ?)
 -Tester / Faire tester l'appli
 -Cahier des charges fini + mis en forme
--Requête d'ajout pour un nouveau client + autres requêtes d'ajout
--Corriger la requête par num réservation
 -Reprendre les entités par rapport à la BDD
 -Importer la bonne BDD sur le serveur
+- dans notre rapport : "si plus de temps, on aurait inséré la possibilité de modifier le nb de passager sur un vol"
+- réinsérer le bon MCD dans le CDG (enlever "prix" dans place)
+- exporter la base correcte

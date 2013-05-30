@@ -36,14 +36,26 @@ OR employe.numemploye = travailler.hotesse_steward3
 INNER JOIN vol ON travailler.vol = vol.numvol
 WHERE numemploye = $id
 
- numreservation:
-SELECT reservation.numreserv, datereserv, vol.numvol, dateheuredep, client.numclient, passager.numpassager
+numreservation:
+SELECT reservation.numreserv, vol.numvol, dateheuredep, client.numclient, count( place.numreservation ) AS nbplace
 FROM reservation
 INNER JOIN client ON reservation.numclient = client.numclient
 INNER JOIN place ON place.numreservation = reservation.numreserv
 INNER JOIN vol ON place.numvol = vol.numvol
 INNER JOIN passager ON passager.numpassager = place.numpassager
 WHERE reservation.numreserv = $id
+
+numpassager et numplace:
+SELECT numpassager, numplace
+FROM place
+INNER JOIN reservation ON place.numreservation = reservation.numreserv
+WHERE place.numreservation = $id
+
+requête d'insertion:
+insert into <nom de la table> values ($id,................)
+
+suppression d'une réservation
+DELETE FROM reservation WHERE numreserv=$id
 
 
 
