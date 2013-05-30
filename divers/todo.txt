@@ -6,7 +6,7 @@
 -Tester / Faire tester l'appli
 -Cahier des charges fini + mis en forme
 -Reprendre les entités par rapport à la BDD
+- exporter la base correcte
 -Importer la bonne BDD sur le serveur
 - dans notre rapport : "si plus de temps, on aurait inséré la possibilité de modifier le nb de passager sur un vol"
 - réinsérer le bon MCD dans le CDG (enlever "prix" dans place)
-- exporter la base correcte
