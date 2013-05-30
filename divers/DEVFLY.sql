@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: localhost
--- Généré le : Mar 28 Mai 2013 à 13:27
+-- Généré le : Jeu 30 Mai 2013 à 10:43
 -- Version du serveur: 5.5.8
 -- Version de PHP: 5.3.5
 
@@ -193,7 +193,6 @@ CREATE TABLE IF NOT EXISTS `passager` (
 INSERT INTO `passager` (`numpassager`, `civilite`, `nom`, `prenom`, `datenaissance`) VALUES
 ('P0283', 'Mme', 'SYLLA', 'Lala', '1988-03-23'),
 ('P2837', 'M', 'BAYOL', 'Simon', '1980-01-15'),
-('P3610', 'M', 'VENDA', 'Jonah', '1974-05-07'),
 ('P3794', 'Mme', 'MOUNA', 'Farida', '1978-06-04'),
 ('P3849', 'M', 'MOUNA', 'Madani', '1987-10-11'),
 ('P3915', 'M', 'AJAMI', 'Nabil', '1993-08-18'),
@@ -211,10 +210,10 @@ INSERT INTO `passager` (`numpassager`, `civilite`, `nom`, `prenom`, `datenaissan
 
 CREATE TABLE IF NOT EXISTS `place` (
   `numplace` varchar(4) NOT NULL,
-  `prix` decimal(6,0) NOT NULL,
   `numpassager` varchar(5) NOT NULL,
   `numvol` varchar(10) NOT NULL,
   `numreservation` varchar(10) NOT NULL,
+  `prix` float NOT NULL,
   PRIMARY KEY (`numplace`),
   KEY `numreservation` (`numreservation`),
   KEY `numvol` (`numvol`),
@@ -225,17 +224,17 @@ CREATE TABLE IF NOT EXISTS `place` (
 -- Contenu de la table `place`
 --
 
-INSERT INTO `place` (`numplace`, `prix`, `numpassager`, `numvol`, `numreservation`) VALUES
-('A001', '1524', 'P0283', 'DF1028', 'RV071526SY'),
-('B023', '617', 'P2837', 'DF0183', 'RV258014BA'),
-('B57', '1472', 'P4936', 'DF4692', 'RV923735WI'),
-('C093', '1472', 'P3849', 'DF1028', 'RV476292MO'),
-('C58', '1472', 'P4937', 'DF4692', 'RV923735WI'),
-('D12', '600', 'P3917', 'DF5609', 'RV014561AJ'),
-('D165', '799', 'P3794', 'DF0810', 'RV783920MO'),
-('E13', '600', 'P3915', 'DF5609', 'RV014561AJ'),
-('F14', '600', 'P3916', 'DF5609', 'RV014561AJ'),
-('F189', '617', 'P7393', 'DF1028', 'RV745860TA');
+INSERT INTO `place` (`numplace`, `numpassager`, `numvol`, `numreservation`, `prix`) VALUES
+('A001', 'P0283', 'DF1028', 'RV071526SY', 1524),
+('B023', 'P2837', 'DF0183', 'RV258014BA', 617),
+('B57', 'P4936', 'DF4692', 'RV923735WI', 1472),
+('C093', 'P3849', 'DF1028', 'RV476292MO', 1472),
+('C58', 'P4937', 'DF4692', 'RV923735WI', 50),
+('D12', 'P3917', 'DF5609', 'RV014561AJ', 600),
+('D165', 'P3794', 'DF0810', 'RV783920MO', 799),
+('E13', 'P3915', 'DF5609', 'RV014561AJ', 600),
+('F14', 'P3916', 'DF5609', 'RV014561AJ', 600),
+('F189', 'P7393', 'DF1028', 'RV745860TA', 617);
 
 -- --------------------------------------------------------
 
@@ -336,6 +335,7 @@ CREATE TABLE IF NOT EXISTS `vol` (
   `lieuarriv` varchar(50) NOT NULL,
   `dateheuredep` datetime NOT NULL,
   `dateheurearrivee` datetime NOT NULL,
+  `tarif` float NOT NULL,
   PRIMARY KEY (`numvol`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -343,13 +343,13 @@ CREATE TABLE IF NOT EXISTS `vol` (
 -- Contenu de la table `vol`
 --
 
-INSERT INTO `vol` (`numvol`, `lieudep`, `lieuarriv`, `dateheuredep`, `dateheurearrivee`) VALUES
-('DF0183', 'Paris', 'Guadeloupe', '2013-06-20 10:30:00', '2013-06-21 13:20:00'),
-('DF0810', 'Doha - Qatar', 'Tokyo - Japon', '2013-07-14 22:30:00', '2013-07-15 10:50:00'),
-('DF1028', 'Casablanca - Maroc', 'Honolulu - Hawaï', '2013-05-24 02:20:00', '2013-05-25 18:34:00'),
-('DF4692', 'Berne - Suisse', 'Sydney - Australie', '2013-06-01 06:50:00', '2013-05-02 22:05:00'),
-('DF5609', 'Ottawa - Canada', 'Washington', '2013-06-01 12:40:00', '2013-06-01 19:34:00'),
-('DF9174', 'Addid Adéba - Djibouti', 'Vienne - Autriche', '2013-05-26 22:40:00', '2013-05-27 13:30:00');
+INSERT INTO `vol` (`numvol`, `lieudep`, `lieuarriv`, `dateheuredep`, `dateheurearrivee`, `tarif`) VALUES
+('DF0183', 'Paris - France', 'Guadeloupe', '2013-06-20 10:30:00', '2013-06-21 13:20:00', 617),
+('DF0810', 'Doha - Qatar', 'Tokyo - Japon', '2013-07-14 22:30:00', '2013-07-15 10:50:00', 799),
+('DF1028', 'Casablanca - Maroc', 'Honolulu - Hawaï', '2013-05-24 02:20:00', '2013-05-25 18:34:00', 1524),
+('DF4692', 'Berne - Suisse', 'Sydney - Australie', '2013-06-01 06:50:00', '2013-05-02 22:05:00', 1472),
+('DF5609', 'Ottawa - Canada', 'Washington', '2013-06-01 12:40:00', '2013-06-01 19:34:00', 600),
+('DF9174', 'Addids Adéba - Djibouti', 'Vienne - Autriche', '2013-05-26 22:40:00', '2013-05-27 13:30:00', 893);
 
 --
 -- Contraintes pour les tables exportées

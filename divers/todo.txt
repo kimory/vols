@@ -8,4 +8,4 @@
 -Reprendre les entités par rapport à la BDD
 -Exporter la base correcte
 -Importer la bonne BDD sur le serveur
--Réinsérer le bon MCD dans le CDG (enlever "prix" dans place + rajouter table tarif)
+-Réinsérer le bon MCD dans le CDG
