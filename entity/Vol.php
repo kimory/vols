@@ -7,21 +7,17 @@ class Vol{
     private $numvol;
     private $lieuDepart;
     private $lieuArrivee;
-    private $dateDepart;
-    private $heureDepart;
-    private $dateArrivee;
-    private $HeureArrivee;
-    private $DureeTrajet;
+    private $dateHeureDepart;   
+    private $dateHeureArrivee;    
+    private $tarif;
     
-    function __construct($numvol, Destination $lieuDepart, Destination $lieuArrivee, $dateDepart, $heureDepart, $dateArrivee, $HeureArrivee, $DureeTrajet) {
+    function __construct($numvol, Destination $lieuDepart, Destination $lieuArrivee, $dateHeureDepart, $dateHeureArrivee, $tarif) {
         $this->numvol = $numvol;
         $this->lieuDepart = $lieuDepart;
         $this->lieuArrivee = $lieuArrivee;
-        $this->dateDepart = $dateDepart;
-        $this->heureDepart = $heureDepart;
-        $this->dateArrivee = $dateArrivee;
-        $this->HeureArrivee = $HeureArrivee;
-        $this->DureeTrajet = $DureeTrajet;
+        $this->dateHeureDepart = $dateHeureDepart;        
+        $this->dateHeureArrivee = $dateHeureArrivee;       
+        $this->tarif= $tarif;
     }
     
     public function getNumvol() {
@@ -48,44 +44,28 @@ class Vol{
         $this->lieuArrivee = $lieuArrivee;
     }
 
-    public function getDateDepart() {
-        return $this->dateDepart;
+    public function getDateHeureDepart() {
+        return $this->dateHeureDepart;
     }
 
-    public function setDateDepart($dateDepart) {
-        $this->dateDepart = $dateDepart;
+    public function setDateHeureDepart($dateHeureDepart) {
+        $this->dateHeureDepart = $dateHeureDepart;
     }
 
-    public function getHeureDepart() {
-        return $this->heureDepart;
+    public function getDateHeureArrivee() {
+        return $this->dateHeureArrivee;
     }
 
-    public function setHeureDepart($heureDepart) {
-        $this->heureDepart = $heureDepart;
+    public function setDateHeureArrivee($dateHeureArrivee) {
+        $this->dateHeureArrivee = $dateHeureArrivee;
+    } 
+
+    public function getTarif() {
+        return $this->tarif;
     }
 
-    public function getDateArrivee() {
-        return $this->dateArrivee;
-    }
-
-    public function setDateArrivee($dateArrivee) {
-        $this->dateArrivee = $dateArrivee;
-    }
-
-    public function getHeureArrivee() {
-        return $this->HeureArrivee;
-    }
-
-    public function setHeureArrivee($HeureArrivee) {
-        $this->HeureArrivee = $HeureArrivee;
-    }
-
-    public function getDureeTrajet() {
-        return $this->DureeTrajet;
-    }
-
-    public function setDureeTrajet($DureeTrajet) {
-        $this->DureeTrajet = $DureeTrajet;
+    public function setTarif($tarif) {
+        $this->tarif = $tarif;
     }
 
 }

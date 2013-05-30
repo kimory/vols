@@ -7,16 +7,14 @@ use entity\Reservation;
 
 class Place{
     private $numPlace;
-    private $prix;
-    private $etat; // booléen : acheté ou non
+    private $prix;   
     private $passager;
     private $vol;
     private $reservation;
 
-    function __construct($numPlace, $prix, $etat, Passager $passager, Vol $vol, Reservation $reservation) {
+    function __construct($numPlace, $prix, Passager $passager, Vol $vol, Reservation $reservation) {
         $this->numPlace = $numPlace;
-        $this->prix = $prix;
-        $this->etat = $etat;
+        $this->prix = $prix;       
         $this->passager = $passager;
         $this->vol = $vol;
         $this->reservation = $reservation;
@@ -36,14 +34,6 @@ class Place{
 
     public function setPrix($prix) {
         $this->prix = $prix;
-    }
-
-    public function getEtat() {
-        return $this->etat;
-    }
-
-    public function setEtat($etat) {
-        $this->etat = $etat;
     }
 
     public function getPassager() {
