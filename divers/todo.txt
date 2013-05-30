@@ -11,3 +11,4 @@
 -Créer d'autres vols : dans les 2-3 mois après la date de fin de projet + dans les 2 mois après la date de présentation au jury
 -Donner avec l'appli la liste des vols créés
 -Reprendre les entités si changement dans la BDD
+-Date de départ "ou" date d'arrivée
