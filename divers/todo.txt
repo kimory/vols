@@ -12,3 +12,4 @@
 -Donner avec l'appli la liste des vols créés
 -Reprendre les entités si changement dans la BDD
 -Date de départ "ou" date d'arrivée
+-Rajouter "site bilingue" dans le cahier des charges (si on le gère)
