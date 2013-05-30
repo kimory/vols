@@ -2,10 +2,12 @@
 -Code fonctionnalité1
 -Code fonctionnalité2
 -Code fonctionnalité3
--CSS pour embellir le site (Bootstrap ?)
+-CSS pour embellir le site (la structure principale ne sera pas en Bootstrap)
 -Tester / Faire tester l'appli
 -Cahier des charges fini + mis en forme
--Reprendre les entités par rapport à la BDD
 -Exporter la base correcte
 -Importer la bonne BDD sur le serveur
 -Réinsérer le bon MCD dans le CDG
+-Créer d'autres vols si on veut
+-Donner avec l'appli la liste des vols créés
+-Reprendre les entités si changement dans la BDD
