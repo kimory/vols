@@ -3,6 +3,7 @@
 namespace dao;
 
 use \PDO;
+use entity\Client;
 
 class MysqlDao {
 
@@ -24,6 +25,31 @@ class MysqlDao {
         $stmt =$this->dbh->prepare($sql);
         $stmt->execute(array("lieudep"=>$villedep,"lieuarriv"=>$villearrivee));
         
+    }
+    
+    public function getInfosClient($idClient){
+        $sql="select * from client where numclient=:id";
+        $stmt = $this->dbh->prepare($sql);   
+        $stmt->bindParam(":id", $idClient);
+        $stmt->execute();
+        
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $numclient = $row['numclient'];
+        $civilite = $row['civilite'];
+        $nom = $row['nom'];
+        $prenom = $row['prenom'];
+        $adresse = $row['adresse'];
+        $codepostal = $row['codepostal'];
+        $ville = $row['ville'];
+        $pays = $row['pays'];
+        $mail = $row['mail'];
+        $telfixe = $row['telfixe'];
+        $telportable = $row['mobile'];
+        $login = $row['login'];
+        $password = $row['password'];
+
+        $client = new Client($numclient, $civilite, $nom, $prenom, $adresse, $codepostal, $ville, $pays, $mail, $telfixe, $telportable, $login, $password);
+        return $client;
     }
 }
 
