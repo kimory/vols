@@ -6,6 +6,7 @@ use dao\MysqlDao;
 
 $dao = new MysqlDao();
 
-var_dump($dao->getInfosClient('CL025'));
+//var_dump($dao->getInfosClientById('CL025'));
+var_dump($dao->getInfosPassagerById('P0283'));
 
 ?>

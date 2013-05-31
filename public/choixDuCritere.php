@@ -30,7 +30,7 @@
 
             <section class="tab-pane" id="passager">
                 <h3>Passager</h3>
-                <form action="#" method="POST">
+                <form action="/affichagePassagerController" method="POST">
                     <label for="numpassager">N° de passager :</label>
                     <input type="text" id="numpassager" name="numpassager"><br>
                     <input type="submit" value="Valider">

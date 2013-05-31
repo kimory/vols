@@ -12,7 +12,7 @@ class affichageClientController{
             $client = $dao->getInfosClientById($_POST['numclient']);
             if($client->getId() == null){
                 // Cas d'un identifiant non valide (= le client n'existe pas en base) :
-                $message = 'Le client N°'.$_POST['numclient']. ' n\'existe pas !';
+                $message = 'Le client N°'. htmlentities($_POST['numclient'], ENT_QUOTES, 'UTF-8') . ' n\'existe pas !';
             }
         }else {
             // Cas du champ laissé vide :

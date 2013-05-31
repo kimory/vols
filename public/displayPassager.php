@@ -1,0 +1,42 @@
+<?php
+?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <title>DEV-FLY - Affichage passager</title>
+    </head>
+    <body>
+        <form action="/affichagePassagerController" method="POST">
+            <label for="numpassager">Nouveau numéro de passager :</label>
+            <input type="text" id="numpassager" name="numpassager"><br>
+            <input type="submit" value="OK">
+        </form>
+        
+        <?php // On affiche le message d'erreur le cas échéant :
+              if (isset($message) && strlen($message) > 0) : ?>
+                <p><?php echo $message ?></p>
+                
+        <?php // Si il n'y a pas d'erreur, on affiche les informations sur le passager recherché :
+              else : ?>
+        
+            <h3>Description du passager</h3>
+
+            <!-- Remarque : le htmlentities est une sécurité, il convertit les caractères
+            spéciaux en entités HTML -->
+            <p>N° passager : <?php echo htmlentities($passager['numpassager'], ENT_QUOTES, 'UTF-8') ?></p>
+            <p>Civilité : <?php echo htmlentities($passager['civilite'], ENT_QUOTES, 'UTF-8') ?></p>
+            <p>Nom : <?php echo htmlentities($passager['nom'], ENT_QUOTES, 'UTF-8') ?></p>
+            <p>Prénom : <?php echo htmlentities($passager['prenom'], ENT_QUOTES, 'UTF-8') ?></p>
+            <p>Date de naissance : <?php echo htmlentities($passager['datenaissance'], ENT_QUOTES, 'UTF-8') ?></p>
+            <p>N° de réservation : <?php echo htmlentities($passager['numreservation'], ENT_QUOTES, 'UTF-8') ?></p>
+            <p>N° de client : <?php echo htmlentities($passager['numclient'], ENT_QUOTES, 'UTF-8') ?></p>
+        
+        <?php endif; ?>
+                
+        <p><a href="/choixducritere">retour</a></p>
+        
+    </body>
+    
+</html>

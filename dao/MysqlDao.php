@@ -54,6 +54,31 @@ class MysqlDao {
              $ville, $pays, $mail, $telfixe, $telportable, $login, $password);
         return $client;
     }
+    
+    public function getInfosPassagerById($idPassager){
+    // récupère les infos sur un passager en fonction de son ID
+    // et retourne un tableau avec les infos du passager
+        $sql="SELECT passager.numpassager, civilite, nom, prenom, datenaissance, numreservation, numclient
+              FROM passager
+              INNER JOIN place ON passager.numpassager = place.numpassager
+              INNER JOIN reservation ON place.numreservation = reservation.numreserv
+              WHERE passager.numpassager = :id";
+        $stmt = $this->dbh->prepare($sql);   
+        $stmt->bindParam(":id", $idPassager);
+        $stmt->execute();
+        
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return array(
+            'numpassager' => $row['numpassager'],
+            'civilite' => $row['civilite'],
+            'nom' => $row['nom'],
+            'prenom' => $row['prenom'],
+            'datenaissance' => $row['datenaissance'],
+            'numreservation' => $row['numreservation'],
+            'numclient' => $row['numclient']
+        );
+    }
 }
 
 ?>
