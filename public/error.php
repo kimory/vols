@@ -5,6 +5,7 @@ header("HTTP/1.1 500 INTERNAL SERVER ERROR");
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
         <title>DEV-FLY - Erreur</title>
     </head>
     <body>

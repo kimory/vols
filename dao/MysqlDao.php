@@ -27,7 +27,9 @@ class MysqlDao {
         
     }
     
-    public function getInfosClient($idClient){
+    public function getInfosClientById($idClient){
+    // récupère les infos sur un client en fonction de son ID
+    // et retourne un objet Client
         $sql="select * from client where numclient=:id";
         $stmt = $this->dbh->prepare($sql);   
         $stmt->bindParam(":id", $idClient);
@@ -48,7 +50,8 @@ class MysqlDao {
         $login = $row['login'];
         $password = $row['password'];
 
-        $client = new Client($numclient, $civilite, $nom, $prenom, $adresse, $codepostal, $ville, $pays, $mail, $telfixe, $telportable, $login, $password);
+        $client = new Client($numclient, $civilite, $nom, $prenom, $adresse, $codepostal,
+             $ville, $pays, $mail, $telfixe, $telportable, $login, $password);
         return $client;
     }
 }

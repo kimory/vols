@@ -6,7 +6,7 @@ use dao\MysqlDao;
 class affichageClientController{
     public function action(){
         $dao = new MysqlDao();
-        $client = $dao->getInfosClient($_POST['numclient']);
+        $client = $dao->getInfosClientById($_POST['numclient']);
         include VIEW."displayClient.php";
     }
 }
