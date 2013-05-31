@@ -7,9 +7,10 @@
 -Cahier des charges fini + mis en forme
 -Exporter la base correcte
 -Importer la bonne BDD sur le serveur
+-Corriger le MCD selon le papier : chps à passer à NULL par défaut + AUTOINCREMENT + 1 seule clé étrangère EMPLOYE dans Travailler 
 -Réinsérer le bon MCD dans le CDG
+-Modifier les entités en fonction de la BDD
 -Créer d'autres vols : dans les 2-3 mois après la date de fin de projet + dans les 2 mois après la date de présentation au jury
 -Donner avec l'appli la liste des vols créés
--Reprendre les entités si changement dans la BDD
 -Date de départ "ou" date d'arrivée
 -Rajouter "site bilingue" dans le cahier des charges (si on le gère)
