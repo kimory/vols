@@ -31,7 +31,9 @@
             <p>Prénom : <?php echo htmlentities($passager['prenom'], ENT_QUOTES, 'UTF-8') ?></p>
             <p>Date de naissance : <?php echo htmlentities($passager['datenaissance'], ENT_QUOTES, 'UTF-8') ?></p>
             <p>N° de réservation : <?php echo htmlentities($passager['numreservation'], ENT_QUOTES, 'UTF-8') ?></p>
-            <p>N° de client : <?php echo htmlentities($passager['numclient'], ENT_QUOTES, 'UTF-8') ?></p>
+            <!-- On veut récupérér le numéro du client pour l'utiliser dans la méthode action
+            du controller affichageClientController : -->
+            <p>N° de client : <a href="/affichageClientController/action/<?php echo htmlentities($passager['numclient'], ENT_QUOTES, 'UTF-8')?>"><?php echo htmlentities($passager['numclient'], ENT_QUOTES, 'UTF-8') ?></a></p>
         
         <?php endif; ?>
                 
