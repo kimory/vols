@@ -14,9 +14,12 @@
             <input type="submit" value="OK">
         </form>
         
-        <?php if (isset($message) && strlen($message) > 0) : ?>
+        <?php // On affiche le message d'erreur le cas échéant :
+              if (isset($message) && strlen($message) > 0) : ?>
                 <p><?php echo $message ?></p>
-        <?php else : ?>
+                
+        <?php // Si il n'y a pas d'erreur, on affiche les informations sur le client recherché :
+              else : ?>
         
             <h3>Description du client</h3>
 
