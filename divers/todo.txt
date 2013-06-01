@@ -12,7 +12,7 @@
 -Modifier les entités en fonction de la BDD
 -Créer d'autres vols : dans les 2-3 mois après la date de fin de projet + dans les 2 mois après la date de présentation au jury
 -Donner avec l'appli la liste des vols créés
--Date de départ "ou" date d'arrivée
 -Rajouter "site bilingue" dans le cahier des charges (si on le gère)
 -Voir si la procédure de réservation est abandonnée → cardinalités ? (ÀMHA :  ne pas supprimer + si la personne retourne à l'accueil, qqch conservé ? Risque de doublons... → grave ?)
+-Penser aux sessions
 -ajout lien accueil dans la page d'erreur ?
