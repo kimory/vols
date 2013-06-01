@@ -59,7 +59,7 @@
 
             <section class="tab-pane" id="reservation">
                     <h3>Réservation</h3>
-                    <form action="#" method="POST">
+                    <form action="/affichageReservationController" method="POST">
                         <label for="numreservation">N° de réservation :</label>
                         <input type="text" id="numreservation" name="numreservation"><br>
                         <input type="submit" value="Valider">

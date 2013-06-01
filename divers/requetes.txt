@@ -21,7 +21,7 @@ INNER JOIN vol ON travailler.vol = vol.numvol
 WHERE numemploye = $id
 
 numreservation:
-SELECT reservation.numreserv, vol.numvol, dateheuredep, client.numclient, count( place.numreservation ) AS nbplace
+SELECT reservation.numreserv, vol.numvol, dateheuredep, client.numclient, count( place.numpassager ) AS nbpassager
 FROM reservation
 INNER JOIN client ON reservation.numclient = client.numclient
 INNER JOIN place ON place.numreservation = reservation.numreserv

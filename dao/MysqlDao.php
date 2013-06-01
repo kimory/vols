@@ -5,6 +5,7 @@ namespace dao;
 use \PDO;
 use entity\Client;
 use entity\Passager;
+use entity\Reservation;
 
 class MysqlDao {
 
@@ -35,10 +36,10 @@ class MysqlDao {
                $tab['lieudep'][] = $row['lieudep'];
                $tab['lieuarriv'][] = $row['lieuarriv'];
                $tab['tarif'][] = $row['tarif'];
-               $tab['dateheuredep'][] = $row['dateheuredep'];               
+               $tab['dateheuredep'][] = $row['dateheuredep'];
             }
-            
         }
+        return $tab;
     }
 
     public function getInfosClientById($idClient) {
@@ -64,7 +65,8 @@ class MysqlDao {
         $login = $row['login'];
         $password = $row['password'];
 
-        return new Client($numclient, $civilite, $nom, $prenom, $adresse, $codepostal, $ville, $pays, $mail, $telfixe, $telportable, $login, $password);
+        return new Client($numclient, $civilite, $nom, $prenom, $adresse, $codepostal,
+                $ville, $pays, $mail, $telfixe, $telportable, $login, $password);
     }
 
     public function getInfosPassagerById($idPassager) {
@@ -88,7 +90,32 @@ class MysqlDao {
         $numclient = $row['numclient'];
         $numreservation = $row['numreservation'];
 
-        return new Passager($numpassager, $civilite, $nom, $prenom, $datenaissance, $numclient, $numreservation);
+        return new Passager($numpassager, $civilite, $nom, $prenom, $datenaissance,
+                $numclient, $numreservation);
+    }
+    
+    public function getInfosReservationById($idReservation) {
+        // récupère les infos sur un passager en fonction de son ID
+        // et retourne un objet Passager
+        $sql = "SELECT reservation.numreserv, vol.numvol, dateheuredep, client.numclient, count( place.numpassager ) AS nbpassager
+                FROM reservation
+                INNER JOIN client ON reservation.numclient = client.numclient
+                INNER JOIN place ON place.numreservation = reservation.numreserv
+                INNER JOIN vol ON place.numvol = vol.numvol
+                INNER JOIN passager ON passager.numpassager = place.numpassager
+                WHERE reservation.numreserv = :id";
+        $stmt = $this->dbh->prepare($sql);
+        $stmt->bindParam(":id", $idReservation);
+        $stmt->execute();
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $numreservation = $row['numreserv'];
+        $numvol = $row['numvol'];
+        $dateduvol = $row['dateheuredep'];
+        $numclient = $row['numclient'];
+        $nbpassager = $row['nbpassager'];
+
+        return new Reservation($numreservation, null, $numclient, $numvol, $nbpassager, $dateduvol);
     }
 
 }
