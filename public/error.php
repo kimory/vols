@@ -14,6 +14,7 @@ header("HTTP/1.1 500 INTERNAL SERVER ERROR");
         Nous vous invitons à réessayer.</p>
         
         <p>Si l'erreur persiste, merci de contacter l'administrateur du site.</p>
+        <p><a href="/">retour à l'accueil</a></p>
         
     </body>
 </html>
