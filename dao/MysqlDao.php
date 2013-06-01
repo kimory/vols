@@ -26,6 +26,7 @@ class MysqlDao {
         $stmt =$this->dbh->prepare($sql);
         $stmt->execute(array("lieudep"=>$villedep,"lieuarriv"=>$villearrivee));
         
+        
     }
     
     public function getInfosClientById($idClient){

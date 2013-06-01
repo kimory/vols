@@ -156,9 +156,9 @@
         <text>Vous%20partez%20de%20%20%22XXX%22%20et%20vous%20arrivez%20%E0%20%22XXX%22.</text>
       </controlProperties>
     </control>
-    <control controlID="58" controlTypeID="com.balsamiq.mockups::Label" x="431" y="287" w="-1" h="-1" measuredW="401" measuredH="21" zOrder="32" locked="false" isInGroup="-1">
+    <control controlID="58" controlTypeID="com.balsamiq.mockups::Label" x="431" y="287" w="-1" h="-1" measuredW="196" measuredH="21" zOrder="32" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Date%20de%20d%E9part%20souhait%E9e%20%3A%20%22XXX%22%2C%20%20date%20de%20retour%20souhait%E9e%20%3A%20%22XXX%22.</text>
+        <text>Date%20de%20d%E9part%20souhait%E9e%20%3A%20%22XXX%22</text>
       </controlProperties>
     </control>
   </controls>
