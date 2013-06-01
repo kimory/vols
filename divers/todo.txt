@@ -15,3 +15,4 @@
 -Date de départ "ou" date d'arrivée
 -Rajouter "site bilingue" dans le cahier des charges (si on le gère)
 -Voir si la procédure de réservation est abandonnée → cardinalités ? (ÀMHA :  ne pas supprimer + si la personne retourne à l'accueil, qqch conservé ? Risque de doublons... → grave ?)
+-ajout lien accueil dans la page d'erreur ?
