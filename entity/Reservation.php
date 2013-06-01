@@ -66,6 +66,6 @@ class Reservation{
 
     public function setDateduvol($dateDuVol) {
         $this->dateDuVol = $dateDuVol;
-    }    
+    }
 }
 ?>
