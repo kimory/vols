@@ -14,3 +14,4 @@
 -Donner avec l'appli la liste des vols créés
 -Date de départ "ou" date d'arrivée
 -Rajouter "site bilingue" dans le cahier des charges (si on le gère)
+-Voir si la procédure de réservation est abandonnée → cardinalités ? (ÀMHA :  ne pas supprimer + si la personne retourne à l'accueil, qqch conservé ? Risque de doublons... → grave ?)
