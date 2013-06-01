@@ -13,26 +13,10 @@ SELECT numemploye, civilite, nom, prenom, fonction
 FROM employe
 WHERE numemploye = $id
 
-numemploye vue 2 - copilote: 
+numemploye vue 2: 
 SELECT numemploye, numvol, lieudep, lieuarriv, dateheuredep
 FROM employe
-INNER JOIN travailler ON employe.numemploye = travailler.copilote
-INNER JOIN vol ON travailler.vol = vol.numvol
-WHERE numemploye = $id
-
-numemploye vue 2 - pilote:
-SELECT numemploye, numvol, lieudep, lieuarriv, dateheuredep
-FROM employe
-INNER JOIN travailler ON employe.numemploye = travailler.pilote
-INNER JOIN vol ON travailler.vol = vol.numvol
-WHERE numemploye = $id
-
-numemploye vue 2 - hotesse_steward:
-SELECT numemploye, numvol, lieudep, lieuarriv, dateheuredep
-FROM employe
-INNER JOIN travailler ON employe.numemploye = travailler.hotesse_steward1
-OR employe.numemploye = travailler.hotesse_steward2
-OR employe.numemploye = travailler.hotesse_steward3
+INNER JOIN travailler ON employe.numemploye = travailler.employe
 INNER JOIN vol ON travailler.vol = vol.numvol
 WHERE numemploye = $id
 
@@ -56,6 +40,13 @@ insert into <nom de la table> values ($id,................)
 
 suppression d'une réservation
 DELETE FROM reservation WHERE numreserv=$id
+
+numvol:
+SELECT lieudep, lieuarriv, dateheuredep, dateheurearrivee, tarif, fonction, numemploye
+FROM vol
+INNER JOIN travailler ON travailler.vol = vol.numvol
+INNER JOIN employe ON employe.numemploye = travailler.employe
+WHERE numvol = $id
 
 
 

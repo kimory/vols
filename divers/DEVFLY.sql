@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 3.3.9
+-- version 3.5.1
 -- http://www.phpmyadmin.net
 --
--- Serveur: localhost
--- Généré le : Jeu 30 Mai 2013 à 10:43
--- Version du serveur: 5.5.8
--- Version de PHP: 5.3.5
+-- Client: localhost
+-- Généré le: Sam 01 Juin 2013 à 11:53
+-- Version du serveur: 5.5.24-log
+-- Version de PHP: 5.4.3
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -210,9 +211,9 @@ INSERT INTO `passager` (`numpassager`, `civilite`, `nom`, `prenom`, `datenaissan
 
 CREATE TABLE IF NOT EXISTS `place` (
   `numplace` varchar(4) NOT NULL,
-  `numpassager` varchar(5) NOT NULL,
+  `numpassager` varchar(5) NOT NULL DEFAULT 'P0000',
   `numvol` varchar(10) NOT NULL,
-  `numreservation` varchar(10) NOT NULL,
+  `numreservation` varchar(10) NOT NULL DEFAULT 'RV0000000',
   `prix` float NOT NULL,
   PRIMARY KEY (`numplace`),
   KEY `numreservation` (`numreservation`),
@@ -227,13 +228,13 @@ CREATE TABLE IF NOT EXISTS `place` (
 INSERT INTO `place` (`numplace`, `numpassager`, `numvol`, `numreservation`, `prix`) VALUES
 ('A001', 'P0283', 'DF1028', 'RV071526SY', 1524),
 ('B023', 'P2837', 'DF0183', 'RV258014BA', 617),
-('B57', 'P4936', 'DF4692', 'RV923735WI', 1472),
+('B057', 'P4936', 'DF4692', 'RV923735WI', 1472),
+('C058', 'P4937', 'DF4692', 'RV923735WI', 50),
 ('C093', 'P3849', 'DF1028', 'RV476292MO', 1472),
-('C58', 'P4937', 'DF4692', 'RV923735WI', 50),
-('D12', 'P3917', 'DF5609', 'RV014561AJ', 600),
+('D012', 'P3917', 'DF5609', 'RV014561AJ', 600),
 ('D165', 'P3794', 'DF0810', 'RV783920MO', 799),
-('E13', 'P3915', 'DF5609', 'RV014561AJ', 600),
-('F14', 'P3916', 'DF5609', 'RV014561AJ', 600),
+('E013', 'P3915', 'DF5609', 'RV014561AJ', 600),
+('F014', 'P3916', 'DF5609', 'RV014561AJ', 600),
 ('F189', 'P7393', 'DF1028', 'RV745860TA', 617);
 
 -- --------------------------------------------------------
@@ -272,32 +273,46 @@ INSERT INTO `reservation` (`numreserv`, `datereserv`, `numclient`) VALUES
 
 CREATE TABLE IF NOT EXISTS `travailler` (
   `vol` varchar(10) NOT NULL,
-  `pilote` varchar(50) NOT NULL,
-  `copilote` varchar(50) NOT NULL,
-  `hotesse_steward1` varchar(50) NOT NULL,
-  `hotesse_steward2` varchar(50) NOT NULL,
-  `hotesse_steward3` varchar(50) NOT NULL,
-  `date` date NOT NULL,
-  KEY `vol` (`vol`,`pilote`,`copilote`,`hotesse_steward1`,`hotesse_steward2`,`hotesse_steward3`),
-  KEY `pilote` (`pilote`),
-  KEY `co-pilote` (`copilote`),
-  KEY `hotess/stewart1` (`hotesse_steward1`),
-  KEY `hotess/stewart2` (`hotesse_steward2`),
-  KEY `hotess/stewart3` (`hotesse_steward3`),
-  KEY `co-pilote_2` (`copilote`)
+  `employe` varchar(5) NOT NULL,
+  KEY `employe` (`employe`),
+  KEY `vols` (`vol`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `travailler`
 --
 
-INSERT INTO `travailler` (`vol`, `pilote`, `copilote`, `hotesse_steward1`, `hotesse_steward2`, `hotesse_steward3`, `date`) VALUES
-('DF0183', 'P0003', 'C0004', 'H0006', 'H0011', 'H0016', '2013-06-20'),
-('DF0810', 'P0006', 'C0003', 'H0001', 'H0012', 'H0017', '2013-07-14'),
-('DF1028', 'P0001', 'C0006', 'H0002', 'H0007', 'H0018', '2013-05-24'),
-('DF4692', 'P0005', 'C0002', 'H0004', 'H0008', 'H0013', '2013-06-01'),
-('DF5609', 'P0004', 'C0005', 'H0003', 'H0009', 'H0014', '2013-06-01'),
-('DF9174', 'P0002', 'C0001', 'H0005', 'H0010', 'H0015', '2013-05-26');
+INSERT INTO `travailler` (`vol`, `employe`) VALUES
+('DF0183', 'H0016'),
+('DF0183', 'H0011'),
+('DF0183', 'H0006'),
+('DF0183', 'C0004'),
+('DF0183', 'P0003'),
+('DF0810', 'H0017'),
+('DF0810', 'H0012'),
+('DF0810', 'H0001'),
+('DF0810', 'C0003'),
+('DF0810', 'P0006'),
+('DF1028', 'H0018'),
+('DF1028', 'H0007'),
+('DF1028', 'H0002'),
+('DF1028', 'C0006'),
+('DF1028', 'P0001'),
+('DF4692', 'H0008'),
+('DF4692', 'C0002'),
+('DF4692', 'H0004'),
+('DF4692', 'P0005'),
+('DF4692', 'H0013'),
+('DF5609', 'H0014'),
+('DF5609', 'H0009'),
+('DF5609', 'H0003'),
+('DF5609', 'C0005'),
+('DF5609', 'P0004'),
+('DF9174', 'H0015'),
+('DF9174', 'H0010'),
+('DF9174', 'H0005'),
+('DF9174', 'C0001'),
+('DF9174', 'P0002');
 
 -- --------------------------------------------------------
 
@@ -359,9 +374,9 @@ INSERT INTO `vol` (`numvol`, `lieudep`, `lieuarriv`, `dateheuredep`, `dateheurea
 -- Contraintes pour la table `place`
 --
 ALTER TABLE `place`
-  ADD CONSTRAINT `place_ibfk_1` FOREIGN KEY (`numpassager`) REFERENCES `passager` (`numpassager`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `place_ibfk_4` FOREIGN KEY (`numreservation`) REFERENCES `reservation` (`numreserv`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `place_ibfk_2` FOREIGN KEY (`numvol`) REFERENCES `vol` (`numvol`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `place_ibfk_3` FOREIGN KEY (`numreservation`) REFERENCES `reservation` (`numreserv`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `place_ibfk_3` FOREIGN KEY (`numpassager`) REFERENCES `passager` (`numpassager`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `reservation`
@@ -373,9 +388,9 @@ ALTER TABLE `reservation`
 -- Contraintes pour la table `travailler`
 --
 ALTER TABLE `travailler`
-  ADD CONSTRAINT `travailler_ibfk_10` FOREIGN KEY (`hotesse_steward3`) REFERENCES `employe` (`numemploye`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `travailler_ibfk_1` FOREIGN KEY (`vol`) REFERENCES `vol` (`numvol`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `travailler_ibfk_2` FOREIGN KEY (`pilote`) REFERENCES `employe` (`numemploye`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `travailler_ibfk_7` FOREIGN KEY (`copilote`) REFERENCES `employe` (`numemploye`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `travailler_ibfk_8` FOREIGN KEY (`hotesse_steward1`) REFERENCES `employe` (`numemploye`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `travailler_ibfk_9` FOREIGN KEY (`hotesse_steward2`) REFERENCES `employe` (`numemploye`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `travailler_ibfk_3` FOREIGN KEY (`vol`) REFERENCES `vol` (`numvol`),
+  ADD CONSTRAINT `travailler_ibfk_2` FOREIGN KEY (`employe`) REFERENCES `employe` (`numemploye`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
