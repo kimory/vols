@@ -7,15 +7,17 @@ class Passager{
     private $nom;
     private $prenom;
     private $dateNaissance;
+    private $client;
+    private $reservation;    
     
-    
-    function __construct($numPassager, $civilite, $nom, $prenom, $dateNaissance) {
+    function __construct($numPassager, $civilite, $nom, $prenom, $dateNaissance, $client = null, $reservation = null) {
         $this->numPassager = $numPassager;
         $this->civilite = $civilite;
         $this->nom = $nom;
         $this->prenom = $prenom;
         $this->dateNaissance = $dateNaissance;
-        
+        $this->client = $client;
+        $this->reservation = $reservation;        
     }
     
     public function getNumPassager() {
@@ -58,5 +60,20 @@ class Passager{
         $this->dateNaissance = $dateNaissance;
     }
     
+    public function getClient() {
+        return $this->client;
+    }
+
+    public function setClient($client) {
+        $this->client = $client;
+    }
+
+    public function getReservation() {
+        return $this->reservation;
+    }
+
+    public function setReservation($reservation) {
+        $this->reservation = $reservation;
+    }    
 }
 ?>

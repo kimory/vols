@@ -4,6 +4,7 @@ namespace dao;
 
 use \PDO;
 use entity\Client;
+use entity\Passager;
 
 class MysqlDao {
 
@@ -50,14 +51,13 @@ class MysqlDao {
         $login = $row['login'];
         $password = $row['password'];
 
-        $client = new Client($numclient, $civilite, $nom, $prenom, $adresse, $codepostal,
+        return new Client($numclient, $civilite, $nom, $prenom, $adresse, $codepostal,
              $ville, $pays, $mail, $telfixe, $telportable, $login, $password);
-        return $client;
     }
     
     public function getInfosPassagerById($idPassager){
     // récupère les infos sur un passager en fonction de son ID
-    // et retourne un tableau avec les infos du passager
+    // et retourne un objet Passager
         $sql="SELECT passager.numpassager, civilite, nom, prenom, datenaissance, numreservation, numclient
               FROM passager
               INNER JOIN place ON passager.numpassager = place.numpassager
@@ -68,16 +68,15 @@ class MysqlDao {
         $stmt->execute();
         
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $numpassager = $row['numpassager'];
+        $civilite = $row['civilite'];
+        $nom = $row['nom'];
+        $prenom = $row['prenom'];
+        $datenaissance = $row['datenaissance'];
+        $numclient = $row['numclient'];
+        $numreservation = $row['numreservation'];        
 
-        return array(
-            'numpassager' => $row['numpassager'],
-            'civilite' => $row['civilite'],
-            'nom' => $row['nom'],
-            'prenom' => $row['prenom'],
-            'datenaissance' => $row['datenaissance'],
-            'numreservation' => $row['numreservation'],
-            'numclient' => $row['numclient']
-        );
+        return new Passager($numpassager, $civilite, $nom, $prenom, $datenaissance, $numclient, $numreservation);
     }
 }
 

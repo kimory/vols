@@ -10,7 +10,7 @@ class affichagePassagerController{
         if(isset($_POST['numpassager']) && strlen($_POST['numpassager']) != 0){
             $dao = new MysqlDao();
             $passager = $dao->getInfosPassagerById($_POST['numpassager']);
-            if($passager['numpassager'] == null){
+            if($passager->getNumPassager() == null){
                 // Cas d'un identifiant non valide (= le passager n'existe pas en base) :
                 $message = 'Le passager N°'. htmlentities($_POST['numpassager'], ENT_QUOTES, 'UTF-8') . ' n\'existe pas !';
             }
