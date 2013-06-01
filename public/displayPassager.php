@@ -31,7 +31,7 @@
             <p>Prénom : <?php echo htmlentities($passager->getPrenom(), ENT_QUOTES, 'UTF-8') ?></p>
             <p>Date de naissance : <?php echo htmlentities($passager->getDateNaissance(), ENT_QUOTES, 'UTF-8') ?></p>
             <p>N° de réservation : <?php echo htmlentities($passager->getReservation(), ENT_QUOTES, 'UTF-8') ?></p>
-            <!-- On veut récupérér le numéro du client pour l'utiliser dans la méthode action
+            <!-- On veut récupérer le numéro du client pour l'utiliser dans la méthode action
             du controller affichageClientController : -->
             <p>N° de client : <a href="/affichageClientController/action/<?php echo htmlentities($passager->getClient(), ENT_QUOTES, 'UTF-8')?>"><?php echo htmlentities($passager->getClient(), ENT_QUOTES, 'UTF-8') ?></a></p>
         

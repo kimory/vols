@@ -25,7 +25,7 @@
                     <input type="text" id="jour" name="jour" size="3" >/
                     <input type="text" id="mois" name="mois" size="3">/
                     <input type="text" id="annee" name="annee" size="3">
-               <label for ="datedepart">Date d'arrivée </label>          
+               <label for ="datedepart"> OU Date d'arrivée </label>          
                    <input type="text" id="jour" name="jour" size="3">/
                    <input type="text" id="mois" name="mois" size="3">/
                    <input type="text" id="annee" name="annee" size="3"><br>
@@ -34,7 +34,7 @@
                    <label for ="nbreenfants">Nombre d'enfants</label>
                    <input type='number' value="0" min='0' max='30' name="nbreenfants" id="nbreenfants"><br>
                    <div id="submit">
-                   <input type="submit" name="valider" id="valider">          
+                   <input type="submit" name="valider" id="valider" value="valider">          
                    <input type="reset" name="annulation" value="annuler">
                    </div>
           

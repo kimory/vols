@@ -74,7 +74,7 @@ class MysqlDao {
         $prenom = $row['prenom'];
         $datenaissance = $row['datenaissance'];
         $numclient = $row['numclient'];
-        $numreservation = $row['numreservation'];        
+        $numreservation = $row['numreservation'];       
 
         return new Passager($numpassager, $civilite, $nom, $prenom, $datenaissance, $numclient, $numreservation);
     }
