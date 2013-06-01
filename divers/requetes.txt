@@ -48,5 +48,10 @@ INNER JOIN travailler ON travailler.vol = vol.numvol
 INNER JOIN employe ON employe.numemploye = travailler.employe
 WHERE numvol = $id
 
+nbre de places réservées = nbre de places créées dans la base
+SELECT COUNT(*) 
+FROM place
+WHERE numvol = $id
+
 
 
