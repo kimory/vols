@@ -123,11 +123,14 @@ class MysqlDao {
         return new Reservation($numreservation, null, $client, $vol, $nbpassager, $dateduvol);
     }
     
-    public function getPassagersEtPlacesByReservation(){
+    public function getPassagersEtPlacesByReservation($numreservation){
         $sql = "SELECT numpassager, numplace
                 FROM place
                 INNER JOIN reservation ON place.numreservation = reservation.numreserv
-                WHERE place.numreservation = :nureservation";
+                WHERE place.numreservation = :numreservation";
+        $stmt = $this->dbh->prepare($sql);
+        $stmt->bindParam(":numreservation", $numreservation);
+        $stmt->execute();
     }
 
 }
