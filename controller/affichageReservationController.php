@@ -17,8 +17,8 @@ class affichageReservationController {
         } elseif (isset($_GET['numreservation']) && strlen($_GET['numreservation']) != 0) {
             $numreservation = $_GET['numreservation'];
         }
-        // Si on a récupéré un numéro de client, on exécute la fonction pour
-        // récupérer les infos du client :
+        // Si on a récupéré un numéro de réservation, on exécute la fonction pour
+        // récupérer les infos de la réservation :
 
         if (isset($numreservation) && strlen($numreservation) != 0) {
             $dao = new MysqlDao();
