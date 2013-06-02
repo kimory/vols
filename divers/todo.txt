@@ -10,3 +10,4 @@
 -Donner avec l'appli la liste des vols créés
 -Rajouter "site bilingue" dans le cahier des charges (si on le gère)
 -Penser aux sessions
+-Modifier le DOCTYPE sur chaque page

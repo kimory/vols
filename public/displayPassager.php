@@ -21,25 +21,27 @@
         <?php // Si il n'y a pas d'erreur, on affiche les informations sur le passager recherché :
               else : ?>
         
-            <h3>Description du passager</h3>
+                <div><h3>Description du passager</h3></div>
 
             <!-- Remarque : le htmlentities est une sécurité, il convertit les caractères
             spéciaux en entités HTML -->
-            <p>N° passager : <?php echo htmlentities($passager->getNumPassager(), ENT_QUOTES, 'UTF-8') ?></p>
-            <p>Civilité : <?php echo htmlentities($passager->getCivilite(), ENT_QUOTES, 'UTF-8') ?></p>
-            <p>Nom : <?php echo htmlentities($passager->getNom(), ENT_QUOTES, 'UTF-8') ?></p>
-            <p>Prénom : <?php echo htmlentities($passager->getPrenom(), ENT_QUOTES, 'UTF-8') ?></p>
-            <p>Date de naissance : <?php echo htmlentities($passager->getDateNaissance(), ENT_QUOTES, 'UTF-8') ?></p>
-            <!-- On veut récupérer le numéro de réservation pour l'utiliser dans la méthode action
-            du controller affichageReservationController : -->
-            <p>N° de réservation : <a href="/affichageReservationController/action/<?php echo htmlentities($passager->getReservation(), ENT_QUOTES, 'UTF-8')?>"><?php echo htmlentities($passager->getReservation(), ENT_QUOTES, 'UTF-8') ?></a></p>
-            <!-- On veut récupérer le numéro du client pour l'utiliser dans la méthode action
-            du controller affichageClientController : -->
-            <p>N° de client : <a href="/affichageClientController/action/<?php echo htmlentities($passager->getClient(), ENT_QUOTES, 'UTF-8')?>"><?php echo htmlentities($passager->getClient(), ENT_QUOTES, 'UTF-8') ?></a></p>
-        
+            <div>
+                <p>N° passager : <?php echo htmlentities($passager->getNumPassager(), ENT_QUOTES, 'UTF-8') ?></p>
+                <p>Civilité : <?php echo htmlentities($passager->getCivilite(), ENT_QUOTES, 'UTF-8') ?></p>
+                <p>Nom : <?php echo htmlentities($passager->getNom(), ENT_QUOTES, 'UTF-8') ?></p>
+                <p>Prénom : <?php echo htmlentities($passager->getPrenom(), ENT_QUOTES, 'UTF-8') ?></p>
+                <p>Date de naissance : <?php echo htmlentities($passager->getDateNaissance(), ENT_QUOTES, 'UTF-8') ?></p>
+                <!-- On veut récupérer le numéro de réservation pour l'utiliser dans la méthode action
+                du controller affichageReservationController : -->
+                <p>N° de réservation : <a href="/affichageReservationController/action/<?php echo htmlentities($passager->getReservation(), ENT_QUOTES, 'UTF-8')?>"><?php echo htmlentities($passager->getReservation(), ENT_QUOTES, 'UTF-8') ?></a></p>
+                <!-- On veut récupérer le numéro du client pour l'utiliser dans la méthode action
+                du controller affichageClientController : -->
+                <p>N° de client : <a href="/affichageClientController/action/<?php echo htmlentities($passager->getClient(), ENT_QUOTES, 'UTF-8')?>"><?php echo htmlentities($passager->getClient(), ENT_QUOTES, 'UTF-8') ?></a></p>
+            </div>
+            
         <?php endif; ?>
                 
-        <p><a href="/choixducritere">retour</a></p>
+        <div><a href="/choixducritere">retour</a></div>
         
     </body>
     

@@ -122,6 +122,13 @@ class MysqlDao {
         
         return new Reservation($numreservation, null, $client, $vol, $nbpassager, $dateduvol);
     }
+    
+    public function getPassagersEtPlacesByReservation(){
+        $sql = "SELECT numpassager, numplace
+                FROM place
+                INNER JOIN reservation ON place.numreservation = reservation.numreserv
+                WHERE place.numreservation = :nureservation";
+    }
 
 }
 
