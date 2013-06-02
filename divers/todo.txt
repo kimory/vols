@@ -11,3 +11,4 @@
 -Rajouter "site bilingue" dans le cahier des charges (si on le gère)
 -Penser aux sessions
 -Modifier le DOCTYPE sur chaque page
+-Retravailler la page d'erreurr si l'utilisateur invente une URL
