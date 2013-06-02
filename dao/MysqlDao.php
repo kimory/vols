@@ -124,6 +124,8 @@ class MysqlDao {
     }
     
     public function getPassagersEtPlacesByReservation($numreservation){
+        // retourne un tableau avec les noms des passagers et leurs places pour
+        // une réservation donnée.
         $sql = "SELECT numpassager, numplace
                 FROM place
                 INNER JOIN reservation ON place.numreservation = reservation.numreserv
@@ -131,6 +133,15 @@ class MysqlDao {
         $stmt = $this->dbh->prepare($sql);
         $stmt->bindParam(":numreservation", $numreservation);
         $stmt->execute();
+        
+        $soustableau = array();
+        $tab = array();
+        while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+            $soustableau['numpassager'] = $row['numpassager'];
+            $soustableau['numplace'] = $row['numplace'];
+            $tab[] = $soustableau;
+        }
+        return $tab;
     }
 
 }

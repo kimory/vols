@@ -34,7 +34,7 @@
                 <!-- On veut récupérer le numéro du client pour l'utiliser dans la méthode action
                 du controller affichageClientController : -->
                 <p>N° client : <a href="/affichageClientController/action/<?php echo htmlentities($reservation->getClient()->getId(), ENT_QUOTES, 'UTF-8')?>"><?php echo htmlentities($reservation->getClient()->getId(), ENT_QUOTES, 'UTF-8') ?></a></p>
-                <p>Nombre de passager(s) : <?php echo htmlentities($reservation->getNbpassager(), ENT_QUOTES, 'UTF-8') ?></p>
+                <p>Nombre de passager(s) : <a href="/affichageDesPassagersController/action/<?php echo htmlentities($reservation->getNumReservation(), ENT_QUOTES, 'UTF-8')?>"><?php echo htmlentities($reservation->getNbpassagers(), ENT_QUOTES, 'UTF-8') ?></a></p>
             </div>
             
         <?php endif; ?>
