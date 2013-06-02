@@ -11,7 +11,7 @@ class Vol{
     private $dateHeureArrivee;    
     private $tarif;
     
-    function __construct($numvol, Destination $lieuDepart, Destination $lieuArrivee, $dateHeureDepart, $dateHeureArrivee, $tarif) {
+    function __construct($numvol, $lieuDepart, $lieuArrivee, $dateHeureDepart, $dateHeureArrivee, $tarif) {
         $this->numvol = $numvol;
         $this->lieuDepart = $lieuDepart;
         $this->lieuArrivee = $lieuArrivee;

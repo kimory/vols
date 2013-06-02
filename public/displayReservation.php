@@ -26,14 +26,14 @@
             <!-- Remarque : le htmlentities est une sécurité, il convertit les caractères
             spéciaux en entités HTML -->
             <p>N° réservation : <?php echo htmlentities($reservation->getNumReservation(), ENT_QUOTES, 'UTF-8') ?></p>
-            <p>N° vol : <?php echo htmlentities($reservation->getVol(), ENT_QUOTES, 'UTF-8') ?></p>
+            <p>N° vol : <?php echo htmlentities($reservation->getVol()->getNumvol(), ENT_QUOTES, 'UTF-8') ?></p>
             <?php $dateheuredep = new DateTime($reservation->getDateDuVol())?>
             <p>Date de départ : <?php echo htmlentities($dateheuredep->format('d/m/Y'), ENT_QUOTES, 'UTF-8') ?></p>
             <p>Heure de départ : <?php echo htmlentities($dateheuredep->format('H:i'), ENT_QUOTES, 'UTF-8') ?></p>
             <!-- On veut récupérer le numéro du client pour l'utiliser dans la méthode action
             du controller affichageClientController : -->
-            <p>N° client : <a href="/affichageClientController/action/<?php echo htmlentities($reservation->getClient(), ENT_QUOTES, 'UTF-8')?>"><?php echo htmlentities($reservation->getClient(), ENT_QUOTES, 'UTF-8') ?></a></p>
-            <p>Nombre de passager(s) : <?php echo htmlentities($reservation->getPassager(), ENT_QUOTES, 'UTF-8') ?></p>
+            <p>N° client : <a href="/affichageClientController/action/<?php echo htmlentities($reservation->getClient()->getId(), ENT_QUOTES, 'UTF-8')?>"><?php echo htmlentities($reservation->getClient()->getId(), ENT_QUOTES, 'UTF-8') ?></a></p>
+            <p>Nombre de passager(s) : <?php echo htmlentities($reservation->getNbpassager(), ENT_QUOTES, 'UTF-8') ?></p>
         
         <?php endif; ?>
                 

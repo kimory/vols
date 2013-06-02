@@ -6,6 +6,7 @@ use \PDO;
 use entity\Client;
 use entity\Passager;
 use entity\Reservation;
+use entity\Vol;
 
 class MysqlDao {
 
@@ -115,7 +116,11 @@ class MysqlDao {
         $numclient = $row['numclient'];
         $nbpassager = $row['nbpassager'];
 
-        return new Reservation($numreservation, null, $numclient, $numvol, $nbpassager, $dateduvol);
+        // On aura besoin uniquement des numéros de client et de vol :
+        $client = new Client($numclient, null, null, null, null, null, null, null, null, null, null, null, null);
+        $vol = new Vol($numvol, null, null, null, null, null);
+        
+        return new Reservation($numreservation, null, $client, $vol, $nbpassager, $dateduvol);
     }
 
 }

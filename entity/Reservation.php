@@ -8,15 +8,15 @@ class Reservation{
     private $date;
     private $client;
     private $vol;
-    private $passager;
+    private $nbpassager;
     private $dateDuVol;
     
-    function __construct($numReservation, $date, $client, $vol, $passager, $dateDuVol = null) {
+    function __construct($numReservation, $date, Client $client, Vol $vol, $nbpassager, $dateDuVol = null) {
         $this->numReservation = $numReservation;
         $this->date = $date;
         $this->client = $client;
         $this->vol = $vol;
-        $this->passager = $passager;
+        $this->nbpassager = $nbpassager;
         $this->dateDuVol = $dateDuVol;
     }
 
@@ -40,7 +40,7 @@ class Reservation{
         return $this->client;
     }
 
-    public function setClient($client) {
+    public function setClient(Client $client) {
         $this->client = $client;
     }
 
@@ -48,16 +48,16 @@ class Reservation{
         return $this->vol;
     }
 
-    public function setVol($vol) {
+    public function setVol(Vol $vol) {
         $this->vol = $vol;
     }
 
-    public function getPassager() {
-        return $this->passager;
+    public function getNbpassager() {
+        return $this->nbpassager;
     }
 
-    public function setPassager($passager) {
-        $this->passager = $passager;
+    public function setNbPassager($nbpassager) {
+        $this->nbpassager = $nbpassager;
     }
     
     public function getDateDuVol() {
