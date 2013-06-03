@@ -17,7 +17,7 @@
         // Si il n'y a pas d'erreur, on affiche la liste des passagers concernés par la réservation :
               else : ?>
         
-                <div><h3>Passagers sur la réservation <?php echo $_GET['numreservation'];?></h3></div>
+                <div><h3>Passagers sur la réservation <a href="/affichageReservationController/action/<?php echo htmlentities($_GET['numreservation'], ENT_QUOTES, 'UTF-8');?>"><?php echo htmlentities($_GET['numreservation'], ENT_QUOTES, 'UTF-8') ?></a></h3></div>
 
             <!-- Remarque : le htmlentities est une sécurité, il convertit les caractères
             spéciaux en entités HTML -->
