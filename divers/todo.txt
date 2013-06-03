@@ -11,4 +11,5 @@
 -Rajouter "site bilingue" dans le cahier des charges (si on le gère)
 -Penser aux sessions
 -Modifier le DOCTYPE sur chaque page
--Retravailler la page d'erreurr si l'utilisateur invente une URL
+-Retravailler la page d'erreur si l'utilisateur invente une URL (notamment chiffres + autres)
+-Désactiver sur le serveur l'affichage des Warnings (cf page d'erreur)
