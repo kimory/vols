@@ -11,3 +11,4 @@ RewriteRule ^affichageClientController/action/([a-zA-Z0-9]+)$ index.php?controll
 RewriteRule ^affichageReservationController/action/([a-zA-Z0-9]+)$ index.php?controller=affichageReservationController&method=action&numreservation=$1 [L]
 RewriteRule ^affichageDesPassagersController/action/([a-zA-Z0-9]+)$ index.php?controller=affichageDesPassagersController&method=action&numreservation=$1 [L]
 RewriteRule ^([a-zA-Z]+)/([a-zA-Z]+)$ index.php?controller=$1&method=$2 [L]
+RewriteRule ^\w+$ error.php [L]
