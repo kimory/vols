@@ -5,11 +5,10 @@
 -CSS pour embellir le site (la structure principale ne sera pas en Bootstrap)
 -Tester / Faire tester l'appli
 -Cahier des charges fini + mis en forme
--Importer la bonne BDD sur le serveur
 -Créer d'autres vols : dans les 2-3 mois après la date de fin de projet + dans les 2 mois après la date de présentation au jury
 -Donner avec l'appli la liste des vols créés
 -Rajouter "site bilingue" dans le cahier des charges (si on le gère)
 -Penser aux sessions
 -Modifier le DOCTYPE sur chaque page
 -Retravailler la page d'erreur si l'utilisateur invente une URL (notamment chiffres + autres)
--Désactiver sur le serveur l'affichage des Warnings (cf page d'erreur)
+-Désactiver sur le serveur l'affichage des Warnings (cf page d'erreur) -> ok a priori

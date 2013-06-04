@@ -21,7 +21,7 @@
         <div class="tab-content">
             <section class="tab-pane active" id="vol">
                 <h3>Vol</h3>
-                <form action="#" method="POST">
+                <form action="/affichageVolController" method="POST">
                     <label for="numvol">N° de vol :</label>
                     <input type="text" id="numvol" name="numvol"><br>
                     <input type="submit" value="Valider">
