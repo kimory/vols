@@ -31,9 +31,9 @@
                 <p>Lieu d'arrivée : <?php echo htmlentities($vol->getLieuArrivee(), ENT_QUOTES, 'UTF-8') ?></p>
                 
                 <?php $dateheuredep = new DateTime($vol->getDateHeureDepart())?>
-                <p>Date et heure de départ : <?php echo htmlentities($dateheuredep->format('d/m/Y H:i'), ENT_QUOTES, 'UTF-8') ?></p>
+                <p>Date et heure de départ : <?php echo htmlentities($dateheuredep->format('d/m/Y à H:i'), ENT_QUOTES, 'UTF-8') ?></p>
                 <?php $dateheurearrivee = new DateTime($vol->getDateHeureArrivee())?>
-                <p>Date et heure d'arrivée : <?php echo htmlentities($dateheurearrivee->format('d/m/Y H:i'), ENT_QUOTES, 'UTF-8') ?></p>
+                <p>Date et heure d'arrivée : <?php echo htmlentities($dateheurearrivee->format('d/m/Y à H:i'), ENT_QUOTES, 'UTF-8') ?></p>
                 <p>N° pilote : <?php echo htmlentities($vol->getPilote(), ENT_QUOTES, 'UTF-8') ?></p>
                 <p>N° copilote : <?php echo htmlentities($vol->getCopilote(), ENT_QUOTES, 'UTF-8') ?></p>
                 <p>N° hôtesse / steward 1 : <?php echo htmlentities($vol->getHotesse_steward1(), ENT_QUOTES, 'UTF-8') ?></p>

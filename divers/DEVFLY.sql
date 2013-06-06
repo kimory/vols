@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Jeu 06 Juin 2013 à 15:28
+-- Généré le: Jeu 06 Juin 2013 à 16:31
 -- Version du serveur: 5.5.31
 -- Version de PHP: 5.4.4-14
 
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `client` (
 INSERT INTO `client` (`numclient`, `civilite`, `nom`, `prenom`, `adresse`, `codepostal`, `ville`, `pays`, `mail`, `telfixe`, `mobile`, `login`, `password`) VALUES
 ('CL025', 'Mme', 'TAYLOR', 'Isabella', '13-657 Hinalo Street  Pāhoa', 'HI 96778', 'Hawaï', 'USA', 'taylorisa@live.com', '+18089656153', '+18084674486', 'isabella', 'taylor'),
 ('CL059', 'Mme', 'SYLLA', 'Lala', '33 route de Nouasser', ' 20190', 'Rabat', 'Maroc', 'lalasylla@yahoo.fr', '+21252297797', '+21261149425', 'lalasylla', 'rabat'),
-('CL198', 'M', 'WILLIAMS', 'Brian', '109 Burwood Road', 'Hawthorn V', ' 3122 ', 'Australie', 'willamsbrian@gmail.com', '+61735642342', '+61123456789', 'brian', 'williams'),
+('CL198', 'M', 'WILLIAMS', 'Brian', '109 Burwood Road', '3122 ', 'Hawthorn V', 'Australie', 'willamsbrian@gmail.com', '+61735642342', '+61123456789', 'brian', 'williams'),
 ('CL247', 'M', 'VENDA', 'Jonah', '37  Barotanyi. Liechtensteinstrasse', '21 1090 ', 'Wien', 'Autriche', 'jonah@venda.com', '+4392067130', '+4362503253', 'jonah', 'venda'),
 ('CL375', 'M', 'MOUNA', 'Karim', '448  rue Radhia Haddad Standard ', '1023', ' Montplaisir', 'Tunisie', 'mounakarim@live.com', ' +216156960', '+216988122244', 'mouna', 'karim'),
 ('CL397', 'M', 'AJAMI', 'Abdel', '384 West day', 'PO Box 266', 'Al khawr', 'Qatar', 'abdel.ajami@gmail.com', '+9748232133', '+9746541243', 'ajami', 'qatar'),
@@ -159,7 +159,7 @@ INSERT INTO `employe` (`numemploye`, `civilite`, `nom`, `prenom`, `adresse`, `co
 ('H0010', 'Mme', 'KAYA', 'Yesmina', '22 chemin Youcef Tayebi', '16030', 'El Biar', 'Algérie', 'Hôtesse'),
 ('H0011', 'M', 'THANI', 'Hakim', ' P.O. Box 6401', ' 6401', 'Doha', 'Qatar', 'Steward'),
 ('H0012', 'Mme', 'ALVAREZ', 'Valentina', 'Tower Hill', 'EC3N 4AB', 'Londre', 'Angleterre', 'Hôtesse'),
-('H0013', 'Mne', 'HANG', 'Gai', '60 Tianze Lu - Chaoyang district', '100600', 'Beijing', 'Chine', 'Hôtesse'),
+('H0013', 'Mme', 'HANG', 'Gai', '60 Tianze Lu - Chaoyang district', '100600', 'Beijing', 'Chine', 'Hôtesse'),
 ('H0014', 'M', 'Walid', 'Hassan', 'Block 1 Rue 13 Villa 24', '13011', 'Safat', 'Koweït', 'Steward'),
 ('H0015', 'Mme', 'ZUMA', 'Eva', '250 Melk Street, Corner Middel Street', '0181', 'Pretoria', 'Afrique du Sud', 'Hôtesse'),
 ('H0016', 'Mme', 'ROTH-BERNASCONI', 'Brigite', 'Hochschulstr. 4', '3012 ', 'Bern', 'Suisse', 'Hôtesse'),
@@ -169,8 +169,8 @@ INSERT INTO `employe` (`numemploye`, `civilite`, `nom`, `prenom`, `adresse`, `co
 ('P0002', 'M', 'BERNARD', 'Alain', '20 rue du Lac', '69003', 'Lyon', 'France', 'Pilote'),
 ('P0003', 'M', 'KANJI', 'Yuya', '2 -7-2 Marunouchi , Chiyoda-ku', '100-8799', 'Tokyo', 'Japon', 'Pilote'),
 ('P0004', 'M', ' BROWN', 'Harold', '226 Northeast 1st Avenue', 'FL 33132', 'Miami', 'USA', 'Pilote'),
-('P0005', 'M', '', 'Abel', '', '', 'Milan', 'Italie', 'Pilote'),
-('P0006', 'M', 'TRAN', 'Hu', ' 27 Nguyên Thi Minh Khai', '307 - Q. 1', 'Hanoï', 'Vietname', 'Pilote');
+('P0005', 'M', 'BELLIO', 'Abel', 'via Bergo 3', '20100', 'Milan', 'Italie', 'Pilote'),
+('P0006', 'M', 'TRAN', 'Hu', ' 27 Nguyên Thi Minh Khai', '307 - Q. 1', 'Hanoï', 'Vietnam', 'Pilote');
 
 -- --------------------------------------------------------
 
@@ -200,7 +200,7 @@ INSERT INTO `passager` (`numpassager`, `civilite`, `nom`, `prenom`, `datenaissan
 ('P3916', 'M', 'AJAMI', 'Noha', '2001-10-10'),
 ('P3917', 'Mme', 'AJAMI', 'Zeyna', '1970-07-15'),
 ('P4936', 'M', ' WILLIAMS', 'Brian', '1966-11-27'),
-('P4937', '', ' WILLIAMS', 'Abbie', '2013-02-25'),
+('P4937', 'Mme', ' WILLIAMS', 'Abbie', '2013-02-25'),
 ('P7393', 'Mme', 'TAYLOR', 'Isabella', '1991-02-22');
 
 -- --------------------------------------------------------
@@ -319,9 +319,9 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id`, `statut`, `login`, `password`, `droits`) VALUES
-('AD129', 'Admistrateur', 'administre', 'admin', 1),
-('CM674', 'Commercial', 'vendeur', 'commerce', 0),
-('DR346', 'Directeur', 'general', 'directeur', 0);
+('AD129', 'administrateur', 'admin', 'admin', 1),
+('CM674', 'commercial', 'vendeur', 'commerce', 0),
+('DR346', 'directeur', 'general', 'directeur', 0);
 
 -- --------------------------------------------------------
 
