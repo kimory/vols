@@ -42,7 +42,26 @@ class MysqlDao {
             }
         }
         return $tab;
+    }public function getPropositionsByVol($villedep, $villearrivee, $datedep){
+        // recupere les infos saisies par le client et verifier les donnees saisies qui sont les ville de depart et ville d'arrivee et
+        //si la compagnie propose la destination.
+        $sql = "SELECT lieudep,lieuarriv,dateheuredep FROM vol            
+                WHERE lieudep = :villedep AND lieuarriv =:villearrivee";
+        $stmt = $this->dbh->prepare($sql);
+        $stmt->bindParam(":villedep", $villedep);
+        $stmt->bindParam(":villearrivee", $villearrivee);               
+        $stmt->execute();
+        $result = array();
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $lieuDepart = $row['lieudep'];
+            $lieuArrivee = $row['lieuarriv'];
+            $dateHeureDepart = $row['dateheuredep'];
+               $result[] = new Vol(NULL, $lieuDepart, $lieuArrivee, $dateHeureDepart, NULL, NULL);
+                                      
+        }return $result; 
     }
+
+    
 
     public function getInfosClientById($idClient) {
         // récupère les infos sur un client en fonction de son ID
