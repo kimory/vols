@@ -192,6 +192,25 @@ class MysqlDao {
         return $vol = new Vol($numvol, $lieudep, $lieuarriv, $dateheuredep, $dateheurearrivee, null,
                      $pilote, $copilote, $hotesse_steward1, $hotesse_steward2, $hotesse_steward3, $nb_places_restantes);
     }
+    
+    public function getEmployeById($idEmploye){
+        $sql = 'SELECT numemploye, civilite, nom, prenom, fonction
+                FROM employe
+                WHERE numemploye = :id';
+        
+        $stmt = $this->dbh->prepare($sql);
+        $stmt->bindParam(":id", $idEmploye);
+        $stmt->execute();
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $numemploye = $row['numemploye'];
+        $civilite = $row['civilite'];
+        $nom = $row['nom'];
+        $prenom = $row['prenom'];
+        $fonction = $row['fonction'];
+        
+        return new Employe($numemploye, $civilite, $nom, $prenom, null, null, null, null, $fonction);
+    }
 
 }
 
