@@ -143,6 +143,30 @@ class MysqlDao {
         }
         return $tab;
     }
+    
+    public function getVolById($numvol){
+        $sql = "SELECT numvol, lieudep, lieuarriv, dateheuredep, dateheurearrivee, tarif, fonction, numemploye
+                FROM vol
+                INNER JOIN travailler ON travailler.vol = vol.numvol
+                INNER JOIN employe ON employe.numemploye = travailler.employe
+                WHERE numvol = :numvol";
+        
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindParam(":numvol", $numvol);
+                $stmt->execute();
+        
+                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                $numvol = $row['numvol'];
+                $lieudep = $row['lieudep'];
+                $lieuarriv = $row['lieuarriv'];
+                $dateheuredep = $row['dateheuredep'];
+                $dateheurearrivee = $row['dateheurearrivee'];
+                $tarif = $row['tarif'];
+                $fonction = $row['fonction'];
+                $numemploye = $row['numemploye'];
+                
+                //$vol = new Vol($numvol, $lieuDepart, $lieuArrivee, $dateHeureDepart, $dateHeureArrivee, $tarif)
+    }
 
 }
 
