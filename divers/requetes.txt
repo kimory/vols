@@ -13,12 +13,16 @@ SELECT numemploye, civilite, nom, prenom, fonction
 FROM employe
 WHERE numemploye = $id
 
-numemploye vue 2: 
-SELECT numemploye, numvol, lieudep, lieuarriv, dateheuredep
+numemploye vue 2: -- avec la BDD nouvelle version
+SELECT numvol, lieudep, lieuarriv, dateheuredep
 FROM employe
-INNER JOIN travailler ON employe.numemploye = travailler.employe
+INNER JOIN travailler ON employe.numemploye = travailler.pilote
+OR employe.numemploye = travailler.copilote
+OR employe.numemploye = travailler.hotesse_steward1
+OR employe.numemploye = travailler.hotesse_steward2
+OR employe.numemploye = travailler.hotesse_steward3
 INNER JOIN vol ON travailler.vol = vol.numvol
-WHERE numemploye = $id
+WHERE numemploye = $id;
 
 numreservation:
 SELECT reservation.numreserv, vol.numvol, dateheuredep, client.numclient, count( place.numpassager ) AS nbpassager

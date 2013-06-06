@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Jeu 06 Juin 2013 à 16:31
+-- Généré le: Ven 07 Juin 2013 à 00:00
 -- Version du serveur: 5.5.31
 -- Version de PHP: 5.4.4-14
 
@@ -294,7 +294,7 @@ CREATE TABLE IF NOT EXISTS `travailler` (
 INSERT INTO `travailler` (`vol`, `pilote`, `copilote`, `hotesse_steward1`, `hotesse_steward2`, `hotesse_steward3`, `date`) VALUES
 ('DF0183', 'P0003', 'C0004', 'H0006', 'H0011', 'H0016', '2013-06-20'),
 ('DF0810', 'P0006', 'C0003', 'H0001', 'H0012', 'H0017', '2013-07-14'),
-('DF1028', 'P0001', 'C0006', 'H0002', 'H0007', 'H0018', '2013-05-24'),
+('DF1028', 'P0001', 'C0006', 'H0002', 'H0007', 'H0006', '2013-05-24'),
 ('DF4692', 'P0005', 'C0002', 'H0004', 'H0008', 'H0013', '2013-06-01'),
 ('DF5609', 'P0004', 'C0005', 'H0003', 'H0009', 'H0014', '2013-06-01'),
 ('DF9174', 'P0002', 'C0001', 'H0005', 'H0010', 'H0015', '2013-05-26');

@@ -31,7 +31,7 @@
                 <p>Nom : <?php echo htmlentities($employe->getNom(), ENT_QUOTES, 'UTF-8') ?></p>
                 <p>Prénom : <?php echo htmlentities($employe->getPrenom(), ENT_QUOTES, 'UTF-8') ?></p>
                 <p>Fonction : <?php echo htmlentities($employe->getFonction(), ENT_QUOTES, 'UTF-8') ?></p>
-                <p><a href="#">Voir les vols attribués à cet employé</a></p>
+                <p><a href="/affichageDesVolsController/action/<?php echo htmlentities($employe->getId(), ENT_QUOTES, 'UTF-8')?>">Voir les vols attribués à cet employé</a></p>
             </div>
             
         <?php endif; ?>

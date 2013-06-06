@@ -212,6 +212,38 @@ class MysqlDao {
         
         return new Employe($numemploye, $civilite, $nom, $prenom, null, null, null, null, $fonction);
     }
+    
+        
+    public function getVolsByEmploye($numemploye){
+        // retourne un tableau des vols (objets) reliés à un employé
+        
+        $sql = "SELECT numvol, lieudep, lieuarriv, dateheuredep
+                FROM employe
+                INNER JOIN travailler ON employe.numemploye = travailler.pilote
+                OR employe.numemploye = travailler.copilote
+                OR employe.numemploye = travailler.hotesse_steward1
+                OR employe.numemploye = travailler.hotesse_steward2
+                OR employe.numemploye = travailler.hotesse_steward3
+                INNER JOIN vol ON travailler.vol = vol.numvol
+                WHERE numemploye = :numemploye";
+        
+        $stmt = $this->dbh->prepare($sql);
+        $stmt->bindParam(":numemploye", $numemploye);
+        $stmt->execute();
+        
+        $vols = array();
+        
+        while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+            $numvol = $row['numvol'];
+            $lieudep = $row['lieudep'];
+            $lieuarriv = $row['lieuarriv'];
+            $dateheuredep = $row['dateheuredep'];
+            
+            // On insère un objet Vol au prochain emplacement disponible du tableau vols :
+            $vols[] = new Vol($numvol, $lieudep, $lieuarriv, $dateheuredep, null, null, null, null, null, null, null, null);
+        }
+        return $vols;
+    }
 
 }
 
