@@ -119,7 +119,7 @@ class MysqlDao {
 
         // On aura besoin uniquement des numéros de client et de vol :
         $client = new Client($numclient, null, null, null, null, null, null, null, null, null, null, null, null);
-        $vol = new Vol($numvol, null, null, null, null, null, null, null, null, null, null);
+        $vol = new Vol($numvol, null, null, null, null, null, null, null, null, null, null, null);
         
         return new Reservation($numreservation, null, $client, $vol, $nbpassager, $dateduvol);
     }
