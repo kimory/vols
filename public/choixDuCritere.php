@@ -41,18 +41,7 @@
                     <h3>Employé</h3>
                     <form action="/affichageEmployeController" method="POST">
                         <label for="numemploye">N° d'employé :</label>
-                        <input type="text" id="numemploye" name="numemploye"><br>
-                          
-                        <label for="fonction"><br>
-                            Sélectionnner la fonction de l'employé recherché :
-                        </label>
-                        <select name="fonction" id="fonction">
-                            <option value="pilote">Pilote</option>
-                            <option value="copilote">Copilote</option>
-                            <option value="hotesse">Hôtesse</option>
-                            <option value="steward">Steward</option>
-                        </select><br>
-                            
+                        <input type="text" id="numemploye" name="numemploye"><br>                          
                         <input type="submit" value="Valider">
                     </form>
             </section>

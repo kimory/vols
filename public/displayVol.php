@@ -5,7 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="css/style.css" />
-        <title>DEV-FLY - Affichage du vol</title>
+        <title>DEV-FLY - Détails du vol</title>
     </head>
     <body>
         <form action="/affichageVolController" method="POST">
