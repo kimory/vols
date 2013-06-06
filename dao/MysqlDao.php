@@ -117,8 +117,8 @@ class MysqlDao {
     }
     
     public function getInfosReservationById($idReservation) {
-        // récupère les infos sur un passager en fonction de son ID
-        // et retourne un objet Passager
+        // récupère les infos sur une réservation en fonction de son ID
+        // et retourne un objet Reservation
         $sql = "SELECT reservation.numreserv, vol.numvol, dateheuredep, client.numclient, count( place.numpassager ) AS nbpassager
                 FROM reservation
                 INNER JOIN client ON reservation.numclient = client.numclient
@@ -166,6 +166,8 @@ class MysqlDao {
     }
     
     public function getVolById($numvol){
+        // récupère les infos sur un vol en fonction de son ID
+        // et retourne un objet Vol
         $sql = "SELECT V.numvol, lieudep, lieuarriv, dateheuredep, dateheurearrivee, T.pilote,
                 T.copilote, T.hotesse_steward1, T.hotesse_steward2, T.hotesse_steward3, count(P.numplace) AS nb_places_vendues
                 FROM vol V
@@ -195,7 +197,8 @@ class MysqlDao {
     }
     
     public function getEmployeById($idEmploye){
-        // retourne les infos de l'employé sous forme d'un objet Employe
+        // récupère les infos sur un employé en fonction de son ID
+        // et retourne un objet Employe
         
         $sql = 'SELECT numemploye, civilite, nom, prenom, fonction
                 FROM employe
@@ -217,7 +220,7 @@ class MysqlDao {
     
         
     public function getVolsByEmploye($numemploye){
-        // retourne un tableau des vols (objets) reliés à un employé
+        // retourne un tableau des vols (objets) liés à un employé
         
         $sql = "SELECT numvol, lieudep, lieuarriv, dateheuredep
                 FROM employe
