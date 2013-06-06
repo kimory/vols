@@ -10,7 +10,8 @@ class affichageClientController{
         
         // Soit via le formulaire de recherche :
         if(isset($_POST['numclient']) && strlen($_POST['numclient']) != 0){
-            $numclient = $_POST['numclient'];
+            $numclient = trim($_POST['numclient']);
+            // trim supprime les espaces éventuellement saisis par erreur
             
         // Soit par clic sur un lien :
         }elseif(isset($_GET['numclient']) && strlen($_GET['numclient']) != 0){

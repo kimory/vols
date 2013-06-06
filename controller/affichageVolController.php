@@ -10,7 +10,8 @@ class affichageVolController{
         
         // Soit via le formulaire de recherche :
         if(isset($_POST['numvol']) && strlen($_POST['numvol']) != 0){
-            $numvol = $_POST['numvol'];
+            $numvol = trim($_POST['numvol']);
+            // trim supprime les espaces éventuellement saisis par erreur
             
         // Soit par clic sur un lien :
         }elseif(isset($_GET['numvol']) && strlen($_GET['numvol']) != 0){

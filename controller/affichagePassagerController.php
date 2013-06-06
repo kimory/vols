@@ -11,7 +11,8 @@ class affichagePassagerController{
         
         // Soit via le formulaire de recherche :
         if(isset($_POST['numpassager']) && strlen($_POST['numpassager']) != 0){
-            $numpassager = $_POST['numpassager'];
+            $numpassager = trim($_POST['numpassager']);
+            // trim supprime les espaces éventuellement saisis par erreur
             
         // Soit par clic sur un lien :
         }elseif(isset($_GET['numpassager']) && strlen($_GET['numpassager']) != 0){

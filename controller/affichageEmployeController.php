@@ -10,7 +10,8 @@ class affichageEmployeController{
         
         // Soit via le formulaire de recherche :
         if(isset($_POST['numemploye']) && strlen($_POST['numemploye']) != 0){
-            $numemploye = $_POST['numemploye'];
+            $numemploye = trim($_POST['numemploye']);
+            // trim supprime les espaces éventuellement saisis par erreur
             
         // Soit par clic sur un lien :
         }elseif(isset($_GET['numemploye']) && strlen($_GET['numemploye']) != 0){

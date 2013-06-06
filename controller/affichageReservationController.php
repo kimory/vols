@@ -11,7 +11,8 @@ class affichageReservationController {
         // On vérifie qu'un numéro de réservation a été récupéré :
         // Soit via le formulaire de recherche :
         if (isset($_POST['numreservation']) && strlen($_POST['numreservation']) != 0) {
-            $numreservation = $_POST['numreservation'];
+            $numreservation = trim($_POST['numreservation']);
+            // trim supprime les espaces éventuellement saisis par erreur
 
             // Soit par clic sur un lien :
         } elseif (isset($_GET['numreservation']) && strlen($_GET['numreservation']) != 0) {
