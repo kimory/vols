@@ -21,7 +21,7 @@
         <?php // Si il n'y a pas d'erreur, on affiche les informations sur le vol recherché :
               else : ?>
         
-                <div><h3>Description du client</h3></div>
+                <div><h3>Description du vol</h3></div>
 
             <!-- Remarque : le htmlentities est une sécurité, il convertit les caractères
             spéciaux en entités HTML -->
