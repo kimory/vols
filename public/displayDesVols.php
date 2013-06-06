@@ -31,8 +31,8 @@
                         <td>
                             <?php echo htmlentities($value->getLieuDepart(), ENT_QUOTES, 'UTF-8'); ?> -
                             <?php echo htmlentities($value->getLieuArrivee(), ENT_QUOTES, 'UTF-8'); ?>
-                        </td>
-                        <td><?php echo htmlentities($value->getNumVol(), ENT_QUOTES, 'UTF-8'); ?></td>
+                        </td>       
+                        <td><a href="/affichageVolController/action/<?php echo htmlentities($value->getNumVol(), ENT_QUOTES, 'UTF-8');?>"><?php echo htmlentities($value->getNumVol(), ENT_QUOTES, 'UTF-8') ?></a></td>
                         <?php $datedep = new DateTime($value->getDateHeureDepart()); ?>
                         <td><?php echo htmlentities($datedep->format('d/m/Y'), ENT_QUOTES, 'UTF-8'); ?></td>
                     </tr>
