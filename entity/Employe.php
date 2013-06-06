@@ -3,7 +3,7 @@ namespace entity;
 
 use entity\Personne;
 
-final class Client extends Personne{
+final class Employe extends Personne{
     private $fonction;
     
     public function __construct($id, $civilite, $nom, $prenom, $adresse, $cp, $ville, $pays, $fonction) {

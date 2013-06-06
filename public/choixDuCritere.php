@@ -39,7 +39,7 @@
 
             <section class="tab-pane" id="employe">
                     <h3>Employé</h3>
-                    <form action="#" method="POST">
+                    <form action="/affichageEmployeController" method="POST">
                         <label for="numemploye">N° d'employé :</label>
                         <input type="text" id="numemploye" name="numemploye"><br>
                           

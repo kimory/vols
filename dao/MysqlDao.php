@@ -7,6 +7,7 @@ use entity\Client;
 use entity\Passager;
 use entity\Reservation;
 use entity\Vol;
+use entity\Employe;
 
 class MysqlDao {
 
@@ -118,7 +119,7 @@ class MysqlDao {
 
         // On aura besoin uniquement des numéros de client et de vol :
         $client = new Client($numclient, null, null, null, null, null, null, null, null, null, null, null, null);
-        $vol = new Vol($numvol, null, null, null, null, null);
+        $vol = new Vol($numvol, null, null, null, null, null, null, null, null, null, null);
         
         return new Reservation($numreservation, null, $client, $vol, $nbpassager, $dateduvol);
     }
@@ -145,27 +146,32 @@ class MysqlDao {
     }
     
     public function getVolById($numvol){
-        $sql = "SELECT numvol, lieudep, lieuarriv, dateheuredep, dateheurearrivee, tarif, fonction, numemploye
-                FROM vol
-                INNER JOIN travailler ON travailler.vol = vol.numvol
-                INNER JOIN employe ON employe.numemploye = travailler.employe
-                WHERE numvol = :numvol";
-        
-                $stmt = $this->dbh->prepare($sql);
-                $stmt->bindParam(":numvol", $numvol);
-                $stmt->execute();
-        
-                $row = $stmt->fetch(PDO::FETCH_ASSOC);
-                $numvol = $row['numvol'];
-                $lieudep = $row['lieudep'];
-                $lieuarriv = $row['lieuarriv'];
-                $dateheuredep = $row['dateheuredep'];
-                $dateheurearrivee = $row['dateheurearrivee'];
-                $tarif = $row['tarif'];
-                $fonction = $row['fonction'];
-                $numemploye = $row['numemploye'];
-                
-                //$vol = new Vol($numvol, $lieuDepart, $lieuArrivee, $dateHeureDepart, $dateHeureArrivee, $tarif)
+        $sql = "SELECT V.numvol, lieudep, lieuarriv, dateheuredep, dateheurearrivee, T.pilote,
+                T.copilote, T.hotesse_steward1, T.hotesse_steward2, T.hotesse_steward3, count(P.numplace) AS nb_places_vendues
+                FROM vol V
+                INNER JOIN travailler T ON T.vol = V.numvol
+                INNER JOIN place P ON P.numvol = V.numvol
+                WHERE V.numvol = :numvol";
+
+        $stmt = $this->dbh->prepare($sql);
+        $stmt->bindParam(":numvol", $numvol);
+        $stmt->execute();
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $numvol = $row['numvol'];
+        $lieudep = $row['lieudep'];
+        $lieuarriv = $row['lieuarriv'];
+        $dateheuredep = $row['dateheuredep'];
+        $dateheurearrivee = $row['dateheurearrivee'];
+        $pilote = $row['pilote'];
+        $copilote = $row['copilote'];
+        $hotesse_steward1 = $row['hotesse_steward1'];
+        $hotesse_steward2 = $row['hotesse_steward2'];
+        $hotesse_steward3 = $row['hotesse_steward3'];
+        $nb_places_restantes = Vol::NB_PLACES - $row['nb_places_vendues'];
+           
+        return $vol = new Vol($numvol, $lieudep, $lieuarriv, $dateheuredep, $dateheurearrivee, null,
+                     $pilote, $copilote, $hotesse_steward1, $hotesse_steward2, $hotesse_steward3, $nb_places_restantes);
     }
 
 }

@@ -41,12 +41,20 @@ insert into <nom de la table> values ($id,................)
 suppression d'une réservation
 DELETE FROM reservation WHERE numreserv=$id
 
-numvol:
-SELECT lieudep, lieuarriv, dateheuredep, dateheurearrivee, tarif, fonction, numemploye
+numvol: -- pour récupérer tous les employés !
+SELECT numvol, lieudep, lieuarriv, dateheuredep, dateheurearrivee, T.pilote,
+T.copilote, T.hotesse_steward1, T.hotesse_steward2, T.hotesse_steward3
 FROM vol
-INNER JOIN travailler ON travailler.vol = vol.numvol
-INNER JOIN employe ON employe.numemploye = travailler.employe
-WHERE numvol = $id
+INNER JOIN travailler T ON T.vol = vol.numvol
+WHERE numvol = 'DF0183'
+
+numvol: -- pour tout récupérer en 1 coup :
+SELECT V.numvol, lieudep, lieuarriv, dateheuredep, dateheurearrivee, T.pilote,
+T.copilote, T.hotesse_steward1, T.hotesse_steward2, T.hotesse_steward3, count(P.numplace) AS nb_places_vendues
+FROM vol V
+INNER JOIN travailler T ON T.vol = V.numvol
+INNER JOIN place P ON P.numvol = V.numvol
+WHERE V.numvol = 'DF0183'
 
 nbre de places réservées = nbre de places créées dans la base
 SELECT COUNT(*) 
