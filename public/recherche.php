@@ -13,7 +13,7 @@
 
             </header>
             <div id="container">
-                <form action="#" method="POST" id="formrecherche">
+                <form action="/PropositionsController" method="POST" >
                     <fieldset>
                         <legend>Votre sélection</legend> 
 

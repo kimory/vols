@@ -1,3 +1,5 @@
+<?php
+
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $villedepart = $_POST['villedepart'];
     $villearrivee = $_POST['villearrivee'];
@@ -21,9 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                
                 <div class="h6">                   
                     <h6>Votre sélection</h6> 
-                        <p>Vous partez de <?php echo '$villedepart'; ?> et vous arrivez à <?php echo '$villearrivee'; ?> .</p>
-                        <p>Date de départ souhaitée :<?php echo 'datedepart' ?></p>
-                        <p>Vous êtes <?php echo 'nbreadultes' ?> adultes et <?php echo'$nbreenfants' ?> enfants.</p>
+                        <p>Vous partez de <?php echo $villedepart; ?> et vous arrivez à <?php echo $villearrivee; ?> .</p>
+                        <p>Date de départ souhaitée :<?php echo $datedepart ?></p>
+                        <p>Vous êtes <?php echo $nbreadultes ?> adultes et <?php echo $nbreenfants ?> enfants.</p>
                 </div>                    
                 </div>
                 
@@ -34,8 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                         Choix 3 "dateheure" "prix": <input type="radio" name="choix" value="3"><br>                       
 
                     
-                <input for="valider" type="button" value="valider">
-                <input for="annuler" type="button" value="annuler">
+                <input  type="submit" value="valider">
+                <input  type="reset" value="annuler">
             </div>
             <footer>
 
