@@ -12,4 +12,4 @@ echo $date->format('d/m/Y');
 
 
 // Pour récupérer l'heure :
-SELECT DATE_FORMAT(datedep, '%Y-%m-%d %H:%i') from vol where DATE_FORMAT( datedep,"%Y-%m-%d")='2013-06-20'
+SELECT DATE_FORMAT(dateheuredep, '%Y-%m-%d %H:%i') AS volprogramme from vol where DATE_FORMAT( dateheuredep,"%Y-%m-%d")='2013-06-20'

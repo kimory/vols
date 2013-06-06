@@ -61,5 +61,8 @@ SELECT COUNT(*)
 FROM place
 WHERE numvol = $id
 
+recuperer un vol par rapport a la date saisie par l'utilisateur:
+SELECT DATE_FORMAT(dateheuredep, '%Y-%m-%d %H:%i') AS volprogramme from vol where DATE_FORMAT( dateheuredep,"%Y-%m-%d")='2013-06-20'
+
 
 
