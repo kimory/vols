@@ -195,6 +195,8 @@ class MysqlDao {
     }
     
     public function getEmployeById($idEmploye){
+        // retourne les infos de l'employé sous forme d'un objet Employe
+        
         $sql = 'SELECT numemploye, civilite, nom, prenom, fonction
                 FROM employe
                 WHERE numemploye = :id';
