@@ -18,11 +18,5 @@ class PropositionsController{
 }
 }
 
-try{
-$dao = new MysqlDao();
-$selectByVol = $dao-> getSelectByVol();
-include VIEW.'display_propositions.php';
-}  catch (PDOException $ex){
-    header("location:/vols/public/error.php");
-}
+
 ?>

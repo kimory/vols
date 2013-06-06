@@ -43,7 +43,7 @@ class MysqlDao {
         }
         return $tab;
     }
-    public function getPropositionsByVol($villedep, $villearrivee){
+    public function getPropositionsByVol($villedep, $villearrivee, $datedep,$nbreadultes,$nbreenfants){
         // recupere les infos saisies par le client et verifier les donnees saisies qui sont les ville de depart et ville d'arrivee et
         //si la compagnie propose la destination.
         $sql = "SELECT lieudep,lieuarriv,dateheuredep FROM vol            

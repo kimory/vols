@@ -10,7 +10,7 @@ $dao = new MysqlDao();
 //var_dump($dao->getInfosPassagerById('P0283'));
 //var_dump($dao->getPassagersEtPlacesByReservation('RV014561AJ'));
 
-var_dump($dao->getPropositionsByVol('Paris', 'Saint-Martin'));
+//var_dump($dao->getPropositionsByVol('Paris', 'Saint-Martin'));
 //var_dump($dao->getVolById('DF5609'));
 
 ?>
