@@ -27,7 +27,7 @@
             spéciaux en entités HTML -->
             <div>
                 <p>N° réservation : <?php echo htmlentities($reservation->getNumReservation(), ENT_QUOTES, 'UTF-8') ?></p>
-                <p>N° vol : <?php echo htmlentities($reservation->getVol()->getNumvol(), ENT_QUOTES, 'UTF-8') ?></p>
+                <p>N° vol : <a href="/affichageVolController/action/<?php echo htmlentities($reservation->getVol()->getNumvol(), ENT_QUOTES, 'UTF-8')?>"><?php echo htmlentities($reservation->getVol()->getNumvol(), ENT_QUOTES, 'UTF-8') ?></a></p>
                 <?php $dateheuredep = new DateTime($reservation->getDateDuVol())?>
                 <p>Date de départ : <?php echo htmlentities($dateheuredep->format('d/m/Y'), ENT_QUOTES, 'UTF-8') ?></p>
                 <p>Heure de départ : <?php echo htmlentities($dateheuredep->format('H:i'), ENT_QUOTES, 'UTF-8') ?></p>
@@ -39,7 +39,7 @@
             
         <?php endif; ?>
                 
-        <div><a href="/choixducritere">retour</a></div>
+        <div><a href="/choixducritere">retour au choix du critère</a></div>
         
     </body>
     

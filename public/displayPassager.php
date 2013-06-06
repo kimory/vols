@@ -41,7 +41,7 @@
             
         <?php endif; ?>
                 
-        <div><a href="/choixducritere">retour</a></div>
+        <div><a href="/choixducritere">retour au choix du critère</a></div>
         
     </body>
     
