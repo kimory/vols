@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.11.1deb1
+-- version 3.4.11.1deb2
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Dim 02 Juin 2013 à 12:16
+-- Généré le: Jeu 06 Juin 2013 à 15:28
 -- Version du serveur: 5.5.31
--- Version de PHP: 5.4.6-1ubuntu1.2
+-- Version de PHP: 5.4.4-14
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -260,7 +260,6 @@ INSERT INTO `reservation` (`numreserv`, `datereserv`, `numclient`) VALUES
 ('RV071526SY', '2013-04-22', 'CL059'),
 ('RV258014BA', '2013-05-17', 'CL524'),
 ('RV476292MO', '2013-04-09', 'CL247'),
-('RV622319VE', '2013-07-01', 'CL375'),
 ('RV745860TA', '2013-03-23', 'CL025'),
 ('RV783920MO', '2013-04-26', 'CL247'),
 ('RV923735WI', '2013-03-31', 'CL198');
@@ -345,12 +344,12 @@ CREATE TABLE IF NOT EXISTS `vol` (
 --
 
 INSERT INTO `vol` (`numvol`, `lieudep`, `lieuarriv`, `dateheuredep`, `dateheurearrivee`, `tarif`) VALUES
-('DF0183', 'Paris - France', 'Guadeloupe', '2013-06-20 10:30:00', '2013-06-21 13:20:00', 617),
-('DF0810', 'Doha - Qatar', 'Tokyo - Japon', '2013-07-14 22:30:00', '2013-07-15 10:50:00', 799),
-('DF1028', 'Casablanca - Maroc', 'Honolulu - Hawaï', '2013-05-24 02:20:00', '2013-05-25 18:34:00', 1524),
-('DF4692', 'Berne - Suisse', 'Sydney - Australie', '2013-06-01 06:50:00', '2013-05-02 22:05:00', 1472),
-('DF5609', 'Ottawa - Canada', 'Washington', '2013-06-01 12:40:00', '2013-06-01 19:34:00', 600),
-('DF9174', 'Addids Adéba - Djibouti', 'Vienne - Autriche', '2013-05-26 22:40:00', '2013-05-27 13:30:00', 893);
+('DF0183', 'Paris', 'Saint-Martin', '2013-06-20 10:30:00', '2013-06-21 13:20:00', 617),
+('DF0810', 'Doha', 'Tokyo', '2013-07-14 22:30:00', '2013-07-15 10:50:00', 799),
+('DF1028', 'Casablanca', 'Honolulu', '2013-05-24 02:20:00', '2013-05-25 18:34:00', 1524),
+('DF4692', 'Berne', 'Sydney', '2013-06-01 06:50:00', '2013-05-02 22:05:00', 1472),
+('DF5609', 'Ottawa', 'Washington', '2013-06-01 12:40:00', '2013-06-01 19:34:00', 600),
+('DF9174', 'Addids Adéba', 'Vienne', '2013-05-26 22:40:00', '2013-05-27 13:30:00', 893);
 
 --
 -- Contraintes pour les tables exportées
