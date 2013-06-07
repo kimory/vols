@@ -17,7 +17,7 @@
         // Si il n'y a pas d'erreur, on affiche la liste des vols sur lesquels l'employé travaille :
               else : ?>
         
-                <div><h3>Description des vols de l'employé N°<a href="/affichageEmployeController/action/<?php echo htmlentities($_GET['numemploye'], ENT_QUOTES, 'UTF-8');?>"><?php echo htmlentities($_GET['numemploye'], ENT_QUOTES, 'UTF-8') ?></a></h3></div>
+                <div><h3>Description des vols de l'employé N° <a href="/affichageEmployeController/action/<?php echo htmlentities($_GET['numemploye'], ENT_QUOTES, 'UTF-8');?>"><?php echo htmlentities($_GET['numemploye'], ENT_QUOTES, 'UTF-8') ?></a></h3></div>
 
             <!-- Remarque : le htmlentities est une sécurité, il convertit les caractères
             spéciaux en entités HTML -->
