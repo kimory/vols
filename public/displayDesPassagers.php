@@ -24,7 +24,7 @@
             <div>
                 <table>
                     <tr>
-                        <th>N° de passager</th><th>Place</th>
+                        <th>N° de passager</th><th>N° de place</th>
                     </tr>
                     <?php foreach ($tab as $value) : ?>
                     <tr>
