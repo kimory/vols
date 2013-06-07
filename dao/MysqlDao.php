@@ -50,8 +50,7 @@ class MysqlDao {
                 WHERE lieudep = :villedep AND lieuarriv =:villearrivee AND dateheuredep =:datedep";
         $stmt = $this->dbh->prepare($sql);
         $stmt->bindParam(":villedep", $villedep);
-        $stmt->bindParam(":villearrivee", $villearrivee); 
-        $stmt->binfParam(":dateheuredep", $datedep);
+        $stmt->bindParam(":villearrivee", $villearrivee);        
         $stmt->execute();
         $result = array();
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
