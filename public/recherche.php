@@ -1,4 +1,4 @@
-<?php ?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,16 +9,7 @@
     <body>
         <div id="supercontainer">
             <header>
-
-                <form action="/backOfficeLoginController" method="POST" >
-                        <label for ="login">login</label>
-                           <input type="text" name="login" id="login">
-
-                        <label for ="passwd">password</label>
-                           <input type="password" name="passwd" id="passwd"><br>
-					   <input type="submit" name="valider" id="valider" value="ok">          
-				</form>
-
+				<?php include('include/back_office_login_form.php'); ?>
             </header>
             <div id="container">
                 <form action="/PropositionsController" method="POST" >

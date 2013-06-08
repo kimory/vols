@@ -1,5 +1,4 @@
-<?php
-
+<?php session_start(); ?>
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $villedepart = $_POST['villedepart'];
     $villearrivee = $_POST['villearrivee'];
