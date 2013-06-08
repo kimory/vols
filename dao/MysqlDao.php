@@ -270,7 +270,7 @@ class MysqlDao {
 		return null;
 	}
         
-        public function connexionEspaceClient($login, $passwd){
+        public function userLogin($login, $passwd){
 		// renvoie un tableau avec le login et le mot de passe
 		$sql = "SELECT login 
 				FROM client 
