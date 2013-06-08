@@ -28,7 +28,9 @@
                     </tr>
                     <?php foreach ($tab as $value) : ?>
                     <tr>
-                                <td><a href="/affichagePassagerController/action/<?php echo htmlentities($value['numpassager'], ENT_QUOTES, 'UTF-8');?>"><?php echo htmlentities($value['numpassager'], ENT_QUOTES, 'UTF-8') ?></a></td>
+                                <td><a href="/affichagePassagerController/action/<?php 
+                                    echo htmlentities($value['numpassager'], ENT_QUOTES, 'UTF-8');?>"><?php 
+                                    echo htmlentities($value['numpassager'], ENT_QUOTES, 'UTF-8') ?></a></td>
                                 <td><?php echo htmlentities($value['numplace'], ENT_QUOTES, 'UTF-8'); ?></td>
                     </tr>
                     <?php endforeach; ?>
