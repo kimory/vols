@@ -249,17 +249,17 @@ class MysqlDao {
         return $vols;
     }
 
-	public function backOfficeLogin($login, $passwd){
-		// revoie un tableau avec un login et le mot de passe chiffré
+    public function backOfficeLogin($login, $passwd){
+		// renvoie un tableau avec le login et le mot de passe chiffré
 		$sql = "SELECT login 
 				FROM user 
 				WHERE login=:login and password=:passwd";
-
+                
+                // le grain de sel utilisé lors du chiffrement commence par "$5$..." -> c'est du sha256
 		$passwd = crypt($passwd, '$5$ABCDEFGHIJKLM');
 
 		$stmt = $this->dbh->prepare($sql);
 		$stmt->bindParam(":login", $login);
-		// salt $5$ = sha256
 		$stmt->bindParam(":passwd", $passwd );
 		$stmt->execute();
 
@@ -269,7 +269,24 @@ class MysqlDao {
 
 		return null;
 	}
+        
+        public function connexionEspaceClient($login, $passwd){
+		// renvoie un tableau avec le login et le mot de passe
+		$sql = "SELECT login 
+				FROM client 
+				WHERE login=:login and password=:passwd";
 
+		$stmt = $this->dbh->prepare($sql);
+		$stmt->bindParam(":login", $login);
+		$stmt->bindParam(":passwd", $passwd );
+		$stmt->execute();
+
+		if($stmt->fetch(PDO::FETCH_ASSOC)){
+			return array($login, $passwd);
+		}
+
+		return null;
+	}
 }
 
 ?>
