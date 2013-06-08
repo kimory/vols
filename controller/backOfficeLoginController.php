@@ -26,7 +26,7 @@ class backOfficeLoginController {
                 header('Location:' . $_SERVER['HTTP_REFERER']);
             } else {
                 // Si tout est ok, on enregistre le login et le password en session, et on envoie vers le back office.
-                $_SESSION['login'] = $res[0];
+                $_SESSION['login_admin'] = $res[0];
                 $_SESSION['passwd'] = $res[1];
                 header('Location:/choixducritere');
             }
