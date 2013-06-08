@@ -249,6 +249,27 @@ class MysqlDao {
         return $vols;
     }
 
+	public function backOfficeLogin($login, $passwd){
+		// revoie un tableau avec un login et le mot de passe chiffré
+		$sql = "SELECT login 
+				FROM user 
+				WHERE login=:login and password=:passwd";
+
+		$passwd = crypt($passwd, '$5$ABCDEFGHIJKLM');
+
+		$stmt = $this->dbh->prepare($sql);
+		$stmt->bindParam(":login", $login);
+		// salt $5$ = sha256
+		$stmt->bindParam(":passwd", $passwd );
+		$stmt->execute();
+
+		if($stmt->fetch(PDO::FETCH_ASSOC)){
+			return array($login, $passwd);
+		}
+
+		return null;
+	}
+
 }
 
 ?>
