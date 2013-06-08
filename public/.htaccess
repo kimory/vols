@@ -4,6 +4,7 @@ RewriteEngine on
 # pour la récriture d'URL
 RewriteRule ^$ accueil.php [L]
 RewriteRule ^recherche$ recherche.php [L]
+RewriteRule ^search$ search.php [L]
 RewriteRule ^choixducritere$ choixDuCritere.php [L]
 #méthode action par défaut
 RewriteRule ^([a-zA-Z]+)$ index.php?controller=$1&method=action [L]

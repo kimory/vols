@@ -6,7 +6,7 @@
 -Cahier des charges fini + mis en forme
 -Créer d'autres vols : dans les 2-3 mois après la date de fin de projet + dans les 2 mois après la date de présentation au jury
 -Donner avec l'appli la liste des vols créés
--Rajouter "site bilingue" dans le cahier des charges (si on le gère)
+-"Site bilingue" : si on a le tps, créer les pages en version anglaise + modifier le cahier des charges pr l'indiquer (voir dans la partie "Remarques")
 -Penser aux sessions
 -Modifier le DOCTYPE sur chaque page
 -attention : commit / pull / push
