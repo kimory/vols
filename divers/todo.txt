@@ -10,3 +10,4 @@
 -Penser aux sessions
 -Modifier le DOCTYPE sur chaque page
 -attention : commit / pull / push
+- en local : réimporter la BDD

@@ -14,6 +14,7 @@
             <div id="container">
                 <h1>Coming soon...</h1>
                 <p>An English version of this website will come soon!</p>
+                <p><a href="/">back</a></p>
             </div>
             <footer>
 

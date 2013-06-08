@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Sam 08 Juin 2013 à 16:06
+-- Généré le: Sam 08 Juin 2013 à 20:19
 -- Version du serveur: 5.5.31
 -- Version de PHP: 5.4.4-14
 
@@ -95,14 +95,14 @@ INSERT INTO `destination` (`codeaeroport`, `ville`, `pays`) VALUES
 ('KUL', 'Kuala Lumpur', 'Malaisie'),
 ('KWI', 'Koweït', 'Koweït'),
 ('LAX', 'Los Angeles-Californ', 'USA'),
-('LHR', 'Londre', 'Angleterre'),
+('LHR', 'Londres', 'Angleterre'),
 ('MAD', 'Madrid', 'Espagne'),
 ('MEX', 'Mexico', 'Mexique'),
 ('MIA', 'Miami', 'USA'),
 ('NDJ', 'N''Djaména', 'Tchad'),
 ('NRT', 'Tokyo', 'Japon'),
 ('ORD', 'O''hare - Chicago', 'USA'),
-('PEK', 'Pekin', 'Chine'),
+('PEK', 'Pékin', 'Chine'),
 ('PPT', 'Tahiti', 'Polynésie'),
 ('PRY', 'Prétoria', 'Afrique du Sud'),
 ('PTP', 'Pôle Caraïbes - Guad', 'France'),
