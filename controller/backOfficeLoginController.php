@@ -14,9 +14,10 @@ class backOfficeLoginController {
             $login = trim($_POST['login']);
 			$passwd = $_POST['passwd'];
             $dao = new MysqlDao();
+			$res = null;
             $res = $dao->backOfficeLogin($login, $passwd);
 
-			if( sizeof($res) != 0) {
+			if( $res == null ) {
 				$_SESSION['message'] = 'Le login et le mot de passe saisis ne coincident pas.';
 				// renvoie vers la page précédente
 				header('Location:' . $_SERVER['HTTP_REFERER']);
@@ -26,10 +27,11 @@ class backOfficeLoginController {
 				$_SESSION['passwd'] = $res[1];
 				header('Location:/choixducritere');
 			}
-        }
-		$_SESSION['message'] = 'Vous devez renseigner un login et un mot de passe.';
-		// renvoie vers la page précédente
-		header('Location:' . $_SERVER['HTTP_REFERER']);
+        } else {
+			$_SESSION['message'] = 'Vous devez renseigner un login et un mot de passe.';
+			// renvoie vers la page précédente
+			header('Location:' . $_SERVER['HTTP_REFERER']);
+		}
 	}
 
 }
