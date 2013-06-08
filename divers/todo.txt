@@ -9,3 +9,4 @@
 -Rajouter "site bilingue" dans le cahier des charges (si on le gère)
 -Penser aux sessions
 -Modifier le DOCTYPE sur chaque page
+-attention : commit / pull / push
