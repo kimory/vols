@@ -11,6 +11,7 @@
             <header>
 				<?php include('include/back_office_login_form.php'); ?>
             </header>
+			<?php include('include/menu_front_office.php'); ?>
             <div id="container">
                 <form action="/PropositionsController" method="POST" >
                     <fieldset>
