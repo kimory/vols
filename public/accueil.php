@@ -11,7 +11,7 @@
     
   <body>
 	
-	  <p><a href="/recherche">Français</a> | <a href=#>Anglais</a></p>
+	  <p><a href="/recherche">Français</a> | <a href="/search">Anglais</a></p>
 	   	   
   
   </body>
