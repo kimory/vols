@@ -11,8 +11,19 @@ function test($login, $password){
 }
 
 //test('tux', 'tux');
+//echo "". crypt('tux');
+//if (strcmp(crypt('tux'),'$6$iqYnWUqzIQEs$Mxy4QhB4OdPPJHsGrluOOZlOSflK4JNUVPqhkf1qKQN8gTb6X7mJpn./p0x//8FQyH7TlwmO3if4yaj3ewx8') == 0) {
+//   echo "Mot de passe correct !";
+//}
 
-if (crypt('tux') == '$1$3Z0.OW2.$Mg6ScudaEbP8OfSDoGyNI/') {
+$salt = '$5$ABCDEFGHIJKLM'; // $5$ indique que c'est du sha256
+$hashed_password = crypt('tux', $salt);
+echo "". crypt('general', $salt). "\n";
+echo "". crypt('tux', $salt). "\n";
+        
+if (crypt('tux', $salt) == $hashed_password) {
    echo "Mot de passe correct !";
 }
+
+
 ?>
