@@ -9,7 +9,6 @@ use dao\MysqlDao;
 class affichageClientController {
 
     public function action() {
-		echo "LOGIN : " . $_SESSION['login_admin'];
         $message = null;
         // On vérifie qu'un numéro de client a été récupéré
         // Soit via le formulaire de recherche :

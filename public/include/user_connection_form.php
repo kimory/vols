@@ -1,5 +1,5 @@
 <?php
-// Si l'utilisateur est connecté, on lui propose un bouton de déconnexion
+// Si l'utilisateur est connecté, on voit un bouton de déconnexion
 if (isClientConnected()) {
 	?>
 	<a href='/deconnexionController' ><button class="btn btn-large btn-primary" type="button">Déconnexion</button></a>

@@ -15,12 +15,13 @@
 
 - vérifier : 
 	* qu'on obtient toutes les réservations différentes sur la page espace client
-	* qu'on obtient toutes les informations sur la réservation que nous avons sélectionné
-	* qu'on a bien inclut les fichiers CSS et JS de bootstrap
+	* qu'on obtient toutes les informations sur la réservation que nous avons sélectionnée
+	* qu'on a bien inclus les fichiers CSS et JS de bootstrap
 
 - FAIRE - classe MysqlDao : 
 	* refaire les fonctions isClientConnected et isAdminConnected pour vraiment 
 		aller chercher s'ils sont connectés (= ils existent) dans la base de données
+                (pour l'instant elles sont dans le dao mais n'utilisent pas la BDD !)
 
 - FAIRE :
 	* nouvelle réservation (ec)

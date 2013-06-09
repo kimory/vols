@@ -10,23 +10,23 @@ if (! isClientConnected()) {
                 <option value="mme">Madame</option>
             </select>
 
-            <label for="nom">nom</label>
+            <label for="nom">Nom</label>
             <input type="text" name="nom" id="nom">
-            <label for="prenom">prenom</label>
+            <label for="prenom">Prénom</label>
             <input type="text" name="prenom" id="prenom">
-            <label for="adresse">adresse</label>
+            <label for="adresse">Adresse</label>
             <input type="text" name="adresse" id="adresse">
-            <label for="code_postal">code_postal</label>
+            <label for="code_postal">Code postal</label>
             <input type="text" name="code_postal" id="code_postal">
-            <label for="ville">ville</label>
+            <label for="ville">Ville</label>
             <input type="text" name="ville" id="ville">
-            <label for="pays">pays</label>
+            <label for="pays">Pays</label>
             <input type="text" name="pays" id="pays">
-            <label for="email">email</label>
+            <label for="email">E-mail</label>
             <input type="text" name="email" id="email">
-            <label for="telfixe">telfixe</label>
+            <label for="telfixe">Téléphone fixe</label>
             <input type="text" name="telfixe" id="telfixe">
-            <label for="telportable">telportable</label>
+            <label for="telportable">Téléphone portable</label>
             <input type="text" name="telportable" id="telportable">
 
             <label for="login">Identifiant :</label>

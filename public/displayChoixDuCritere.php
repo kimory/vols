@@ -9,12 +9,13 @@
         <title>DEV-FLY - Choix du critère</title>
     </head>
     <body>
-		<header>
-			<?php 
-echo "LOGIN : " . $_SESSION['login_admin'];
-include('include/back_office_login_form.php'); ?>
-		</header>
-       
+        <header>
+            <?php
+//echo "Bonjour " . $_SESSION['login_admin'];
+            include('include/back_office_login_form.php');
+            ?>
+        </header>
+
         <ul class="nav nav-tabs">
             <li class="active"><a href="#vol" data-toggle="tab">Vol</a></li>
             <li><a href="#passager" data-toggle="tab">Passager</a></li>
@@ -43,36 +44,36 @@ include('include/back_office_login_form.php'); ?>
             </section>
 
             <section class="tab-pane" id="employe">
-                    <h3>Employé</h3>
-                    <form action="/affichageEmployeController" method="POST">
-                        <label for="numemploye">N° d'employé :</label>
-                        <input type="text" id="numemploye" name="numemploye"><br>                          
-                        <input type="submit" value="Valider">
-                    </form>
+                <h3>Employé</h3>
+                <form action="/affichageEmployeController" method="POST">
+                    <label for="numemploye">N° d'employé :</label>
+                    <input type="text" id="numemploye" name="numemploye"><br>                          
+                    <input type="submit" value="Valider">
+                </form>
             </section>
 
             <section class="tab-pane" id="reservation">
-                    <h3>Réservation</h3>
-                    <form action="/affichageReservationController" method="POST">
-                        <label for="numreservation">N° de réservation :</label>
-                        <input type="text" id="numreservation" name="numreservation"><br>
-                        <input type="submit" value="Valider">
-                    </form>
+                <h3>Réservation</h3>
+                <form action="/affichageReservationController" method="POST">
+                    <label for="numreservation">N° de réservation :</label>
+                    <input type="text" id="numreservation" name="numreservation"><br>
+                    <input type="submit" value="Valider">
+                </form>
             </section>
 
             <section class="tab-pane" id="client">
-                    <h3>Client</h3>
-                    <form action="/affichageClientController" method="POST">
-                        <label for="numclient">N° de client :</label>
-                        <input type="text" id="numclient" name="numclient"><br>
-                        <input type="submit" value="Valider">
-                    </form>
+                <h3>Client</h3>
+                <form action="/affichageClientController" method="POST">
+                    <label for="numclient">N° de client :</label>
+                    <input type="text" id="numclient" name="numclient"><br>
+                    <input type="submit" value="Valider">
+                </form>
             </section>
         </div>
-        
-    <!-- Ci-dessous le JavaScript pour la navigation en onglets --> 
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="js/bootstrap.js"></script>
+
+        <!-- Ci-dessous le JavaScript pour la navigation en onglets --> 
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script src="js/bootstrap.js"></script>
     </body>
-    
+
 </html>
