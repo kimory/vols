@@ -5,8 +5,29 @@
 -Tester / Faire tester l'appli
 -Cahier des charges fini + mis en forme
 -Créer d'autres vols : dans les 2-3 mois après la date de fin de projet + dans les 2 mois après la date de présentation au jury
--Donner avec l'appli la liste des vols créés
+-Donner avec l'appli la liste des vols créés + identifiants
 -"Site bilingue" : si on a le tps, créer les pages en version anglaise + modifier le cahier des charges pr l'indiquer (voir dans la partie "Remarques")
 -Penser aux sessions
 -Modifier le DOCTYPE sur chaque page
 -attention : commit / pull / push
+- en local : réimporter la BDD
+
+-sessions + déconnexion partie backoffice
+-sessions + déconnexion partie client
+-menu sur chaque page
+-visualisation de la liste des résas (espace client)
+-visualisation des détails d'une résa (ep)
+-visualisation du billet pour impression (ep)
+-nouvelle réservation (ep)
+-modification d'une réservation -> revient à annuler + réserver (ep)
+-passer le formulaire de recherche dans le dossier include + l'inclure sur les bonnes pages
+-résultats de la recherche
+-mise en session du choix de l'utilisateur
+-formulaire d'inscription des passagers dans le dossier include + l'inclure sur les bonnes pages
+-fiche client et / ou demande de connexion sur la même page
+-fiche de synthèse + formulaire de paiement
+-billet
+-CSS
+
+
+
