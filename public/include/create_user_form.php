@@ -35,7 +35,7 @@ if (! isClientConnected()) {
             <label for ="passwd">Mot de passe : </label>
             <input type="password" name="passwd" id="passwd">
             <label for ="passwd">Confirmez le mot de passe : </label>
-            <input type="password" name="passwd" id="passwd">
+            <input type="password" name="passwd" id="passwd"><br>
 
             <input type="reset" value="annuler">          
             <input type="submit" value="valider">          
