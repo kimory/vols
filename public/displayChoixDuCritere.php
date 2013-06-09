@@ -1,4 +1,5 @@
 <?php session_start(); ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,6 +9,11 @@
         <title>DEV-FLY - Choix du critère</title>
     </head>
     <body>
+		<header>
+			<?php 
+echo "LOGIN : " . $_SESSION['login_admin'];
+include('include/back_office_login_form.php'); ?>
+		</header>
        
         <ul class="nav nav-tabs">
             <li class="active"><a href="#vol" data-toggle="tab">Vol</a></li>

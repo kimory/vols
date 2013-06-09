@@ -2,6 +2,8 @@
 
 namespace controller;
 
+session_start();
+
 use dao\MysqlDao;
 
 class affichageEmployeController {

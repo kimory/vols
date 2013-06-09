@@ -24,8 +24,8 @@ class clientLoginController {
                 // et on renvoie vers la page précédente en cas d'erreur de saisie :
             } else {
                 // Si tout est ok, on enregistre le login et le password en session.
-                $_SESSION['login'] = $res[0];
-                $_SESSION['passwd'] = $res[1];
+                $_SESSION['login'] = $result[0];
+                $_SESSION['passwd'] = $result[1];
             }
         } else {
             // On stocke 1 message d'erreur en session
