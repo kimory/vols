@@ -6,18 +6,22 @@ session_start();
 
 use dao\MysqlDao;
 
-class reservationsController {
+class reservationDetailsController {
 
 	public function action() {
 
-		if(isset($_SESSION['login']) && strlen($_SESSION['login']) > 0)
+		echo "TEST BLAEL GAKGEK AKA MEG JAEGJMLAA EALJHG AE";
+		$dao = new MysqlDao();
+
+		if($dao->isClientConnected() && 
+			isset($_GET['numreservation']) && 
+			strlen($_GET['numreservation']) > 0)
 		{
 			$login = $_SESSION['login'];
-
-			$dao = new MysqlDao();
+			$numreservation = $_GET['numreservation'];
 			// On récupère un tableau de tableaux qui contient la liste des
-			// réservations qu'a passé le client
-			$result = $dao->getReservations($login);
+			// informations sur la réservation
+			$result = $dao->getReservationDetails($numreservation);
 
 			if ($result == null) {
 				$_SESSION['error_message'] = 'Pas de réservations.';
@@ -26,7 +30,7 @@ class reservationsController {
 				header('Location:' . $_SERVER['HTTP_REFERER']);
 			} else {
 				// Si tout est ok, on enregistre le résultat en session
-				$_SESSION['resultat_liste_reservations'] = $result;
+				$_SESSION['resultat_infos_reservation'] = $result;
 				header('Location:/espaceclient');
 			}
 			// normalement impossible d'arriver ici

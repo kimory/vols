@@ -288,13 +288,63 @@ class MysqlDao {
 		return null;
 	}
 
-	public function getReservations($login) {
+	// TODO
+	// On peut aller chercher dans la BDD si le client existe réellement
+	public function isClientConnected() 
+	{
+		return (isset($_SESSION['login'], $_SESSION['passwd']) 
+			&& strlen($_SESSION['login']) > 0 
+			&& strlen($_SESSION['passwd']) > 0);
+	}
+
+	// TODO
+	// On peut aller chercher dans la BDD si l'admin existe réellement
+	// PS : ne pas oublier que le mot de passe enregistré est déjà chiffré
+	public function isAdminConnected() 
+	{
+		return (isset($_SESSION['login_admin'], $_SESSION['passwd']) 
+			&& strlen($_SESSION['login_admin']) > 0 
+			&& strlen($_SESSION['passwd']) > 0);
+	}
+
+	public function getReservations($login) 
+	{
 		$sql = "SELECT DISTINCT 
 			R.numreserv AS numreservation, 
 			R.datereserv AS datereservation, 
 			V.lieudep AS lieudepart, 
 			V.lieuarriv AS lieuarrivee, 
 			V.dateheuredep AS datedepart
+			FROM reservation R
+			INNER JOIN place P ON P.numreservation = R.numreserv
+			INNER JOIN vol V ON V.numvol = P.numvol
+			INNER JOIN client C ON C.numclient = R.numclient
+			WHERE C.numclient = (
+				SELECT numclient FROM client WHERE login=:login)";
+
+		$stmt = $this->dbh->prepare($sql);
+		$stmt->bindParam(":login", $login );
+		$stmt->execute();
+
+		$result = array();
+		while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+			$result[] = $row; // $row['numreservation'];
+		}
+
+		return $result;
+	}
+
+	public function getReservationDetails($numreservation)
+	{
+		$sql = "SELECT 
+			R.numreserv AS numreservation, 
+			R.datereserv AS datereservation, 
+			V.lieudep AS lieudepart, 
+			V.lieuarriv AS lieuarrivee, 
+			V.dateheuredep AS datedepart,
+			P.prix AS prix,
+			P.numplace AS numeroplace,
+			P.numpassager AS numeropassager
 			FROM reservation R
 			INNER JOIN place P ON P.numreservation = R.numreserv
 			INNER JOIN vol V ON V.numvol = P.numvol

@@ -10,6 +10,7 @@ RewriteRule ^choixducritere$ displayChoixDuCritere.php [L]
 RewriteRule ^quisommesnous$ quiSommesNous.php [L]
 #méthode action par défaut
 RewriteRule ^([a-zA-Z]+)$ index.php?controller=$1&method=action [L]
+RewriteRule ^reservationDetailsController/action/([a-zA-Z0-9]+)$ index.php?controller=reservationDetailsController&method=action&numreservation=$1 [L]
 RewriteRule ^affichageClientController/action/([a-zA-Z0-9]+)$ index.php?controller=affichageClientController&method=action&numclient=$1 [L]
 RewriteRule ^affichagePassagerController/action/([a-zA-Z0-9]+)$ index.php?controller=affichagePassagerController&method=action&numpassager=$1 [L]
 RewriteRule ^affichageReservationController/action/([a-zA-Z0-9]+)$ index.php?controller=affichageReservationController&method=action&numreservation=$1 [L]

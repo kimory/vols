@@ -12,21 +12,26 @@
 -attention : commit / pull / push
 - en local : réimporter la BDD
 
--visualisation de la liste des résas (espace client)
--visualisation des détails d'une résa (ec)
--visualisation du billet pour impression (ec)
--nouvelle réservation (ec)
--modification d'une réservation -> revient à annuler + réserver (ec)
--passer le formulaire de recherche dans le dossier include + l'inclure sur les bonnes pages
--résultats de la recherche
--mise en session du choix de l'utilisateur
--formulaire d'inscription des passagers dans le dossier include + l'inclure sur les bonnes pages
--fiche client et / ou demande de connexion sur la même page
--fiche de synthèse + formulaire de paiement
--billet
--CSS
--reprendre IHM menu
--formulaire contact
 
+- vérifier : 
+	* qu'on obtient toutes les réservations différentes sur la page espace client
+	* qu'on obtient toutes les informations sur la réservation que nous avons sélectionné
+	* qu'on a bien inclut les fichiers CSS et JS de bootstrap
 
+- FAIRE - classe MysqlDao : 
+	* refaire les fonctions isClientConnected et isAdminConnected pour vraiment 
+		aller chercher s'ils sont connectés (= ils existent) dans la base de données
 
+- FAIRE :
+	* nouvelle réservation (ec)
+	* modification d'une réservation -> revient à annuler + réserver (ec)
+	* passer le formulaire de recherche dans le dossier include + l'inclure sur les bonnes pages
+	* résultats de la recherche
+	* mise en session du choix de l'utilisateur
+	* formulaire d'inscription des passagers dans le dossier include + l'inclure sur les bonnes pages
+	* fiche client et / ou demande de connexion sur la même page
+	* fiche de synthèse + formulaire de paiement
+	* billet
+	* CSS
+	* reprendre IHM menu
+	* formulaire contact
