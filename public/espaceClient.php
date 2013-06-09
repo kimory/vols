@@ -54,10 +54,12 @@
                                         echo $row['numreservation'] ?>"><?php
                                         echo $row['numreservation'] ?></a>
                                     </td>
-                                    <td><?php echo $row['datereservation'] ?></td>
+                                    <?php $datereservation = new Datetime($row['datereservation']);?>
+                                    <td><?php echo $datereservation->format('d/m/Y'); ?></td>
                                     <td><?php echo $row['lieudepart'] ?></td>
                                     <td><?php echo $row['lieuarrivee'] ?></td>
-                                    <td><?php echo $row['datedepart'] ?></td>
+                                    <?php $datedepart = new Datetime($row['datedepart']);?>
+                                    <td><?php echo $datedepart->format('d/m/Y H:i');?></td>
                                 </tr>
                         <?php endforeach; ?>
                         </table>
@@ -104,10 +106,12 @@
                 ?>
                                 <tr>
                                     <td><?php echo $row['numreservation'] ?></td>
-                                    <td><?php echo $row['datereservation'] ?></td>
+                                    <?php $datereservation = new Datetime($row['datereservation']);?>
+                                    <td><?php echo $datereservation->format('d/m/Y'); ?></td>
                                     <td><?php echo $row['lieudepart'] ?></td>
                                     <td><?php echo $row['lieuarrivee'] ?></td>
-                                    <td><?php echo $row['datedepart'] ?></td>
+                                    <?php $datedepart = new Datetime($row['datedepart']);?>
+                                    <td><?php echo $datedepart->format('d/m/Y H:i');?></td>
                                     <td><?php echo $row['prix'] ?></td>
                                     <td><?php echo $row['numeroplace'] ?></td>
                                     <td><?php echo $row['numeropassager'] ?></td>
