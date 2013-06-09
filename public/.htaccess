@@ -5,6 +5,7 @@ RewriteEngine on
 RewriteRule ^$ accueil.php [L]
 RewriteRule ^recherche$ recherche.php [L]
 RewriteRule ^search$ search.php [L]
+RewriteRule ^espaceclient$ espaceClient.php [L]
 RewriteRule ^choixducritere$ displayChoixDuCritere.php [L]
 RewriteRule ^quisommesnous$ quiSommesNous.php [L]
 #méthode action par défaut

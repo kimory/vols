@@ -1,6 +1,6 @@
 <?php
 // Si l'utilisateur est connecté, on lui propose un bouton de déconnexion
-if (isset($_SESSION['login']) && strlen($_SESSION['login']) > 0) {
+if (isClientConnected()) {
 	?>
 	<a href='/deconnexionController' ><button class="btn btn-large btn-primary" type="button">Déconnexion</button></a>
 	<?php
@@ -11,9 +11,9 @@ if (isset($_SESSION['login']) && strlen($_SESSION['login']) > 0) {
         <fieldset>
             <legend>Connexion Utilisateur</legend>
             <?php
-            if (isset($_SESSION['message']) && strlen($_SESSION['message']) > 0) {
-                echo $_SESSION['message'] . PHP_EOL;
-                $_SESSION['message'] = '';
+            if (isset($_SESSION['message_login_client']) && strlen($_SESSION['message_login_client']) > 0) {
+                echo $_SESSION['message_login_client'] . PHP_EOL;
+                $_SESSION['message_login_client'] = '';
             }
             ?>
             <label for ="login">login</label>

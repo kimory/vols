@@ -1,5 +1,5 @@
 <?php
-if (!isset($_SESSION['login']) || strlen($_SESSION['login']) <= 0) {
+if (! isClientConnected()) {
     ?>
     <form action="/createUserController" method="POST" >
         <fieldset>

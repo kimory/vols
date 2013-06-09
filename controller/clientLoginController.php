@@ -20,7 +20,7 @@ class clientLoginController {
             $res = $dao->clientLogin($login, $passwd);
 
             if ($res == null) {
-                $_SESSION['message'] = 'Le login et le mot de passe saisis ne coïncident pas.';
+                $_SESSION['message_login_client'] = 'Le login et le mot de passe saisis ne coïncident pas.';
                 // On stocke 1 message d'erreur en session
                 // et on renvoie vers la page précédente en cas d'erreur de saisie :
             } else {
@@ -31,7 +31,7 @@ class clientLoginController {
         } else {
             // On stocke 1 message d'erreur en session
             // et on renvoie vers la page précédente si le login et / ou le mot de passe ne sont pas renseignés :
-            $_SESSION['message'] = 'Vous devez renseigner un login et un mot de passe.';
+            $_SESSION['message_login_client'] = 'Vous devez renseigner un login et un mot de passe.';
         }
 		header('Location:' . $_SERVER['HTTP_REFERER']); // renvoie vers la page précédente
     }

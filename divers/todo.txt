@@ -12,13 +12,11 @@
 -attention : commit / pull / push
 - en local : réimporter la BDD
 
--sessions + déconnexion partie client
--menu sur chaque page
 -visualisation de la liste des résas (espace client)
--visualisation des détails d'une résa (ep)
--visualisation du billet pour impression (ep)
--nouvelle réservation (ep)
--modification d'une réservation -> revient à annuler + réserver (ep)
+-visualisation des détails d'une résa (ec)
+-visualisation du billet pour impression (ec)
+-nouvelle réservation (ec)
+-modification d'une réservation -> revient à annuler + réserver (ec)
 -passer le formulaire de recherche dans le dossier include + l'inclure sur les bonnes pages
 -résultats de la recherche
 -mise en session du choix de l'utilisateur
