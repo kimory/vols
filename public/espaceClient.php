@@ -78,10 +78,12 @@
 					else if (isset($_SESSION['resultat_infos_reservation']))
 					{
 						// S'il y a une erreur, on l'affiche puis on la supprime
-						if(isset($_SESSION['error_message']) && strlen($_SESSION['error_message']) > 0)
+						if(isset($_SESSION['error_message']) && 
+							strlen($_SESSION['error_message']) > 0)
 						{
 							echo $_SESSION['error_message'];
 							unset($_SESSION['error_message']);
+							unset($_SESSION['resultat_infos_reservation']) ;
 						}
 						else
 						{

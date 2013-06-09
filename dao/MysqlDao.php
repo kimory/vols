@@ -349,11 +349,10 @@ class MysqlDao {
 			INNER JOIN place P ON P.numreservation = R.numreserv
 			INNER JOIN vol V ON V.numvol = P.numvol
 			INNER JOIN client C ON C.numclient = R.numclient
-			WHERE C.numclient = (
-				SELECT numclient FROM client WHERE login=:login)";
+			WHERE R.numreserv=:numreservation";
 
 		$stmt = $this->dbh->prepare($sql);
-		$stmt->bindParam(":login", $login );
+		$stmt->bindParam(":numreservation", $numreservation );
 		$stmt->execute();
 
 		$result = array();

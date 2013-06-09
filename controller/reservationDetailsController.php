@@ -10,21 +10,21 @@ class reservationDetailsController {
 
 	public function action() {
 
-		echo "TEST BLAEL GAKGEK AKA MEG JAEGJMLAA EALJHG AE";
 		$dao = new MysqlDao();
 
 		if($dao->isClientConnected() && 
 			isset($_GET['numreservation']) && 
 			strlen($_GET['numreservation']) > 0)
 		{
-			$login = $_SESSION['login'];
 			$numreservation = $_GET['numreservation'];
 			// On récupère un tableau de tableaux qui contient la liste des
 			// informations sur la réservation
 			$result = $dao->getReservationDetails($numreservation);
 
-			if ($result == null) {
-				$_SESSION['error_message'] = 'Pas de réservations.';
+			if ($result == null) 
+			{
+				$_SESSION['error_message'] = 'Réservation introuvable.';
+				$_SESSION['resultat_infos_reservation'] = "";
 				// On stocke 1 message d'erreur en session
 				// et on renvoie vers la page précédente
 				header('Location:' . $_SERVER['HTTP_REFERER']);
