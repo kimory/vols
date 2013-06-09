@@ -16,10 +16,9 @@ class clientLoginController {
             $login = trim($_POST['login']); // on enlève les espaces éventuellement saisis par erreur
             $passwd = $_POST['passwd'];
             $dao = new MysqlDao();
-            $res = null;
-            $res = $dao->clientLogin($login, $passwd);
+            $result = $dao->clientLogin($login, $passwd);
 
-            if ($res == null) {
+            if ($result == null) {
                 $_SESSION['message'] = 'Le login et le mot de passe saisis ne coïncident pas.';
                 // On stocke 1 message d'erreur en session
                 // et on renvoie vers la page précédente en cas d'erreur de saisie :
