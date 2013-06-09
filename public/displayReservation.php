@@ -7,6 +7,10 @@
         <title>DEV-FLY - Détails de la réservation</title>
     </head>
     <body>
+		<?php 
+			// ici on affichera le bouton de déconnexion
+			include('include/back_office_login_form.php');
+		?>
         <form action="/affichageReservationController" method="POST">
             <label for="numreservation">Nouveau numéro de réservation :</label>
             <input type="text" id="numreservation" name="numreservation"><br>

@@ -7,6 +7,10 @@
         <title>DEV-FLY - Détails du vol</title>
     </head>
     <body>
+		<?php 
+			// ici on affichera le bouton de déconnexion
+			include('include/back_office_login_form.php');
+		?>
         <form action="/affichageVolController" method="POST">
             <label for="numvol">Nouveau numéro de vol :</label>
             <input type="text" id="numvol" name="numvol"><br>

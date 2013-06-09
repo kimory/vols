@@ -7,6 +7,10 @@
         <title>DEV-FLY - Détails du passager</title>
     </head>
     <body>
+		<?php 
+			// ici on affichera le bouton de déconnexion
+			include('include/back_office_login_form.php');
+		?>
         <form action="/affichagePassagerController" method="POST">
             <label for="numpassager">Nouveau numéro de passager :</label>
             <input type="text" id="numpassager" name="numpassager"><br>

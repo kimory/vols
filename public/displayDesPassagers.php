@@ -7,10 +7,12 @@
         <title>DEV-FLY - Détails des passagers</title>
     </head>
     <body>
-        
-        <?php // On affiche le message d'erreur le cas échéant :
-              if (isset($message) && strlen($message) > 0) : ?>
-                <p><?php echo $message ?></p>
+		<?php 
+			// ici on affichera le bouton de déconnexion
+			include('include/back_office_login_form.php');
+			// On affiche le message d'erreur le cas échéant :
+			if (isset($message) && strlen($message) > 0) : ?>
+				<p><?php echo $message ?></p>
                 
         <?php
         // Si il n'y a pas d'erreur, on affiche la liste des passagers concernés par la réservation :

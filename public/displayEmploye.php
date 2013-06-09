@@ -7,6 +7,10 @@
         <title>DEV-FLY - Détails de l'employé</title>
     </head>
     <body>
+		<?php 
+			// ici on affichera le bouton de déconnexion
+			include('include/back_office_login_form.php');
+		?>
         <form action="/affichageEmployeController" method="POST">
             <label for="numemploye">Nouveau numéro d'employé :</label>
             <input type="text" id="numemploye" name="numemploye"><br>
