@@ -25,6 +25,8 @@
 -fiche de synthèse + formulaire de paiement
 -billet
 -CSS
+-reprendre IHM menu
+-formulaire contact
 
 
 

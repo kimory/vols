@@ -8,7 +8,7 @@ class PropositionsController{
         
 		$messages = array();
 
-		// on verifie si on a bien recuperer la ville de depart saisie par l'utilisateur
+		// on vérifie si on a bien récupéré la ville de départ saisie par l'utilisateur
 
 		if(!isset($_POST['villedepart']) || strlen($_POST['villedepart'])==0){
 			$messages[]="Veuillez indiquer la ville de départ";
@@ -46,10 +46,6 @@ class PropositionsController{
 			$nbreadultes = null;
 			$messages[] = "Veuillez indiquer le nombre d'adultes";
 		}
-
-		$dao = new MysqlDao();
-		$dao->backOfficeLogin($login, $passwd);
-
 
 	}
 }

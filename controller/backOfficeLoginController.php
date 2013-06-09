@@ -16,10 +16,9 @@ class backOfficeLoginController {
             $login = trim($_POST['login']);
             $passwd = $_POST['passwd'];
             $dao = new MysqlDao();
-            $res = null;
-            $res = $dao->backOfficeLogin($login, $passwd);
+            $result = $dao->backOfficeLogin($login, $passwd);
 
-            if ($res == null) {
+            if ($result == null) {
                 $_SESSION['message_login_admin'] = 'Le login et le mot de passe saisis ne coïncident pas.';
                 // On stocke 1 message d'erreur en session
                 // et on renvoie vers la page précédente en cas d'erreur de saisie :
