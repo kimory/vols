@@ -16,9 +16,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         <link rel="stylesheet" type="text/css" href="css/style.css" />
     </head>
     <body>
+		<header>
 		<?php 
 			// ici on affichera le bouton de déconnexion
 			include('include/back_office_login_form.php');
+		?>
+		</header>
+		<?php 
+			include('include/menu_front_office.php'); 
+			include('include/user_connection_form.php');
 		?>
         <div id="supercontainer">
             <header>

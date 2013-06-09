@@ -13,6 +13,7 @@
 				<?php include('include/back_office_login_form.php'); ?>
             </header>
 			<?php 
+				$_SESSION['page_actuelle'] = 'Rechercher un vol';
 				include('include/menu_front_office.php'); 
 				include('include/user_connection_form.php');
 			?>

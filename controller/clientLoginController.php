@@ -17,7 +17,7 @@ class clientLoginController {
             $passwd = $_POST['passwd'];
             $dao = new MysqlDao();
             $res = null;
-            $res = $dao->userLogin($login, $passwd);
+            $res = $dao->clientLogin($login, $passwd);
 
             if ($res == null) {
                 $_SESSION['message'] = 'Le login et le mot de passe saisis ne coïncident pas.';

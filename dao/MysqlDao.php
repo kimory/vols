@@ -270,11 +270,11 @@ class MysqlDao {
 		return null;
 	}
         
-        public function clientLogin($login, $passwd){
+	public function clientLogin($login, $passwd){
 		// renvoie un tableau avec le login et le mot de passe
 		$sql = "SELECT login 
-				FROM client 
-				WHERE login=:login and password=:passwd";
+			FROM client 
+			WHERE login=:login and password=:passwd";
 
 		$stmt = $this->dbh->prepare($sql);
 		$stmt->bindParam(":login", $login);

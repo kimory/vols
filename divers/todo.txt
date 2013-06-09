@@ -12,7 +12,6 @@
 -attention : commit / pull / push
 - en local : réimporter la BDD
 
--sessions + déconnexion partie backoffice
 -sessions + déconnexion partie client
 -menu sur chaque page
 -visualisation de la liste des résas (espace client)
