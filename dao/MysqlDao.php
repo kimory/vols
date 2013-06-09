@@ -299,7 +299,7 @@ class MysqlDao {
 
 	// TODO
 	// On peut aller chercher dans la BDD si l'admin existe réellement
-	// PS : ne pas oublier que le mot de passe enregistré est déjà chiffré
+	// Ne pas oublier que le mot de passe enregistré est déjà chiffré
 	public function isAdminConnected() 
 	{
 		return (isset($_SESSION['login_admin'], $_SESSION['passwd']) 
@@ -309,8 +309,7 @@ class MysqlDao {
 
 	public function getReservations($login) 
 	{
-		$sql = "SELECT DISTINCT 
-			R.numreserv AS numreservation, 
+		$sql = "SELECT DISTINCT R.numreserv AS numreservation, 
 			R.datereserv AS datereservation, 
 			V.lieudep AS lieudepart, 
 			V.lieuarriv AS lieuarrivee, 
@@ -328,7 +327,7 @@ class MysqlDao {
 
 		$result = array();
 		while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-			$result[] = $row; // $row['numreservation'];
+			$result[] = $row; // on insère une copie du tableau $row dans $result
 		}
 
 		return $result;
@@ -357,7 +356,7 @@ class MysqlDao {
 
 		$result = array();
 		while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-			$result[] = $row; // $row['numreservation'];
+			$result[] = $row; // on insère une copie du tableau $row dans $result
 		}
 
 		return $result;

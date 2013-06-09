@@ -12,7 +12,7 @@ class backOfficeLoginController {
 
 		echo $_POST['login_admin'];
 
-        // On vérifie qu'un login et qu'un mot de passe ont été saisis
+                // On vérifie qu'un login et qu'un mot de passe ont été saisis
 		if (isset($_POST['login_admin'], $_POST['passwd']) && 
 			strlen($_POST['login_admin']) != 0 &&
 			strlen($_POST['passwd']) != 0) {

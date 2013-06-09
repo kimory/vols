@@ -34,7 +34,7 @@ class reservationDetailsController {
 				header('Location:/espaceclient');
 			}
 			// normalement impossible d'arriver ici
-			// puis qu'on ne peut afficher le formulaire qui amène à ce controleur
+			// puis qu'on ne peut pas afficher le formulaire qui amène à ce controleur
 			// si le client n'est pas connecté
 		} else {
 			$_SESSION['error_message'] = "Vous n'êtes pas connecté.";
