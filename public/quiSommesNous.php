@@ -13,7 +13,7 @@
                 <?php include('include/back_office_login_form.php'); ?>
             </header>
 			<?php 
-				$_SESSION['page_actuelle'] = 'Qui sommes-nous';
+				$_SESSION['page_actuelle'] = 'Qui sommes-nous ?';
 				include('include/menu_front_office.php'); 
 				include('include/user_connection_form.php');
 			?>
