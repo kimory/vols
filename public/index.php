@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <?php
 include '../setup.php';
 // on récupère le nom du controlleur saisi dans l'URL

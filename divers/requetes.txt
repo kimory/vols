@@ -68,5 +68,13 @@ WHERE numvol = $id
 recuperer un vol par rapport a la date saisie par l'utilisateur:
 SELECT DATE_FORMAT(dateheuredep, '%Y-%m-%d %H:%i') AS volprogramme from vol where DATE_FORMAT( dateheuredep,"%Y-%m-%d")='2013-06-20'
 
+-- Récap de l'ensemble des réservations d'un client :
+SELECT DISTINCT R.numreserv, R.datereserv, V.lieudep, V.lieuarriv, V.dateheuredep
+FROM reservation R
+INNER JOIN place P ON P.numreservation = R.numreserv
+INNER JOIN vol V ON V.numvol = P.numvol
+INNER JOIN client C ON C.numclient = R.numclient
+WHERE C.numclient = :numclient
+
 
 

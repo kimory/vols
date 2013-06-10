@@ -12,6 +12,8 @@ $dao = new MysqlDao();
 
 //var_dump($dao->getPropositionsByVol('Paris', 'Saint-Martin','20-06-2013'));
 //var_dump($dao->getVolById('DF5609'));
-var_dump($dao->getVolsByEmploye('H0011'));
+//var_dump($dao->getVolsByEmploye('H0011'));
+//
+var_dump($dao->backOfficeLogin("general", "grneral"));
 
 ?>

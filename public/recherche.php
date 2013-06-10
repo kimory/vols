@@ -1,17 +1,22 @@
-<?php ?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
         <title>DEV-FLY - Recherche</title>
     </head>
     <body>
         <div id="supercontainer">
             <header>
-
-
+				<?php include('include/back_office_login_form.php'); ?>
             </header>
+			<?php 
+				$_SESSION['page_actuelle'] = 'Rechercher un vol';
+				include('include/menu_front_office.php'); 
+				include('include/user_connection_form.php');
+			?>
             <div id="container">
                 <form action="/PropositionsController" method="POST" >
                     <fieldset>
@@ -35,8 +40,8 @@
                            <input type='number' value="0" min='0' max='30' name="nbreenfants" id="nbreenfants"><br>
 
                         <div id="submit">
-                           <input type="submit" name="valider" id="valider" value="valider">          
-                           <input type="reset" name="annulation" value="annuler">
+                           <input type="submit" value="valider">          
+                           <input type="reset" value="annuler">
                         </div>
 
 

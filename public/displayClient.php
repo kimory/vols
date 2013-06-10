@@ -1,5 +1,3 @@
-<?php
-?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,6 +6,11 @@
         <title>DEV-FLY - Détails du client</title>
     </head>
     <body>
+		<?php 
+			// ici on affichera le bouton de déconnexion
+			include('include/back_office_login_form.php');
+		?>
+
         <form action="/affichageClientController" method="POST">
             <label for="numclient">Nouveau numéro de client :</label>
             <input type="text" id="numclient" name="numclient"><br>

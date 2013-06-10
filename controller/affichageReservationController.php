@@ -13,8 +13,7 @@ class affichageReservationController {
         if (isset($_POST['numreservation']) && strlen($_POST['numreservation']) != 0) {
             $numreservation = trim($_POST['numreservation']);
             // trim supprime les espaces éventuellement saisis par erreur
-
-        // Soit par clic sur un lien :
+            // Soit par clic sur un lien :
         } elseif (isset($_GET['numreservation']) && strlen($_GET['numreservation']) != 0) {
             $numreservation = $_GET['numreservation'];
         }

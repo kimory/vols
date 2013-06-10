@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Ven 07 Juin 2013 à 00:00
+-- Généré le: Sam 08 Juin 2013 à 20:19
 -- Version du serveur: 5.5.31
 -- Version de PHP: 5.4.4-14
 
@@ -95,14 +95,14 @@ INSERT INTO `destination` (`codeaeroport`, `ville`, `pays`) VALUES
 ('KUL', 'Kuala Lumpur', 'Malaisie'),
 ('KWI', 'Koweït', 'Koweït'),
 ('LAX', 'Los Angeles-Californ', 'USA'),
-('LHR', 'Londre', 'Angleterre'),
+('LHR', 'Londres', 'Angleterre'),
 ('MAD', 'Madrid', 'Espagne'),
 ('MEX', 'Mexico', 'Mexique'),
 ('MIA', 'Miami', 'USA'),
 ('NDJ', 'N''Djaména', 'Tchad'),
 ('NRT', 'Tokyo', 'Japon'),
 ('ORD', 'O''hare - Chicago', 'USA'),
-('PEK', 'Pekin', 'Chine'),
+('PEK', 'Pékin', 'Chine'),
 ('PPT', 'Tahiti', 'Polynésie'),
 ('PRY', 'Prétoria', 'Afrique du Sud'),
 ('PTP', 'Pôle Caraïbes - Guad', 'France'),
@@ -319,9 +319,9 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id`, `statut`, `login`, `password`, `droits`) VALUES
-('AD129', 'administrateur', 'admin', 'admin', 1),
-('CM674', 'commercial', 'vendeur', 'commerce', 0),
-('DR346', 'directeur', 'general', 'directeur', 0);
+('AD129', 'administrateur', 'admin', '$5$ABCDEFGHIJKLM$ssnQ4OwPltNcbxGU21HYZn8e4WJ7f1p6wzo2Rv0Chk0', 1),
+('CM674', 'commercial', 'vendeur', '$5$ABCDEFGHIJKLM$sgRMncN.BKUnzMiB0hkzLR1QWBbgCrLZpCntMpxdq94', 0),
+('DR346', 'directeur', 'general', '$5$ABCDEFGHIJKLM$adncOKnWKzpcxGlZrX0JrkqJdPTYhpXcb0GYgLp/hLD', 0);
 
 -- --------------------------------------------------------
 

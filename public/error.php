@@ -1,6 +1,6 @@
-<?php
-header("HTTP/1.1 500 INTERNAL SERVER ERROR");
-?>
+<?php session_start(); ?>
+
+<? header("HTTP/1.1 500 INTERNAL SERVER ERROR"); ?>
 <!DOCTYPE html>
 <html>
     <head>

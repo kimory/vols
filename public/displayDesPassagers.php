@@ -1,5 +1,4 @@
-<?php
-?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,10 +7,12 @@
         <title>DEV-FLY - Détails des passagers</title>
     </head>
     <body>
-        
-        <?php // On affiche le message d'erreur le cas échéant :
-              if (isset($message) && strlen($message) > 0) : ?>
-                <p><?php echo $message ?></p>
+		<?php 
+			// ici on affichera le bouton de déconnexion
+			include('include/back_office_login_form.php');
+			// On affiche le message d'erreur le cas échéant :
+			if (isset($message) && strlen($message) > 0) : ?>
+				<p><?php echo $message ?></p>
                 
         <?php
         // Si il n'y a pas d'erreur, on affiche la liste des passagers concernés par la réservation :
@@ -24,11 +25,13 @@
             <div>
                 <table>
                     <tr>
-                        <th>N° de passager</th><th>Place</th>
+                        <th>N° de passager</th><th>N° de place</th>
                     </tr>
                     <?php foreach ($tab as $value) : ?>
                     <tr>
-                                <td><a href="/affichagePassagerController/action/<?php echo htmlentities($value['numpassager'], ENT_QUOTES, 'UTF-8');?>"><?php echo htmlentities($value['numpassager'], ENT_QUOTES, 'UTF-8') ?></a></td>
+                                <td><a href="/affichagePassagerController/action/<?php 
+                                    echo htmlentities($value['numpassager'], ENT_QUOTES, 'UTF-8');?>"><?php 
+                                    echo htmlentities($value['numpassager'], ENT_QUOTES, 'UTF-8') ?></a></td>
                                 <td><?php echo htmlentities($value['numplace'], ENT_QUOTES, 'UTF-8'); ?></td>
                     </tr>
                     <?php endforeach; ?>
