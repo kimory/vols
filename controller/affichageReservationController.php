@@ -9,6 +9,7 @@ class affichageReservationController {
 	public function action() {
 		$dao = new MysqlDao();
 		if($dao->isAdminConnected())
+                // On exécute la fonction que si l'admin est connecté
 		{
 			$message = null;
 			// On vérifie qu'un numéro de réservation a été récupéré :
