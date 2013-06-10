@@ -1,4 +1,8 @@
 <?php
+include_once("../setup.php");
+
+use entity\Client;
+use entity\User;
 if (! Client::isClientConnected()) {
     ?>
     <form action="/createUserController" method="POST" >

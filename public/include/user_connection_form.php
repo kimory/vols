@@ -1,5 +1,10 @@
 <?php
 // Si l'utilisateur est connecté, on voit un bouton de déconnexion
+include_once("../setup.php");
+
+use entity\Client;
+use entity\User;
+
 if (Client::isClientConnected()) 
 {
 ?>
