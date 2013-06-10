@@ -32,10 +32,10 @@ if (! isClientConnected()) {
             <label for="login">Identifiant :</label>
             <input type="text" name="login" id="login">
 
-            <label for ="passwd">Mot de passe : </label>
-            <input type="password" name="passwd" id="passwd">
-            <label for ="passwd">Confirmez le mot de passe : </label>
-            <input type="password" name="passwd" id="passwd"><br>
+            <label for ="passwd1">Mot de passe : </label>
+            <input type="password" name="passwd1" id="passwd1">
+            <label for ="passwd2">Confirmez le mot de passe : </label>
+            <input type="password" name="passwd2" id="passwd2"><br>
 
             <input type="reset" value="annuler">          
             <input type="submit" value="valider">          
