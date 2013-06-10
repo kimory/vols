@@ -293,19 +293,26 @@ class MysqlDao {
 
 	public function isClientConnected() 
 	{
-		$sql = "SELECT login
-			FROM client
-			where login=:login and passwd=:passwd";
-
-		$stmt = $this->dbh->prepare($sql);
-		$stmt->bindParam(":login", $_SESSION['login']);
-		$stmt->bindParam(":passwd", $_SESSION['passwd']);
-		$stmt->execute();
-
-		if($stmt->fetch(PDO::FETCH_ASSOC))
+		if(isset($_SESSION['login'], $_SESSION['passwd']) &&
+			strlen($_SESSION['login']) > 0 &&
+			strlen($_SESSION['passwd']) > 0)
 		{
-			return true;
+			$sql = "SELECT login
+				FROM client
+				where login=:login and password=:passwd";
+
+			$stmt = $this->dbh->prepare($sql);
+			$stmt->bindParam(":login", $_SESSION['login']);
+			$stmt->bindParam(":passwd", $_SESSION['passwd']);
+			$stmt->execute();
+
+			if($stmt->fetch(PDO::FETCH_ASSOC))
+			{
+				return true;
+			}
 		}
+		unset($_SESSION['login']);
+		unset($_SESSION['passwd']);
 
 		return false;
 	}
@@ -313,19 +320,26 @@ class MysqlDao {
 	// Ne pas oublier que le mot de passe enregistré est déjà chiffré
 	public function isAdminConnected() 
 	{
-		$sql = "SELECT login
-			FROM user
-			where login=:login and passwd=:passwd";
-
-		$stmt = $this->dbh->prepare($sql);
-		$stmt->bindParam(":login", $_SESSION['login']);
-		$stmt->bindParam(":passwd", $_SESSION['passwd']);
-		$stmt->execute();
-
-		if($stmt->fetch(PDO::FETCH_ASSOC))
+		if(isset($_SESSION['login_admin'], $_SESSION['passwd']) &&
+			strlen($_SESSION['login_admin']) > 0 &&
+			strlen($_SESSION['passwd']) > 0)
 		{
-			return true;
+			$sql = "SELECT login
+				FROM user
+				where login=:login and password=:passwd";
+
+			$stmt = $this->dbh->prepare($sql);
+			$stmt->bindParam(":login", $_SESSION['login_admin']);
+			$stmt->bindParam(":passwd", $_SESSION['passwd']);
+			$stmt->execute();
+
+			if($stmt->fetch(PDO::FETCH_ASSOC))
+			{
+				return true;
+			}
 		}
+		unset($_SESSION['login_admin']);
+		unset($_SESSION['passwd']);
 
 		return false;
 	}
