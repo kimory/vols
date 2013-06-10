@@ -1,8 +1,13 @@
 <img id='logo' src='/images/logo.jpg' alt='logo de DEV-FLY' />
 <?php
-	function isClientConnected() {
-		return (isset($_SESSION['login']) && strlen($_SESSION['login']) > 0);
-	}
+        include_once("../setup.php");
+
+        use entity\Client;
+        // Ce fichier est inclus sur les différentes vues, on place ici les fonctions utilisées sur ces vues
+	Client::isClientConnected();
+//        function isClientConnected() {
+//		return (isset($_SESSION['login']) && strlen($_SESSION['login']) > 0);
+//	}
 	function isAdminConnected() {
 		return (isset($_SESSION['login_admin']) && strlen($_SESSION['login_admin']) > 0);
 	}
