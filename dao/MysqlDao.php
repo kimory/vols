@@ -43,6 +43,78 @@ class MysqlDao {
         }
         return $tab;
     }
+
+	// TODO : faire des essais
+	// idVol + prix + dateheuredépart
+	public function getPropositions($villedep, $villearrivee, $datedep, $nbadultes, $nbenfants)
+	{
+		$sql = "SELECT V.numvol AS numvol,
+			GET_FORMAT(V.dateheuredep, '%d/%m/%Y %H:%i') as datedep,
+			V.tarif as tarif
+			FROM vol V
+			WHERE V.numvol IN
+			(
+				SELECT V2.numvol
+				FROM vol V2
+				INNER JOIN place P ON P.numvol = V2.numvol
+				WHERE
+				V2.lieudep=:villedep AND
+				V2.lieuarriv=:villearrivee AND
+				DATE_FORMAT(V.dateheuredep,'%Y-%m-%d')=:datededepart
+				HAVING ( :nbplaces - count(P.numplace)) > :nbplacesrequises
+			)";
+
+		$stmt = $this->dbh->prepare($sql);
+		$stmt->bindParam(':villedep', $villedep);
+		$stmt->bindParam(':villearrivee', $villearrivee);
+		// $datetime->format('Y/m/d H:i:s');
+		$stmt->bindParam(':datededepart', $datedep->format('Y-m-d'));
+		$stmt->bindParam(':nbplaces', Vol::NB_PLACES);
+		$stmt->bindParam(':nbplacesrequises', ($nbadultes + $nbenfants));
+		$stmt->execute();
+		$result = array();
+
+		while($row = $stmt->fetch(PDO::FETCH_ASSOC))
+		{
+			$result[] = $row; // on insère une copie du tableau $row dans $result
+		}
+
+		if(sizeof($results) == 0) 
+		{
+			$sql = "SELECT V.numvol AS numvol,
+				GET_FORMAT(V.dateheuredep, '%d/%m/%Y %H:%i') as datedep,
+				V.tarif as tarif
+				FROM vol V
+				WHERE V.numvol IN 
+				(
+					SELECT V2.numvol
+					FROM vol V2
+					INNER JOIN place P ON P.numvol = V2.numvol
+					WHERE
+					V2.lieudep=:villedep AND
+					V2.lieuarriv=:villearrivee AND 
+					(UNIX_TIMESTAMP(:datededepart) - UNIX_TIMESTAMP(DATE_FORMAT(V.dateheuredep,'%Y-%m-%d'))) > 0
+					HAVING ( :nbplaces - count(P.numplace)) > :nbplacesrequises
+				)";
+
+			$stmt = $this->dbh->prepare($sql);
+			$stmt->bindParam(':villedep', $villedep);
+			$stmt->bindParam(':villearrivee', $villearrivee);
+			// $datetime->format('Y/m/d H:i:s');
+			$stmt->bindParam(':datededepart', $datedep->format('Y-m-d'));
+			$stmt->bindParam(':nbplaces', Vol::NB_PLACES);
+			$stmt->bindParam(':nbplacesrequises', ($nbadultes + $nbenfants));
+			$stmt->execute();
+
+			while($row = $stmt->fetch(PDO::FETCH_ASSOC))
+			{
+				$result[] = $row; // on insère une copie du tableau $row dans $result
+			}
+		}
+
+		return $result;
+	}
+
     public function getPropositionsByVol($villedep, $villearrivee, $datedep){
         // recupere les infos saisies par le client et verifier les donnees saisies qui sont les ville de depart et ville d'arrivee et
         //si la compagnie propose la destination.
