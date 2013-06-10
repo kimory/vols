@@ -1,5 +1,5 @@
 <?php
-if (! isClientConnected()) {
+if (! Client::isClientConnected()) {
     ?>
     <form action="/createUserController" method="POST" >
         <fieldset>
