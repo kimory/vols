@@ -38,11 +38,10 @@ class affichageClientController {
 						obtenir sa description !';
 			}
 			include VIEW . 'displayClient.php';
-		}
-		else
-		{
-			$message = 'Vous devez être administrateur pour accéder à cette page.';
-			header('Location:/accueil.php');
+		} else {
+                        // Si la personne n'est pas connectée en tant qu'administrateur,
+                        // elle n'a pas à être sur cette page, elle est renvoyée vers une page d'erreur
+			header('Location:/error');
 		}
     }
 

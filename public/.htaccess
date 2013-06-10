@@ -8,6 +8,7 @@ RewriteRule ^search$ search.php [L]
 RewriteRule ^espaceclient$ espaceClient.php [L]
 RewriteRule ^choixducritere$ displayChoixDuCritere.php [L]
 RewriteRule ^quisommesnous$ quiSommesNous.php [L]
+RewriteRule ^error$ error.php [L]
 #méthode action par défaut
 RewriteRule ^([a-zA-Z]+)$ index.php?controller=$1&method=action [L]
 RewriteRule ^reservationDetailsController/action/([a-zA-Z0-9]+)$ index.php?controller=reservationDetailsController&method=action&numreservation=$1 [L]
