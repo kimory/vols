@@ -1,4 +1,4 @@
-<img id='logo' src='images/logo.jpg' alt='logo de DEVFLY' />
+<img id='logo' src='/images/logo.jpg' alt='logo de DEV-FLY' />
 <?php
 	function isClientConnected() {
 		return (isset($_SESSION['login']) && strlen($_SESSION['login']) > 0);
