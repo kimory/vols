@@ -291,23 +291,43 @@ class MysqlDao {
 		return null;
 	}
 
-	// TODO
-	// On peut aller chercher dans la BDD si le client existe réellement
 	public function isClientConnected() 
 	{
-		return (isset($_SESSION['login'], $_SESSION['passwd']) 
-			&& strlen($_SESSION['login']) > 0 
-			&& strlen($_SESSION['passwd']) > 0);
+		$sql = "SELECT login
+			FROM client
+			where login=:login and passwd=:passwd";
+
+		$stmt = $this->dbh->prepare($sql);
+		$stmt->bindParam(":login", $_SESSION['login']);
+		$stmt->bindParam(":passwd", $_SESSION['passwd']);
+		$stmt->execute();
+
+		if($stmt->fetch(PDO::FETCH_ASSOC))
+		{
+			return true;
+		}
+
+		return false;
 	}
 
-	// TODO
-	// On peut aller chercher dans la BDD si l'admin existe réellement
 	// Ne pas oublier que le mot de passe enregistré est déjà chiffré
 	public function isAdminConnected() 
 	{
-		return (isset($_SESSION['login_admin'], $_SESSION['passwd']) 
-			&& strlen($_SESSION['login_admin']) > 0 
-			&& strlen($_SESSION['passwd']) > 0);
+		$sql = "SELECT login
+			FROM user
+			where login=:login and passwd=:passwd";
+
+		$stmt = $this->dbh->prepare($sql);
+		$stmt->bindParam(":login", $_SESSION['login']);
+		$stmt->bindParam(":passwd", $_SESSION['passwd']);
+		$stmt->execute();
+
+		if($stmt->fetch(PDO::FETCH_ASSOC))
+		{
+			return true;
+		}
+
+		return false;
 	}
 
 	public function getReservations($login) 
