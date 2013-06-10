@@ -365,6 +365,10 @@ class MysqlDao {
 
 	public function isClientConnected() 
 	{
+                // Renvoie "true" si le client est connecté, "false" sinon
+                
+                // On vérifie que le login et le mot de passe sont en session et
+                // sont corrects par rapport à la BDD
 		if(isset($_SESSION['login'], $_SESSION['passwd']) &&
 			strlen($_SESSION['login']) > 0 &&
 			strlen($_SESSION['passwd']) > 0)
@@ -378,11 +382,13 @@ class MysqlDao {
 			$stmt->bindParam(":passwd", $_SESSION['passwd']);
 			$stmt->execute();
 
-			if($stmt->fetch(PDO::FETCH_ASSOC))
+			if($stmt->fetch(PDO::FETCH_ASSOC)) // on vérifie que ça renvoie qqch
 			{
-				return true;
+				return true; // renvoie 'vrai' et sort de la fonction
 			}
 		}
+                // On détruit les variables dans le cas où un login et un mot de passe sont
+                // en session mais ne sont pas corrects (par rapport à la BDD)
 		unset($_SESSION['login']);
 		unset($_SESSION['passwd']);
 
@@ -390,8 +396,12 @@ class MysqlDao {
 	}
 
 	// Ne pas oublier que le mot de passe enregistré est déjà chiffré
-	public function isAdminConnected() 
+	public function isAdminConnected()
 	{
+                // Renvoie "true" si l'admin est connecté, "false" sinon
+                
+                // On vérifie que le login et le mot de passe sont en session et
+                // sont corrects par rapport à la BDD
 		if(isset($_SESSION['login_admin'], $_SESSION['passwd']) &&
 			strlen($_SESSION['login_admin']) > 0 &&
 			strlen($_SESSION['passwd']) > 0)
@@ -405,11 +415,13 @@ class MysqlDao {
 			$stmt->bindParam(":passwd", $_SESSION['passwd']);
 			$stmt->execute();
 
-			if($stmt->fetch(PDO::FETCH_ASSOC))
+			if($stmt->fetch(PDO::FETCH_ASSOC)) // on vérifie que ça renvoie qqch
 			{
-				return true;
+				return true;  // renvoie 'vrai' et sort de la fonction
 			}
 		}
+                // On détruit les variables dans le cas où un login et un mot de passe sont
+                // en session mais ne sont pas corrects (par rapport à la BDD)
 		unset($_SESSION['login_admin']);
 		unset($_SESSION['passwd']);
 
