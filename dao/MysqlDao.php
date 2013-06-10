@@ -306,7 +306,7 @@ class MysqlDao {
 			$stmt->bindParam(":passwd", $_SESSION['passwd']);
 			$stmt->execute();
 
-			if($stmt->fetch(PDO::FETCH_ASSOC))
+			if($stmt->fetch(PDO::FETCH_ASSOC)) // on vérifie que ça renvoie qqch
 			{
 				return true;
 			}
@@ -333,7 +333,7 @@ class MysqlDao {
 			$stmt->bindParam(":passwd", $_SESSION['passwd']);
 			$stmt->execute();
 
-			if($stmt->fetch(PDO::FETCH_ASSOC))
+			if($stmt->fetch(PDO::FETCH_ASSOC)) // on vérifie que ça renvoie qqch
 			{
 				return true;
 			}

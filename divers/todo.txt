@@ -36,3 +36,7 @@
 	* CSS
 	* reprendre IHM menu
 	* formulaire contact
+
+INFOS :
+        * manipuler des objets dans l'espace client
+        * htmlentities pour protéger
