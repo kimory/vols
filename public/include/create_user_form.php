@@ -2,8 +2,8 @@
 include_once("../setup.php");
 
 use entity\Client;
-use entity\User;
-if (! Client::isClientConnected()) {
+
+if (! Client::isClientConnected()) :
     ?>
     <form action="/createUserController" method="POST" >
         <fieldset>
@@ -46,5 +46,5 @@ if (! Client::isClientConnected()) {
 
         </fieldset>
     </form>
-    <?php }
+    <?php endif;
 ?>
