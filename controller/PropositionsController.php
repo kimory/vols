@@ -2,9 +2,11 @@
 
 namespace controller;
 
+use dao\MysqlDao;
+
 session_start();
 
-use dao\MysqlDao;
+
 
 class PropositionsController{  
     public function action(){
@@ -29,10 +31,10 @@ class PropositionsController{
              $messages[]="Veuillez indiquer la ville d'arrivèe";
              $villeArrivee = NULL;
          }
-          if ($vol->getLieuDepart() && $vol->getLieuArrivee()) {
-              $diff = $vol->getLieuDepart()->diff($vol->getlieuArrivee());
-              //$nbJours = $diff->format("%a");
-         }
+//          if ($vol->getLieuDepart() && $vol->getLieuArrivee()) {
+//              $diff = $vol->getLieuDepart()->diff($vol->getlieuArrivee());
+//              //$nbJours = $diff->format("%a");
+//         }
               
          if (isset($_POST['jour']) && ctype_digit($_POST['jour']) && $_POST['jour'] > 0 && $_POST['jour'] < 32 && htmlspecialchars($_POST['jour'])) {
              $jour = trim($_POST['jour']);
@@ -72,8 +74,13 @@ class PropositionsController{
              $mois = null;
          }
          if(empty($messages)){
-             include VIEW . "recherche.php";             
+             include VIEW . "propositions.php"; 
+             
          }else{
+              $_SESSION['messages'] = $messages;
+              include VIEW . "recherche.php"; 
+             
+              
              
          }
         

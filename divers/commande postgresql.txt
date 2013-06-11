@@ -1,0 +1,13 @@
+CREATE OR REPLACE categorie(datenaissance date)
+ RETURN character varying AS 
+ $BODY$
+ DECLARE
+ age varchar;
+ categorie varchar;
+ BEGIN
+ --age:=(current_date - datenaissance)365.25;
+ age:=(age(datenaissance));
+ if (age>=30) then
+ categorie='veteran';
+ 
+ 
