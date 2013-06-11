@@ -6,8 +6,6 @@
 -"Site bilingue" : si on a le tps, créer les pages en version anglaise + modifier le cahier des charges pr l'indiquer (voir dans la partie "Remarques")
 -Penser aux sessions
 -Modifier le DOCTYPE sur chaque page
--attention : commit / pull / push
-- en local : réimporter la BDD
 
 
 - vérifier : 
