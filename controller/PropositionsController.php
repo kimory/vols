@@ -73,10 +73,17 @@ class PropositionsController {
             $dao = new MysqlDao;
             $vols = $dao->getPropositions($villedepart, $villearrivee, $datedepart, $nbadultes, $nbenfants);
             
-            // Je stocke en session les éléments à conserver et j'envoie vers la vue Proposition
-            $_SESSION['vols'] = $vols; // un tableau d'objets Vol
-            $_SESSION['nb_passagers'] = $nbadultes + $nbenfants;
-            header('Location:/propositions');
+            if(sizeof($vols) == 0){
+                // Cas où aucun vol ne correspond à la demande du client
+                $messages[] = "Navrés ! Aucun vol ne correspond à votre demande. Vous pouvez effectuer une nouvelle recherche.";
+                $_SESSION['messages'] = $messages;
+                header('Location:/recherche');
+            } else {
+                // Je stocke en session les éléments à conserver et j'envoie vers la vue Proposition
+                $_SESSION['vols'] = $vols; // un tableau d'objets Vol
+                $_SESSION['nb_passagers'] = $nbadultes + $nbenfants;
+                header('Location:/propositions');
+            }
         } else {
             // S'il y a des erreurs, l'utilisateur est redirigé vers le formulaire de recherche
             // sur lequel les erreurs seront affichées.

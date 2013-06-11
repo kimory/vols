@@ -3,13 +3,7 @@ if (!isset($_SESSION)) {
     session_start();
 }
 
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    $villedepart = $_POST['villedepart'];
-    $villearrivee = $_POST['villearrivee'];
-    $datedepart = $_POST['datedepart'];
-    $nbreadultes = $_POST['nbreadultes'];
-    $nbreenfants = $_POST['nbreenfants'];
-}
+$vols = $_SESSION['vols'];
 ?>
 <html>
     <head>
