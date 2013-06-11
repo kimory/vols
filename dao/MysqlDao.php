@@ -21,35 +21,11 @@ class MysqlDao {
 		$this->dbh = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD, $attributes);
 	}
 
-    public function getRecherche($villedep, $villearrivee, $datedep,$nbreadultes, $nbreenfants) {
-        $sql = "SELECT lieudep, lieuarriv, dateheuredep, tarif FROM vol 
-              WHERE lieudep =:villedep AND lieuarrivee =:villearrivee";
-        $stmt = $this->dbh->prepare($sql);
-        $stmt->execute(array("lieudep" => $villedep, "lieuarriv" => $villearrivee));
-        while($row = $stmt->fetch(PDO::FETCH_ASSOC)){            
-            if($datedep = $row['dateheuredep']){
-               return array(
-                   "lieudep" => $villedep,
-                   "lieuarriv" => $villearrivee,
-                   "tarif" => $row['tarif'],
-                   "dateheuredep" => $row['dateheuredep']
-                   );
-            }else{
-               $tab['lieudep'][] = $row['lieudep'];
-               $tab['lieuarriv'][] = $row['lieuarriv'];
-               $tab['tarif'][] = $row['tarif'];
-               $tab['dateheuredep'][] = $row['dateheuredep'];
-            }
-        }
-        return $tab;
-    }
-
-	// TODO : faire des essais
-	// idVol + prix + dateheuredépart
 	public function getPropositions($villedep, $villearrivee, $datedep, $nbadultes, $nbenfants)
 	{
+                // On récupère les vols qui correspondent au choix du client s'ils ne sont pas complets
 		$sql = "SELECT V.numvol AS numvol,
-			GET_FORMAT(V.dateheuredep, '%d/%m/%Y %H:%i') as datedep,
+			DATE_FORMAT(V.dateheuredep, '%d/%m/%Y %H:%i') as datedep,
 			V.tarif
 			FROM vol V
 			WHERE V.numvol IN
@@ -61,7 +37,7 @@ class MysqlDao {
 				V2.lieudep=:villedep AND
 				V2.lieuarriv=:villearrivee AND
 				DATE_FORMAT(V.dateheuredep,'%Y-%m-%d')=:datededepart
-				HAVING ( :nbplaces - count(P.numplace)) > :nbplacesrequises
+				HAVING ( :nbplaces - count(P.numplace)) >= :nbplacesrequises
 			)";
 
 		$stmt = $this->dbh->prepare($sql);
@@ -80,8 +56,10 @@ class MysqlDao {
 
 		if(sizeof($result) == 0)
 		{
+                        // si il n'y a pas de vol dispo à la date souhaitée, on récupère les vols
+                        // après cette date
 			$sql = "SELECT V.numvol AS numvol,
-				GET_FORMAT(V.dateheuredep, '%d/%m/%Y %H:%i') as datedep,
+				DATE_FORMAT(V.dateheuredep, '%d/%m/%Y %H:%i') as datedep,
 				V.tarif as tarif
 				FROM vol V
 				WHERE V.numvol IN 
@@ -115,29 +93,6 @@ class MysqlDao {
 
 		return $result;
 	}
-
-    public function getPropositionsByVol($villedep, $villearrivee, $datedep){
-        // recupere les infos saisies par le client et verifier les donnees saisies qui sont les ville de depart et ville d'arrivee et
-        //si la compagnie propose la destination.
-        $sql = "SELECT lieudep,lieuarriv,dateheuredep FROM vol            
-                WHERE lieudep = :villedep AND lieuarriv =:villearrivee AND dateheuredep =:datedep";
-        $stmt = $this->dbh->prepare($sql);
-        $stmt->bindParam(":villedep", $villedep);
-        $stmt->bindParam(":villearrivee", $villearrivee); 
-        $stmt->bindParam(":datedep", $datedep);
-        $stmt->execute();
-        $result = array();
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $lieuDepart = $row['lieudep'];
-            $lieuArrivee = $row['lieuarriv'];
-            $dateHeureDepart = $row['dateheuredep'];
-            $destination = new Vol(NULL, $lieuDepart, $lieuArrivee, $dateHeureDepart, NULL, NULL,NULL,NULL,NULL,NULL,NULL,NULL);                
-            $result[] = $destination;
-            
-        }return $result;
-    }
-
-
 
 	public function getInfosClientById($idClient) {
 		// récupère les infos sur un client en fonction de son ID
