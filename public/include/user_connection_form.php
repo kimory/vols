@@ -7,16 +7,18 @@ use entity\Client;
 if (Client::isClientConnected())
 {
 ?>
+<div id="deconnexion">
 	<a href='/deconnexionController' ><button class="btn btn-large btn-primary" type="button">Déconnexion</button></a>
-<?php
+</div>
+ <?php
 	// Si l'utilisateur n'est pas connecté, on lui propose de se connecter
 } 
 else 
 {
 ?>
-	<form action="/clientLoginController" method="POST" >
-		<fieldset>
-			<legend>Connexion Utilisateur</legend>
+	<form class="form-inline" action="/clientLoginController" method="POST" >
+		
+	       
 <?php
 	if (isset($_SESSION['message_login_client']) && strlen($_SESSION['message_login_client']) > 0) 
 	{
@@ -24,6 +26,8 @@ else
 		$_SESSION['message_login_client'] = '';
 	}
 ?>
+                     <fieldset>
+                      <legend>Connexion Utilisateur</legend>
 			<label for ="login">login</label>
 			<input type="text" name="login" id="login">
 

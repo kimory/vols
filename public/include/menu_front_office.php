@@ -1,6 +1,6 @@
-<div class="navbar">
-	<div class="navbar-inner">
-		<ul class="nav">
+<div class="nav nav-tabs">
+	<div class="nav nav-tabs">
+		<ul class="nav nav-tabs">
 			<li <?php
 // La partie du menu qui est "sélectionnée" (visuellement) doit être celle qui correspond à la page actuelle :
 if(isset($_SESSION['page_actuelle']) && strcmp($_SESSION['page_actuelle'], 'Accueil') == 0){
@@ -10,7 +10,7 @@ if(isset($_SESSION['page_actuelle']) && strcmp($_SESSION['page_actuelle'], 'Accu
 			<li <?php 
 if(isset($_SESSION['page_actuelle']) && strcmp($_SESSION['page_actuelle'], 'Rechercher un vol') == 0)
 	echo 'class="active"';
-?>><a href="/recherche">Rechercher un vol</a></li>
+?>><a href="/recherche">Chercher un vol</a></li>
 			<li <?php 
 if(isset($_SESSION['page_actuelle']) && strcmp($_SESSION['page_actuelle'], 'Espace Client') == 0)
 	echo 'class="active"';
@@ -18,7 +18,7 @@ if(isset($_SESSION['page_actuelle']) && strcmp($_SESSION['page_actuelle'], 'Espa
 			<li <?php 
 if(isset($_SESSION['page_actuelle']) && strcmp($_SESSION['page_actuelle'], 'Qui sommes-nous ?') == 0)
 	echo 'class="active"';
-?>><a href="/quisommesnous">Qui sommes-nous ?</a></li>
+?>><a href="/quisommesnous">La compagnie</a></li>
 			<li <?php 
 if(isset($_SESSION['page_actuelle']) && strcmp($_SESSION['page_actuelle'], 'Contact') == 0)
 	echo 'class="active"';

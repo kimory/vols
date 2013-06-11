@@ -14,6 +14,6 @@ $dao = new MysqlDao();
 //var_dump($dao->getVolById('DF5609'));
 //var_dump($dao->getVolsByEmploye('H0011'));
 //
-var_dump($dao->backOfficeLogin("general", "grneral"));
+//ar_dump($dao->backOfficeLogin("general", "grneral"));
 
 ?>
