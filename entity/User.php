@@ -1,13 +1,15 @@
 <?php
+
 namespace entity;
 
-class User{
+class User {
+
     private $id;
     private $statut;
     private $login;
     private $password;
     private $droits;
-    
+
     function __construct($id, $statut, $login, $password, $droits) {
         $this->id = $id;
         $this->statut = $statut;
@@ -15,7 +17,7 @@ class User{
         $this->password = $password;
         $this->droits = $droits;
     }
-    
+
     public function getId() {
         return $this->id;
     }
@@ -56,9 +58,10 @@ class User{
         $this->droits = $droits;
     }
 
-	public static function isAdminConnected() {
-		return (isset($_SESSION['login_admin']) && strlen($_SESSION['login_admin']) > 0);
-	}
+    public static function isAdminConnected() {
+        return (isset($_SESSION['login_admin']) && strlen($_SESSION['login_admin']) > 0);
+    }
 
 }
+
 ?>

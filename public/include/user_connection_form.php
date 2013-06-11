@@ -3,9 +3,8 @@
 include_once("../setup.php");
 
 use entity\Client;
-use entity\User;
 
-if (Client::isClientConnected()) 
+if (Client::isClientConnected())
 {
 ?>
 	<a href='/deconnexionController' ><button class="btn btn-large btn-primary" type="button">Déconnexion</button></a>
