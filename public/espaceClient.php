@@ -1,5 +1,11 @@
 
 <?php session_start(); ?>
+<?php
+include_once("../setup.php");
+
+use entity\Client;
+use entity\User;
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,7 +27,7 @@
 
             <?php
             // Si l'utilisateur n'est pas connecté
-            if (!isClientConnected()) {
+            if (!Client::isClientConnected()) {
                 // affichage de la création d'un compte client
                 include('include/create_user_form.php');
                 // Si le client est connecté, on affiche ses réservations
