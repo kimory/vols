@@ -4,9 +4,9 @@ namespace controller;
 
 use dao\MysqlDao;
 
-session_start();
-
-
+if (!isset($_SESSION)) {
+    session_start();
+}
 
 class PropositionsController{  
     public function action(){

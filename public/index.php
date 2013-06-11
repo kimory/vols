@@ -1,6 +1,8 @@
-<?php session_start(); ?>
-
-<?php
+<?php 
+if (!isset($_SESSION)) {
+    session_start();
+}
+ 
 include '../setup.php';
 // on récupère le nom du controlleur saisi dans l'URL
 $controllerName = $_GET['controller'];
