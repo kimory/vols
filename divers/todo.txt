@@ -31,6 +31,10 @@ Pour l'espace client :
         * manipuler des objets dans l'espace client
         * htmlentities pour protéger
 
+Réservation vols :
+        * vérifs dans le contrôleur Passenger
+        * dao : test pour récupérer plusieurs vols ? + alimenter la BDD
+
 CSS :
         * div footer à passer dans le dossier include
         * formulaires de connexion inopérationnels : à corriger

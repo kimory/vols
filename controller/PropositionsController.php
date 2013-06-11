@@ -14,14 +14,13 @@ class PropositionsController {
     public function action() {
 
         $messages = array(); // On initialiser un tableau d'erreurs potentielles
-
         // On vérifie que les champs ont été correctement renseignés
         if (isset($_POST['villedepart']) && strlen($_POST['villedepart']) > 0) {
             $villedepart = htmlentities($_POST['villedepart'], ENT_QUOTES, 'UTF-8');
         } else {
             $messages[] = "La ville de départ est incorrecte.";
         }
-        
+
         if (isset($_POST['villearrivee']) && strlen($_POST['villearrivee']) > 0) {
             $villearrivee = htmlentities($_POST['villearrivee'], ENT_QUOTES, 'UTF-8');
         } else {
@@ -33,25 +32,29 @@ class PropositionsController {
         } else {
             $messages[] = "Le jour est incorrect.";
         }
-        
+
         if (isset($_POST['mois']) && ctype_digit($_POST['mois']) && $_POST['mois'] > 0 && $_POST['mois'] < 13) {
             $mois = trim($_POST['mois']);
         } else {
             $messages[] = "Le mois est incorrect.";
         }
-        
-        $dt = new DateTime(); // On récupère la date du jour
-        $anneeCourante = $dt->format("Y"); // On récupère l'année courante
+
+        $datedujour = new DateTime(); // On récupère la date du jour
+        $anneeCourante = $datedujour->format("Y"); // On récupère l'année courante
         if (isset($_POST['annee']) && ctype_digit($_POST['annee']) &&
-        ($_POST['annee'] == $anneeCourante || $_POST['annee'] == $anneeCourante + 1)) {
+                ($_POST['annee'] == $anneeCourante || $_POST['annee'] == $anneeCourante + 1)) {
             $annee = trim($_POST['annee']);
         } else {
             $messages[] = "L'année est incorrecte";
         }
-        
-        if(isset($jour) && isset($mois) && isset($annee)){
+
+        if (isset($jour) && isset($mois) && isset($annee)) {
             $dt = new DateTime("$annee-$mois-$jour");
-            $datedepart = $dt->format('Y-m-d');
+            if ($dt < $datedujour) {
+                $messages[] = "La date saisie est incorrecte.";
+            } else {
+                $datedepart = $dt->format('Y-m-d');
+            }
         }
 
         // Il faut au minimum 1 adulte pour que la réservation puisse se faire :
@@ -60,20 +63,20 @@ class PropositionsController {
         } else {
             $messages[] = "Le nombre d'adultes est incorrect.";
         }
-        
+
         if (isset($_POST['nbreenfants']) && ctype_digit($_POST['nbreenfants']) && $_POST['nbreenfants'] >= 0) {
             $nbenfants = trim($_POST['nbreenfants']);
         } else {
             $messages[] = "Le nombre d'enfants est incorrect.";
         }
-        
+
         // Si le tableau de messages d'erreurs est vide, on récupère les vols susceptibles
         // de correspondre à la demande du client
         if (empty($messages)) {
             $dao = new MysqlDao;
             $vols = $dao->getPropositions($villedepart, $villearrivee, $datedepart, $nbadultes, $nbenfants);
-            
-            if(sizeof($vols) == 0){
+
+            if (sizeof($vols) == 0) {
                 // Cas où aucun vol ne correspond à la demande du client
                 $messages[] = "Navrés ! Aucun vol ne correspond à votre demande. Vous pouvez effectuer une nouvelle recherche.";
                 $_SESSION['messages'] = $messages;
