@@ -40,10 +40,10 @@ class PropositionsController {
             $messages[] = "Le mois est incorrect.";
         }
         
-        $dt = new DateTime();
+        $dt = new DateTime(); // On récupère la date du jour
         $anneeCourante = $dt->format("Y"); // On récupère l'année courante
         if (isset($_POST['annee']) && ctype_digit($_POST['annee']) &&
-        $_POST['annee'] = $anneeCourante || $_POST['annee'] = $anneeCourante + 1) {
+        ($_POST['annee'] == $anneeCourante || $_POST['annee'] == $anneeCourante + 1)) {
             $annee = trim($_POST['annee']);
         } else {
             $messages[] = "L'année est incorrecte";
@@ -68,17 +68,20 @@ class PropositionsController {
         }
         
         // Si le tableau de messages d'erreurs est vide, on récupère les vols susceptibles
-        // de correspondre au choix du client
+        // de correspondre à la demande du client
         if (empty($messages)) {
             $dao = new MysqlDao;
-            $dao->getPropositions($villedepart, $villearrivee, $datedepart, $nbadultes, $nbenfants);
+            $vols = $dao->getPropositions($villedepart, $villearrivee, $datedepart, $nbadultes, $nbenfants);
             
-            //$_SESSION['vol_choisi'] = 
+            // Je stocke en session les éléments à conserver et j'envoie vers la vue Proposition
+            $_SESSION['vols'] = $vols; // un tableau d'objets Vol
             $_SESSION['nb_passagers'] = $nbadultes + $nbenfants;
-            header('Location:/Propositions');
+            header('Location:/propositions');
         } else {
+            // S'il y a des erreurs, l'utilisateur est redirigé vers le formulaire de recherche
+            // sur lequel les erreurs seront affichées.
             $_SESSION['messages'] = $messages;
-            header('Location:/Recherche');
+            header('Location:/recherche');
         }
     }
 
