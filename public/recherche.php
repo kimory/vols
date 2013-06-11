@@ -56,17 +56,15 @@ if (!isset($_SESSION)) {
                            <input type="text" id="annee" name="annee" size="3"><br>
 
                         <label for ="nbreadultes">Nombre d'adultes</label>
-                           <input type='number' value="1" min='1' max='30' name="nbreadultes" id="nbreadultes">
+                           <input type='number' value="1" min='1' max='50' name="nbreadultes" id="nbreadultes">
 
                         <label for ="nbreenfants">Nombre d'enfants (moins de 3 ans)</label>
-                           <input type='number' value="0" min='0' max='30' name="nbreenfants" id="nbreenfants"><br>
+                           <input type='number' value="0" min='0' max='50' name="nbreenfants" id="nbreenfants"><br>
 
                         <div id="submit">
                            <input type="submit" value="valider">          
                            <input type="reset" value="annuler">
                         </div>
-
-
 
                     </fieldset>
 

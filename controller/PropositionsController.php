@@ -3,93 +3,95 @@
 namespace controller;
 
 use dao\MysqlDao;
+use \DateTime;
 
 if (!isset($_SESSION)) {
     session_start();
 }
 
-class PropositionsController{  
-    public function action(){
-        
+class PropositionsController {
 
-        $messages = array();
-        
-        // on verifie si on a bien recuperer la ville de depart saisie par l'utilisateur
-        //j'utilise la fonction "htmlspecialchars" qui  permet de rendre inoffensif les injections  html et qui les afficheras seulement." faille XSS" sur les formulaires.
-        // on peut aussi mettre la fonction "strip_tags" qui permet de retirer les balises HTML que le visiteur a tenté d'envoyer plutôt que de les afficher
-        
-         if(isset($_POST['villedepart']) && strlen($_POST['villedepart'])!=0 && htmlspecialchars($_POST['villedepart'])){
-             $villeDepart = trim($_POST['villedepart']);                  
-        }else{              
-             $messages[]="Veuillez indiquer la ville de départ";
-             $villeDepart = NULL; 
-        }         
-         if(isset($_POST['villearrivee']) && strlen($_POST['villearrivee'])!=0 && htmlspecialchars($_POST['villearrivee'])){
-              
-             $villeArrivee = trim($_POST['villearrivee']);
-         }else{
-             $messages[]="Veuillez indiquer la ville d'arrivèe";
-             $villeArrivee = NULL;
-         }
-//          if ($vol->getLieuDepart() && $vol->getLieuArrivee()) {
-//              $diff = $vol->getLieuDepart()->diff($vol->getlieuArrivee());
-//              //$nbJours = $diff->format("%a");
-//         }
-              
-         if (isset($_POST['jour']) && ctype_digit($_POST['jour']) && $_POST['jour'] > 0 && $_POST['jour'] < 32 && htmlspecialchars($_POST['jour'])) {
-             $jour = trim($_POST['jour']);
-         } else {
-             $jour = null;
-             $messages[] = "Le jour est incorrect";
-         }
-         if (isset($_POST['mois']) && ctype_digit($_POST['mois']) && $_POST['mois'] > 0 
-                 && $_POST['mois'] < 13 && htmlspecialchars($_POST['mois'])) {
-             $mois = trim($_POST['mois']); 
-         } else {
-             $mois = null;
-             $messages[] = "Le mois est incorrect";
-         }
-         if (isset($_POST['annee']) && ctype_digit($_POST['annee']) &&
-                 $_POST['annee'] == 2013 && $_POST['annee'] >= 2013 && htmlspecialchars($_POST['annee'])) {
-             $annee = trim($_POST['annee']); 
-         } else {
-             $annee = null;
-             $messages[] = "L'annee est incorrect";
-         }
-         
-         if(isset($_POST['nbreadultes']) && ctype_digit($_POST['nbreadultes'])
-                 && htmlspecialchars($_POST['nbreadultes']) && $_POST['nbreadultes'] >=1 
-                 && $_POST['nbreadultes'] <= 30) {
-             $nbreadultes = trim($_POST['nbreadultes']);
-         }else {
-             $message[] = "Veuillez renseigner le nombre d'adulte";
-             $mois = null;
-         }
-          if(isset($_POST['nbreenfants']) && ctype_digit($_POST['nbreenfants']) 
-                  &&  htmlspecialchars($_POST['nbreenfants']) && $_POST['nbreenfants'] >=0 
-                  && $_POST['nbreenfants'] <= 30){
-             $nbreenfants = trim($_POST['nbreenfants']);
-         }else {
-             $message[] = "Veuillez renseigner le nombre d'enfants";
-             $mois = null;
-         }
-         if(empty($messages)){
-             include VIEW . "propositions.php"; 
-             
-         }else{
-              $_SESSION['messages'] = $messages;
-              include VIEW . "recherche.php"; 
-             
-              
-             
-         }
-        
-         
-         
-         
-        
-}
-}
+    public function action() {
 
+        $messages = array(); // On initialiser un tableau d'erreurs potentielles
+
+        // On vérifie que les champs ont été correctement renseignés
+        if (isset($_POST['villedepart']) && strlen($_POST['villedepart']) > 0) {
+            $villedepart = htmlentities($_POST['villedepart'], ENT_QUOTES, 'UTF-8');
+        } else {
+            $messages[] = "La ville de départ est incorrecte.";
+        }
+        
+        if (isset($_POST['villearrivee']) && strlen($_POST['villearrivee']) > 0) {
+            $villearrivee = htmlentities($_POST['villearrivee'], ENT_QUOTES, 'UTF-8');
+        } else {
+            $messages[] = "La ville d'arrivée est incorrecte.";
+        }
+
+        if (isset($_POST['jour']) && ctype_digit($_POST['jour']) && $_POST['jour'] > 0 && $_POST['jour'] < 32) {
+            $jour = trim($_POST['jour']);
+        } else {
+            $messages[] = "Le jour est incorrect.";
+        }
+        
+        if (isset($_POST['mois']) && ctype_digit($_POST['mois']) && $_POST['mois'] > 0 && $_POST['mois'] < 13) {
+            $mois = trim($_POST['mois']);
+        } else {
+            $messages[] = "Le mois est incorrect.";
+        }
+        
+        $dt = new DateTime(); // On récupère la date du jour
+        $anneeCourante = $dt->format("Y"); // On récupère l'année courante
+        if (isset($_POST['annee']) && ctype_digit($_POST['annee']) &&
+        ($_POST['annee'] == $anneeCourante || $_POST['annee'] == $anneeCourante + 1)) {
+            $annee = trim($_POST['annee']);
+        } else {
+            $messages[] = "L'année est incorrecte";
+        }
+        
+        if(isset($jour) && isset($mois) && isset($annee)){
+            $dt = new DateTime("$annee-$mois-$jour");
+            $datedepart = $dt->format('Y-m-d');
+        }
+
+        // Il faut au minimum 1 adulte pour que la réservation puisse se faire :
+        if (isset($_POST['nbreadultes']) && ctype_digit($_POST['nbreadultes']) && $_POST['nbreadultes'] >= 1) {
+            $nbadultes = trim($_POST['nbreadultes']);
+        } else {
+            $messages[] = "Le nombre d'adultes est incorrect.";
+        }
+        
+        if (isset($_POST['nbreenfants']) && ctype_digit($_POST['nbreenfants']) && $_POST['nbreenfants'] >= 0) {
+            $nbenfants = trim($_POST['nbreenfants']);
+        } else {
+            $messages[] = "Le nombre d'enfants est incorrect.";
+        }
+        
+        // Si le tableau de messages d'erreurs est vide, on récupère les vols susceptibles
+        // de correspondre à la demande du client
+        if (empty($messages)) {
+            $dao = new MysqlDao;
+            $vols = $dao->getPropositions($villedepart, $villearrivee, $datedepart, $nbadultes, $nbenfants);
+            
+            if(sizeof($vols) == 0){
+                // Cas où aucun vol ne correspond à la demande du client
+                $messages[] = "Navrés ! Aucun vol ne correspond à votre demande. Vous pouvez effectuer une nouvelle recherche.";
+                $_SESSION['messages'] = $messages;
+                header('Location:/recherche');
+            } else {
+                // Je stocke en session les éléments à conserver et j'envoie vers la vue Proposition
+                $_SESSION['vols'] = $vols; // un tableau d'objets Vol
+                $_SESSION['nb_passagers'] = $nbadultes + $nbenfants;
+                header('Location:/propositions');
+            }
+        } else {
+            // S'il y a des erreurs, l'utilisateur est redirigé vers le formulaire de recherche
+            // sur lequel les erreurs seront affichées.
+            $_SESSION['messages'] = $messages;
+            header('Location:/recherche');
+        }
+    }
+
+}
 
 ?>
