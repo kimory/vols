@@ -50,7 +50,7 @@ class MysqlDao {
 	{
 		$sql = "SELECT V.numvol AS numvol,
 			GET_FORMAT(V.dateheuredep, '%d/%m/%Y %H:%i') as datedep,
-			V.tarif as tarif
+			V.tarif
 			FROM vol V
 			WHERE V.numvol IN
 			(
@@ -67,7 +67,6 @@ class MysqlDao {
 		$stmt = $this->dbh->prepare($sql);
 		$stmt->bindParam(':villedep', $villedep);
 		$stmt->bindParam(':villearrivee', $villearrivee);
-		// $datetime->format('Y/m/d H:i:s');
 		$stmt->bindParam(':datededepart', $datedep->format('Y-m-d'));
 		$stmt->bindParam(':nbplaces', Vol::NB_PLACES);
 		$stmt->bindParam(':nbplacesrequises', ($nbadultes + $nbenfants));
@@ -79,7 +78,7 @@ class MysqlDao {
 			$result[] = $row; // on insère une copie du tableau $row dans $result
 		}
 
-		if(sizeof($results) == 0) 
+		if(sizeof($result) == 0)
 		{
 			$sql = "SELECT V.numvol AS numvol,
 				GET_FORMAT(V.dateheuredep, '%d/%m/%Y %H:%i') as datedep,
@@ -93,7 +92,9 @@ class MysqlDao {
 					WHERE
 					V2.lieudep=:villedep AND
 					V2.lieuarriv=:villearrivee AND 
-					(UNIX_TIMESTAMP(:datededepart) - UNIX_TIMESTAMP(DATE_FORMAT(V.dateheuredep,'%Y-%m-%d'))) > 0
+					(UNIX_TIMESTAMP(:datededepart) - UNIX_TIMESTAMP(DATE_FORMAT(V.dateheuredep,'%Y-%m-%d'))) < 0
+                                        -- on transforme dans un format identique les 2 dates : 
+                                        -- UNIX_TIMESTAMP (entier qui augmente à chaque seconde).
 					HAVING ( :nbplaces - count(P.numplace)) > :nbplacesrequises
 				)";
 
