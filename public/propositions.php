@@ -1,14 +1,21 @@
-<?php 
+<?php
+include('../setup.php');
 if (!isset($_SESSION)) {
     session_start();
 }
 
+use \DateTime;
+
 $vols = $_SESSION['vols'];
+$nb_passagers = $_SESSION['nb_passagers'];
+$date_depart_souhaitee = $_SESSION['date_depart_souhaitee'];
+
+
 ?>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>proposition</title>
+        <title>DEV-FLY - Proposition</title>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
         <link rel="stylesheet" type="text/css" href="css/style.css" />
     </head>
@@ -31,10 +38,11 @@ $vols = $_SESSION['vols'];
             <div id="container">
                
                 <div class="h6">                   
-                    <h6>Votre sélection</h6> 
-                        <p>Vous partez de <?php echo $villedepart; ?> et vous arrivez à <?php echo $villearrivee; ?> .</p>
-                        <p>Date de départ souhaitée :<?php echo $datedepart ?></p>
-                        <p>Vous êtes <?php echo $nbreadultes ?> adultes et <?php echo $nbreenfants ?> enfants.</p>
+                    <h6>Votre sélection</h6>
+                        <?php //$datesouhaitee = new DateTime($vols[0]->getDateHeureDepart()); ?>
+                        <p>Vous partez de <?php echo $vols[0]->getLieuDepart(); ?> et vous arrivez à <?php echo $vols[0]->getLieuArrivee(); ?> .</p>
+                        <p>Date de départ souhaitée :<?php //echo $date_depart_souhaitee->format('d/m/Y'); ?></p>
+                        <p>Vous êtes <?php echo $nb_passagers ?> passager(s).</p>
                 </div>                    
                 </div>
                 
