@@ -26,11 +26,6 @@
 	* reprendre IHM menu
 	* formulaire contact
 
-Pour le back office :
-        * manque le contrôleur avant d'arriver au choix du critère
-Annexe :
-        * rassembler les fonctions icClientConnected et isAdminConnected du dao et des entity
-
 Pour l'espace client :
         * tests
         * manipuler des objets dans l'espace client
