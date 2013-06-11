@@ -1,7 +1,4 @@
-<?php 
-if (!isset($_SESSION)) {
-    session_start();
-}?>
+<?php session_start(); ?>
 
 <?php
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -38,18 +35,18 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             <div id="container">
                
                 <div class="h6">                   
-                    <h5>Votre sélection</h5> 
+                    <h6>Votre sélection</h6> 
                         <p>Vous partez de <?php echo $villedepart; ?> et vous arrivez à <?php echo $villearrivee; ?> .</p>
                         <p>Date de départ souhaitée :<?php echo $datedepart ?></p>
                         <p>Vous êtes <?php echo $nbreadultes ?> adultes et <?php echo $nbreenfants ?> enfants.</p>
                 </div>                    
                 </div>
                 
-                        <h5>Nos propositions</h5> 
-                        <h6>Date de départ</h6>
-                        Choix 1 "dateheure" "prix": <input type="radio" name="choix1" value="1" checked><br>
-                        Choix 2 "dateheure" "prix": <input type="radio" name="choix2" value="2"><br>
-                        Choix 3 "dateheure" "prix": <input type="radio" name="choix3" value="3"><br>                       
+                        <legend>Nos propositions</legend> 
+                        <h5>Date de départ</h5>
+                        Choix 1 "dateheure" "prix": <input type="radio" name="choix" value="1" checked><br>
+                        Choix 2 "dateheure" "prix": <input type="radio" name="choix" value="2"><br>
+                        Choix 3 "dateheure" "prix": <input type="radio" name="choix" value="3"><br>                       
 
                     
                 <input  type="submit" value="valider">

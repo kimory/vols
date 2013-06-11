@@ -4,38 +4,38 @@ namespace controller;
 
 use dao\MysqlDao;
 
-if (!isset($_SESSION)) {
-    session_start();
-}
+session_start();
 
 
 
-
-class PropositionsController{ 
-    
+class PropositionsController{  
     public function action(){
-                
+        
 
         $messages = array();
         
+        // on verifie si on a bien recuperer la ville de depart saisie par l'utilisateur
+        //j'utilise la fonction "htmlspecialchars" qui  permet de rendre inoffensif les injections  html et qui les afficheras seulement." faille XSS" sur les formulaires.
+        // on peut aussi mettre la fonction "strip_tags" qui permet de retirer les balises HTML que le visiteur a tenté d'envoyer plutôt que de les afficher
         
-        // on verifie si on a bien recuperer la ville de depart saisie par l'utilisateur        
-        
-        
-         if(isset($_POST['villedepart']) && strlen($_POST['villedepart'])!=0 ){
+         if(isset($_POST['villedepart']) && strlen($_POST['villedepart'])!=0 && htmlspecialchars($_POST['villedepart'])){
              $villeDepart = trim($_POST['villedepart']);                  
         }else{              
-             $messages[]=" Veuillez indiquer la ville de départ";
+             $messages[]="Veuillez indiquer la ville de départ";
              $villeDepart = NULL; 
         }         
-         if(isset($_POST['villearrivee']) && strlen($_POST['villearrivee'])!=0 ){
+         if(isset($_POST['villearrivee']) && strlen($_POST['villearrivee'])!=0 && htmlspecialchars($_POST['villearrivee'])){
               
              $villeArrivee = trim($_POST['villearrivee']);
          }else{
-             $messages[]=" Veuillez indiquer la ville d'arrivèe";
+             $messages[]="Veuillez indiquer la ville d'arrivèe";
              $villeArrivee = NULL;
-         }            
-        
+         }
+//          if ($vol->getLieuDepart() && $vol->getLieuArrivee()) {
+//              $diff = $vol->getLieuDepart()->diff($vol->getlieuArrivee());
+//              //$nbJours = $diff->format("%a");
+//         }
+              
          if (isset($_POST['jour']) && ctype_digit($_POST['jour']) && $_POST['jour'] > 0 && $_POST['jour'] < 32 && htmlspecialchars($_POST['jour'])) {
              $jour = trim($_POST['jour']);
          } else {
@@ -50,17 +50,12 @@ class PropositionsController{
              $messages[] = "Le mois est incorrect";
          }
          if (isset($_POST['annee']) && ctype_digit($_POST['annee']) &&
-                 $_POST['annee'] == 2013 && $_POST['annee'] >= 2013 ) {
+                 $_POST['annee'] == 2013 && $_POST['annee'] >= 2013 && htmlspecialchars($_POST['annee'])) {
              $annee = trim($_POST['annee']); 
          } else {
              $annee = null;
              $messages[] = "L'annee est incorrect";
          }
-         // ici, il faudra cree un objet datatime.
-         
-         $datedep = new \DateTime("$annee-$mois-$jour");
-         $date_dep_au_bon_format = $datedep->format('Y-m-d');
-        
          
          if(isset($_POST['nbreadultes']) && ctype_digit($_POST['nbreadultes'])
                  && htmlspecialchars($_POST['nbreadultes']) && $_POST['nbreadultes'] >=1 
@@ -78,20 +73,20 @@ class PropositionsController{
              $message[] = "Veuillez renseigner le nombre d'enfants";
              $mois = null;
          }
-          if(isset($villeDepart) && strlen($villeDepart)!=0 && isset($villeArrivee) && strlen($villeArrivee)!=0){
-             $dao = new MysqlDao();
-             $recherche = $dao->getPropositions($villeDepart, $villeArrivee, $date_dep_au_bon_format, $nbreadultes, $nbreenfants);
-         }else{
-             
-         }
-         
          if(empty($messages)){
              include VIEW . "propositions.php"; 
              
          }else{
               $_SESSION['messages'] = $messages;
               include VIEW . "recherche.php"; 
-         }  
+             
+              
+             
+         }
+        
+         
+         
+         
         
 }
 }

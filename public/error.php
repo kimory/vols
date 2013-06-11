@@ -1,7 +1,4 @@
-<?php
-if (!isset($_SESSION)) {
-    session_start();
-}; ?>
+<?php session_start(); ?>
 
 <? header("HTTP/1.1 500 INTERNAL SERVER ERROR"); ?>
 <!DOCTYPE html>

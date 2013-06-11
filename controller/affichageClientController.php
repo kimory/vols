@@ -2,9 +2,7 @@
 
 namespace controller;
 
-if (!isset($_SESSION)) {
-    session_start();
-};
+session_start();
 
 use dao\MysqlDao;
 
