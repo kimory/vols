@@ -12,7 +12,7 @@ class reservationDetailsController {
 
 		$dao = new MysqlDao();
 
-		if($dao->isClientConnected() && 
+		if($dao->isClientConnected() && // on vérifie que le client est bien connecté
 			isset($_GET['numreservation']) && 
 			strlen($_GET['numreservation']) > 0)
 		{
@@ -34,7 +34,7 @@ class reservationDetailsController {
 				header('Location:/espaceclient');
 			}
 			// normalement impossible d'arriver ici
-			// puis qu'on ne peut pas afficher le formulaire qui amène à ce controleur
+			// puisqu'on ne peut pas afficher le formulaire qui amène à ce controleur
 			// si le client n'est pas connecté
 		} else {
 			$_SESSION['error_message'] = "Vous n'êtes pas connecté.";

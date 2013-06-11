@@ -10,7 +10,7 @@ class reservationsController {
 
 	public function action() {
 		$dao = new MysqlDao();
-		if($dao->isClientConnected())
+		if($dao->isClientConnected()) // on vérifie au préalable que le client est bien connecté
 		{
 			$login = $_SESSION['login'];
 
