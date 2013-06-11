@@ -9,8 +9,14 @@
   </head>
     
   <body>
-	
+      <div id="container">
+          <div id="carouselle">
+              
+          </div>
+          <div id="bienvenue">
 	  <p><a href="/recherche">Bienvenue</a></p>
+          </div>
+      </div>
 	   	   
   
   </body>

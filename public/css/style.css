@@ -10,7 +10,7 @@ body{
 
 #container{
      position:relative;
-	 top:10px;
+     margin-top:50px;
      margin-left: 170px;
 	 width:990px;
 	 border:5px outset white;
@@ -18,9 +18,14 @@ body{
      background-color:rgba(204,237,240,0.9);
 }
 
+#container a {
+    text-decoration: none;
+    color: black;
+}
+
 #header{
      margin-top: 1px;
-     width:990px; 
+     width:980px; 
      height:90px;
 	 
 }
@@ -37,14 +42,30 @@ body{
      width: 100px;
      height:90px;
  }
+ 
+#backoffice {
+     margin-top: 45px;
+     float: right;
+     width: 600px;
+     height: 42px;
+ }
+ #backoffice form {
+     margin-top:15px;
+ }
+ 
+ #backoffice form input{
+     margin:0px;
+     padding: 2px;
+     display: inline;
+     margin-top: -10px;
+ }
 
 
 #menu{
      position:absolute;
      width:800px; 
      height:40px;
-     border:2px solid pink;
-     margin:0px 0px 5px 185px;
+     margin:0px 0px 5px 170px;
 }
 
 .nav-tabs,
@@ -69,13 +90,17 @@ body{
 .nav-tabs > li,
 .nav-pills > li {
   float: left;
+  width: 150px;
+  text-align: center;
+  border: 2px outset;
 }
 
 .nav-tabs > li > a,
 .nav-pills > li > a {
   padding-right: 20px;
   padding-left: 20px;
-  margin-right: 10px;
+  margin-right: 20px;
+  margin-left: 20px;
   line-height: 15px;
 }
 
@@ -93,8 +118,8 @@ body{
   line-height: 20px;
   border: 4px solid transparent;
   -webkit-border-radius: 4px 4px 0 0;
-     -moz-border-radius: 4px 4px 0 0;
-          border-radius: 4px 4px 0 0;
+  -moz-border-radius: 4px 4px 0 0;
+   border-radius: 4px 4px 0 0;
 }
 
 .nav-tabs > li > a:hover,
@@ -115,16 +140,38 @@ body{
 
 
 #developpement{
-     position: relative;
-    margin: 20px 5px 0px 10px;
-    min-height: 350px;
-}  
+    position: relative;
+    margin: 10px 5px 0px 5px;
+    min-height: 380px;
+    border: 3px inset #eeeeee;
+} 
+
+#carouselle{
+    position: relative;
+    margin: 10px 5px 0px 70px;
+    width: 850px;
+    height: 500px;
+    border: 2px #4bb1cf solid;
+}
+
+#bienvenue{
+    text-align: center;
+    font-size: 20px;
+    
+}
+
+.tab-content{
+    position: relative;
+    margin-top: 80px;
+    margin-left:220px;
+    width: 500px;
+    text-align: center;
+}
 
 #footer{
     position:relative;
      width:990px; 
      height:70px;
-     margin-top:30px;
+     margin-top:10px;
      margin-bottom: 0px;
-     border: 1px solid green;
 }
