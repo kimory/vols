@@ -8,6 +8,7 @@ use entity\Passager;
 use entity\Reservation;
 use entity\Vol;
 use entity\Employe;
+use \DateTime;
 
 class MysqlDao {
 
@@ -23,6 +24,7 @@ class MysqlDao {
 
 	public function getPropositions($villedep, $villearrivee, $datedep, $nbadultes, $nbenfants)
 	{
+        // Retourne un tableau d'objets Vol
                 // On récupère les vols qui correspondent au choix du client s'ils ne sont pas complets
 		$sql = "SELECT V.numvol AS numvol,
 			DATE_FORMAT(V.dateheuredep, '%d/%m/%Y %H:%i') as datedep,
@@ -43,15 +45,25 @@ class MysqlDao {
 		$stmt = $this->dbh->prepare($sql);
 		$stmt->bindParam(':villedep', $villedep);
 		$stmt->bindParam(':villearrivee', $villearrivee);
-		$stmt->bindParam(':datededepart', $datedep->format('Y-m-d'));
-		$stmt->bindParam(':nbplaces', Vol::NB_PLACES);
-		$stmt->bindParam(':nbplacesrequises', ($nbadultes + $nbenfants));
+                $datedepart = new DateTime($datedep);
+		$stmt->bindParam(':datededepart', $datedepart->format('Y-m-d'));
+                $nbplaces = Vol::NB_PLACES;
+		$stmt->bindParam(':nbplaces', $nbplaces);
+                $nbpassagers = $nbadultes + $nbenfants;
+		$stmt->bindParam(':nbplacesrequises', $nbpassagers);
 		$stmt->execute();
 		$result = array();
 
 		while($row = $stmt->fetch(PDO::FETCH_ASSOC))
 		{
-			$result[] = $row; // on insère une copie du tableau $row dans $result
+                        $numvol = $row['numvol'];
+                        $datedep = $row['datedep'];
+                        // Ici on passe le tarif que l'utilisateur devra payer, soit
+                        // le prix du vol multiplié par le nombre de passagers (pour les
+                        // enfants, le tarif est fixé à 50 €)
+                        $tarif = $row['tarif'] * $nbadultes + 50 * $nbenfants;
+                        $vol = new Vol($numvol, $villedep, $villearrivee, $datedep, null, $tarif, null, null, null, null, null, null);
+			$result[] = $vol; // on insère une copie du tableau $row dans $result
 		}
 
 		if(sizeof($result) == 0)
@@ -79,15 +91,24 @@ class MysqlDao {
 			$stmt = $this->dbh->prepare($sql);
 			$stmt->bindParam(':villedep', $villedep);
 			$stmt->bindParam(':villearrivee', $villearrivee);
-			// $datetime->format('Y/m/d H:i:s');
-			$stmt->bindParam(':datededepart', $datedep->format('Y-m-d'));
-			$stmt->bindParam(':nbplaces', Vol::NB_PLACES);
-			$stmt->bindParam(':nbplacesrequises', ($nbadultes + $nbenfants));
+                        $datedepart = new DateTime($datedep);
+			$stmt->bindParam(':datededepart', $datedepart->format('Y-m-d'));
+			$nbplaces = Vol::NB_PLACES;
+                        $stmt->bindParam(':nbplaces', $nbplaces);
+			$nbpassagers = $nbadultes + $nbenfants;
+                        $stmt->bindParam(':nbplacesrequises', $nbpassagers);
 			$stmt->execute();
 
 			while($row = $stmt->fetch(PDO::FETCH_ASSOC))
 			{
-				$result[] = $row; // on insère une copie du tableau $row dans $result
+				$numvol = $row['numvol'];
+                                $datedep = $row['datedep'];
+                                // Ici on passe le tarif que l'utilisateur devra payer, soit
+                                // le prix du vol multiplié par le nombre de passagers (pour les
+                                // enfants, le tarif est fixé à 50 €)
+                                $tarif = $row['tarif'] * $nbadultes + 50 * $nbenfants;
+                                $vol = new Vol($numvol, $villedep, $villearrivee, $datedep, null, $tarif, null, null, null, null, null, null);
+                                $result[] = $vol; // on insère une copie du tableau $row dans $result
 			}
 		}
 
