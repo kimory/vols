@@ -24,6 +24,16 @@ class passengerRegistrationController {
 			$i--;
 			while($i >= 0)
 			{
+				if(strlen($_POST['civilite'][$i]) == 0)
+				{
+					// Pour le premier message d'erreur il faut initialiser la variable
+					if(! isset($_SESSION['message_erreur']))
+					{
+						$_SESSION['message_erreur'] = "";
+					}
+					$_SESSION['message_erreur'] .=
+						"Vous n'avez pas entré de civilité pour le passager $i. ";
+				}
 				if(strlen($_POST['date_de_naissance'][$i]) == 0)
 				{
 					// Pour le premier message d'erreur il faut initialiser la variable
@@ -31,7 +41,7 @@ class passengerRegistrationController {
 					{
 						$_SESSION['message_erreur'] = "";
 					}
-					$_SESSION['message_erreur'] = $_SESSION['message_erreur'] . 
+					$_SESSION['message_erreur'] .=
 						"Vous n'avez pas entré de date de naissance pour le passager $i. ";
 				}
 				if(strlen($_POST['nom'][$i]) == 0)
@@ -41,7 +51,7 @@ class passengerRegistrationController {
 					{
 						$_SESSION['message_erreur'] = "";
 					}
-					$_SESSION['message_erreur'] = $_SESSION['message_erreur'] . 
+					$_SESSION['message_erreur'] .=
 						"Vous n'avez pas entré de nom pour le passager $i. ";
 				}
 				if(strlen($_POST['prenom'][$i]) == 0)
@@ -51,7 +61,7 @@ class passengerRegistrationController {
 					{
 						$_SESSION['message_erreur'] = "";
 					}
-					$_SESSION['message_erreur'] = $_SESSION['message_erreur'] . 
+					$_SESSION['message_erreur'] .=
 						"Vous n'avez pas entré de prénom pour le passager $i. ";
 				}
 				$i--;
