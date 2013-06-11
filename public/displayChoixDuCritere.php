@@ -8,8 +8,8 @@ use entity\User;
 
 if(!User::isAdminConnected()){
     // Si un utilisateur non connecté en tant qu'admin tente d'accéder à cette page directement
-    // On force son passage vers le contrôleur qui fait les vérifications nécessaires :
-    header("Location:/backOfficeController");
+    // on l'en empêche, en l'envoyant vers une page d'erreur :
+    header("Location:/error");
 }
 ?>
 
