@@ -10,7 +10,7 @@
     <body>
         <div id="supercontainer">
             <header>
-				<?php include('include/back_office_login_form.php'); ?>
+		       <?php include('include/back_office_login_form.php'); ?>
             </header>
 			<?php 
 				$_SESSION['page_actuelle'] = 'Rechercher un vol';
@@ -18,6 +18,13 @@
 				include('include/user_connection_form.php');
 			?>
             <div id="container">
+                   <?php if (isset($_SESSION['messages'])) : ?>
+                    <ul>
+                        <?php foreach ($_SESSION['messages'] as $value) : ?>
+                            <li><?php echo $value ?></li>
+                        <?php endforeach; ?>
+                   </ul>
+                <?php endif; ?>
                 <form action="/PropositionsController" method="POST" >
                     <fieldset>
                         <legend>Votre sélection</legend> 
