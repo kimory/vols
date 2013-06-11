@@ -22,7 +22,7 @@ class passengerRegistrationController {
 			$i = $_SESSION['nb_passagers'];
 			// On vérifie qu'on a rentré toutes les informations qu'il faut
 			$i--;
-			while($i >= 0)
+			while($i >= 0) // Cf le tableau commence à l'indice zéro
 			{
 				if(strlen($_POST['date_de_naissance'][$i]) == 0)
 				{
