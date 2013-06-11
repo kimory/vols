@@ -27,7 +27,15 @@ use entity\User;
             include('include/user_connection_form.php');
             ?>
 
-			<form action="/TODO" method="POST" >
+<?php
+			if(isset($_SESSION['message_erreur']))
+			{ 
+?>
+	<p><?php echo $_SESSION['message_erreur']; ?></p>
+<?php		
+			}
+?>
+			<form action="/passengerRegistrationController" method="POST" >
 				<fieldset>
 				<legend>Formulaire d'inscription</legend> 
 
@@ -39,18 +47,18 @@ use entity\User;
 ?>
 				<fieldset>
 				<legend>Enregistrement du passager n°<?php echo $i; ?></legend>
-				<select name='civilite<?php echo $i; ?>' id='civilite' >
+				<select name='civilite[]' id='civilite<?php echo $i; ?>' >
 					<option value="m">Monsieur</option>
 					<option value="mme">Madame</option>
 				</select>
 
 				<label for="date_de_naissance<?php echo $i; ?>">Date de naissance</label>
-				<input type="text" name="date_de_naissance<?php echo $i; ?>" id="date_de_naissance<?php echo $i; ?>">
+				<input type="text" name="date_de_naissance[]" id="date_de_naissance<?php echo $i; ?>">
 
 				<label for="nom<?php echo $i; ?>">Nom</label>
-				<input type="text" name="nom<?php echo $i; ?>" id="nom<?php echo $i; ?>">
+				<input type="text" name="nom[]" id="nom<?php echo $i; ?>">
 				<label for="prenom<?php echo $i; ?>">Prénom</label>
-				<input type="text" name="prenom<?php echo $i; ?>" id="prenom<?php echo $i; ?>">
+				<input type="text" name="prenom[]" id="prenom<?php echo $i; ?>">
 
 				</fieldset>
 <?php
