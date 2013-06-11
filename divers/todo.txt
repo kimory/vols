@@ -1,6 +1,3 @@
--Code fonctionnalité1
--Code fonctionnalité2
--Code fonctionnalité3
 -CSS pour embellir le site (la structure principale ne sera pas en Bootstrap)
 -Tester / Faire tester l'appli
 -Cahier des charges fini + mis en forme
@@ -18,11 +15,6 @@
 	* qu'on obtient toutes les informations sur la réservation que nous avons sélectionnée
 	* qu'on a bien inclus les fichiers CSS et JS de bootstrap
 
-- FAIRE - classe MysqlDao : 
-	* refaire les fonctions isClientConnected et isAdminConnected pour vraiment 
-		aller chercher s'ils sont connectés (= ils existent) dans la base de données
-                (pour l'instant elles sont dans le dao mais n'utilisent pas la BDD !)
-
 - FAIRE :
 	* nouvelle réservation (ec)
 	* modification d'une réservation -> revient à annuler + réserver (ec)
@@ -30,9 +22,17 @@
 	* résultats de la recherche
 	* mise en session du choix de l'utilisateur
 	* formulaire d'inscription des passagers dans le dossier include + l'inclure sur les bonnes pages
-	* fiche client et / ou demande de connexion sur la même page
+	* fiche client et / ou demande de connexion sur la même page -> ok
 	* fiche de synthèse + formulaire de paiement
 	* billet
 	* CSS
 	* reprendre IHM menu
 	* formulaire contact
+
+Pour le back office :
+        * manque le contrôleur avant d'arriver au choix du critère
+
+Pour l'espace client :
+        * tests
+        * manipuler des objets dans l'espace client
+        * htmlentities pour protéger

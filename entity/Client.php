@@ -58,6 +58,10 @@ final class Client extends Personne{
     public function setPassword($password) {
         $this->password = $password;
     }
+    
+    public static function isClientConnected() {
+        return (isset($_SESSION['login']) && strlen($_SESSION['login']) > 0);
+    }
 
 }
 ?>

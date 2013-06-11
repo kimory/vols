@@ -13,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>proposition</title>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
         <link rel="stylesheet" type="text/css" href="css/style.css" />
     </head>
     <body>
@@ -22,10 +23,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 			include('include/back_office_login_form.php');
 		?>
 		</header>
-		<?php 
-			include('include/menu_front_office.php'); 
-			include('include/user_connection_form.php');
-		?>
+		<?php
+            $_SESSION['page_actuelle'] = 'Rechercher un vol';
+            include('include/menu_front_office.php');
+            include('include/user_connection_form.php');
+            ?>
         <div id="supercontainer">
             <header>
 

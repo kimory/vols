@@ -43,6 +43,79 @@ class MysqlDao {
         }
         return $tab;
     }
+
+	// TODO : faire des essais
+	// idVol + prix + dateheuredépart
+	public function getPropositions($villedep, $villearrivee, $datedep, $nbadultes, $nbenfants)
+	{
+		$sql = "SELECT V.numvol AS numvol,
+			GET_FORMAT(V.dateheuredep, '%d/%m/%Y %H:%i') as datedep,
+			V.tarif
+			FROM vol V
+			WHERE V.numvol IN
+			(
+				SELECT V2.numvol
+				FROM vol V2
+				INNER JOIN place P ON P.numvol = V2.numvol
+				WHERE
+				V2.lieudep=:villedep AND
+				V2.lieuarriv=:villearrivee AND
+				DATE_FORMAT(V.dateheuredep,'%Y-%m-%d')=:datededepart
+				HAVING ( :nbplaces - count(P.numplace)) > :nbplacesrequises
+			)";
+
+		$stmt = $this->dbh->prepare($sql);
+		$stmt->bindParam(':villedep', $villedep);
+		$stmt->bindParam(':villearrivee', $villearrivee);
+		$stmt->bindParam(':datededepart', $datedep->format('Y-m-d'));
+		$stmt->bindParam(':nbplaces', Vol::NB_PLACES);
+		$stmt->bindParam(':nbplacesrequises', ($nbadultes + $nbenfants));
+		$stmt->execute();
+		$result = array();
+
+		while($row = $stmt->fetch(PDO::FETCH_ASSOC))
+		{
+			$result[] = $row; // on insère une copie du tableau $row dans $result
+		}
+
+		if(sizeof($result) == 0)
+		{
+			$sql = "SELECT V.numvol AS numvol,
+				GET_FORMAT(V.dateheuredep, '%d/%m/%Y %H:%i') as datedep,
+				V.tarif as tarif
+				FROM vol V
+				WHERE V.numvol IN 
+				(
+					SELECT V2.numvol
+					FROM vol V2
+					INNER JOIN place P ON P.numvol = V2.numvol
+					WHERE
+					V2.lieudep=:villedep AND
+					V2.lieuarriv=:villearrivee AND 
+					(UNIX_TIMESTAMP(:datededepart) - UNIX_TIMESTAMP(DATE_FORMAT(V.dateheuredep,'%Y-%m-%d'))) < 0
+                                        -- on transforme dans un format identique les 2 dates : 
+                                        -- UNIX_TIMESTAMP (entier qui augmente à chaque seconde).
+					HAVING ( :nbplaces - count(P.numplace)) > :nbplacesrequises
+				)";
+
+			$stmt = $this->dbh->prepare($sql);
+			$stmt->bindParam(':villedep', $villedep);
+			$stmt->bindParam(':villearrivee', $villearrivee);
+			// $datetime->format('Y/m/d H:i:s');
+			$stmt->bindParam(':datededepart', $datedep->format('Y-m-d'));
+			$stmt->bindParam(':nbplaces', Vol::NB_PLACES);
+			$stmt->bindParam(':nbplacesrequises', ($nbadultes + $nbenfants));
+			$stmt->execute();
+
+			while($row = $stmt->fetch(PDO::FETCH_ASSOC))
+			{
+				$result[] = $row; // on insère une copie du tableau $row dans $result
+			}
+		}
+
+		return $result;
+	}
+
     public function getPropositionsByVol($villedep, $villearrivee, $datedep){
         // recupere les infos saisies par le client et verifier les donnees saisies qui sont les ville de depart et ville d'arrivee et
         //si la compagnie propose la destination.
@@ -291,23 +364,69 @@ class MysqlDao {
 		return null;
 	}
 
-	// TODO
-	// On peut aller chercher dans la BDD si le client existe réellement
 	public function isClientConnected() 
 	{
-		return (isset($_SESSION['login'], $_SESSION['passwd']) 
-			&& strlen($_SESSION['login']) > 0 
-			&& strlen($_SESSION['passwd']) > 0);
+                // Renvoie "true" si le client est connecté, "false" sinon
+                
+                // On vérifie que le login et le mot de passe sont en session et
+                // sont corrects par rapport à la BDD
+		if(isset($_SESSION['login'], $_SESSION['passwd']) &&
+			strlen($_SESSION['login']) > 0 &&
+			strlen($_SESSION['passwd']) > 0)
+		{
+			$sql = "SELECT login
+				FROM client
+				where login=:login and password=:passwd";
+
+			$stmt = $this->dbh->prepare($sql);
+			$stmt->bindParam(":login", $_SESSION['login']);
+			$stmt->bindParam(":passwd", $_SESSION['passwd']);
+			$stmt->execute();
+
+			if($stmt->fetch(PDO::FETCH_ASSOC)) // on vérifie que ça renvoie qqch
+			{
+				return true; // renvoie 'vrai' et sort de la fonction
+			}
+		}
+                // On détruit les variables dans le cas où un login et un mot de passe sont
+                // en session mais ne sont pas corrects (par rapport à la BDD)
+		unset($_SESSION['login']);
+		unset($_SESSION['passwd']);
+
+		return false;
 	}
 
-	// TODO
-	// On peut aller chercher dans la BDD si l'admin existe réellement
 	// Ne pas oublier que le mot de passe enregistré est déjà chiffré
-	public function isAdminConnected() 
+	public function isAdminConnected()
 	{
-		return (isset($_SESSION['login_admin'], $_SESSION['passwd']) 
-			&& strlen($_SESSION['login_admin']) > 0 
-			&& strlen($_SESSION['passwd']) > 0);
+                // Renvoie "true" si l'admin est connecté, "false" sinon
+                
+                // On vérifie que le login et le mot de passe sont en session et
+                // sont corrects par rapport à la BDD
+		if(isset($_SESSION['login_admin'], $_SESSION['passwd']) &&
+			strlen($_SESSION['login_admin']) > 0 &&
+			strlen($_SESSION['passwd']) > 0)
+		{
+			$sql = "SELECT login
+				FROM user
+				where login=:login and password=:passwd";
+
+			$stmt = $this->dbh->prepare($sql);
+			$stmt->bindParam(":login", $_SESSION['login_admin']);
+			$stmt->bindParam(":passwd", $_SESSION['passwd']);
+			$stmt->execute();
+
+			if($stmt->fetch(PDO::FETCH_ASSOC)) // on vérifie que ça renvoie qqch
+			{
+				return true;  // renvoie 'vrai' et sort de la fonction
+			}
+		}
+                // On détruit les variables dans le cas où un login et un mot de passe sont
+                // en session mais ne sont pas corrects (par rapport à la BDD)
+		unset($_SESSION['login_admin']);
+		unset($_SESSION['passwd']);
+
+		return false;
 	}
 
 	public function getReservations($login) 

@@ -9,12 +9,11 @@ use dao\MysqlDao;
 class reservationsController {
 
 	public function action() {
-
-		if(isset($_SESSION['login']) && strlen($_SESSION['login']) > 0)
+		$dao = new MysqlDao();
+		if($dao->isClientConnected()) // on vérifie au préalable que le client est bien connecté
 		{
 			$login = $_SESSION['login'];
 
-			$dao = new MysqlDao();
 			// On récupère un tableau de tableaux qui contient la liste des
 			// réservations qu'a passées le client
 			$result = $dao->getReservations($login);
@@ -32,7 +31,9 @@ class reservationsController {
 			// normalement impossible d'arriver ici
 			// puis qu'on ne peut pas afficher le formulaire qui amène à ce controleur
 			// si le client n'est pas connecté
-		} else {
+		} 
+		else 
+		{
 			$_SESSION['error_message'] = "Vous n'êtes pas connecté.";
 			header('Location:' . $_SERVER['HTTP_REFERER']);
 		}

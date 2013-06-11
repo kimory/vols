@@ -1,11 +1,17 @@
 
 <?php session_start(); ?>
+<?php
+include_once("../setup.php");
+
+use entity\Client;
+use entity\User;
+?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />     
         <title>DEV-FLY - Espace Client</title>
     </head>
     <body>
@@ -21,7 +27,7 @@
 
             <?php
             // Si l'utilisateur n'est pas connecté
-            if (!isClientConnected()) {
+            if (!Client::isClientConnected()) {
                 // affichage de la création d'un compte client
                 include('include/create_user_form.php');
                 // Si le client est connecté, on affiche ses réservations

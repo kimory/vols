@@ -3,8 +3,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
         <title>DEV-FLY - Recherche</title>
     </head>
     <body>
@@ -43,7 +43,7 @@
                         <label for ="nbreadultes">Nombre d'adultes</label>
                            <input type='number' value="1" min='1' max='30' name="nbreadultes" id="nbreadultes">
 
-                        <label for ="nbreenfants">Nombre d'enfants</label>
+                        <label for ="nbreenfants">Nombre d'enfants (moins de 3 ans)</label>
                            <input type='number' value="0" min='0' max='30' name="nbreenfants" id="nbreenfants"><br>
 
                         <div id="submit">
