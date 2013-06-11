@@ -6,8 +6,6 @@
 -"Site bilingue" : si on a le tps, créer les pages en version anglaise + modifier le cahier des charges pr l'indiquer (voir dans la partie "Remarques")
 -Penser aux sessions
 -Modifier le DOCTYPE sur chaque page
--attention : commit / pull / push
-- en local : réimporter la BDD
 
 
 - vérifier : 
@@ -31,6 +29,8 @@
 
 Pour le back office :
         * manque le contrôleur avant d'arriver au choix du critère
+Annexe :
+        * rassembler les fonctions icClientConnected et isAdminConnected du dao et des entity
 
 Pour l'espace client :
         * tests

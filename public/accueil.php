@@ -12,8 +12,14 @@ if (!isset($_SESSION)) {
   </head>
     
   <body>
-	
-	  <p><a href="/recherche">Français</a> | <a href="/search">Anglais</a></p>
+      <div id="container">
+          <div id="carouselle">
+              
+          </div>
+          <div id="bienvenue">
+	  <p><a href="/recherche">Bienvenue</a></p>
+          </div>
+      </div>
 	   	   
   
   </body>
