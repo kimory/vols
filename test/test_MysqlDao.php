@@ -13,7 +13,10 @@ $dao = new MysqlDao();
 //var_dump($dao->getPropositionsByVol('Paris', 'Saint-Martin','20-06-2013'));
 //var_dump($dao->getVolById('DF5609'));
 //var_dump($dao->getVolsByEmploye('H0011'));
-//
-var_dump($dao->backOfficeLogin("general", "grneral"));
 
+//var_dump($dao->backOfficeLogin("general", "grneral"));
+
+var_dump($dao->getPropositions("Berne", "Sydney", "2013-06-01", 3, 2));
+//var_dump($dao->getPropositions("Berne", "Sydney", "2013-05-31", 3, 2));
+//var_dump($dao->getPropositions("Berne", "Sydney", "2013-05-31", 170, 2));
 ?>
