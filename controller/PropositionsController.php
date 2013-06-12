@@ -48,17 +48,6 @@ class PropositionsController {
             $messages[] = "L'année est incorrecte";
         }
 
-        if (isset($jour) && isset($mois) && isset($annee)) {
-            $dt = new DateTime("$annee-$mois-$jour");
-            // Un client ne peut réserver en ligne que sur les vols qui ont lieu
-            // à partir du lendemain de sa demande :
-            if ($dt <= $datedujour) { 
-                $messages[] = "La date saisie est incorrecte.";
-            } else {
-                $datedepart = $dt;
-            }
-        }
-
         // Il faut au minimum 1 adulte pour que la réservation puisse se faire :
         if (isset($_POST['nbreadultes']) && ctype_digit($_POST['nbreadultes']) && $_POST['nbreadultes'] >= 1) {
             $nbadultes = trim($_POST['nbreadultes']);
