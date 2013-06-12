@@ -32,6 +32,7 @@ Pour l'espace client :
 
 Réservation vols :
         * après la date du jour ?
+        * date de départ à passer au bon format à la méthode getPropositions()
         * vérifs dans le contrôleur Passenger
         * dao : test pour récupérer plusieurs vols ? + alimenter la BDD
 
@@ -44,6 +45,7 @@ Page contact :
 
 CSS :
         * div footer à passer dans le dossier include
+        * commenter le code CSS
 
 BDD :
         * importer la bonne version de la BDD (plus de données)

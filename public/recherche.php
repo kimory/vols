@@ -58,7 +58,7 @@ if (!isset($_SESSION)) {
                         <label for ="villearrivee">Ville d'arrivée</label>
                            <input type="text" name="villearrivee" id="villearrivee"><br>
 
-                        <label for ="datedepart">Date de départ</label>                        
+                        <label for ="datedepart">Date de départ (jj/mm/aaaa) </label>                        
                            <input type="text" id="jour" name="jour" size="3" >/
                            <input type="text" id="mois" name="mois" size="3">/
                            <input type="text" id="annee" name="annee" size="3"><br>
