@@ -56,7 +56,8 @@ $datedepartsouhaitee = $_SESSION['date_depart_souhaitee'];
                         <fieldset>
                             <legend>Nos propositions</legend>
 
-                            <?php foreach($vols as $vol) : // On parcourt la liste des propositions. ?>
+                            <?php // On parcourt la liste des vols récupérés pour les proposer au client.
+                            foreach($vols as $vol) : ?>
                                 <?php // On indique le format dans lequel la date est récupérée.
                                 $datedepart = DateTime::createFromFormat('d/m/Y H:i',$vol->getDateHeureDepart());?>
                                 <input type="radio" name="volchoisi" value="<?php echo $vol->getNumvol();?>">
