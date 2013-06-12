@@ -8,6 +8,7 @@ body{
      padding: 0px;
 }
 
+
 #container{
      position:relative;
      margin-top:50px;
@@ -21,6 +22,31 @@ body{
 #container a {
     text-decoration: none;
     color: black;
+}
+
+#error{
+   position: relative;
+    width: 550px;
+    height: 200px;
+    margin-left: 250px;
+}
+
+#connectionuser{
+    position: relative;
+    width: 800px;
+    height: 90px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+#recherche{
+    position: relative;
+    margin-top: -200px;
+}
+
+#inscription{
+   float: left;
+    
 }
 
 #header{
@@ -62,8 +88,8 @@ body{
  
  #utilisateur{
      float: left;
-     margin-top: 40px;
-     padding: 10px;
+     margin-top: 5px;
+     padding:10px;
  }
 
 

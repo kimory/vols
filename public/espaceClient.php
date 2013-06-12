@@ -35,7 +35,14 @@ use entity\User;
                     </div>
 		       <?php include('include/back_office_login_form.php'); ?>
             </div>
+             
              <div id="developpement">
+                 <div id="connectionuser">
+                     <?php
+                        include('include/user_connection_form.php');
+			?>
+                 </div>
+                 <div id="inscription">
             <?php
             // Si l'utilisateur n'est pas connecté
             if (!Client::isClientConnected()) {
@@ -86,13 +93,14 @@ use entity\User;
                     else {
                         ?>
                         <p>Vous n'avez pas passé de réservation jusqu'à présent.</p>
+                        <div id="error">
                     <?php
                     }
                     // Une fois que nous avons affiché ce qu'il y
                     // avait dans cette variable, on la supprime
                     unset($_SESSION['resultat_liste_reservations']);
                 }
-
+                
                 // Sinon si la variable ci-dessous existe, alors
                 // on veut afficher les détails d'une réservation
                 else if (isset($_SESSION['resultat_infos_reservation'])) {
@@ -104,7 +112,7 @@ use entity\User;
                         unset($_SESSION['resultat_infos_reservation']);
                     } else {
                         ?>
-
+                         </div>
                         <table>
                             <tr>
                                 <th>Numéro de réservation</th>
@@ -141,6 +149,7 @@ use entity\User;
                 }
             }
             ?>
+                        </div>
          </div>
             <div id="footer">
                <p> &nbsp;&nbsp; &copy; Tous droits réservés &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- DEV-FLY 2013 --</p>
