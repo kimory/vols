@@ -24,7 +24,8 @@ class MysqlDao {
 
 	public function getPropositions($villedep, $villearrivee, $datedep, $nbadultes, $nbenfants)
 	{
-		// Retourne un tableau d'objets Vol        
+		// Retourne un tableau d'objets Vol
+                        
 		// On récupère les vols qui correspondent au choix du client s'ils ne sont pas complets
 		$sql = "SELECT V.numvol AS numvol,
 			DATE_FORMAT(V.dateheuredep, '%d/%m/%Y %H:%i') as datedep,
