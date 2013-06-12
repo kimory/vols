@@ -87,6 +87,7 @@ class PropositionsController {
 		// de correspondre à la demande du client
 		if (empty($messages)) {
 			$dao = new MysqlDao;
+			// !! Nous rentrons dans cette fonction un objet DateTime (datedepart)
 			$vols = $dao->getPropositions($villedepart, $villearrivee, $datedepart, $nbadultes, $nbenfants);
 
 			if (sizeof($vols) == 0) {
