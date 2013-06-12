@@ -39,7 +39,7 @@ use entity\User;
             </div>
              <div id="developpement">
             ?>
-
+            <div id="error">
             <?php
             if (isset($_SESSION['message_erreur'])) {
                 ?>
@@ -47,6 +47,7 @@ use entity\User;
                 <?php
             }
             ?>
+                </div>
             <form action="/passengerRegistrationController" method="POST" >
                 <fieldset>
                     <legend>Formulaire d'inscription</legend> 

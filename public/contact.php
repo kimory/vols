@@ -26,15 +26,15 @@ if (!isset($_SESSION)) {
                 </div>
                 <div id="menu">
                      <?php 
-				$_SESSION['page_actuelle'] = 'Rechercher un vol';
+				$_SESSION['page_actuelle'] = 'Contact';
 				include('include/menu_front_office.php'); 
-				include('include/user_connection_form.php');
 			?>
                     </div>
 		       <?php include('include/back_office_login_form.php'); ?>
                 </div>
 			
             <div id="developpement">
+                <div id="error">
                    <?php if (isset($_SESSION['messages'])) : ?>
                     <ul>
                         <?php foreach ($_SESSION['messages'] as $value) : ?>
@@ -42,6 +42,8 @@ if (!isset($_SESSION)) {
                         <?php endforeach; ?>
                    </ul>
                 <?php endif; ?>
+                    </div>
+                <div id="contact">
                 <form action="/ContactController" method="POST" >
                     <fieldset>
                         <legend>Vos coordonnees</legend> 
@@ -70,6 +72,7 @@ if (!isset($_SESSION)) {
                     </fieldset>
 
                 </form>
+                    </div>
 
              </div>
             <div id="footer">

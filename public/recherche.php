@@ -26,13 +26,19 @@ if (!isset($_SESSION)) {
                      <?php 
 				$_SESSION['page_actuelle'] = 'Rechercher un vol';
 				include('include/menu_front_office.php'); 
-				include('include/user_connection_form.php');
+				
 			?>
                     </div>
 		       <?php include('include/back_office_login_form.php'); ?>
             </div>
 			
             <div id="developpement">
+                 <div id="connectionuser">
+                     <?php
+                        include('include/user_connection_form.php');
+			?>
+                 </div>
+                <div id="error">
                    <?php if (isset($_SESSION['messages'])) : ?>
                     <ul>
                         <?php foreach ($_SESSION['messages'] as $value) : ?>
@@ -40,6 +46,8 @@ if (!isset($_SESSION)) {
                         <?php endforeach; ?>
                    </ul>
                 <?php endif; ?>
+                    </div>
+                <div id="recherche">
                 <form action="/PropositionsController" method="POST" >
                     <fieldset>
                         <h5>Votre sélection</h5>
@@ -67,7 +75,7 @@ if (!isset($_SESSION)) {
                  
 
                     </fieldset>
-
+                  </div>
                 </form>
 
              </div>
