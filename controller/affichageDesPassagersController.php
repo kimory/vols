@@ -15,7 +15,7 @@ class affichageDesPassagersController {
 
         $dao = new MysqlDao();
         if ($dao->isAdminConnected()) {
-            // On exécute la fonction que si l'admin est connecté
+            // On n'exécute la fonction que si l'admin est connecté
             // On vérifie qu'un numéro de réservation a bien été récupéré via l'URL     
             if (isset($_GET['numreservation']) && strlen($_GET['numreservation']) != 0) {
                 // On récupère les numéros des passagers et leurs places :
@@ -37,7 +37,7 @@ class affichageDesPassagersController {
         } else {
             // Si la personne n'est pas connectée en tant qu'administrateur,
             // elle n'a pas à être sur cette page, elle est renvoyée vers une page d'erreur
-            header('Location:/error');
+            header('Location:/error2');
         }
     }
 

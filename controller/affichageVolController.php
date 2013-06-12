@@ -9,7 +9,7 @@ class affichageVolController {
     public function action() {
         $dao = new MysqlDao();
         if ($dao->isAdminConnected()) {
-        // On exécute la fonction que si l'admin est connecté
+        // On n'exécute la fonction que si l'admin est connecté
             $message = null;
             // On vérifie qu'un numéro de vol a été récupéré
             // Soit via le formulaire de recherche :
@@ -39,7 +39,7 @@ class affichageVolController {
         } else {
             // Si la personne n'est pas connectée en tant qu'administrateur,
             // elle n'a pas à être sur cette page, elle est renvoyée vers une page d'erreur
-            header('Location:/error');
+            header('Location:/error2');
         }
     }
 
