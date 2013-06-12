@@ -38,10 +38,6 @@ Vue propositions :
         * récupérer la date
         * liste des propositions
 
-Page d'erreur générique :
-        * lister les messages d'erreur
-        * ou créer une autre page en cas de tentative d'accès à une partie protégée
-
 CSS :
         * div footer à passer dans le dossier include
         * formulaires de connexion inopérationnels : à corriger

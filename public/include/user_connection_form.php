@@ -15,7 +15,7 @@ if (Client::isClientConnected())
 } 
 else 
 {
-?>
+?>      <div id="utilisateur">
 	<form class="form-inline" action="/clientLoginController" method="POST" >
 		
 	       
@@ -27,7 +27,7 @@ else
 	}
 ?>
                      <fieldset>
-                      <legend>Connexion Utilisateur</legend>
+                         Connexion Utilisateur : &nbsp;&nbsp;&nbsp;
 			<label for ="login">login</label>
 			<input type="text" name="login" id="login">
 
@@ -37,6 +37,7 @@ else
 			<input type="submit" value="ok">          
 		</fieldset>
 	</form>
+     </div>
 <?php 
 }
 ?>
