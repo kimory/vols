@@ -35,7 +35,7 @@ use \DateTime;
                 <div><h3>Description de la réservation</h3></div>
 
             <!-- Remarque : le htmlentities est une sécurité, il convertit les caractères
-            spéciaux en entités HTML -->
+            éligibles en entités HTML -->
             <div>
                 <p>N° réservation : <?php echo htmlentities($reservation->getNumReservation(), ENT_QUOTES, 'UTF-8') ?></p>
                 <p>N° vol : <a href="/affichageVolController/action/<?php

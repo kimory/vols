@@ -35,7 +35,7 @@ use \DateTime;
                 <div><h3>Description du passager</h3></div>
 
             <!-- Remarque : le htmlentities est une sécurité, il convertit les caractères
-            spéciaux en entités HTML -->
+            éligibles en entités HTML -->
             <div>
                 <p>N° passager : <?php 
                     echo htmlentities($passager->getNumPassager(), ENT_QUOTES, 'UTF-8') ?></p>
