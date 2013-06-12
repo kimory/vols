@@ -8,7 +8,7 @@ use \DateTime;
 
 $vols = $_SESSION['vols'];
 $nb_passagers = $_SESSION['nb_passagers'];
-$date_depart_souhaitee = $_SESSION['date_depart_souhaitee'];
+$datedepartsouhaitee = $_SESSION['date_depart_souhaitee'];
 
 
 ?>
@@ -47,7 +47,7 @@ $date_depart_souhaitee = $_SESSION['date_depart_souhaitee'];
                     <h6>Votre sélection</h6>
                         <?php //$datesouhaitee = new DateTime($vols[0]->getDateHeureDepart()); ?>
                         <p>Vous partez de <?php echo $vols[0]->getLieuDepart(); ?> et vous arrivez à <?php echo $vols[0]->getLieuArrivee(); ?> .</p>
-                        <p>Date de départ souhaitée :<?php //echo $date_depart_souhaitee->format('d/m/Y'); ?></p>
+                        <p>Date de départ souhaitée : <?php echo $datedepartsouhaitee; ?></p>
                         <p>Vous êtes <?php echo $nb_passagers ?> passager(s).</p>
                 </div>                    
                 </div>
