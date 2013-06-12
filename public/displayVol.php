@@ -35,7 +35,7 @@ use \DateTime;
                 <div><h3>Description du vol</h3></div>
 
             <!-- Remarque : le htmlentities est une sécurité, il convertit les caractères
-            spéciaux en entités HTML -->
+            éligibles en entités HTML -->
             <div>
                 <p>N° vol : <?php echo htmlentities($vol->getNumvol(), ENT_QUOTES, 'UTF-8') ?></p>
                 <p>Lieu de départ : <?php echo htmlentities($vol->getLieuDepart(), ENT_QUOTES, 'UTF-8') ?></p>

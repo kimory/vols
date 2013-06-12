@@ -13,7 +13,7 @@ class PropositionsController {
 
     public function action() {
 
-        $messages = array(); // On initialiser un tableau d'erreurs potentielles
+        $messages = array(); // On initialise un tableau d'erreurs potentielles
         // On vérifie que les champs ont été correctement renseignés
         if (isset($_POST['villedepart']) && strlen($_POST['villedepart']) > 0) {
             $villedepart = htmlentities($_POST['villedepart'], ENT_QUOTES, 'UTF-8');
@@ -50,12 +50,12 @@ class PropositionsController {
 
         if (isset($jour) && isset($mois) && isset($annee)) {
             $dt = new DateTime("$annee-$mois-$jour");
-            if (mktime($dt) < mktime($datedujour)) {
-//            if(time() < ){
+            // Un client ne peut réserver en ligne que sur les vols qui ont lieu
+            // à partir du lendemain de sa demande :
+            if ($dt <= $datedujour) { 
                 $messages[] = "La date saisie est incorrecte.";
             } else {
-//                    $datedepart = $dt->format('Y-m-d');
-                      $datedepart = $dt;
+                $datedepart = $dt;
             }
         }
 

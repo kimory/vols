@@ -26,7 +26,7 @@ if (!isset($_SESSION)) {
                 <div><h3>Passagers sur la réservation <a href="/affichageReservationController/action/<?php echo htmlentities($_GET['numreservation'], ENT_QUOTES, 'UTF-8');?>"><?php echo htmlentities($_GET['numreservation'], ENT_QUOTES, 'UTF-8') ?></a></h3></div>
 
             <!-- Remarque : le htmlentities est une sécurité, il convertit les caractères
-            spéciaux en entités HTML -->
+            éligibles en entités HTML -->
             <div>
                 <table>
                     <tr>
