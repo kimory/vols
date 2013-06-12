@@ -8,10 +8,7 @@ include_once("../setup.php");
 use entity\Client;
 use entity\User;
 ?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -24,16 +21,22 @@ use entity\User;
         <title>DEV-FLY - Espace Client</title>
     </head>
     <body>
-        <div id="supercontainer">
-            <header>
-                <?php include('include/back_office_login_form.php'); ?>
-            </header>
-            <?php
+         <div id="container">
+            <div id="header">
+                <div id="logo">
+                  <img id='logo' src='/images/logo.jpg' alt='logo de DEV-FLY' />
+		
+                </div>
+                <div id="menu">
+             <?php
             $_SESSION['page_actuelle'] = 'Espace Client';
-            include('include/menu_front_office.php');
-            include('include/user_connection_form.php');
-            ?>
-
+            		include('include/menu_front_office.php'); 
+		        include('include/user_connection_form.php');
+			?>
+                    </div>
+		       <?php include('include/back_office_login_form.php'); ?>
+            </div>
+             <div id="developpement">
             <?php
             // Si l'utilisateur n'est pas connecté
             if (!Client::isClientConnected()) {
