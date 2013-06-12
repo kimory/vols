@@ -24,8 +24,8 @@ class MysqlDao {
 
 	public function getPropositions($villedep, $villearrivee, $datedep, $nbadultes, $nbenfants)
 	{
-        // Retourne un tableau d'objets Vol
-                // On récupère les vols qui correspondent au choix du client s'ils ne sont pas complets
+		// Retourne un tableau d'objets Vol
+		// On récupère les vols qui correspondent au choix du client s'ils ne sont pas complets
 		$sql = "SELECT V.numvol AS numvol,
 			DATE_FORMAT(V.dateheuredep, '%d/%m/%Y %H:%i') as datedep,
 			V.tarif
@@ -34,42 +34,43 @@ class MysqlDao {
 			(
 				SELECT V2.numvol
 				FROM vol V2
-				INNER JOIN place P ON P.numvol = V2.numvol
+				LEFT JOIN place P ON P.numvol = V2.numvol
 				WHERE
 				V2.lieudep=:villedep AND
 				V2.lieuarriv=:villearrivee AND
-				DATE_FORMAT(V.dateheuredep,'%Y-%m-%d')=:datededepart
-				HAVING ( :nbplaces - count(P.numplace)) >= :nbplacesrequises
+				DATE_FORMAT(V2.dateheuredep,'%Y-%m-%d')=:datededepart
+				GROUP BY V2.numvol
+				HAVING ( :nbplaces - ifnull(count(P.numplace),0)) >= :nbplacesrequises
 			)";
 
 		$stmt = $this->dbh->prepare($sql);
 		$stmt->bindParam(':villedep', $villedep);
 		$stmt->bindParam(':villearrivee', $villearrivee);
-                $datedepart = new DateTime($datedep);
+		$datedepart = new DateTime($datedep);
 		$stmt->bindParam(':datededepart', $datedepart->format('Y-m-d'));
-                $nbplaces = Vol::NB_PLACES;
+		$nbplaces = Vol::NB_PLACES;
 		$stmt->bindParam(':nbplaces', $nbplaces);
-                $nbpassagers = $nbadultes + $nbenfants;
+		$nbpassagers = $nbadultes + $nbenfants;
 		$stmt->bindParam(':nbplacesrequises', $nbpassagers);
 		$stmt->execute();
 		$result = array();
 
 		while($row = $stmt->fetch(PDO::FETCH_ASSOC))
 		{
-                        $numvol = $row['numvol'];
-                        $datedep = $row['datedep'];
-                        // Ici on passe le tarif que l'utilisateur devra payer, soit
-                        // le prix du vol multiplié par le nombre de passagers (pour les
-                        // enfants, le tarif est fixé à 50 €)
-                        $tarif = $row['tarif'] * $nbadultes + 50 * $nbenfants;
-                        $vol = new Vol($numvol, $villedep, $villearrivee, $datedep, null, $tarif, null, null, null, null, null, null);
+			$numvol = $row['numvol'];
+			$datedep = $row['datedep'];
+			// Ici on passe le tarif que l'utilisateur devra payer, soit
+			// le prix du vol multiplié par le nombre de passagers (pour les
+			// enfants, le tarif est fixé à 50 €)
+			$tarif = $row['tarif'] * $nbadultes + 50 * $nbenfants;
+			$vol = new Vol($numvol, $villedep, $villearrivee, $datedep, null, $tarif, null, null, null, null, null, null);
 			$result[] = $vol; // on insère une copie du tableau $row dans $result
 		}
 
 		if(sizeof($result) == 0)
 		{
-                        // si il n'y a pas de vol dispo à la date souhaitée, on récupère les vols
-                        // après cette date
+			// si il n'y a pas de vol dispo à la date souhaitée, on récupère les vols
+			// après cette date
 			$sql = "SELECT V.numvol AS numvol,
 				DATE_FORMAT(V.dateheuredep, '%d/%m/%Y %H:%i') as datedep,
 				V.tarif as tarif
@@ -78,37 +79,39 @@ class MysqlDao {
 				(
 					SELECT V2.numvol
 					FROM vol V2
-					INNER JOIN place P ON P.numvol = V2.numvol
+					LEFT JOIN place P ON P.numvol = V2.numvol
 					WHERE
 					V2.lieudep=:villedep AND
 					V2.lieuarriv=:villearrivee AND 
-					(UNIX_TIMESTAMP(:datededepart) - UNIX_TIMESTAMP(DATE_FORMAT(V.dateheuredep,'%Y-%m-%d'))) < 0
-                                        -- on transforme dans un format identique les 2 dates : 
-                                        -- UNIX_TIMESTAMP (entier qui augmente à chaque seconde).
-					HAVING ( :nbplaces - count(P.numplace)) > :nbplacesrequises
+					(UNIX_TIMESTAMP(:datededepart) - UNIX_TIMESTAMP(DATE_FORMAT(V2.dateheuredep,'%Y-%m-%d'))) < 0
+					-- on transforme dans un format identique les 2 dates : 
+					-- UNIX_TIMESTAMP (entier qui augmente à chaque seconde).
+					-- ifnull(expr1,expr2) si expr1 null alors expr2
+					GROUP BY V2.numvol
+					HAVING ( :nbplaces - ifnull(count(P.numplace),0)) >= :nbplacesrequises
 				)";
 
 			$stmt = $this->dbh->prepare($sql);
 			$stmt->bindParam(':villedep', $villedep);
 			$stmt->bindParam(':villearrivee', $villearrivee);
-                        $datedepart = new DateTime($datedep);
+			$datedepart = new DateTime($datedep);
 			$stmt->bindParam(':datededepart', $datedepart->format('Y-m-d'));
 			$nbplaces = Vol::NB_PLACES;
-                        $stmt->bindParam(':nbplaces', $nbplaces);
+			$stmt->bindParam(':nbplaces', $nbplaces);
 			$nbpassagers = $nbadultes + $nbenfants;
-                        $stmt->bindParam(':nbplacesrequises', $nbpassagers);
+			$stmt->bindParam(':nbplacesrequises', $nbpassagers);
 			$stmt->execute();
 
 			while($row = $stmt->fetch(PDO::FETCH_ASSOC))
 			{
 				$numvol = $row['numvol'];
-                                $datedep = $row['datedep'];
-                                // Ici on passe le tarif que l'utilisateur devra payer, soit
-                                // le prix du vol multiplié par le nombre de passagers (pour les
-                                // enfants, le tarif est fixé à 50 €)
-                                $tarif = $row['tarif'] * $nbadultes + 50 * $nbenfants;
-                                $vol = new Vol($numvol, $villedep, $villearrivee, $datedep, null, $tarif, null, null, null, null, null, null);
-                                $result[] = $vol; // on insère une copie du tableau $row dans $result
+				$datedep = $row['datedep'];
+				// Ici on passe le tarif que l'utilisateur devra payer, soit
+				// le prix du vol multiplié par le nombre de passagers (pour les
+				// enfants, le tarif est fixé à 50 €)
+				$tarif = $row['tarif'] * $nbadultes + 50 * $nbenfants;
+				$vol = new Vol($numvol, $villedep, $villearrivee, $datedep, null, $tarif, null, null, null, null, null, null);
+				$result[] = $vol; // on insère une copie du tableau $row dans $result
 			}
 		}
 
@@ -342,10 +345,10 @@ class MysqlDao {
 
 	public function isClientConnected() 
 	{
-                // Renvoie "true" si le client est connecté, "false" sinon
-                
-                // On vérifie que le login et le mot de passe sont en session et
-                // sont corrects par rapport à la BDD
+		// Renvoie "true" si le client est connecté, "false" sinon
+
+		// On vérifie que le login et le mot de passe sont en session et
+		// sont corrects par rapport à la BDD
 		if(isset($_SESSION['login'], $_SESSION['passwd']) &&
 			strlen($_SESSION['login']) > 0 &&
 			strlen($_SESSION['passwd']) > 0)
@@ -364,8 +367,8 @@ class MysqlDao {
 				return true; // renvoie 'vrai' et sort de la fonction
 			}
 		}
-                // On détruit les variables dans le cas où un login et un mot de passe sont
-                // en session mais ne sont pas corrects (par rapport à la BDD)
+		// On détruit les variables dans le cas où un login et un mot de passe sont
+		// en session mais ne sont pas corrects (par rapport à la BDD)
 		unset($_SESSION['login']);
 		unset($_SESSION['passwd']);
 
@@ -375,10 +378,10 @@ class MysqlDao {
 	// Ne pas oublier que le mot de passe enregistré est déjà chiffré
 	public function isAdminConnected()
 	{
-                // Renvoie "true" si l'admin est connecté, "false" sinon
-                
-                // On vérifie que le login et le mot de passe sont en session et
-                // sont corrects par rapport à la BDD
+		// Renvoie "true" si l'admin est connecté, "false" sinon
+
+		// On vérifie que le login et le mot de passe sont en session et
+		// sont corrects par rapport à la BDD
 		if(isset($_SESSION['login_admin'], $_SESSION['passwd']) &&
 			strlen($_SESSION['login_admin']) > 0 &&
 			strlen($_SESSION['passwd']) > 0)
@@ -397,8 +400,8 @@ class MysqlDao {
 				return true;  // renvoie 'vrai' et sort de la fonction
 			}
 		}
-                // On détruit les variables dans le cas où un login et un mot de passe sont
-                // en session mais ne sont pas corrects (par rapport à la BDD)
+		// On détruit les variables dans le cas où un login et un mot de passe sont
+		// en session mais ne sont pas corrects (par rapport à la BDD)
 		unset($_SESSION['login_admin']);
 		unset($_SESSION['passwd']);
 
