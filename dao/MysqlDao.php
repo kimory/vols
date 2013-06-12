@@ -22,7 +22,7 @@ class MysqlDao {
 		$this->dbh = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD, $attributes);
 	}
 
-	// !! Nous rentrons dans cette fonction un objet DateTime (datedept)
+	// !! Nous rentrons en paramètre de cette méthode un objet DateTime ($datedep)
 	public function getPropositions($villedep, $villearrivee, $datedep, $nbadultes, $nbenfants)
 	{
 		// Retourne un tableau d'objets Vol
