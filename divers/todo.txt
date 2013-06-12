@@ -45,6 +45,7 @@ Page contact :
 
 CSS :
         * div footer à passer dans le dossier include
+        * commenter le code CSS
 
 BDD :
         * importer la bonne version de la BDD (plus de données)
