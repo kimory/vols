@@ -51,7 +51,7 @@ class PropositionsController {
 //        if (isset($jour) && isset($mois) && isset($annee)) {
 //            $date = "$jour/$mois/$annee";
 //            $dt = DateTime::createFromFormat('d/m/Y',$date);
-////                    ("$annee-$mois-$jour");
+//                    //("$annee-$mois-$jour");
 //            if ($dt < $datedujour) {
 //                $messages[] = "La date saisie est incorrecte.";
 //            } else {

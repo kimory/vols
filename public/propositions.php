@@ -52,11 +52,11 @@ $date_depart_souhaitee = $_SESSION['date_depart_souhaitee'];
                 </div>                    
                 </div>
                 
-                        <legend>Nos propositions</legend> 
+<!--                        <legend>Nos propositions</legend> 
                         <h5>Date de départ</h5>
                         Choix 1 "dateheure" "prix": <input type="radio" name="choix" value="1" checked><br>
                         Choix 2 "dateheure" "prix": <input type="radio" name="choix" value="2"><br>
-                        Choix 3 "dateheure" "prix": <input type="radio" name="choix" value="3"><br>                       
+                        Choix 3 "dateheure" "prix": <input type="radio" name="choix" value="3"><br>                       -->
 
                     
                 <input  type="submit" value="valider">
