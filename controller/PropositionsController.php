@@ -48,6 +48,24 @@ class PropositionsController {
             $messages[] = "L'année est incorrecte";
         }
 
+//        if (isset($jour) && isset($mois) && isset($annee)) {
+//            $date = "$jour/$mois/$annee";
+//            $dt = DateTime::createFromFormat('d/m/Y',$date);
+////                    ("$annee-$mois-$jour");
+//            if ($dt < $datedujour) {
+//                $messages[] = "La date saisie est incorrecte.";
+//            } else {
+//            // $datedepart = $dt->format('Y-m-d');
+//                $datedepart = $dt;
+//            }
+//            
+//            // Pour calculer le nombre de jours entre la date du jour et la date de départ souhaitée
+//                $aujourdhuiDateTimeStamp = $dt->format("U");
+//                $datedepartDateTimeStamp = $datedepart->format("U");
+//                $rv = round ((($aujourdhuiDateTimeStamp - $datedepartDateTimeStamp))/86400);
+//            
+//        }
+
         // Il faut au minimum 1 adulte pour que la réservation puisse se faire :
         if (isset($_POST['nbreadultes']) && ctype_digit($_POST['nbreadultes']) && $_POST['nbreadultes'] >= 1) {
             $nbadultes = trim($_POST['nbreadultes']);
