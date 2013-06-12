@@ -42,7 +42,7 @@ if (!isset($_SESSION)) {
                 <?php endif; ?>
                 <form action="/PropositionsController" method="POST" >
                     <fieldset>
-                        <legend>Votre sélection</legend> 
+                        <h5>Votre sélection</h5>
 
                         <label for ="villedepart">Ville de départ</label>
                            <input type="text" name="villedepart" id="villedepart">
@@ -61,10 +61,10 @@ if (!isset($_SESSION)) {
                         <label for ="nbreenfants">Nombre d'enfants (moins de 3 ans)</label>
                            <input type='number' value="0" min='0' max='50' name="nbreenfants" id="nbreenfants"><br>
 
-                        <div id="submit">
+                        
                            <input type="submit" value="valider">          
                            <input type="reset" value="annuler">
-                        </div>
+                 
 
                     </fieldset>
 
@@ -72,7 +72,7 @@ if (!isset($_SESSION)) {
 
              </div>
             <div id="footer">
-                <p> &nbsp;&nbsp; &copy; Tous droits réservés &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- DEV-FLY 2013 --</p>
+               <p> &nbsp;&nbsp; &copy; Tous droits réservés &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- DEV-FLY 2013 --</p>
            </div> 
         </div>
     </body>

@@ -1,6 +1,4 @@
-<div class="nav nav-tabs">
-	<div class="nav nav-tabs">
-		<ul class="nav nav-tabs">
+<ul class="nav nav-tabs">
 			<li <?php
 // La partie du menu qui est "sélectionnée" (visuellement) doit être celle qui correspond à la page actuelle :
 if(isset($_SESSION['page_actuelle']) && strcmp($_SESSION['page_actuelle'], 'Accueil') == 0){
@@ -23,6 +21,6 @@ if(isset($_SESSION['page_actuelle']) && strcmp($_SESSION['page_actuelle'], 'Qui 
 if(isset($_SESSION['page_actuelle']) && strcmp($_SESSION['page_actuelle'], 'Contact') == 0)
 	echo 'class="active"';
 ?>><a href="/contact">Contact</a></li>
-		</ul>
-	</div>
-</div>
+</ul>
+
+
