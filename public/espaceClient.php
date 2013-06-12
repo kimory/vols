@@ -31,7 +31,6 @@ use entity\User;
              <?php
             $_SESSION['page_actuelle'] = 'Espace Client';
             		include('include/menu_front_office.php'); 
-		        include('include/user_connection_form.php');
 			?>
                     </div>
 		       <?php include('include/back_office_login_form.php'); ?>
