@@ -50,7 +50,8 @@ class PropositionsController {
 
         if (isset($jour) && isset($mois) && isset($annee)) {
             $dt = new DateTime("$annee-$mois-$jour");
-            if ($dt < $datedujour) {
+            if (mktime($dt) < mktime($datedujour)) {
+//            if(time() < ){
                 $messages[] = "La date saisie est incorrecte.";
             } else {
 //                    $datedepart = $dt->format('Y-m-d');
