@@ -49,7 +49,9 @@ class PropositionsController {
         }
         
         if (isset($jour) && isset($mois) && isset($annee)) {
-            $datedepartsouhaitee = "$jour/$mois/$annee"; // servira uniquement pour l'affichage
+            $datedepartsouhaitee = "$jour/$mois/$annee";
+            // La date sous forme de chaine de caractères servira uniquement pour l'affichage
+            // (cf on ne manipule pas la date souhaitée initialement qui n'est qu'une indication)
         }
 
 //        if (isset($jour) && isset($mois) && isset($annee)) {
