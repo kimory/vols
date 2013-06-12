@@ -52,7 +52,7 @@ $datedepartsouhaitee = $_SESSION['date_depart_souhaitee'];
                 </div>
                
                 <div>
-                    <form>
+                    <form action="/passengerRegistrationController" method="POST">
                         <fieldset>
                             <legend>Nos propositions</legend>
 
