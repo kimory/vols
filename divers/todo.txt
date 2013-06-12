@@ -39,6 +39,8 @@ Vue propositions :
         * récupérer la date
         * liste des propositions
 
+Page contact :
+        * solutionner le problème des sessions
+
 CSS :
         * div footer à passer dans le dossier include
-        * formulaires de connexion inopérationnels : à corriger
