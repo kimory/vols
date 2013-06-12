@@ -64,7 +64,7 @@ class MysqlDao {
 			// enfants, le tarif est fixé à 50 €)
 			$tarif = $row['tarif'] * $nbadultes + 50 * $nbenfants;
 			$vol = new Vol($numvol, $villedep, $villearrivee, $datedep, null, $tarif, null, null, null, null, null, null);
-			$result[] = $vol; // on insère une copie du tableau $row dans $result
+			$result[] = $vol; // on insère l'objet $vol dans le tableau $result
 		}
 
 		if(sizeof($result) == 0)
@@ -111,7 +111,7 @@ class MysqlDao {
 				// enfants, le tarif est fixé à 50 €)
 				$tarif = $row['tarif'] * $nbadultes + 50 * $nbenfants;
 				$vol = new Vol($numvol, $villedep, $villearrivee, $datedep, null, $tarif, null, null, null, null, null, null);
-				$result[] = $vol; // on insère une copie du tableau $row dans $result
+				$result[] = $vol; // on insère l'objet $vol dans le tableau $result
 			}
 		}
 
