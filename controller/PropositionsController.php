@@ -54,62 +54,60 @@ class PropositionsController {
             // (cf on ne manipule pas la date souhaitée initialement qui n'est qu'une indication)
         }
 
-//        if (isset($jour) && isset($mois) && isset($annee)) {
-//            $date = "$jour/$mois/$annee";
-//            $dt = DateTime::createFromFormat('d/m/Y',$date);
-//                    //("$annee-$mois-$jour");
-//            if ($dt < $datedujour) {
-//                $messages[] = "La date saisie est incorrecte.";
-//            } else {
-//            // $datedepart = $dt->format('Y-m-d');
-//                $datedepart = $dt;
-//            }
-//            
-//            // Pour calculer le nombre de jours entre la date du jour et la date de départ souhaitée
-//                $aujourdhuiDateTimeStamp = $dt->format("U");
-//                $datedepartDateTimeStamp = $datedepart->format("U");
-//                $rv = round ((($aujourdhuiDateTimeStamp - $datedepartDateTimeStamp))/86400);
-//            
-//        }
+		if (isset($jour, $mois, $annee, $datedujour)) {
+			$date = "$jour/$mois/$annee";
+			$dt = DateTime::createFromFormat('d/m/Y',$date);
+			if ($dt < $datedujour) {
+				$messages[] = "La date saisie est incorrecte.";
+			} else {
+				$datedepart = $dt;
+			}
 
-        // Il faut au minimum 1 adulte pour que la réservation puisse se faire :
-        if (isset($_POST['nbreadultes']) && ctype_digit($_POST['nbreadultes']) && $_POST['nbreadultes'] >= 1) {
-            $nbadultes = trim($_POST['nbreadultes']);
-        } else {
-            $messages[] = "Le nombre d'adultes est incorrect.";
-        }
+		//	// Pour calculer le nombre de jours entre la date du jour et la date de départ souhaitée
+		//	$aujourdhuiDateTimeStamp = $dt->format("U");
+		//	$datedepartDateTimeStamp = $datedepart->format("U");
+		//	$rv = round ((($aujourdhuiDateTimeStamp - $datedepartDateTimeStamp))/86400);
 
-        if (isset($_POST['nbreenfants']) && ctype_digit($_POST['nbreenfants']) && $_POST['nbreenfants'] >= 0) {
-            $nbenfants = trim($_POST['nbreenfants']);
-        } else {
-            $messages[] = "Le nombre d'enfants est incorrect.";
-        }
+		}
 
-        // Si le tableau de messages d'erreurs est vide, on récupère les vols susceptibles
-        // de correspondre à la demande du client
-        if (empty($messages)) {
-            $dao = new MysqlDao;
-            $vols = $dao->getPropositions($villedepart, $villearrivee, $datedepart, $nbadultes, $nbenfants);
+		// Il faut au minimum 1 adulte pour que la réservation puisse se faire :
+		if (isset($_POST['nbreadultes']) && ctype_digit($_POST['nbreadultes']) && $_POST['nbreadultes'] >= 1) {
+			$nbadultes = trim($_POST['nbreadultes']);
+		} else {
+			$messages[] = "Le nombre d'adultes est incorrect.";
+		}
 
-            if (sizeof($vols) == 0) {
-                // Cas où aucun vol ne correspond à la demande du client
-                $messages[] = "Navrés ! Aucun vol ne correspond à votre demande. Vous pouvez effectuer une nouvelle recherche.";
-                $_SESSION['messages'] = $messages;
-                header('Location:/recherche');
-            } else {
-                // Je stocke en session les éléments à conserver et j'envoie vers la vue Proposition
-                $_SESSION['vols'] = $vols; // un tableau d'objets Vol
-                $_SESSION['nb_passagers'] = $nbadultes + $nbenfants;
-                $_SESSION['date_depart_souhaitee'] = $datedepartsouhaitee;
-                header('Location:/propositions');
-            }
-        } else {
-            // S'il y a des erreurs, l'utilisateur est redirigé vers le formulaire de recherche
-            // sur lequel les erreurs seront affichées.
-            $_SESSION['messages'] = $messages;
-            header('Location:/recherche');
-        }
-    }
+		if (isset($_POST['nbreenfants']) && ctype_digit($_POST['nbreenfants']) && $_POST['nbreenfants'] >= 0) {
+			$nbenfants = trim($_POST['nbreenfants']);
+		} else {
+			$messages[] = "Le nombre d'enfants est incorrect.";
+		}
+
+		// Si le tableau de messages d'erreurs est vide, on récupère les vols susceptibles
+		// de correspondre à la demande du client
+		if (empty($messages)) {
+			$dao = new MysqlDao;
+			$vols = $dao->getPropositions($villedepart, $villearrivee, $datedepart, $nbadultes, $nbenfants);
+
+			if (sizeof($vols) == 0) {
+				// Cas où aucun vol ne correspond à la demande du client
+				$messages[] = "Navrés ! Aucun vol ne correspond à votre demande. Vous pouvez effectuer une nouvelle recherche.";
+				$_SESSION['messages'] = $messages;
+				header('Location:/recherche');
+			} else {
+				// Je stocke en session les éléments à conserver et j'envoie vers la vue Proposition
+				$_SESSION['vols'] = $vols; // un tableau d'objets Vol
+				$_SESSION['nb_passagers'] = $nbadultes + $nbenfants;
+				$_SESSION['date_depart_souhaitee'] = $datedepartsouhaitee;
+				header('Location:/propositions');
+			}
+		} else {
+			// S'il y a des erreurs, l'utilisateur est redirigé vers le formulaire de recherche
+			// sur lequel les erreurs seront affichées.
+			$_SESSION['messages'] = $messages;
+			header('Location:/recherche');
+		}
+	}
 
 }
 

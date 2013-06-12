@@ -47,8 +47,7 @@ class MysqlDao {
 		$stmt = $this->dbh->prepare($sql);
 		$stmt->bindParam(':villedep', $villedep);
 		$stmt->bindParam(':villearrivee', $villearrivee);
-		$datedepart = new DateTime($datedep);
-		$stmt->bindParam(':datededepart', $datedepart->format('Y-m-d'));
+		$stmt->bindParam(':datededepart', $datedep->format('Y-m-d'));
 		$nbplaces = Vol::NB_PLACES;
 		$stmt->bindParam(':nbplaces', $nbplaces);
 		$nbpassagers = $nbadultes + $nbenfants;
@@ -59,12 +58,12 @@ class MysqlDao {
 		while($row = $stmt->fetch(PDO::FETCH_ASSOC))
 		{
 			$numvol = $row['numvol'];
-			$datedep = $row['datedep'];
+			$datedepart = $row['datedep'];
 			// Ici on passe le tarif que l'utilisateur devra payer, soit
 			// le prix du vol multiplié par le nombre de passagers (pour les
 			// enfants, le tarif est fixé à 50 €)
 			$tarif = $row['tarif'] * $nbadultes + 50 * $nbenfants;
-			$vol = new Vol($numvol, $villedep, $villearrivee, $datedep, null, $tarif, null, null, null, null, null, null);
+			$vol = new Vol($numvol, $villedep, $villearrivee, $datedepart, null, $tarif, null, null, null, null, null, null);
 			$result[] = $vol; // on insère l'objet $vol dans le tableau $result
 		}
 
@@ -95,8 +94,7 @@ class MysqlDao {
 			$stmt = $this->dbh->prepare($sql);
 			$stmt->bindParam(':villedep', $villedep);
 			$stmt->bindParam(':villearrivee', $villearrivee);
-			$datedepart = new DateTime($datedep);
-			$stmt->bindParam(':datededepart', $datedepart->format('Y-m-d'));
+			$stmt->bindParam(':datededepart', $datedep->format('Y-m-d'));
 			$nbplaces = Vol::NB_PLACES;
 			$stmt->bindParam(':nbplaces', $nbplaces);
 			$nbpassagers = $nbadultes + $nbenfants;
@@ -106,12 +104,12 @@ class MysqlDao {
 			while($row = $stmt->fetch(PDO::FETCH_ASSOC))
 			{
 				$numvol = $row['numvol'];
-				$datedep = $row['datedep'];
+				$datedepart = $row['datedep'];
 				// Ici on passe le tarif que l'utilisateur devra payer, soit
 				// le prix du vol multiplié par le nombre de passagers (pour les
 				// enfants, le tarif est fixé à 50 €)
 				$tarif = $row['tarif'] * $nbadultes + 50 * $nbenfants;
-				$vol = new Vol($numvol, $villedep, $villearrivee, $datedep, null, $tarif, null, null, null, null, null, null);
+				$vol = new Vol($numvol, $villedep, $villearrivee, $datedepart, null, $tarif, null, null, null, null, null, null);
 				$result[] = $vol; // on insère l'objet $vol dans le tableau $result
 			}
 		}
