@@ -225,8 +225,8 @@ class MysqlDao {
 		$sql = "SELECT V.numvol, lieudep, lieuarriv, dateheuredep, dateheurearrivee, T.pilote,
 			T.copilote, T.hotesse_steward1, T.hotesse_steward2, T.hotesse_steward3, count(P.numplace) AS nb_places_vendues
 			FROM vol V
-			INNER JOIN travailler T ON T.vol = V.numvol
-			INNER JOIN place P ON P.numvol = V.numvol
+			LEFT JOIN travailler T ON T.vol = V.numvol
+			LEFT JOIN place P ON P.numvol = V.numvol
 			WHERE V.numvol = :numvol";
 
 		$stmt = $this->dbh->prepare($sql);
