@@ -70,7 +70,7 @@ class MysqlDao {
 
 		if(sizeof($result) == 0)
 		{
-			// si il n'y a pas de vol dispo à la date souhaitée, on récupère les vols
+			// Si il n'y a pas de vol dispo à la date souhaitée, on récupère les vols
 			// après cette date
 			$sql = "SELECT V.numvol AS numvol,
 				DATE_FORMAT(V.dateheuredep, '%d/%m/%Y %H:%i') as datedep,

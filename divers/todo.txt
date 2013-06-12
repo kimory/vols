@@ -32,6 +32,7 @@ Pour l'espace client :
 
 Réservation vols :
         * après la date du jour ?
+        * date de départ à passer au bon format à la méthode getPropositions()
         * vérifs dans le contrôleur Passenger
         * dao : test pour récupérer plusieurs vols ? + alimenter la BDD
 
