@@ -1,4 +1,5 @@
-<?php 
+<?php
+include('../setup.php');
 if (!isset($_SESSION)) {
     session_start();
 }
@@ -13,10 +14,11 @@ if (!isset($_SESSION)) {
         <meta name="robots" content="index, follow, all">    
         <link rel="stylesheet" type="text/css" href="/css/style.css" />
         <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
-        <title>DEV-FLY - Recherche</title>
+        <title>DEV-FLY - Contact</title>
     </head>
+    
     <body>
-        <div id="container">
+            <div id="container">
             <div id="header">
                 <div id="logo">
                   <img id='logo' src='/images/logo.jpg' alt='logo de DEV-FLY' />
@@ -30,7 +32,7 @@ if (!isset($_SESSION)) {
 			?>
                     </div>
 		       <?php include('include/back_office_login_form.php'); ?>
-            </div>
+                </div>
 			
             <div id="developpement">
                    <?php if (isset($_SESSION['messages'])) : ?>
@@ -40,31 +42,30 @@ if (!isset($_SESSION)) {
                         <?php endforeach; ?>
                    </ul>
                 <?php endif; ?>
-                <form action="/PropositionsController" method="POST" >
+                <form action="/ContactController" method="POST" >
                     <fieldset>
-                        <h5>Votre sélection</h5>
+                        <legend>Vos coordonnees</legend> 
 
-                        <label for ="villedepart">Ville de départ</label>
-                           <input type="text" name="villedepart" id="villedepart">
+                        <label for ="nom">Nom</label>
+                           <input type="text" name="nom" id="nom" size="30" >
 
-                        <label for ="villearrivee">Ville d'arrivée</label>
-                           <input type="text" name="villearrivee" id="villearrivee"><br>
+                        <label for ="prenom">Prénom</label>
+                           <input type="text" name="prenom" id="prenom" size="30" ><br>
 
-                        <label for ="datedepart">Date de départ</label>                        
-                           <input type="text" id="jour" name="jour" size="3" >/
-                           <input type="text" id="mois" name="mois" size="3">/
-                           <input type="text" id="annee" name="annee" size="3"><br>
-
-                        <label for ="nbreadultes">Nombre d'adultes</label>
-                           <input type='number' value="1" min='1' max='50' name="nbreadultes" id="nbreadultes">
-
-                        <label for ="nbreenfants">Nombre d'enfants (moins de 3 ans)</label>
-                           <input type='number' value="0" min='0' max='50' name="nbreenfants" id="nbreenfants"><br>
-
+                        <label for ="mail">Votre E-mail</label> 
+                           <input type="text" name="mail" size="30" /><br>
                         
+                        <label for ="sujet">Sujet</label>
+                        <input type="text" name="sujet" size="30" /><br>
+                        <textarea name="message" rows="6" wrap="virtual" cols="30"></textarea><br>
+                        
+                        <label for="tel">Téléphone</label>
+                        <input type="text" name="tel" size="30" /><br>       
+                        <div id="submit">
+                            
                            <input type="submit" value="valider">          
                            <input type="reset" value="annuler">
-                 
+                        </div>
 
                     </fieldset>
 
@@ -72,9 +73,8 @@ if (!isset($_SESSION)) {
 
              </div>
             <div id="footer">
-               <p> &nbsp;&nbsp; &copy; Tous droits réservés &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- DEV-FLY 2013 --</p>
+                <p> &nbsp;&nbsp; &copy; Tous droits réservés &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- DEV-FLY 2013 --</p>
            </div> 
         </div>
     </body>
-
 </html>
