@@ -3,33 +3,44 @@ if (!isset($_SESSION)) {
     session_start();
 }
 ?>
-<!DOCTYPE html>
-<html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="content-language" content="fr">
+        <meta name="author" content="GRETA 2013">
+        <meta name="description" content="application pour une compagnie aérienne">
+        <meta name="robots" content="index, follow, all">    
+        <link rel="stylesheet" type="text/css" href="/css/style.css" />
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" /> 
         <title>DEV-FLY - Qui sommes-nous ?</title>
     </head>
     <body>
-        <div id="supercontainer">
-            <header>
-                <?php include('include/back_office_login_form.php'); ?>
-            </header>
-			<?php 
-				$_SESSION['page_actuelle'] = 'Qui sommes-nous ?';
-				include('include/menu_front_office.php'); 
-				include('include/user_connection_form.php');
-			?>
-            <div id="container">
-                <h1>Qui sommes-nous ?</h1>
-                <p>DEV-FLY est une filiale d'Air France créée en décembre 2012, dont les locaux sont basés à Paris.</p>
-                <p>Nos avions Airbus transportent des milliers de passagers chaque jour sur les différents continents.</p>
-                <p>Choisir DEV-FLY, c'est profiter de prix très compétitifs pour voyager selon vos envies... À ce jour, notre catalogue couvre plus de 40 destinations : profitez-en !</p>
+       <div id="container">
+            <div id="header">
+                <div id="logo">
+                  <img id='logo' src='/images/logo.jpg' alt='logo de DEV-FLY' />
+		
+                </div>
+                <div id="menu">
+                <?php
+            $_SESSION['page_actuelle'] = 'Qui sommes nous ?';
+            		include('include/menu_front_office.php'); 
+		        
+	         ?>
+                    </div>
+		       <?php include('include/back_office_login_form.php'); ?>
             </div>
-            <footer>
-
-            </footer>
+             <div id="developpement">
+                <h1>Qui sommes-nous ?</h1>
+                <p>DEV-FLY est une filiale d'Air France créée en décembre 2012, dont les locaux sont basés à Paris.<br/>
+                Nos avions Airbus transportent des milliers de passagers chaque jour sur les différents continents.<br/>
+                Choisir DEV-FLY, c'est profiter de prix très compétitifs pour voyager selon vos envies... À ce jour, notre catalogue couvre plus de 40 destinations : profitez-en !</p>
+           </div>
+            <div id="footer">
+               <p> &nbsp;&nbsp; &copy; Tous droits réservés &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- DEV-FLY 2013 --</p>
+           </div> 
         </div>
     </body>
 

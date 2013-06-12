@@ -8,10 +8,7 @@ include_once("../setup.php");
 use entity\Client;
 use entity\User;
 ?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -24,16 +21,28 @@ use entity\User;
         <title>DEV-FLY - Espace Client</title>
     </head>
     <body>
-        <div id="supercontainer">
-            <header>
-                <?php include('include/back_office_login_form.php'); ?>
-            </header>
-            <?php
+         <div id="container">
+            <div id="header">
+                <div id="logo">
+                  <img id='logo' src='/images/logo.jpg' alt='logo de DEV-FLY' />
+		
+                </div>
+                <div id="menu">
+             <?php
             $_SESSION['page_actuelle'] = 'Espace Client';
-            include('include/menu_front_office.php');
-            include('include/user_connection_form.php');
-            ?>
-
+            		include('include/menu_front_office.php'); 
+			?>
+                    </div>
+		       <?php include('include/back_office_login_form.php'); ?>
+            </div>
+             
+             <div id="developpement">
+                 <div id="connectionuser">
+                     <?php
+                        include('include/user_connection_form.php');
+			?>
+                 </div>
+                 <div id="inscription">
             <?php
             // Si l'utilisateur n'est pas connecté
             if (!Client::isClientConnected()) {
@@ -84,13 +93,14 @@ use entity\User;
                     else {
                         ?>
                         <p>Vous n'avez pas passé de réservation jusqu'à présent.</p>
+                        <div id="error">
                     <?php
                     }
                     // Une fois que nous avons affiché ce qu'il y
                     // avait dans cette variable, on la supprime
                     unset($_SESSION['resultat_liste_reservations']);
                 }
-
+                
                 // Sinon si la variable ci-dessous existe, alors
                 // on veut afficher les détails d'une réservation
                 else if (isset($_SESSION['resultat_infos_reservation'])) {
@@ -102,7 +112,7 @@ use entity\User;
                         unset($_SESSION['resultat_infos_reservation']);
                     } else {
                         ?>
-
+                         </div>
                         <table>
                             <tr>
                                 <th>Numéro de réservation</th>
@@ -139,6 +149,7 @@ use entity\User;
                 }
             }
             ?>
+                        </div>
          </div>
             <div id="footer">
                <p> &nbsp;&nbsp; &copy; Tous droits réservés &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- DEV-FLY 2013 --</p>

@@ -13,7 +13,7 @@ class PropositionsController {
 
     public function action() {
 
-        $messages = array(); // On initialiser un tableau d'erreurs potentielles
+        $messages = array(); // On initialise un tableau d'erreurs potentielles
         // On vérifie que les champs ont été correctement renseignés
         if (isset($_POST['villedepart']) && strlen($_POST['villedepart']) > 0) {
             $villedepart = htmlentities($_POST['villedepart'], ENT_QUOTES, 'UTF-8');
@@ -46,16 +46,6 @@ class PropositionsController {
             $annee = trim($_POST['annee']);
         } else {
             $messages[] = "L'année est incorrecte";
-        }
-
-        if (isset($jour) && isset($mois) && isset($annee)) {
-            $dt = new DateTime("$annee-$mois-$jour");
-            if ($dt < $datedujour) {
-                $messages[] = "La date saisie est incorrecte.";
-            } else {
-//                    $datedepart = $dt->format('Y-m-d');
-                      $datedepart = $dt;
-            }
         }
 
         // Il faut au minimum 1 adulte pour que la réservation puisse se faire :

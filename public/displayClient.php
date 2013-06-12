@@ -49,7 +49,7 @@
                 <div id="titre"><h3>Description du client</h3></div>
 
             <!-- Remarque : le htmlentities est une sécurité, il convertit les caractères
-            spéciaux en entités HTML -->
+            éligibles en entités HTML (avec le ENT_QUOTES, les guillemets sont également convertis -->
             <div id="client">
                 <p>N° client : <?php echo htmlentities($client->getId(), ENT_QUOTES, 'UTF-8') ?></p>
                 <p>Civilité : <?php echo htmlentities($client->getCivilite(), ENT_QUOTES, 'UTF-8') ?></p>

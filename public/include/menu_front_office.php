@@ -21,6 +21,6 @@ if(isset($_SESSION['page_actuelle']) && strcmp($_SESSION['page_actuelle'], 'Qui 
 if(isset($_SESSION['page_actuelle']) && strcmp($_SESSION['page_actuelle'], 'Contact') == 0)
 	echo 'class="active"';
 ?>><a href="/contact">Contact</a></li>
-</ul>
+	</ul>
 
 

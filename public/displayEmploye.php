@@ -32,7 +32,7 @@ if (!isset($_SESSION)) {
                 <div><h3>Description de l'employé</h3></div>
 
             <!-- Remarque : le htmlentities est une sécurité, il convertit les caractères
-            spéciaux en entités HTML -->
+            éligibles en entités HTML -->
             <div>
                 <p>N° employé : <?php 
                     echo htmlentities($employe->getId(), ENT_QUOTES, 'UTF-8') ?></p>
