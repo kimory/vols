@@ -16,8 +16,8 @@ $dao = new MysqlDao();
 
 //var_dump($dao->backOfficeLogin("general", "grneral"));
 
-var_dump($dao->getPropositions("Doha", "Tokyo", "2013-07-16", 3, 2));
-//var_dump($dao->getPropositions("Berne", "Sydney", "2013-07-01", 3, 2));
+//var_dump($dao->getPropositions("Doha", "Tokyo", "2013-07-16", 3, 2));
+var_dump($dao->getPropositions("Berne", "Sydney", "2013-07-01", 3, 2));
 //var_dump($dao->getPropositions("Berne", "Sydney", "2013-05-31", 3, 2));
 //var_dump($dao->getPropositions("Berne", "Sydney", "2013-05-31", 170, 2));
 ?>
