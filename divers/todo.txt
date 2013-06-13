@@ -4,7 +4,7 @@
 -Créer d'autres vols : dans les 2-3 mois après la date de fin de projet + dans les 2 mois après la date de présentation au jury
 -Donner avec l'appli la liste des vols créés + identifiants
 -Penser aux sessions
--Modifier le DOCTYPE sur chaque page
+-Validation W3C
 
 
 - vérifier : 
@@ -41,8 +41,7 @@ Sessions :
 CSS :
         * div footer à passer dans le dossier include
         * commenter le code CSS
+        * décalage du bouton quand on se connecte en tant qu'admin
 
 BDD :
-        * décaler la date des vols pour que ce soit utilisable (! changer aussi dans Travailler)
         * en local, importer la bonne version de la BDD (plus de données)
-        * nouvelle version à mettre sur le serveur !
