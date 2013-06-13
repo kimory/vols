@@ -40,6 +40,9 @@ use entity\Client;
                      <?php
                         include('include/user_connection_form.php');
 			?>
+                     <div id="btvision">
+                <a href='/reservationsController' ><button class="btn btn-large btn-primary" type="button">Voir ses réservations</button></a>
+                 </div>
                  </div>
                  <div id="inscription">
             <?php
@@ -51,8 +54,6 @@ use entity\Client;
             } else {
                 // affichage de la liste des réservations du client
                 ?>
-                <a href='/reservationsController' ><button class="btn btn-large btn-primary" type="button">Voir ses réservations</button></a>
-
                 <?php
                 // Si la variable ci-dessous existe, alors on demande
                 // à afficher les réservations
@@ -60,13 +61,14 @@ use entity\Client;
                     // Le tableau contient des éléments, on l'affiche
                     if (count($_SESSION['resultat_liste_reservations']) > 0) {
                         ?>
+                <div class="tablereservation">
                         <table>
                             <tr>
-                                <th>Numéro de réservation</th>
-                                <th>Date de réservation</th>
-                                <th>Lieu de départ</th>
-                                <th>Lieu d'arrivée</th>
-                                <th>Date de départ</th>
+                                <th> Numéro de réservation  </th>
+                                <th> Date de réservation </th>
+                                <th>Lieu de départ&nbsp;&nbsp; </th>
+                                <th>Lieu d'arrivée &nbsp;&nbsp;</th>
+                                <th>Date de départ </th>
                             </tr>
                             <?php
                             // affichage de toutes les lignes
@@ -77,15 +79,17 @@ use entity\Client;
                                         echo $row['numreservation'] ?>"><?php
                                         echo $row['numreservation'] ?></a>
                                     </td>
+                                    
                                     <?php $datereservation = new Datetime($row['datereservation']);?>
                                     <td><?php echo $datereservation->format('d/m/Y'); ?></td>
                                     <td><?php echo $row['lieudepart'] ?></td>
-                                    <td><?php echo $row['lieuarrivee'] ?></td>
+                                    <td><?php echo $row['lieuarrivee'] ?></td><br/>
                                     <?php $datedepart = new Datetime($row['datedepart']);?>
                                     <td><?php echo $datedepart->format('d/m/Y H:i');?></td>
                                 </tr>
                         <?php endforeach; ?>
                         </table>
+                    </div>
                         <?php
                     }
                     // Le tableau ne contient pas d'éléments
@@ -112,16 +116,17 @@ use entity\Client;
                     } else {
                         ?>
                          </div>
+                        <div class="tablereservation">
                         <table>
                             <tr>
                                 <th>Numéro de réservation</th>
-                                <th>Date de réservation</th>
-                                <th>Lieu de départ</th>
-                                <th>Lieu d'arrivée</th>
-                                <th>Date de départ</th>
-                                <th>Prix</th>
-                                <th>Numéro de place</th>
-                                <th>Numéro de passager</th>
+                                <th>Date de réservation </th>
+                                <th>Lieu de départ &nbsp;&nbsp;&nbsp;</th>
+                                <th>Lieu d'arrivée &nbsp;&nbsp;&nbsp;</th>
+                                <th>Date de départ &nbsp;&nbsp;&nbsp; </th>
+                                <th>Prix &nbsp;&nbsp;&nbsp;</th>
+                                <th>Numéro de place &nbsp;&nbsp;&nbsp;</th>
+                                <th>Numéro de passager &nbsp;&nbsp;&nbsp;</th>
 
                             </tr>
             <?php
@@ -129,19 +134,20 @@ use entity\Client;
             foreach ($_SESSION['resultat_infos_reservation'] as $row) :
                 ?>
                                 <tr>
-                                    <td><?php echo $row['numreservation'] ?></td>
+                                    <td><?php echo $row['numreservation'] ?> &nbsp;&nbsp;&nbsp;</td>
                                     <?php $datereservation = new Datetime($row['datereservation']);?>
-                                    <td><?php echo $datereservation->format('d/m/Y'); ?></td>
-                                    <td><?php echo $row['lieudepart'] ?></td>
-                                    <td><?php echo $row['lieuarrivee'] ?></td>
+                                    <td><?php echo $datereservation->format('d/m/Y'); ?> &nbsp;&nbsp;&nbsp;</td>
+                                    <td><?php echo $row['lieudepart'] ?>&nbsp;&nbsp;&nbsp;</td>
+                                    <td><?php echo $row['lieuarrivee'] ?>&nbsp;&nbsp;&nbsp;</td>
                                     <?php $datedepart = new Datetime($row['datedepart']);?>
-                                    <td><?php echo $datedepart->format('d/m/Y H:i');?></td>
-                                    <td><?php echo $row['prix'] ?></td>
-                                    <td><?php echo $row['numeroplace'] ?></td>
-                                    <td><?php echo $row['numeropassager'] ?></td>
+                                    <td><?php echo $datedepart->format('d/m/Y H:i');?>&nbsp;&nbsp;&nbsp;</td>
+                                    <td><?php echo $row['prix'] ?>&nbsp;&nbsp;&nbsp;</td>
+                                    <td><?php echo $row['numeroplace'] ?>&nbsp;&nbsp;&nbsp;</td>
+                                    <td><?php echo $row['numeropassager'] ?>&nbsp;&nbsp;&nbsp;</td>
                                 </tr>
                         <?php endforeach; ?>
                         </table>
+                            </div>
                         <?php
                         unset($_SESSION['resultat_infos_reservation']);
                     }
@@ -154,6 +160,7 @@ use entity\Client;
                <p> &nbsp;&nbsp; &copy; Tous droits réservés &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- DEV-FLY 2013 --</p>
            </div> 
         </div>
+   
     </body>
 
 </html>

@@ -6,19 +6,42 @@ if (!isset($_SESSION)) {
 use \DateTime;
 
 ?>
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="content-language" content="fr">
+        <meta name="author" content="GRETA 2013">
+        <meta name="description" content="application pour une compagnie aérienne">
+        <meta name="robots" content="index, follow, all">    
         <link rel="stylesheet" type="text/css" href="/css/style.css" />
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
         <title>DEV-FLY - Détails du vol</title>
     </head>
     <body>
-		<?php 
-			// ici on affichera le bouton de déconnexion
-			include('include/back_office_login_form.php');
-		?>
+        <div id="container">
+            <div id="header">
+                <div id="logo">
+                  <img id='logo' src='/images/logo.jpg' alt='logo de DEV-FLY' />
+		
+                </div>
+                <div id="menu">
+                      <ul class="nav nav-tabs">
+                        <li class="active"><a href="#vol" data-toggle="tab">Vol</a></li>
+                        <li><a href="#passager" data-toggle="tab">Passager</a></li>
+                        <li><a href="#employe" data-toggle="tab">Employé</a></li>
+                        <li><a href="#reservation" data-toggle="tab">Réservation</a></li>
+                        <li><a href="#client" data-toggle="tab">Client</a></li>
+                    </ul>
+                    </div>
+                
+		       <?php
+                       // ici on affichera le bouton de déconnexion
+                       include('include/back_office_login_form.php'); ?>
+                </div>
+			
+            <div id="developpement">
+		
         <form action="/affichageVolController" method="POST">
             <label for="numvol">Nouveau numéro de vol :</label>
             <input type="text" id="numvol" name="numvol"><br>
@@ -67,7 +90,11 @@ use \DateTime;
         <?php endif; ?>
                 
         <div><a href="/choixducritere">retour au choix du critère</a></div>
-        
+         </div>
+            <div id="footer">
+                <p> &nbsp;&nbsp; &copy; Tous droits réservés &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- DEV-FLY 2013 --</p>
+           </div> 
+        </div>
     </body>
     
 </html>
