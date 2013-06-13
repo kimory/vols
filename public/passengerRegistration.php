@@ -49,7 +49,7 @@ use entity\User;
                 </div>
             <form action="/passengerRegistrationController" method="POST" >
                 <fieldset>
-                    <legend>Formulaire d'inscription</legend> 
+                    <h5>Formulaire d'inscription</h5> 
 
 
                     <?php
