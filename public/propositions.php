@@ -36,16 +36,20 @@ $datedepartsouhaitee = $_SESSION['date_depart_souhaitee'];
 		 <?php
             $_SESSION['page_actuelle'] = 'Rechercher un vol';
             		include('include/menu_front_office.php'); 
-		        include('include/user_connection_form.php');
 			?>
                     </div>
 		       <?php include('include/back_office_login_form.php'); ?>
             </div>
        
            <div id="developpement">
+                <div id="connectionuser">
+                     <?php
+                        include('include/user_connection_form.php');
+			?>
+                 </div>
                
                 <div class="h6">                   
-                    <h6>Votre sélection</h6>
+                    <h5>Votre sélection</h5>
                         <p>Vous partez de <?php echo $vols[0]->getLieuDepart(); ?> et vous arrivez à <?php echo $vols[0]->getLieuArrivee(); ?>.</p>
                         <p>Date de départ souhaitée : <?php echo $datedepartsouhaitee; ?></p>
                         <p>Vous êtes <?php echo $nb_passagers ?> passager(s).</p>
@@ -54,7 +58,7 @@ $datedepartsouhaitee = $_SESSION['date_depart_souhaitee'];
                 <div>
                     <form action="/passengerRegistrationController" method="POST">
                         <fieldset>
-                            <legend>Nos propositions</legend>
+                            <h5>Nos propositions</h5>
 
                             <?php // On parcourt la liste des vols récupérés pour les proposer au client.
                             foreach($vols as $vol) : ?>
@@ -64,7 +68,7 @@ $datedepartsouhaitee = $_SESSION['date_depart_souhaitee'];
                                 Vol N°<?php echo $vol->getNumvol();?> : départ le <?php
                                     echo $datedepart->format('d/m/Y à H:i');?>. Prix : <?php
                                     echo $vol->getTarif(); ?> €<br>
-                            <?php endforeach; ?>
+                            <?php endforeach; ?><br/>
 
                             <input  type="submit" value="valider">
                             <input  type="reset" value="annuler">

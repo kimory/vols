@@ -15,13 +15,15 @@ class PropositionsController {
 
         $messages = array(); // On initialise un tableau d'erreurs potentielles
         // On vérifie que les champs ont été correctement renseignés
-        if (isset($_POST['villedepart']) && strlen($_POST['villedepart']) > 0) {
+        if (isset($_POST['villedepart']) && strlen($_POST['villedepart']) > 0 &&
+                preg_match("/^[A-Z]?[a-z]+$/", $_POST['villedepart'])) {
             $villedepart = htmlentities($_POST['villedepart'], ENT_QUOTES, 'UTF-8');
         } else {
             $messages[] = "La ville de départ est incorrecte.";
         }
 
-        if (isset($_POST['villearrivee']) && strlen($_POST['villearrivee']) > 0) {
+        if (isset($_POST['villearrivee']) && strlen($_POST['villearrivee']) > 0 &&
+            preg_match("/^[A-Z]?[a-z]+$/", $_POST['villearrivee'])) {
             $villearrivee = htmlentities($_POST['villearrivee'], ENT_QUOTES, 'UTF-8');
         } else {
             $messages[] = "La ville d'arrivée est incorrecte.";

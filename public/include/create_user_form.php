@@ -7,7 +7,7 @@ if (! Client::isClientConnected()) :
     ?>
     <form action="/createUserController" method="POST" >
         <fieldset>
-            <legend>S'inscrire</legend>
+            <h5>S'inscrire</h5>
 
             <select name='civilite' id='civilite' >
                 <option value="m">Monsieur</option>

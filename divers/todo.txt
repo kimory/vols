@@ -37,12 +37,13 @@ Vue propositions :
         * récupérer la date
         * liste des propositions
 
-Page contact :
-        * solutionner le problème des sessions
+Sessions :
+        * problème des messages conservés sur les pages "Chercher 1 vol" et "Contact"
 
 CSS :
         * div footer à passer dans le dossier include
         * commenter le code CSS
 
 BDD :
-        * importer la bonne version de la BDD (plus de données)
+        * décaler la date des vols pour que ce soit utilisable (! changer aussi dans Travailler)
+        * en local, importer la bonne version de la BDD (plus de données)
