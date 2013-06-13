@@ -11,8 +11,7 @@ use dao\MysqlDao;
 class passengerRegistrationController {
 
     public function action() {
-
-		// On a déjà rempli le formulaire
+		// Cas où on a déjà rempli le formulaire :
 		if(isset($_POST['civilite'], 
 			$_POST['date_de_naissance'], 
 			$_POST['nom'], 
@@ -60,8 +59,9 @@ class passengerRegistrationController {
 		else if(!isset($_SESSION['nb_passagers']) || 
 			strlen($_SESSION['nb_passagers']) == 0)
 		{
-			$_SESSION['message_nb_passagers'] = 'Vous devez renseigner un nombre de personnes.';
-			echo "ALLER AILLEURS NB_PASSAGERS NOT SET";
+                        $_SESSION['message_nb_passagers'] = 'Désolés ! Il y a eu une erreur lors de l\'enregistrement des passagers.' .
+                                PHP_EOL . 'Merci de recommencer en indiquant le nombre de voyageurs.';
+                        header('Location:/recherche');
 		}
 		else
 		{
