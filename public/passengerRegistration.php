@@ -47,7 +47,7 @@ include_once("../setup.php");
                 </div>
             <form action="/passengerRegistrationController" method="POST" >
                 <fieldset>
-                    <legend>Formulaire d'inscription</legend> 
+                    <h5>Formulaire d'inscription</h5> 
 
                     <?php
                     $i = $_SESSION['nb_passagers'];
