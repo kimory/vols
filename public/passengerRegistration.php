@@ -52,10 +52,11 @@ include_once("../setup.php");
                     <h5>Formulaire d'inscription</h5> 
 
                     <?php
-					$i = 1;
-                    while ($i <= $_SESSION['nb_passagers']) {
+                    $i = 1; // pour que le numéro de passager indiqué soit cohérent
+                    
                     // On permet au client d'enregistrer un nombre de passagers
                     // qui correspond au nombre qu'il a indiqué
+                    while ($i <= $_SESSION['nb_passagers']) {
                         ?>
                         <fieldset>
                             <!-- On récupérera les valeurs sous forme de tableaux -->

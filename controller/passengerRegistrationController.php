@@ -12,37 +12,52 @@ use entity\Client;
 class passengerRegistrationController {
 
     public function action() {
-		// Cas où on a déjà rempli le formulaire :
+                // Cas où la personne n'a pas choisi un vol parmi les
+                // propositions sur la vue précédente :
+        
+//                if(!$_POST['volchoisi'] || strlen($_POST['volchoisi']) == 0){
+//                    $_SESSION['msg_vol_non_choisi'] = '.';
+//                        header('Location:/recherche');
+//                }
+        
+		// Cas où on a déjà rempli le formulaire d'inscription des passagers :
 		if(isset($_POST['civilite'], 
 			$_POST['date_de_naissance'], 
 			$_POST['nom'], 
 			$_POST['prenom'],
 			$_SESSION['nb_passagers']))
 		{
-			$_SESSION['nb_passagers'];
-			// On vérifie qu'on a rentré toutes les informations qu'il faut
+			// On vérifie qu'on a récupéré toutes les informations qu'il faut
+			
 			$i = 0;
-			$messages_erreur = array();
-			// Cf le tableau des données que l'on récupère
+                        // Cf le tableau des données que l'on récupère
 			// du formulaire commence à l'indice zéro
+                        
+			$messages_erreur = array();
+			
 			while($i < $_SESSION['nb_passagers'])
 			{
-				if(strlen($_POST['civilite'][$i]) == 0)
+				if(strlen($_POST['civilite'][$i]) == 0 ||
+                                  (!preg_match("/^(m|mme)$/", $_POST['civilite'][$i])))
 				{
-					$messages_erreur[] = "Vous n'avez pas entré de civilité pour le passager " . ($i+1) . '.' ;
-				}
+					$messages_erreur[] = "La civilité n'est pas correcte pour le passager " . ($i+1) . '.' ;
+				} 
+                                
 				if(strlen($_POST['date_de_naissance'][$i]) == 0)
 				{
 					$messages_erreur[] = "Vous n'avez pas entré de date de naissance pour le passager " . ($i+1) . '.' ;
 				}
+                                
 				if(strlen($_POST['nom'][$i]) == 0)
 				{
 					$messages_erreur[] = "Vous n'avez pas entré de nom pour le passager " . ($i+1) . '.' ;
 				}
+                                
 				if(strlen($_POST['prenom'][$i]) == 0)
 				{
 					$messages_erreur[] = "Vous n'avez pas entré de prénom pour le passager " . ($i+1) . '.' ;
 				}
+                                
 				$i++;
 			}
 
