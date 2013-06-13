@@ -28,7 +28,7 @@ class ContactController {
         }
         // verifier aussi le caractere speciale de l'adresse mail
         
-        if(isset($_POST['mail']) && strlen($_POST['mail']) > 0) {
+        if(isset($_POST['mail']) && strlen($_POST['mail']) > 0 && preg_match("/^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,6}$/",$_POST['mail'])){
             $mail = htmlentities($_POST['mail'], ENT_QUOTES, 'UTF-8');
         } else {
             $messages[] = "Merci d'indiquer votre E-mail.";
@@ -40,20 +40,22 @@ class ContactController {
             $messages[] = "Merci d'indiquer votre sujet.";
         }
         // verifier si le caractere saisie est bien celui d'un tel et qui peut etre verifier si c'est un numero internationale 
-        if(isset($_POST['telephone']) && strlen($_POST['telephone']) > 0 && ctype_digit($_POST['telephone']) && preg_match("^\+|[0-9](10)$",$POST['telephone'])){
-            $telephone = htmlentities($_POST['telephone'], ENT_QUOTES, 'UTF-8');
+        
+        if(isset($_POST['tel']) && preg_match("/^[0-9]{10,20}$/",$_POST['tel'])){
+            $telephone = htmlentities($_POST['tel'], ENT_QUOTES, 'UTF-8');
         } else {
             $messages[] = "Merci d'indiquer votre téléphone.";
         }
         // verifie si le respecte les bons caracteres d'un mail.        
-        if(isset($_POST['message']) && strlen($_POST['message']) > 0 && preg_match("^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,6}$",$_POST['message'])) {
+        if(isset($_POST['message']) && strlen($_POST['message']) > 0 ) {
             $message = htmlentities($_POST['message'], ENT_QUOTES, 'UTF-8');
         } else {
             $messages[] = "Merci d'indiquer votre message.";
         }
         
         if(empty($messages)){
-            header('location:/displaycontact');          
+            //header('location:/displaycontact');   
+            include VIEW . "displaycontact.php";;
         }else{
             $_SESSION['messages'] = $messages;
             header('location:/contact');            
