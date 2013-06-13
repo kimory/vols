@@ -111,6 +111,7 @@ use entity\Client;
                     if (isset($_SESSION['error_message']) &&
                             strlen($_SESSION['error_message']) > 0) {
                         echo $_SESSION['error_message'];
+                        // On détruit variables une fois affichée
                         unset($_SESSION['error_message']);
                         unset($_SESSION['resultat_infos_reservation']);
                     } else {

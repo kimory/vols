@@ -36,19 +36,22 @@ if (!isset($_SESSION)) {
             <div id="developpement">
                 <div id="error">
                    <?php if (isset($_SESSION['messages'])) : ?>
-                    <ul>
-                        <?php foreach ($_SESSION['messages'] as $value) : ?>
-                            <li><?php echo $value ?></li>
-                        <?php endforeach; ?>
-                   </ul>
-						<?php				
-						unset($_SESSION['messages']);
-					endif; ?>
-                    </div>
+                        <ul>
+                            <?php foreach ($_SESSION['messages'] as $value) : ?>
+                                <li><?php echo $value ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                        <?php
+                        // On détruit les messages en session une fois
+                        // qu'ils ont été affichés
+                        unset($_SESSION['messages']);
+                    endif;
+                    ?>
+                </div>
                 <div id="contact">
                 <form action="/ContactController" method="POST" >
                     <fieldset>
-                        <h5>Vos coordonnees</h5> 
+                        <h5>Vos coordonnées</h5> 
 
                         <label for ="nom">Nom</label>
                            <input type="text" name="nom" id="nom" size="30" >
@@ -56,7 +59,7 @@ if (!isset($_SESSION)) {
                         <label for ="prenom">Prénom</label>
                            <input type="text" name="prenom" id="prenom" size="30" ><br>
 
-                        <label for ="mail">Votre E-mail</label> 
+                        <label for ="mail">Votre e-mail</label> 
                            <input type="text" name="mail" size="30" /><br>
                         
                         <label for ="sujet">Sujet</label>

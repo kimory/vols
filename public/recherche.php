@@ -45,14 +45,20 @@ if (!isset($_SESSION)) {
                             <li><?php echo $value ?></li>
                         <?php endforeach; ?>
                    </ul>
-					<?php 
-						unset($_SESSION['messages']);
-					endif; ?>
+                        <?php
+                            // On détruit les messages en session une fois
+                            // qu'ils ont été affichés
+                            unset($_SESSION['messages']);
+			endif; ?>
                     
                     <?php
                     if (isset($_SESSION['message_nb_passagers']) && strlen($_SESSION['message_nb_passagers']) > 0) : ?>
 				<p><?php echo $_SESSION['message_nb_passagers']; ?></p>
-                    <?php endif; ?>
+                                <?php 
+                                // On détruit le message en session une fois
+                                // qu'il a été affiché
+                                unset($_SESSION['message_nb_passagers']);
+                    endif; ?>
                     
                 </div>
                 <div id="recherche">

@@ -14,8 +14,8 @@
 	* qu'on a bien inclus les fichiers CSS et JS de bootstrap
 
 - FAIRE :
-	* nouvelle réservation (ec)
-	* modification d'une réservation -> revient à annuler + réserver (ec)
+	* nouvelle réservation
+	* modification d'une réservation -> revient à annuler + réserver
 	* passer le formulaire de recherche dans le dossier include + l'inclure sur les bonnes pages
 	* résultats de la recherche
 	* mise en session du choix de l'utilisateur
@@ -34,10 +34,9 @@ Pour l'espace client :
 
 Réservation vols :
         * vérifs dans le contrôleur Passenger
-        * pas les bons numéros de passagers dans les messages d'erreur
 
-Sessions :
-        * problème des messages conservés sur les pages "Chercher 1 vol" et "Contact"
+Page contact :
+        * changer le message d'erreur générique
 
 CSS :
         * div footer à passer dans le dossier include

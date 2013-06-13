@@ -34,7 +34,7 @@ class ContactController {
         if(isset($_POST['mail']) && strlen($_POST['mail']) > 0 && preg_match("/^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,6}$/",$_POST['mail'])){
             $mail = htmlentities($_POST['mail'], ENT_QUOTES, 'UTF-8');
         } else {
-            $messages[] = "Merci d'indiquer votre E-mail.";
+            $messages[] = "Merci d'indiquer votre e-mail.";
         }
         
         if(isset($_POST['sujet']) && strlen($_POST['sujet']) > 0) {
