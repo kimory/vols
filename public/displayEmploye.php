@@ -50,7 +50,7 @@ if (!isset($_SESSION)) {
                 <p><?php echo $message ?></p>
                 
         <?php // Si il n'y a pas d'erreur, on affiche les informations sur l'employé recherché :
-				unset($message);
+				
               else : ?>
         
                 <div><h3>Description de l'employé</h3></div>

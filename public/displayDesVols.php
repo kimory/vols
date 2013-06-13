@@ -44,7 +44,7 @@ use \DateTime;
 			if (isset($message) && strlen($message) > 0) : ?>
 				<p><?php echo $message ?></p>
               <?php
-				unset($message);
+				
         // Si il n'y a pas d'erreur, on affiche la liste des vols sur lesquels l'employé travaille :
 			else : ?>
         
