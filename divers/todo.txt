@@ -47,3 +47,4 @@ CSS :
 BDD :
         * décaler la date des vols pour que ce soit utilisable (! changer aussi dans Travailler)
         * en local, importer la bonne version de la BDD (plus de données)
+        * nouvelle version à mettre sur le serveur !
