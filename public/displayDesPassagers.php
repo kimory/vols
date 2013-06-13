@@ -43,6 +43,7 @@ if (!isset($_SESSION)) {
 				<p><?php echo $message ?></p>
                 
         <?php
+				unset($message);
         // Si il n'y a pas d'erreur, on affiche la liste des passagers concernés par la réservation :
               else : ?>
         
