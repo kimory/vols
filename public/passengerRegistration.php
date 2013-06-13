@@ -41,7 +41,7 @@ include_once("../setup.php");
                    <?php if (isset($messages_erreur)) : ?>
                     <ul>
                         <?php foreach ($messages_erreur as $value) : ?>
-                            <li><?php echo $value ?></li>
+                            <li><?php echo $value; ?></li>
                         <?php endforeach; ?>
                    </ul>
                 <?php endif; ?>
@@ -52,8 +52,8 @@ include_once("../setup.php");
                     <h5>Formulaire d'inscription</h5> 
 
                     <?php
-                    $i = $_SESSION['nb_passagers'];
-                    while ($i > 0) {
+					$i = 1;
+                    while ($i <= $_SESSION['nb_passagers']) {
                     // On permet au client d'enregistrer un nombre de passagers
                     // qui correspond au nombre qu'il a indiqué
                         ?>
@@ -76,8 +76,8 @@ include_once("../setup.php");
                         </fieldset>
                             
 <?php
-    // On diminue $i de 1 (la boucle se terminera une fois le nombre de passagers indiqués atteint)
-                        $i--;
+    // On incrémente $i de 1 (la boucle se terminera une fois le nombre de passagers indiqués atteint)
+                        $i++;
                     }
 ?>
                 </fieldset>

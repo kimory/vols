@@ -18,41 +18,36 @@ class passengerRegistrationController {
 			$_POST['prenom'],
 			$_SESSION['nb_passagers']))
 		{
-			$i = $_SESSION['nb_passagers'];
+			$_SESSION['nb_passagers'];
 			// On vérifie qu'on a rentré toutes les informations qu'il faut
-			$i--;
-                        $messages_erreur = array();
-			while($i > 0)
-                        // Cf le tableau des données que l'on récupère
-                        // du formulaire commence à l'indice zéro
+			$i = 0;
+			$messages_erreur = array();
+			// Cf le tableau des données que l'on récupère
+			// du formulaire commence à l'indice zéro
+			while($i < $_SESSION['nb_passagers'])
 			{
 				if(strlen($_POST['civilite'][$i]) == 0)
 				{
-//					// Pour le premier message d'erreur il faut initialiser la variable
-//					if(! isset($_SESSION['message_erreur']))
-//					{
-//						$_SESSION['message_erreur'] = "";
-//					}
-					$messages_erreur[] = "Vous n'avez pas entré de civilité pour le passager $i.";
+					$messages_erreur[] = "Vous n'avez pas entré de civilité pour le passager " . ($i+1) . '.' ;
 				}
 				if(strlen($_POST['date_de_naissance'][$i]) == 0)
 				{
-					$messages_erreur[] = "Vous n'avez pas entré de date de naissance pour le passager $i.";
+					$messages_erreur[] = "Vous n'avez pas entré de date de naissance pour le passager " . ($i+1) . '.' ;
 				}
 				if(strlen($_POST['nom'][$i]) == 0)
 				{
-					$messages_erreur[] = "Vous n'avez pas entré de nom pour le passager $i.";
+					$messages_erreur[] = "Vous n'avez pas entré de nom pour le passager " . ($i+1) . '.' ;
 				}
 				if(strlen($_POST['prenom'][$i]) == 0)
 				{
-					$messages_erreur[] = "Vous n'avez pas entré de prénom pour le passager $i.";
+					$messages_erreur[] = "Vous n'avez pas entré de prénom pour le passager " . ($i+1) . '.' ;
 				}
-				$i--;
+				$i++;
 			}
 
-                        if(!empty($messages_erreur))
+			if(!empty($messages_erreur))
 			{
-                                //$_SESSION['messages_erreur'];
+				//$_SESSION['messages_erreur'];
 				include VIEW . "passengerRegistration.php";
 				//unset($_SESSION['messages_erreur']);
 			}
@@ -72,7 +67,7 @@ class passengerRegistrationController {
 		{
 			include VIEW . "passengerRegistration.php";
 		}
-    }
+	}
 }
 
 ?>
