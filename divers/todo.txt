@@ -29,6 +29,7 @@ Pour l'espace client :
         * tests
         * manipuler des objets dans l'espace client
         * htmlentities pour protéger
+        * bouton "Voir ses réservations" inactif ?
 
 Réservation vols :
         * vérifs dans le contrôleur Passenger
