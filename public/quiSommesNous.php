@@ -25,11 +25,11 @@ if (!isset($_SESSION)) {
                 </div>
                 <div id="menu">
                 <?php
-            $_SESSION['page_actuelle'] = 'Qui sommes nous ?';
+                        $_SESSION['page_actuelle'] = 'Qui sommes nous';
             		include('include/menu_front_office.php'); 
 		        
 	         ?>
-                    </div>
+                 </div>
 		       <?php include('include/back_office_login_form.php'); ?>
             </div>
              <div id="developpement">
