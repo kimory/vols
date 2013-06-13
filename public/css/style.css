@@ -23,7 +23,7 @@ body form{
 	 min-height:550px;
      background-color:rgba(204,237,240,0.9);
 }
-/*toutes les balises "a" ne seront pas soulignées et seront en noir'*/
+/*toutes les balises "a" ne seront pas soulignées et seront en noir*/
 #container a {
     text-decoration: none;
     color: black;

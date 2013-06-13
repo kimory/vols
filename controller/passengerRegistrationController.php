@@ -15,7 +15,7 @@ class passengerRegistrationController {
                 // propositions sur la vue précédente :
         
 //                if(!$_POST['volchoisi'] || strlen($_POST['volchoisi']) == 0){
-//                    $_SESSION['msg_vol_non_choisi'] = '.';
+//                    $_SESSION['msg_vol_non_choisi'] = 'Erreur : vous devez sélectionner un vol !';
 //                        header('Location:/recherche');
 //                }
         
