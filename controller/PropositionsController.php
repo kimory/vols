@@ -28,6 +28,12 @@ class PropositionsController {
         } else {
             $messages[] = "La ville d'arrivée est incorrecte.";
         }
+        
+//        if (isset($_POST['villedepart']) && isset($_POST['villearrivee']) &&
+//            $_POST['villedepart'] =! $_POST['villearrivee']){
+//            
+//        }
+        
 
         if (isset($_POST['jour']) && ctype_digit($_POST['jour']) && $_POST['jour'] > 0 && $_POST['jour'] < 32) {
             $jour = trim($_POST['jour']);
