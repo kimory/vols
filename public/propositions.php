@@ -40,8 +40,20 @@ $datedepartsouhaitee = $_SESSION['date_depart_souhaitee'];
                     </div>
 		       <?php include('include/back_office_login_form.php'); ?>
             </div>
-       
+            
            <div id="developpement">
+                <div id="error">
+                   <?php
+                   if (isset($_SESSION['msg_vol_non_choisi']) && strlen($_SESSION['msg_vol_non_choisi']) > 0) : ?>
+                       <p><?php echo $_SESSION['msg_vol_non_choisi']; ?></p>
+                       <?php
+                       // On détruit le message en session une fois
+                       // qu'il a été affiché
+                       unset($_SESSION['msg_vol_non_choisi']);
+                   endif;
+                   ?>
+                </div>
+               
                 <div id="connectionuser">
                      <?php
                         include('include/user_connection_form.php');
