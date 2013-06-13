@@ -23,7 +23,9 @@ class passengerRegistrationController {
 			// On vérifie qu'on a rentré toutes les informations qu'il faut
 			$i--;
                         $messages_erreur = array();
-			while($i >= 0) // Cf le tableau commence à l'indice zéro
+			while($i > 0)
+                        // Cf le tableau des données que l'on récupère
+                        // du formulaire commence à l'indice zéro
 			{
 				if(strlen($_POST['civilite'][$i]) == 0)
 				{
