@@ -40,7 +40,7 @@ class ContactController {
             $messages[] = "Merci d'indiquer votre sujet.";
         }
         // verifier si le caractere saisie est bien celui d'un tel et qui peut etre verifier si c'est un numero internationale 
-        if(isset($_POST['telephone']) && strlen($_POST['telephone']) > 0 && ctype_digit($_POST['telephone']) && preg_match("^\+|[0-9](10)$",$POST['telephone'])){
+        if(isset($_POST['telephone']) && strlen($_POST['telephone']) > 0 && ctype_digit($_POST['telephone']) && preg_match("^\+|[0-9]{10,}$",$POST['telephone'])){
             $telephone = htmlentities($_POST['telephone'], ENT_QUOTES, 'UTF-8');
         } else {
             $messages[] = "Merci d'indiquer votre téléphone.";
