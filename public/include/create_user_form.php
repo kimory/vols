@@ -33,16 +33,16 @@ if (! Client::isClientConnected()) :
             <label for="telportable">Téléphone portable</label>
             <input type="text" name="telportable" id="telportable">
 
-            <label for="login">Identifiant :</label>
+            <label for="login">Choisissez un identifiant :</label>
             <input type="text" name="login" id="login">
 
-            <label for ="passwd1">Mot de passe : </label>
+            <label for ="passwd1">Choisissez un mot de passe : </label>
             <input type="password" name="passwd1" id="passwd1">
             <label for ="passwd2">Confirmez le mot de passe : </label>
             <input type="password" name="passwd2" id="passwd2"><br>
 
-            <input type="reset" value="annuler">          
-            <input type="submit" value="valider">          
+            <input type="submit" value="valider"> 
+            <input type="reset" value="annuler">        
 
         </fieldset>
     </form>

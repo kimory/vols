@@ -79,13 +79,13 @@ include_once("../setup.php");
                     }
 ?>
                 </fieldset>
-                <input type="reset" value="annuler">          
-                <input type="submit" value="valider">          
+                <input type="submit" value="valider"> 
+                <input type="reset" value="annuler">              
             </form>
            </div>
             <div id="footer">
                <p> &nbsp;&nbsp; &copy; Tous droits réservés &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- DEV-FLY 2013 --</p>
            </div> 
         </div>
-
+    </body>
 </html>
