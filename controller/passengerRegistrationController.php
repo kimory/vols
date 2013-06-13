@@ -18,12 +18,14 @@ class passengerRegistrationController {
 			$_POST['prenom'],
 			$_SESSION['nb_passagers']))
 		{
-			$_SESSION['nb_passagers'];
-			// On vérifie qu'on a rentré toutes les informations qu'il faut
+			// On vérifie qu'on a récupéré toutes les informations qu'il faut
+			
 			$i = 0;
-			$messages_erreur = array();
-			// Cf le tableau des données que l'on récupère
+                        // Cf le tableau des données que l'on récupère
 			// du formulaire commence à l'indice zéro
+                        
+			$messages_erreur = array();
+			
 			while($i < $_SESSION['nb_passagers'])
 			{
 				if(strlen($_POST['civilite'][$i]) == 0)
