@@ -29,11 +29,11 @@ class PropositionsController {
             $messages[] = "La ville d'arrivée est incorrecte.";
         }
         
-//        if (isset($_POST['villedepart']) && isset($_POST['villearrivee']) &&
-//            $_POST['villedepart'] =! $_POST['villearrivee']){
-//            
-//        }
-        
+        // On vérifie que les villes de départ et d'arrivée saisies ne sont pas les mêmes :
+        if (isset($_POST['villedepart']) && isset($_POST['villearrivee']) &&
+            $_POST['villedepart'] == $_POST['villearrivee']){
+            $messages[] = "Les villes de départ et d'arrivée doivent être différentes.";
+        }        
 
         if (isset($_POST['jour']) && ctype_digit($_POST['jour']) && $_POST['jour'] > 0 && $_POST['jour'] < 32) {
             $jour = trim($_POST['jour']);
