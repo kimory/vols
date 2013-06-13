@@ -57,18 +57,18 @@ if (!isset($_SESSION)) {
 
                         <label for ="villearrivee">Ville d'arrivée</label>
                            <input type="text" name="villearrivee" id="villearrivee"><br>
-
+                                   <div id="date">
                         <label for ="datedepart">Date de départ (jj/mm/aaaa) </label>                        
-                           <input type="text" id="jour" name="jour" size="3" >/
-                           <input type="text" id="mois" name="mois" size="3">/
-                           <input type="text" id="annee" name="annee" size="3"><br>
-
+                           <input type="text" id="jour" name="jour" >/
+                           <input type="text" id="mois" name="mois" >/
+                           <input type="text" id="annee" name="annee" ><br>
+                                
                         <label for ="nbreadultes">Nombre d'adultes</label>
                            <input type='number' value="1" min='1' max='50' name="nbreadultes" id="nbreadultes">
 
                         <label for ="nbreenfants">Nombre d'enfants (moins de 3 ans)</label>
                            <input type='number' value="0" min='0' max='50' name="nbreenfants" id="nbreenfants"><br>
-
+                             </div>
                         
                            <input type="submit" value="valider">          
                            <input type="reset" value="annuler">

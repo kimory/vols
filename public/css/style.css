@@ -30,7 +30,7 @@ body{
     height: 200px;
     margin-left: 250px;
 }
-
+/* form de connexion du client */
 #connectionuser{
     position: relative;
     width: 800px;
@@ -39,9 +39,24 @@ body{
     margin-top: 0px;
 }
 
+/* message d'erreur pour la connexion de l'administrateur'*/
+#connectionadmin{
+      position: relative;
+    width: 800px;
+    height: 90px;
+    margin-left: 100px;
+    margin-top: 0px;
+}
+ /* formulaire de recherche de vol*/
 #recherche{
     position: relative;
     margin-top: -200px;
+}
+
+/*input du formulaire de recherche de vol*/
+#date input{
+    width: 53px;
+    padding: 0px;
 }
 
 #inscription{

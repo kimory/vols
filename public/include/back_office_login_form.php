@@ -17,15 +17,7 @@ else
 {
 	// Si l'administrateur n'est pas connecté, il accède au formulaire de connexion :
 ?>
-		
-<?php
-	// S'il y a eu une erreur lors de la tentative de connexion, elle est affichée ici :
-	if(isset($_SESSION['message_login_admin']) && strlen($_SESSION['message_login_admin']) > 0) 
-	{
-		echo $_SESSION['message_login_admin'] . PHP_EOL;
-		$_SESSION['message_login_admin'] = '';
-	}
-?>
+
                 <div id="backoffice">
                   
 		<form class="form-inline" action="/backOfficeLoginController" method="POST">
@@ -38,7 +30,20 @@ else
                         
                         <input type="submit" name="valider" id="valider" value="ok">         
 		</form>
-                 </div>
+                     <div id="connectionadmin">		
+<?php
+      
+	// S'il y a eu une erreur lors de la tentative de connexion, elle est affichée ici :
+	if(isset($_SESSION['message_login_admin']) && strlen($_SESSION['message_login_admin']) > 0) 
+	{
+		echo $_SESSION['message_login_admin'] . PHP_EOL;
+		$_SESSION['message_login_admin'] = '';
+	}
+        
+?>
+    </div>
+           </div>
+
 <?php 
 } 
 ?>
