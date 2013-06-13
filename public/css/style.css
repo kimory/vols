@@ -39,6 +39,11 @@ body{
     margin-bottom: 0px;
     margin-top: 0px;
 }
+/* formulaire de la page de contact */
+#contact{
+    margin-top: -100px;
+    
+}
 
 /* message d'erreur pour la connexion de l'administrateur'*/
 #connectionadmin{
@@ -112,7 +117,7 @@ body{
 /*la div du menu*/
 #menu{
      position:absolute;
-     width:830px; 
+     width:770px; 
      height:40px;
      margin:0px 0px 5px 170px;
 }
@@ -190,5 +195,7 @@ body{
 }
 /* la balise 'p' dans le footer*/
 #footer p {
-    margin: 0px;
+    text-align: center;
+    margin:0px 0px 0px 500px;
+    
 }

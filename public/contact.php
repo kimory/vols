@@ -46,7 +46,7 @@ if (!isset($_SESSION)) {
                 <div id="contact">
                 <form action="/ContactController" method="POST" >
                     <fieldset>
-                        <legend>Vos coordonnees</legend> 
+                        <h5>Vos coordonnees</h5> 
 
                         <label for ="nom">Nom</label>
                            <input type="text" name="nom" id="nom" size="30" >
