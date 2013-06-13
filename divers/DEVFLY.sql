@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.8.1deb1
+-- version 3.3.9
 -- http://www.phpmyadmin.net
 --
--- Client: localhost
--- Généré le: Jeu 13 Juin 2013 à 00:56
--- Version du serveur: 5.5.31-0ubuntu0.13.04.1
--- Version de PHP: 5.4.9-4ubuntu2.1
+-- Serveur: localhost
+-- Généré le : Jeu 13 Juin 2013 à 12:48
+-- Version du serveur: 5.5.8
+-- Version de PHP: 5.3.5
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -17,7 +16,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données: `DEVFLY`
+-- Base de données: `devfly`
 --
 
 -- --------------------------------------------------------
@@ -292,14 +291,15 @@ CREATE TABLE IF NOT EXISTS `travailler` (
 --
 
 INSERT INTO `travailler` (`vol`, `pilote`, `copilote`, `hotesse_steward1`, `hotesse_steward2`, `hotesse_steward3`, `date`) VALUES
-('DF0183', 'P0003', 'C0004', 'H0006', 'H0011', 'H0016', '2013-06-20'),
-('DF0810', 'P0006', 'C0003', 'H0001', 'H0012', 'H0017', '2013-07-14'),
-('DF1028', 'P0001', 'C0006', 'H0002', 'H0007', 'H0006', '2013-05-24'),
-('DF4693', 'P0005', 'C0002', 'H0004', 'H0008', 'H0013', '2013-06-30'),
-('DF5609', 'P0004', 'C0005', 'H0003', 'H0009', 'H0014', '2013-06-01'),
-('DF9174', 'P0002', 'C0001', 'H0005', 'H0010', 'H0015', '2013-05-26'),
-('DF4694', 'P0005', 'C0002', 'H0004', 'H0008', 'H0013', '2013-07-07'),
-('DF4695', 'P0005', 'C0002', 'H0004', 'H0008', 'H0013', '2013-07-14');
+('DF0183', 'P0003', 'C0004', 'H0006', 'H0011', 'H0016', '2013-12-20'),
+('DF0810', 'P0006', 'C0003', 'H0001', 'H0012', 'H0017', '2013-12-14'),
+('DF1028', 'P0001', 'C0006', 'H0002', 'H0007', 'H0006', '2013-12-24'),
+('DF4693', 'P0005', 'C0002', 'H0004', 'H0008', 'H0013', '2013-12-30'),
+('DF5609', 'P0004', 'C0005', 'H0003', 'H0009', 'H0014', '2014-01-01'),
+('DF9174', 'P0002', 'C0001', 'H0005', 'H0010', 'H0015', '2013-12-26'),
+('DF4694', 'P0005', 'C0002', 'H0004', 'H0008', 'H0013', '2013-12-07'),
+('DF4695', 'P0005', 'C0002', 'H0004', 'H0008', 'H0013', '2013-12-14'),
+('DF5612', 'P0003', 'C0004', 'H0018', 'H0006', 'H0011', '2013-12-30');
 
 -- --------------------------------------------------------
 
@@ -346,14 +346,15 @@ CREATE TABLE IF NOT EXISTS `vol` (
 --
 
 INSERT INTO `vol` (`numvol`, `lieudep`, `lieuarriv`, `dateheuredep`, `dateheurearrivee`, `tarif`) VALUES
-('DF0183', 'Paris', 'Saint-Martin', '2013-06-20 10:30:00', '2013-06-21 13:20:00', 617),
-('DF0810', 'Doha', 'Tokyo', '2013-07-14 22:30:00', '2013-07-15 10:50:00', 799),
-('DF1028', 'Casablanca', 'Honolulu', '2013-05-24 02:20:00', '2013-05-25 18:34:00', 1524),
-('DF4693', 'Berne', 'Sydney', '2013-06-30 06:50:00', '2013-06-30 22:05:00', 1472),
-('DF4694', 'Berne', 'Sydney', '2013-07-07 06:50:00', '2013-07-07 22:05:00', 1472),
-('DF4695', 'Berne', 'Sydney', '2013-07-14 06:50:00', '2013-07-14 22:05:00', 1472),
-('DF5609', 'Ottawa', 'Washington', '2013-06-01 12:40:00', '2013-06-01 19:34:00', 600),
-('DF9174', 'Addids Adéba', 'Vienne', '2013-05-26 22:40:00', '2013-05-27 13:30:00', 893);
+('DF0183', 'Paris', 'Saint-Martin', '2013-12-20 10:30:00', '2013-12-21 13:20:00', 617),
+('DF0810', 'Doha', 'Tokyo', '2013-12-14 22:30:00', '2013-12-15 10:50:00', 799),
+('DF1028', 'Casablanca', 'Honolulu', '2013-12-24 02:20:00', '2013-12-24 18:34:00', 1524),
+('DF4693', 'Berne', 'Sydney', '2013-12-30 06:50:00', '2013-12-30 20:05:00', 1472),
+('DF4694', 'Berne', 'Sydney', '2013-12-07 06:50:00', '2013-12-07 20:05:00', 1472),
+('DF4695', 'Berne', 'Sydney', '2013-12-14 06:50:00', '2013-12-14 20:05:00', 1472),
+('DF5609', 'Ottawa', 'Washington', '2014-01-01 12:40:00', '2014-01-01 19:34:00', 600),
+('DF5612', 'Paris', 'Saint-Martin', '2013-12-30 10:30:00', '2013-12-31 13:20:00', 617),
+('DF9174', 'Addids Adéba', 'Vienne', '2013-12-26 10:40:00', '2013-12-26 16:30:00', 893);
 
 --
 -- Contraintes pour les tables exportées
@@ -383,7 +384,3 @@ ALTER TABLE `travailler`
   ADD CONSTRAINT `travailler_ibfk_7` FOREIGN KEY (`copilote`) REFERENCES `employe` (`numemploye`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `travailler_ibfk_8` FOREIGN KEY (`hotesse_steward1`) REFERENCES `employe` (`numemploye`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `travailler_ibfk_9` FOREIGN KEY (`hotesse_steward2`) REFERENCES `employe` (`numemploye`) ON DELETE CASCADE ON UPDATE CASCADE;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
