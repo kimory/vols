@@ -45,7 +45,13 @@ if (!isset($_SESSION)) {
                             <li><?php echo $value ?></li>
                         <?php endforeach; ?>
                    </ul>
-                <?php endif; ?>
+                    <?php endif; ?>
+                    
+                    <?php
+                    if (isset($_SESSION['message_nb_passagers']) && strlen($_SESSION['message_nb_passagers']) > 0) : ?>
+				<p><?php echo $_SESSION['message_nb_passagers']; ?></p>
+                    <?php endif; ?>
+                    
                 </div>
                 <div id="recherche">
                 <form action="/PropositionsController" method="POST" >

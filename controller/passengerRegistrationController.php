@@ -11,7 +11,7 @@ use dao\MysqlDao;
 class passengerRegistrationController {
 
     public function action() {
-		// On a déjà rempli le formulaire
+		// Cas où on a déjà rempli le formulaire :
 		if(isset($_POST['civilite'], 
 			$_POST['date_de_naissance'], 
 			$_POST['nom'], 
