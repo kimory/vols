@@ -41,9 +41,11 @@ class ContactController {
         }
         // verifier si le caractere saisie est bien celui d'un tel et qui peut etre verifier si c'est un numero internationale 
 
+
         
         if(isset($_POST['tel']) && preg_match("/^[0-9]{10,20}$/",$_POST['tel'])){
             $telephone = htmlentities($_POST['tel'], ENT_QUOTES, 'UTF-8');
+
 
         } else {
             $messages[] = "Merci d'indiquer votre téléphone.";
