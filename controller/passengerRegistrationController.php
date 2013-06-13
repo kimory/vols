@@ -7,6 +7,7 @@ if (!isset($_SESSION)) {
 }
 
 use dao\MysqlDao;
+use entity\Client;
 
 class passengerRegistrationController {
 
@@ -68,7 +69,10 @@ class passengerRegistrationController {
 			}
 			else
 			{
-				echo "ALLER AILLEURS : tout est bon sur cette page on peut passer à la suivante";
+				if(Client::isClientConnected())
+					header('Location:');		// TODO
+				else
+					header('Location:/clientConnection');
 			}
 		}
 		else if(!isset($_SESSION['nb_passagers']) || 
