@@ -44,6 +44,7 @@
                 <p><?php echo $message ?></p>
                 
         <?php // Si il n'y a pas d'erreur, on affiche les informations sur le client recherché :
+				
               else : ?>
         
                 <div id="titre"><h3>Description du client</h3></div>

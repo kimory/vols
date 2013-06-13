@@ -47,6 +47,7 @@ use \DateTime;
                 <p><?php echo $message ?></p>
                 
         <?php // Si il n'y a pas d'erreur, on affiche les informations sur le passager recherché :
+				
               else : ?>
         
                 <div><h3>Description de la réservation</h3></div>

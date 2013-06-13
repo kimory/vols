@@ -41,7 +41,9 @@ if (!isset($_SESSION)) {
                             <li><?php echo $value ?></li>
                         <?php endforeach; ?>
                    </ul>
-                <?php endif; ?>
+						<?php				
+						unset($_SESSION['messages']);
+					endif; ?>
                     </div>
                 <div id="contact">
                 <form action="/ContactController" method="POST" >

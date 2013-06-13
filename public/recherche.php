@@ -45,7 +45,9 @@ if (!isset($_SESSION)) {
                             <li><?php echo $value ?></li>
                         <?php endforeach; ?>
                    </ul>
-                    <?php endif; ?>
+					<?php 
+						unset($_SESSION['messages']);
+					endif; ?>
                     
                     <?php
                     if (isset($_SESSION['message_nb_passagers']) && strlen($_SESSION['message_nb_passagers']) > 0) : ?>

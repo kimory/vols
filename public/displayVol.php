@@ -53,6 +53,7 @@ use \DateTime;
                 <p><?php echo $message ?></p>
                 
         <?php // Si il n'y a pas d'erreur, on affiche les informations sur le vol recherché :
+				
               else : ?>
         
                 <div><h3>Description du vol</h3></div>
