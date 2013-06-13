@@ -22,55 +22,38 @@ class passengerRegistrationController {
 			$i = $_SESSION['nb_passagers'];
 			// On vérifie qu'on a rentré toutes les informations qu'il faut
 			$i--;
+                        $messages_erreur = array();
 			while($i >= 0) // Cf le tableau commence à l'indice zéro
 			{
 				if(strlen($_POST['civilite'][$i]) == 0)
 				{
-					// Pour le premier message d'erreur il faut initialiser la variable
-					if(! isset($_SESSION['message_erreur']))
-					{
-						$_SESSION['message_erreur'] = "";
-					}
-					$_SESSION['message_erreur'] .=
-						"Vous n'avez pas entré de civilité pour le passager $i. ";
+//					// Pour le premier message d'erreur il faut initialiser la variable
+//					if(! isset($_SESSION['message_erreur']))
+//					{
+//						$_SESSION['message_erreur'] = "";
+//					}
+					$messages_erreur[] = "Vous n'avez pas entré de civilité pour le passager $i.";
 				}
 				if(strlen($_POST['date_de_naissance'][$i]) == 0)
 				{
-					// Pour le premier message d'erreur il faut initialiser la variable
-					if(! isset($_SESSION['message_erreur']))
-					{
-						$_SESSION['message_erreur'] = "";
-					}
-					$_SESSION['message_erreur'] .=
-						"Vous n'avez pas entré de date de naissance pour le passager $i. ";
+					$messages_erreur[] = "Vous n'avez pas entré de date de naissance pour le passager $i.";
 				}
 				if(strlen($_POST['nom'][$i]) == 0)
 				{
-					// Pour le premier message d'erreur il faut initialiser la variable
-					if(! isset($_SESSION['message_erreur']))
-					{
-						$_SESSION['message_erreur'] = "";
-					}
-					$_SESSION['message_erreur'] .=
-						"Vous n'avez pas entré de nom pour le passager $i. ";
+					$messages_erreur[] = "Vous n'avez pas entré de nom pour le passager $i.";
 				}
 				if(strlen($_POST['prenom'][$i]) == 0)
 				{
-					// Pour le premier message d'erreur il faut initialiser la variable
-					if(! isset($_SESSION['message_erreur']))
-					{
-						$_SESSION['message_erreur'] = "";
-					}
-					$_SESSION['message_erreur'] .=
-						"Vous n'avez pas entré de prénom pour le passager $i. ";
+					$messages_erreur[] = "Vous n'avez pas entré de prénom pour le passager $i.";
 				}
 				$i--;
 			}
 
-			if(isset($_SESSION['message_erreur']))
+                        if(!empty($messages_erreur))
 			{
+                                //$_SESSION['messages_erreur'];
 				include VIEW . "passengerRegistration.php";
-				unset($_SESSION['message_erreur']);
+				//unset($_SESSION['messages_erreur']);
 			}
 			else
 			{

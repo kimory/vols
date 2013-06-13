@@ -36,15 +36,17 @@ include_once("../setup.php");
 		       <?php include('include/back_office_login_form.php'); ?>
             </div>
            <div id="developpement">
-            <div id="error">
-            <?php
-            if (isset($_SESSION['message_erreur'])) {
-                ?>
-                <p><?php echo $_SESSION['message_erreur']; ?></p>
-                <?php
-            }
-            ?>
-                </div>
+               
+           <div id="error">
+                   <?php if (isset($messages_erreur)) : ?>
+                    <ul>
+                        <?php foreach ($messages_erreur as $value) : ?>
+                            <li><?php echo $value ?></li>
+                        <?php endforeach; ?>
+                   </ul>
+                <?php endif; ?>
+           </div>    
+           
             <form action="/passengerRegistrationController" method="POST" >
                 <fieldset>
                     <h5>Formulaire d'inscription</h5> 

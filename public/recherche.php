@@ -46,7 +46,7 @@ if (!isset($_SESSION)) {
                         <?php endforeach; ?>
                    </ul>
                 <?php endif; ?>
-                    </div>
+                </div>
                 <div id="recherche">
                 <form action="/PropositionsController" method="POST" >
                     <fieldset>

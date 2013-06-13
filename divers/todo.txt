@@ -33,10 +33,7 @@ Pour l'espace client :
 
 Réservation vols :
         * vérifs dans le contrôleur Passenger
-
-Vue propositions :
-        * récupérer la date
-        * liste des propositions
+        * pas les bons numéros de passagers dans les messages d'erreur
 
 Sessions :
         * problème des messages conservés sur les pages "Chercher 1 vol" et "Contact"

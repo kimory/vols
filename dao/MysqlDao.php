@@ -42,6 +42,7 @@ class MysqlDao {
 				V2.lieuarriv=:villearrivee AND
 				DATE_FORMAT(V2.dateheuredep,'%Y-%m-%d')=:datededepart
 				GROUP BY V2.numvol
+                                -- ifnull(expr1,expr2) si expr1 null alors expr2
 				HAVING ( :nbplaces - ifnull(count(P.numplace),0)) >= :nbplacesrequises
 			)";
 
