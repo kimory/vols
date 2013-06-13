@@ -48,7 +48,7 @@ $datedepartsouhaitee = $_SESSION['date_depart_souhaitee'];
 			?>
                  </div>
                
-                <div class="h6">                   
+                <div class="h5">                   
                     <h5>Votre sélection</h5>
                         <p>Vous partez de <?php echo $vols[0]->getLieuDepart(); ?> et vous arrivez à <?php echo $vols[0]->getLieuArrivee(); ?>.</p>
                         <p>Date de départ souhaitée : <?php echo $datedepartsouhaitee; ?></p>

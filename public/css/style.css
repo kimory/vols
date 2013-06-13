@@ -1,3 +1,4 @@
+/*style du body et fond écrant*/
 body{
     font-family:sans-serif;
      background-position:center;
@@ -8,7 +9,7 @@ body{
      padding: 0px;
 }
 
-
+/*le container: fond bleu ciel et transparant*/
 #container{
      position:relative;
      margin-top:50px;
@@ -18,19 +19,19 @@ body{
 	 min-height:550px;
      background-color:rgba(204,237,240,0.9);
 }
-
+/*toutes les balises "a" ne seront pas soulignées et seront en noir'*/
 #container a {
     text-decoration: none;
     color: black;
 }
-
+/*les messages d'erreur*/
 #error{
-   position: relative;
+    position: relative;
     width: 550px;
     height: 200px;
     margin-left: 250px;
 }
-/* form de connexion du client */
+/* formulaire de connexion du client */
 #connectionuser{
     position: relative;
     width: 800px;
@@ -38,10 +39,15 @@ body{
     margin-bottom: 0px;
     margin-top: 0px;
 }
+/* formulaire de la page de contact */
+#contact{
+    margin-top: -100px;
+    
+}
 
 /* message d'erreur pour la connexion de l'administrateur'*/
 #connectionadmin{
-      position: relative;
+    position: relative;
     width: 800px;
     height: 90px;
     margin-left: 100px;
@@ -53,24 +59,23 @@ body{
     margin-top: -200px;
 }
 
-/*input du formulaire de recherche de vol*/
+/*input de la date du formulaire de recherche de vol*/
 #date input{
     width: 53px;
     padding: 0px;
 }
-
+/*formulaire d'inscription du client dans espaceclient.php'*/
 #inscription{
    float: left;
-    
 }
-
+ /*l'enteête de la page avec le logo et le menu*/
 #header{
      margin-top: 1px;
      width:980px; 
      height:90px;
 	 
 }
-
+ /*le cadre contenant le logo*/
 #logo{
      position:absolute;
      width: 100px;
@@ -78,43 +83,45 @@ body{
      margin-left:0px;
      margin-top:-1px;;
  }
- 
+  /*l'image du logo*/
  #logo img{
      width: 100px;
      height:90px;
  }
- 
+ /*la div contenant le formulaire*/
 #backoffice {
      margin-top: 45px;
      float: right;
      width: 800px;
      height: 42px;
  }
+ 
+ /*le formulaire de la connexion de l'administrateur'*/
  #backoffice form {
      margin-top:15px;
  }
- 
+  /*input du formulaire de connexion de l'administrateur'*/
  #backoffice form input{
      margin:0px;
      padding: 2px;
      display: inline;
      margin-top: -10px;
  }
- 
+ /*la div contenant le formulaire du client*/
  #utilisateur{
      float: left;
      margin-top: 5px;
      padding:10px;
  }
 
-
+/*la div du menu*/
 #menu{
      position:absolute;
-     width:830px; 
+     width:770px; 
      height:40px;
      margin:0px 0px 5px 170px;
 }
-
+/*les ul > li(les boutons) du menu*/
 .nav-tabs > li {
   float: left;
   width: 150px;
@@ -129,7 +136,7 @@ body{
   margin-left: 15px;
   line-height: 15px;
 }
-
+/*div contenant toutes les affichages(les formulaires,le carousel...)*/
 #developpement{
     position: relative;
     margin: 10px 5px 0px 15px;
@@ -138,7 +145,7 @@ body{
     padding: 15px;
     overflow-y: auto;
 } 
-
+/*la div contenant les images du carousel*/
 #carousel{
     position: relative;
     margin: 10px 5px 0px 70px;
@@ -147,11 +154,12 @@ body{
     border: 4px graytext inset;
 }
 
+/*la taille des images du carousel*/
 .carousel-inner img{
     width: 850px;
     height: 500px;
 }
-
+ /*la div contanat le texte de "bienvenue et cliquez ici"*/
 #bienvenue{
     position: relative;
     text-align: center;
@@ -160,7 +168,7 @@ body{
     border: 2px inset #eeeeee;
     margin: 5px 0px 5px 350px;
  }
- 
+  /*les boutons de déconnexion*/
 #deconnexion{
     float: right;
     margin-top: 50px;
@@ -177,6 +185,7 @@ body{
     text-align: center;
 }
 
+/*le pied de page*/
 #footer{
     position:relative;
      width:990px; 
@@ -184,7 +193,9 @@ body{
      margin-top:10px;
      margin-bottom: 0px;
 }
-
+/* la balise 'p' dans le footer*/
 #footer p {
-    margin: 0px;
+    text-align: center;
+    margin:0px 0px 0px 500px;
+    
 }
