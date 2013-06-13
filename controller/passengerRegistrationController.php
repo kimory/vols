@@ -14,10 +14,14 @@ class passengerRegistrationController {
     public function action() {
                 // Cas où la personne n'a pas choisi un vol parmi les
                 // propositions sur la vue précédente :
-                if(!isset($_POST['volchoisi']) || strlen($_POST['volchoisi']) == 0){
-                    $_SESSION['msg_vol_non_choisi'] = 'Erreur : vous devez sélectionner un vol !';
-                    header('Location:/propositions');
-                }
+//                if(isset($_POST['volchoisi']) && strlen($_POST['volchoisi']) == 0){
+//                    $_SESSION['volchoisi'] = $_POST['volchoisi'];
+//                }
+//        
+//                if(!isset($_SESSION['volchoisi']) || strlen($_SESSION['volchoisi']) == 0){
+//                    $_SESSION['msg_vol_non_choisi'] = 'Erreur : vous devez sélectionner un vol !';
+//                    header('Location:/propositions');
+//                }
         
 		// Cas où on a déjà rempli le formulaire d'inscription des passagers :
 		if(isset($_POST['civilite'], 
@@ -42,9 +46,10 @@ class passengerRegistrationController {
 					$messages_erreur[] = "La civilité n'est pas correcte pour le passager " . ($i+1) . '.' ;
 				} 
                                 
-				if(strlen($_POST['date_de_naissance'][$i]) == 0)
+				if(strlen($_POST['date_de_naissance'][$i]) == 0 ||
+                                  (!preg_match("/^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/", $_POST['date_de_naissance'][$i])))
 				{
-					$messages_erreur[] = "Vous n'avez pas entré de date de naissance pour le passager " . ($i+1) . '.' ;
+					$messages_erreur[] = "La date de naissance n'est pas correcte pour le passager " . ($i+1) . '.' ;
 				}
                                 
 				if(strlen($_POST['nom'][$i]) == 0)

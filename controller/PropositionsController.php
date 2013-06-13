@@ -67,7 +67,7 @@ class PropositionsController {
             $date = "$jour/$mois/$annee";
             $dt = DateTime::createFromFormat('d/m/Y', $date);
             if ($dt < $datedujour) {
-                $messages[] = "La date saisie est incorrecte.";
+                $messages[] = "La date de départ ne peut pas être antérieure à la date du jour.";
             } else {
                 $datedepart = $dt;
             }

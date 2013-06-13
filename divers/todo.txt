@@ -43,5 +43,8 @@ CSS :
         * commenter le code CSS
         * décalage du bouton quand on se connecte en tant qu'admin
 
+passengerRegistrationController :
+        * résoudre le problème cas du vol non sélectionné
+
 BDD :
         * en local, importer la bonne version de la BDD (plus de données)
