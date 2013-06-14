@@ -32,14 +32,42 @@ body form{
 #btvision{
     
 }
-/*les messages d'erreur*/
-#error{
-    position: relative;
+/*les messages d'erreur du formulaire paassager*/
+#errorpassager{
+    float: right;
+    width: 500px;
+    height: 200px;
+    margin-top: 10px;
+    margin-left:10px;
+}
+
+/*les messages d'erreur de la page proposition*/
+#errorprososition{
+   position: relative;
     width: 550px;
     height: 200px;
     margin-left: 250px;
 }
-/* la div contenant la table d'affichage de la réservation */
+/*les messages d'erreur de la page recherche*/
+#errorrecherhe{
+   position: relative;
+    width: 550px;
+    height: 200px;
+    margin-left: 250px;
+}
+/*les messages d'erreur des aurtes pages*/
+#error{
+   position: relative;
+    width: 550px;
+    height: 200px;
+    margin-left: 250px;
+}
+
+.h5{
+    position: relative;
+    margin-top: 10px; 
+}
+/* la div contenant la table d'affichage de la réservation dans la page client */
 .tablereservation{
     position: relative;
     width: 600px;
@@ -48,14 +76,14 @@ body form{
     text-align: center;
     
 }
-/* les th de la table contanant d'affichage de la réservation */
+/* les th de la table contenant d'affichage de la réservation dans la page client */
 .tablereservation th{
     width: 500px;
     border: 1px solid #003399;
     text-align: center;
 }
 
-/* les td de la table contanant d'affichage de la réservation */
+/* les td de la table contenant d'affichage de la réservation */
 .tablereservation td{
     width: 500px;
     text-align: center;
@@ -75,8 +103,17 @@ body form{
     margin-top: -200px;
     
 }
+/* boutton de déconnexion de l'admin*/
+#deconnexionadmin{
+    float: right;
+    width: 100px;
+    height: 40px;
+    margin-top: 50px;
+    margin-right:50px;
+    
+}
 
-/* message d'erreur pour la connexion de l'administrateur'*/
+/* message d'erreur pour la connexion de l'administrateur*/
 #connectionadmin{
     position: relative;
     width: 800px;
@@ -95,7 +132,7 @@ body form{
     width: 53px;
     padding: 0px;
 }
-/*formulaire d'inscription du client dans espaceclient.php'*/
+/*formulaire d'inscription du client dans espaceclient.php*/
 #inscription{
    float: left;
 }
@@ -127,7 +164,7 @@ body form{
      height: 42px;
  }
  
- /*le formulaire de la connexion de l'administrateur'*/
+ /*le formulaire de la connexion de l'administrateur*/
  #backoffice form {
      margin-top:15px;
  }
@@ -138,7 +175,7 @@ body form{
      display: inline;
      margin-top: -10px;
  }
- /*la div contenant le formulaire du client*/
+ /*la div contenant le formulaire d'inscription du client*/
  #utilisateur{
      float: left;
      margin-top: 5px;
@@ -199,14 +236,18 @@ body form{
     border: 2px inset #eeeeee;
     margin: 5px 0px 5px 350px;
  }
-  /*les boutons de déconnexion*/
-#deconnexion{
+  /* bouton de déconnexion du client*/
+#deconnexionuser{
     float: right;
-    margin-top: 0px;
+    margin-top: 10px;
     margin-right: -90px;
-    
-    
-}
+ }
+ 
+  /* formulaire d'enregistremant du passager'*/
+ #enregistrementpassager{
+     margin-top: 0px;
+     
+ }
 
 .tab-content{
     position: relative;

@@ -157,7 +157,7 @@
     </control>
     <control controlID="33" controlTypeID="com.balsamiq.mockups::ButtonBar" x="465" y="180" w="-1" h="-1" measuredW="470" measuredH="27" zOrder="31" locked="false" isInGroup="-1">
       <controlProperties>
-        <selectedIndex>2</selectedIndex>
+        <selectedIndex>1</selectedIndex>
         <text>Accueil%2CChercher%20un%20vol%2CEspace%20Client%2CLa%20compagnie%2C%20Contact</text>
       </controlProperties>
     </control>
