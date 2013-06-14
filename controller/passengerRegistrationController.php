@@ -41,26 +41,28 @@ class passengerRegistrationController {
 			while($i < $_SESSION['nb_passagers'])
 			{
 				if(strlen($_POST['civilite'][$i]) == 0 ||
-                                  (!preg_match("/^(m|mme)$/", $_POST['civilite'][$i])))
+                                  !preg_match("/^(m|mme)$/", $_POST['civilite'][$i]))
 				{
 					$messages_erreur[] = "La civilité n'est pas correcte pour le passager " . ($i+1) . '.' ;
 				} 
                                 
-				if(strlen($_POST['date_de_naissance'][$i]) == 0 ||
-                                  (!preg_match("/^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/", $_POST['date_de_naissance'][$i])))
+				if(strlen($_POST['nom'][$i]) == 0 ||
+                                  !preg_match("/^[A-Za-z-]+$/", $_POST['nom']))
 				{
-					$messages_erreur[] = "La date de naissance n'est pas correcte pour le passager " . ($i+1) . '.' ;
+					$messages_erreur[] = "Le nom n'est pas correct pour le passager " . ($i+1) . '.' ;
 				}
                                 
-				if(strlen($_POST['nom'][$i]) == 0)
+				if(strlen($_POST['prenom'][$i]) == 0 ||
+                                  !preg_match("/^[A-Za-z-]+$/", $_POST['prenom']))
 				{
-					$messages_erreur[] = "Vous n'avez pas entré de nom pour le passager " . ($i+1) . '.' ;
+					$messages_erreur[] = "Le prénom n'est pas correct pour le passager " . ($i+1) . '.' ;
 				}
                                 
-				if(strlen($_POST['prenom'][$i]) == 0)
-				{
-					$messages_erreur[] = "Vous n'avez pas entré de prénom pour le passager " . ($i+1) . '.' ;
-				}
+//                                if(strlen($_POST['date_de_naissance'][$i]) == 0 ||
+//                                  !preg_match("/^(0[1-9]|[12][09]|3[01])\/(0[1-9]|1[012])\/(19|20)[0-9]{2}$/", $_POST['date_de_naissance'][$i]))
+//				{
+//					$messages_erreur[] = "La date de naissance n'est pas correcte pour le passager " . ($i+1) . '.' ;
+//				}
                                 
 				$i++;
 			}

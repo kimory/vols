@@ -32,9 +32,6 @@ Pour l'espace client :
         * htmlentities pour protéger
         * bouton "Voir ses réservations" inactif ?
 
-Réservation vols :
-        * vérifs dans le contrôleur Passenger
-
 Page contact :
         * changer le message d'erreur générique
 
@@ -44,7 +41,9 @@ CSS :
         * décalage du bouton quand on se connecte en tant qu'admin
 
 passengerRegistrationController :
+        * reprendre toutes les vérifications
         * résoudre le problème cas du vol non sélectionné
+        * résoudre le problème cas d'une date de naissance erronée
 
 BDD :
         * en local, importer la bonne version de la BDD (plus de données)
