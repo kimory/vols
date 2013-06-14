@@ -44,7 +44,7 @@ class passengerRegistrationController {
                                   !preg_match("/^(m|mme)$/", $_POST['civilite'][$i]))
 				{
 					$messages_erreur[] = "La civilité n'est pas correcte pour le passager " . ($i+1) . '.' ;
-				} 
+				}                              
                                 
 				if(strlen($_POST['nom'][$i]) == 0 ||
                                   !preg_match("/^[A-Za-z-]+$/", $_POST['nom']))
