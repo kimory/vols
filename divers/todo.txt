@@ -42,7 +42,6 @@ CSS :
 
 passengerRegistrationController :
         * reprendre toutes les vérifications
-        * résoudre le problème cas du vol non sélectionné
         * résoudre le problème cas d'une date de naissance erronée
 
 BDD :
