@@ -16,9 +16,9 @@
         <text>carousel</text>
       </controlProperties>
     </control>
-    <control controlID="14" controlTypeID="com.balsamiq.mockups::LinkBar" x="600" y="400" w="-1" h="-1" measuredW="113" measuredH="19" zOrder="4" locked="false" isInGroup="-1">
+    <control controlID="15" controlTypeID="com.balsamiq.mockups::TextInput" x="590" y="401" w="151" h="-1" measuredW="145" measuredH="27" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Francais%2CAnglais</text>
+        <text>Bienvenue%20-%20cliquez%20ici</text>
       </controlProperties>
     </control>
   </controls>
