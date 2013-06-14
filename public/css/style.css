@@ -55,7 +55,7 @@ body form{
     height: 200px;
     margin-left: 250px;
 }
-/*les messages d'erreur des aurtes pages*/
+/*les messages d'erreur des autres pages*/
 #error{
    position: relative;
     width: 550px;

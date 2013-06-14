@@ -61,7 +61,7 @@ class passengerRegistrationController {
                                 
                                   if(strlen($_POST['date_de_naissance'][$i]) > 0 &&
                                           preg_match("/[0-9]{2}\/[0-9]{2}\/[0-9]{4}/", $_POST['date_de_naissance'][$i])){
-                                      $tab = explode('/',$_POST['date_de_naissance'][$i]);
+                                      $tab = explode('/',$_POST['date_de_naissance'][$i]); // On récupère les différents éléments de la date
                                       $jour = $tab[0];
                                       $mois = $tab[1];
                                       $annee = $tab[2];
@@ -91,7 +91,7 @@ class passengerRegistrationController {
 			else
 			{
 				if(Client::isClientConnected())
-					header('Location:');		// TODO revoie  ver le récap et paiement
+					header('Location:');		// TODO renvoyer vers la page "récap + paiement"
 				else
 					header('Location:/clientConnection'); 
 			}
