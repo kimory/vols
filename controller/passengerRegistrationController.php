@@ -14,14 +14,14 @@ class passengerRegistrationController {
     public function action() {
                 // Cas où la personne n'a pas choisi un vol parmi les
                 // propositions sur la vue précédente :
-//                if(isset($_POST['volchoisi']) && strlen($_POST['volchoisi']) == 0){
-//                    $_SESSION['volchoisi'] = $_POST['volchoisi'];
-//                }
-//        
-//                if(!isset($_SESSION['volchoisi']) || strlen($_SESSION['volchoisi']) == 0){
-//                    $_SESSION['msg_vol_non_choisi'] = 'Erreur : vous devez sélectionner un vol !';
-//                    header('Location:/propositions');
-//                }
+                if(isset($_POST['volchoisi']) && strlen($_POST['volchoisi']) > 0){
+                    $_SESSION['volchoisi'] = $_POST['volchoisi'];
+                }
+        
+                if(!isset($_SESSION['volchoisi']) || strlen($_SESSION['volchoisi']) == 0){
+                    $_SESSION['msg_vol_non_choisi'] = 'Erreur : vous devez sélectionner un vol !';
+                    header('Location:/propositions');
+                }
         
 		// Cas où on a déjà rempli le formulaire d'inscription des passagers :
 		if(isset($_POST['civilite'], 
