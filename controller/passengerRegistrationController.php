@@ -8,6 +8,7 @@ if (!isset($_SESSION)) {
 
 use dao\MysqlDao;
 use entity\Client;
+use \DateTime;
 
 class passengerRegistrationController {
 
@@ -63,6 +64,24 @@ class passengerRegistrationController {
 //				{
 //					$messages_erreur[] = "La date de naissance n'est pas correcte pour le passager " . ($i+1) . '.' ;
 //				}
+                                
+                                  if(strlen($_POST['date_de_naissance'][$i]) > 0){
+                                      $tab = explode('/',$_POST['date_de_naissance'][$i]);
+                                      $jour = $tab[0];
+                                      $mois = $tab[1];
+                                      $annee = $tab[2];
+                                      
+                                      $datedujour = new DateTime(); // On récupère la date du jour
+                                      $anneeCourante = $datedujour->format("Y"); // On récupère l'année courante
+                                     
+                                      if($jour < 1 || $jour > 31 || $mois < 1 || $mois > 12 ||
+                                              $annee < 1900 || $annee > $anneeCourante){
+					$messages_erreur[] = "La date de naissance n'est pas correcte pour le passager " . ($i+1) . '.' ;
+                                      }
+                                  }
+                                  else{
+                                      $messages_erreur[] = "Merci de saisir une date de naissance pour le passager " . ($i+1) . '.' ;
+                                  }
                                 
 				$i++;
 			}

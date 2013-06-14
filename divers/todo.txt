@@ -35,7 +35,6 @@ Pour l'espace client :
 CSS :
         * div footer à passer dans le dossier include
         * commenter le code CSS
-        * décalage du bouton quand on se connecte en tant qu'admin
 
 passengerRegistrationController :
         * résoudre le problème cas d'une date de naissance erronée
