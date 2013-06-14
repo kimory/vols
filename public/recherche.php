@@ -38,7 +38,7 @@ if (!isset($_SESSION)) {
                         include('include/user_connection_form.php');
 			?>
                  </div>
-                <div id="error">
+                <div id="errorrecherhe">
                    <?php if (isset($_SESSION['messages'])) : ?>
                     <ul>
                         <?php foreach ($_SESSION['messages'] as $value) : ?>

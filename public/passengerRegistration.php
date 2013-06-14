@@ -30,14 +30,22 @@ include_once("../setup.php");
              <?php
             $_SESSION['page_actuelle'] = 'Rechercher un vol';
             		include('include/menu_front_office.php'); 
-		        include('include/user_connection_form.php');
+		        
 			?>
                     </div>
-		       <?php include('include/back_office_login_form.php'); ?>
+                    <?php
+                    include('include/back_office_login_form.php');
+                    ?>
+                    
+		     
             </div>
            <div id="developpement">
-               
-           <div id="error">
+              <div id="connectionuser">
+                     <?php
+                        include('include/user_connection_form.php');
+			?>
+                 </div>
+           <div id="errorpassager">
                    <?php if (isset($messages_erreur)) : ?>
                     <ul>
                         <?php foreach ($messages_erreur as $value) : ?>
@@ -46,7 +54,7 @@ include_once("../setup.php");
                    </ul>
                 <?php endif; ?>
            </div>    
-           
+               <div id="enregistrementpassager">
             <form action="/passengerRegistrationController" method="POST" >
                 <fieldset>
                     <h5>Formulaire d'inscription</h5> 
@@ -60,7 +68,7 @@ include_once("../setup.php");
                         ?>
                         <fieldset>
                             <!-- On récupérera les valeurs sous forme de tableaux -->
-                            <legend>Enregistrement du passager n°<?php echo $i; ?></legend>
+                            <h5>Enregistrement du passager n°<?php echo $i; ?></h5>
                             <select name='civilite[]' id='civilite<?php echo $i; ?>' >
                                 <option value="m">Monsieur</option>
                                 <option value="mme">Madame</option>
@@ -85,6 +93,7 @@ include_once("../setup.php");
                 <input type="submit" value="valider"> 
                 <input type="reset" value="annuler">              
             </form>
+                   </div>
            </div>
             <div id="footer">
                <p> &nbsp;&nbsp; &copy; Tous droits réservés &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- DEV-FLY 2013 --</p>

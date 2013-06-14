@@ -7,7 +7,7 @@ use entity\Client;
 if (Client::isClientConnected())
 {
 ?>
-<div id="deconnexion">
+<div id="deconnexionuser">
 	<a href='/deconnexionController' ><button class="btn btn-large btn-primary" type="button">Déconnexion</button></a>
 </div>
  <?php
