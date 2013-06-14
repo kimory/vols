@@ -32,9 +32,6 @@ Pour l'espace client :
         * htmlentities pour protéger
         * bouton "Voir ses réservations" inactif ?
 
-Page contact :
-        * changer le message d'erreur générique
-
 CSS :
         * div footer à passer dans le dossier include
         * commenter le code CSS
