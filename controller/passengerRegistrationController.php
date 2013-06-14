@@ -59,12 +59,6 @@ class passengerRegistrationController {
 					$messages_erreur[] = "Le prénom n'est pas correct pour le passager " . ($i+1) . '.' ;
 				}
                                 
-//                                if(strlen($_POST['date_de_naissance'][$i]) == 0 ||
-//                                  !preg_match("/^(0[1-9]|[12][09]|3[01])\/(0[1-9]|1[012])\/(19|20)[0-9]{2}$/", $_POST['date_de_naissance'][$i]))
-//				{
-//					$messages_erreur[] = "La date de naissance n'est pas correcte pour le passager " . ($i+1) . '.' ;
-//				}
-                                
                                   if(strlen($_POST['date_de_naissance'][$i]) > 0 &&
                                           preg_match("#[0-9]{2}/[0-9]{2}/[0-9]{4}#", $_POST['date_de_naissance'][$i])){
                                       $tab = explode('/',$_POST['date_de_naissance'][$i]);
