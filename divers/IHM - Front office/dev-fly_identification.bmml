@@ -20,10 +20,10 @@
         <text>password</text>
       </controlProperties>
     </control>
-    <control controlID="4" controlTypeID="com.balsamiq.mockups::ButtonBar" x="465" y="185" w="388" h="26" measuredW="388" measuredH="27" zOrder="4" locked="false" isInGroup="-1">
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::ButtonBar" x="465" y="185" w="494" h="26" measuredW="465" measuredH="27" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
-        <selectedIndex>0</selectedIndex>
-        <text>Accueil%2CEspace%20Client%2CQui%20sommes-nous%20%3F%2C%20Contact</text>
+        <selectedIndex>1</selectedIndex>
+        <text>Accueil%2CChercher%20un%20vol%2CEspace%20Client%2Cla%20compagnie%2C%20Contact</text>
       </controlProperties>
     </control>
     <control controlID="5" controlTypeID="com.balsamiq.mockups::FieldSet" x="465" y="309" w="509" h="368" measuredW="200" measuredH="170" zOrder="5" locked="false" isInGroup="-1">
