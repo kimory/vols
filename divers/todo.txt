@@ -41,7 +41,6 @@ CSS :
         * décalage du bouton quand on se connecte en tant qu'admin
 
 passengerRegistrationController :
-        * reprendre toutes les vérifications
         * résoudre le problème cas d'une date de naissance erronée
 
 BDD :
