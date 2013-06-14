@@ -26,7 +26,6 @@ CSS :
 BDD :
         * en local, importer la bonne version de la BDD (plus de données)
 
-Controler passager : 
-
-        * si le client est connecter passer directement à la vue récap
-        * il faut passer à la vue suivante les infos du passager
+Controler passager :
+        * si le client est connecté, passer directement à la vue récap
+        * transmettre à la vue suivante les infos du passager
