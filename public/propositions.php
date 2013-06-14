@@ -42,7 +42,13 @@ $datedepartsouhaitee = $_SESSION['date_depart_souhaitee'];
             </div>
             
            <div id="developpement">
-                <div id="error">
+                <div id="connectionuser">
+                     <?php
+                        include('include/user_connection_form.php');
+			?>
+                 </div>
+               
+                <div id="errorproposition">
                    <?php
                    if (isset($_SESSION['msg_vol_non_choisi']) && strlen($_SESSION['msg_vol_non_choisi']) > 0) : ?>
                        <p><?php echo $_SESSION['msg_vol_non_choisi']; ?></p>
@@ -54,11 +60,6 @@ $datedepartsouhaitee = $_SESSION['date_depart_souhaitee'];
                    ?>
                 </div>
                
-                <div id="connectionuser">
-                     <?php
-                        include('include/user_connection_form.php');
-			?>
-                 </div>
                
                 <div class="h5">                   
                     <h5>Votre sélection</h5>
