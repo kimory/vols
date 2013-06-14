@@ -27,12 +27,18 @@ use entity\Client;
 					<?php
 					$_SESSION['page_actuelle'] = 'Rechercher un vol';
 					include('include/menu_front_office.php'); 
-					include('include/user_connection_form.php');
 					?>
-				</div>
-				<?php include('include/back_office_login_form.php'); ?>
+                                    </div>
+                                    <?php include('include/back_office_login_form.php'); ?>
+                                        
 			</div>
-			<div id="contenu">
+                    
+			<div id="developpement">
+                            <div id="connectionuser">
+				<?php
+                            include('include/user_connection_form.php');
+                             ?>
+                                </div>
 				<?php
 				// Si on arrive sur cette page, c'est que le client n'est pas connecté
 				if(! Client::isClientConnected()) :

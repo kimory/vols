@@ -1,4 +1,3 @@
--CSS pour embellir le site (la structure principale ne sera pas en Bootstrap)
 -Tester / Faire tester l'appli
 -Cahier des charges fini + mis en forme
 -Créer d'autres vols : dans les 2-3 mois après la date de fin de projet + dans les 2 mois après la date de présentation au jury
@@ -8,23 +7,11 @@
 -Validation W3C
 
 
-- vérifier : 
-	* qu'on obtient toutes les réservations différentes sur la page espace client
-	* qu'on obtient toutes les informations sur la réservation que nous avons sélectionnée
-	* qu'on a bien inclus les fichiers CSS et JS de bootstrap
-
 - FAIRE :
 	* nouvelle réservation
 	* modification d'une réservation -> revient à annuler + réserver
-	* passer le formulaire de recherche dans le dossier include + l'inclure sur les bonnes pages
-	* résultats de la recherche
-	* mise en session du choix de l'utilisateur
-	* formulaire d'inscription des passagers dans le dossier include + l'inclure sur les bonnes pages
 	* fiche de synthèse + formulaire de paiement
 	* billet
-	* CSS
-	* reprendre IHM menu
-	* formulaire contact
 
 Pour l'espace client :
         * tests
@@ -38,3 +25,8 @@ CSS :
 
 BDD :
         * en local, importer la bonne version de la BDD (plus de données)
+
+Controler passager : 
+
+        * si le client est connecter passer directement à la vue récap
+        * il faut passer à la vue suivante les infos du passager

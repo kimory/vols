@@ -91,9 +91,9 @@ class passengerRegistrationController {
 			else
 			{
 				if(Client::isClientConnected())
-					header('Location:');		// TODO
+					header('Location:');		// TODO revoie  ver le récap et paiement
 				else
-					header('Location:/clientConnection');
+					header('Location:/clientConnection'); 
 			}
 		}
 		else if(!isset($_SESSION['nb_passagers']) || 

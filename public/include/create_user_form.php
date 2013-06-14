@@ -46,5 +46,6 @@ if (! Client::isClientConnected()) :
 
         </fieldset>
     </form>
+       
     <?php endif;
 ?>
