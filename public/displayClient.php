@@ -26,11 +26,11 @@
                         <li><a href="#client" data-toggle="tab">Client</a></li>
                     </ul>
                     </div>
-            </div>
-		<?php 
+                <?php 
 			// ici on affichera le bouton de déconnexion
 			include('include/back_office_login_form.php');
 		?>
+            </div>
          <div id="developpement">
 
         <form action="/affichageClientController" method="POST">
