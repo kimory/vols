@@ -8,6 +8,7 @@ if (!isset($_SESSION)) {
 
 use dao\MysqlDao;
 use entity\Client;
+use entity\Passager;
 use \DateTime;
 
 class passengerRegistrationController {
@@ -90,6 +91,15 @@ class passengerRegistrationController {
 			}
 			else
 			{
+                                $passagers = array();
+                                $i = 0;
+                                while($i < $_SESSION['nb_passagers']){
+                                    $passager = new Passager(null, $_POST['civilite'][$i], $_POST['nom'][$i], $_POST['prenom'][$i], $_POST['date_de_naissance'][$i]);
+                                    $passagers[] = $passager;
+                                }
+                                // On récupère en session un tableau d'objets 'Passager' :
+                                $_SESSION['passagers'] = $passagers;         
+                            
 				if(Client::isClientConnected())
 					header('Location:');		// TODO renvoyer vers la page "récap + paiement"
 				else
