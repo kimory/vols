@@ -15,11 +15,6 @@ class syntheseController {
 		// récupérer les informations nécessaires pour afficher la vue
 		// À savoir : ville de départ et d'arrivée, les passagers
 		// La date de départ
-		//
-		// Une fois que l'utilisateur entre ses coordonnées bancaires on
-		// revient sur ce controlleur, et on vérifie qu'il a rentré
-		// Son numéro de carte, son numéro de sécurité, 
-		// La date d'expiration de sa carte, le nom du porteur
 		$dao = new MysqlDao();
 		if( $dao->isClientConnected() )
 		{
