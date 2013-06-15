@@ -27,8 +27,10 @@ class syntheseController {
 		$dao = new MysqlDao();
 		if( $dao->isClientConnected() )
 		{
-                        // ici on revient sur ce contrôler pour la seconde fois
-                        // et on vérifie les données de paiement :
+                        // ici on revient sur ce contrôleur pour la seconde fois (ce qui voudra dire qu'on
+                        // a bien récupéré les données correctes en session auparavant.
+                        // Sinon, le client aurait été redirigé vers une page précédente.)
+                        // On vérifie les données de paiement :
 			if(isset($_POST['numcarte'], 
 				$_POST['moisexpiration'], 
 				$_POST['anneeexpiration'], 
@@ -71,7 +73,7 @@ class syntheseController {
 				$vol = $dao->getVolById($_SESSION['volchoisi']);
 				include VIEW . "synthese.php";
 			}
-			else // il manque des informations, on repart sur recherche
+			else // il manque des informations, on repart sur la page "recherche"
 			{
 				// TODO
 				// Vérifier que cette variable de session sera affichée dans la vue
