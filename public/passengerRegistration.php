@@ -17,7 +17,7 @@ include_once("../setup.php");
         <meta name="robots" content="index, follow, all">    
         <link rel="stylesheet" type="text/css" href="/css/style.css" />
         <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />     
-        <title>DEV-FLY - Espace Client - Enregistrement des passagers</title>
+        <title>DEV-FLY - Enregistrement des passagers</title>
     </head>
     <body>
        <div id="container">

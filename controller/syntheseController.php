@@ -2,14 +2,14 @@
 
 namespace controller;
 
-if (!isset($_SESSION)) {
-	session_start();
-}
-
 use dao\MysqlDao;
 use entity\Client;
 use entity\Passager;
 use \DateTime;
+
+if (!isset($_SESSION)) {
+	session_start();
+}
 
 class syntheseController {
 
@@ -35,10 +35,28 @@ class syntheseController {
 				$_POST['nomporteur'], 
 				$_POST['codesecurite']))
 			{
-
-				// TODO
-				// enregistrer les informations de la résa dans la BDD
-				// passer à la vue suivante
+                            // On vérifie que les champs sont corrects
+                            // Évidemment, il ne s'agit pas ici d'un vrai paiement en ligne, 
+                            // les vérifications sont donc succintes.
+                            
+                            // On récupère la date du jour et l'année courante
+                            $datedujour = new DateTime();
+                            $anneeCourante = $datedujour->format("Y");
+                            
+                            if(ctype_digit($_POST['numcarte']) &&
+                                ctype_digit($_POST['moisexpiration']) &&
+                                $_POST['moisexpiration'] > 0 && $_POST['moisexpiration'] < 13 &&
+                                $_POST['anneeexpiration'] >= $anneCourante && $_POST['anneeexpiration'] <= $anneCourante + 5 &&
+                                preg_match("/^[A-Za-z-]+$/", $_POST['nomporteur']) &&
+                                preg_match("/^[0-9]{3}$/", $_POST['codesecurite'])){
+                                
+                                    // TODO
+                                    // enregistrer les informations de la résa dans la BDD
+                                    // passer à la vue suivante
+                            } else {
+                                
+                            }
+				
 
 			}
                         // ici on fait la vérif la première fois qu'on arrive

@@ -15,7 +15,7 @@ use entity\Client;
 		<meta name="robots" content="index, follow, all">    
 		<link rel="stylesheet" type="text/css" href="/css/style.css" />
 		<link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />     
-		<title>DEV-FLY - Espace Client - Connexion / Enregistrement</title>
+		<title>DEV-FLY -Connexion / Enregistrement</title>
 	</head>
 	<body>
 		<div id="container">
