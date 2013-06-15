@@ -102,7 +102,7 @@ class passengerRegistrationController {
                                 $_SESSION['passagers'] = $passagers;         
                             
 				if(Client::isClientConnected())
-					header('Location:/synthese');		// TODO renvoyer vers la page "récap + paiement"
+					header('Location:/syntheseController');		// TODO renvoyer vers la page "récap + paiement"
 				else
 					header('Location:/clientConnection'); 
 			}

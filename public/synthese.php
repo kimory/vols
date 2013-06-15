@@ -37,8 +37,8 @@ use entity\Passager;
 
 		<div class="container">
 		<p>Vous souhaitez réserver <?php echo $_SESSION['nb_passagers']; ?> place(s) pour le 
-			<?php echo $_SESSION['HEUREDEDEPART']; // TODO ?> pour le vol <?php echo $_SESSION['IDVOL']; // TODO ?>
-			de <?php echo $_SESSION['VILLE1']; // TODO ?> à <?php echo $_SESSION['VILLE2']; // TODO ?>.
+			<?php echo $vol->getDateHeureDepart(); // TODO ?> pour le vol <?php echo $vol->getNumvol(); // TODO ?>
+			de <?php echo $vol->getLieuDepart(); // TODO ?> à <?php echo $vol->getLieuArrivee(); // TODO ?>.
 		</p>
 		<p>Pour les passagers suivants : </p>
 <?php
@@ -49,6 +49,7 @@ use entity\Passager;
 				$_SESSION['passagers'][$i]->getNom() . " " . 
 				$_SESSION['passagers'][$i]->getPrenom() . ' né(e) le : ' . 
 				$_SESSION['passagers'][$i]->getDateNaissance() . PHPEOL;
+			$i++;
 		}
 ?>
 		</div>
