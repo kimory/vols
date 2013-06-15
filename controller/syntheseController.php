@@ -27,6 +27,8 @@ class syntheseController {
 		$dao = new MysqlDao();
 		if( $dao->isClientConnected() )
 		{
+                        // ici on revient sur ce contrôler pour la seconde fois
+                        // et on vérifie les données de paiement :
 			if(isset($_POST['numcarte'], 
 				$_POST['moisexpiration'], 
 				$_POST['anneeexpiration'], 
@@ -35,10 +37,12 @@ class syntheseController {
 			{
 
 				// TODO
-				// enregistrer les informations dans la base de donnée
+				// enregistrer les informations de la résa dans la BDD
 				// passer à la vue suivante
 
 			}
+                        // ici on fait la vérif la première fois qu'on arrive
+                        // sur ce contrôleur :
 			else if(isset(
 				$_SESSION['volchoisi'],
 				$_SESSION['passagers'],
@@ -61,7 +65,7 @@ class syntheseController {
 		{
 			// TODO
 			// Vérifier que cette variable de session sera affichée dans la vue
-			$_SESSION['message'] = "Certaines informations sont manquantes !";
+			$_SESSION['message'] = "Votre session a expiré ! Merci de recommencer votre recherche !";
 			header('Location:/recherche');
 		}
 	}
