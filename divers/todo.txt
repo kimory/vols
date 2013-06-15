@@ -3,7 +3,6 @@
 -Créer d'autres vols : dans les 2-3 mois après la date de fin de projet + dans les 2 mois après la date de présentation au jury
 -Donner avec l'appli la liste des vols créés + identifiants
 -Renommer les pages pour avoir une cohérence ??
--Penser aux sessions
 -Validation W3C
 -A faire ou à noter dans les remarques (...) : vérifier que les passagers renseignés correspondent bien aux nombres d'adultes et d'enfants renseignés (sinon le prix sera faux !)
 -Info : session toujours ouverte dans l'index
@@ -46,3 +45,12 @@ vue "synthèse" :
 Après l'étape 'paiement' :
         * rentrer dans la BDD les passagers reliés au client, à 1 vol, et à 1 réservation
         * renvoyer la vue Billet à créer
+
+Balises HTML5 :
+        * il reste des balises HTML5 à remplacer par des <div> → vérifier le rendu à chaque fois
+
+IHM :
+        * reprendre les IHM une fois le site fini
+
+Cahier des charges :
+        * mise en forme une fois la V1 terminée
