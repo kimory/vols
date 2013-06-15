@@ -8,26 +8,35 @@
 		<meta name="robots" content="index, follow, all">    
 		<link rel="stylesheet" type="text/css" href="/css/style.css" />
 		<link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />     
-		<title>DEV-FLY - Espace Client - Synthèse</title>
+		<title>DEV-FLY - Synthèse</title>
 	</head>
 	<body>
-		<div class="container">
-			<div id="header">
-				<div id="logo">
-					<img id='logo' src='/images/logo.jpg' alt='logo de DEV-FLY' />
-				</div>
-				<div id="menu">
-					<?php
-					$_SESSION['page_actuelle'] = 'Rechercher un vol';
-					include('include/menu_front_office.php'); 
-					?>
-				</div>
-				<?php include('include/back_office_login_form.php'); ?>
+            <div id="container">
+                <div id="header">
+                    <div id="logo">
+                        <img id='logo' src='/images/logo.jpg' alt='logo de DEV-FLY' />
+                    </div>
+                    <div id="menu">
+                        <?php
+                        $_SESSION['page_actuelle'] = 'Rechercher un vol';
+                        include('include/menu_front_office.php');
+                        ?>
+                    </div>
+                    <?php include('include/back_office_login_form.php'); ?>
 
-			</div>
-		</div>
+                </div>
 
-		<div class="container">
+		<div">
+                <div id="error">
+                    <?php if (isset($_SESSION['message'])) : ?>
+                        <p><?php echo $_SESSION['message']; ?></p>
+                        <?php
+                        // On détruit le message en session une fois
+                        // qu'il a été affiché
+                        unset($_SESSION['message']);
+                    endif;
+                    ?>
+                </div>
 		<p>Vous souhaitez réserver <?php echo $_SESSION['nb_passagers']; ?> place(s) pour le 
 			<?php echo $_SESSION['vol']->getDateHeureDepart(); // TODO ?> pour le vol <?php echo $_SESSION['vol']->getNumvol(); // TODO ?>
 			de <?php echo $_SESSION['vol']->getLieuDepart(); // TODO ?> à <?php echo $_SESSION['vol']->getLieuArrivee(); // TODO ?>.
@@ -43,7 +52,7 @@
 		}
 ?>
 		</div>
-		<div class="container">
+		<div>
 		<p>Les e-cartes bleues et cartes transcash ne sont pas acceptées.</p>
 		<form action="/syntheseController" >
 			<label for="numcarte">Numéro de carte</label>
@@ -75,16 +84,15 @@
 			<label for="nomporteur">Nom du porteur</label>
 			<input type="text" name="nomporteur" id="nomporteur">
 
-			<label for="codesecurite">Code de sécurité</label>
-			<input type="text" name="codesecurite" id="codesecurite">
-			<input type="reset" value="annuler">
-			<input type="submit" value="Valider">
-		</form>
-		</div>
-		<div class="container">
-			<div id="footer">
-				<p> &nbsp;&nbsp; &copy; Tous droits réservés &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- DEV-FLY 2013 --</p>
-			</div> 
-		</div>
+                                <label for="codesecurite">Code de sécurité</label>
+                                <input type="text" name="codesecurite" id="codesecurite">
+                                    <input type="reset" value="annuler">
+                                        <input type="submit" value="Valider">
+                                            </form>
+                                            </div>
+                                            <div id="footer">
+                                                <p> &nbsp;&nbsp; &copy; Tous droits réservés &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- DEV-FLY 2013 --</p>
+                                            </div>
+                                            </div>
 	</body>
 </html>
