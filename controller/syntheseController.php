@@ -18,11 +18,6 @@ class syntheseController {
 		// récupérer les informations nécessaires pour afficher la vue
 		// À savoir : ville de départ et d'arrivée, les passagers
 		// La date de départ
-		//
-		// Une fois que l'utilisateur entre ses coordonnées bancaires on
-		// revient sur ce controlleur, et on vérifie qu'il a rentré
-		// Son numéro de carte, son numéro de sécurité, 
-		// La date d'expiration de sa carte, le nom du porteur
 
 		$dao = new MysqlDao();
 		if( $dao->isClientConnected() )
@@ -56,7 +51,8 @@ class syntheseController {
                                     // enregistrer les informations de la résa dans la BDD
                                     // passer à la vue suivante
                             } else {
-                                
+                                    $_SESSION['message'] = "Les informations de paiement renseignées sont erronées !";
+                                    header('Location:/synthese');
                             }
 				
 
@@ -77,7 +73,9 @@ class syntheseController {
 			{
 				// TODO
 				// Vérifier que cette variable de session sera affichée dans la vue
-				$_SESSION['message'] = "Certaines informations sont manquantes !";
+                                $messages = array(); // cf la page recherche parcourt un tableau de messages
+                                $messages[] = "Certaines informations sont manquantes !";
+				$_SESSION['messages'] = $messages;
 				header('Location:/recherche');
 			}
 		}
@@ -85,8 +83,10 @@ class syntheseController {
 		{
 			// TODO
 			// Vérifier que cette variable de session sera affichée dans la vue
-			$_SESSION['message'] = "Votre session a expiré ! Merci de recommencer votre recherche !";
-			header('Location:/recherche');
+                        $messages = array(); // cf la page recherche parcourt un tableau de messages
+                                $messages[] = "Votre session a expiré ! Merci de recommencer votre recherche !";
+				$_SESSION['messages'] = $messages;
+				header('Location:/recherche');
 		}
 	}
 }

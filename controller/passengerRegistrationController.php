@@ -96,7 +96,7 @@ class passengerRegistrationController {
                                 while($i < $_SESSION['nb_passagers']){
                                     $passager = new Passager(null, $_POST['civilite'][$i], $_POST['nom'][$i], $_POST['prenom'][$i], $_POST['date_de_naissance'][$i]);
                                     $passagers[] = $passager;
-									$i++;
+                                    $i++;
                                 }
                                 // On récupère en session un tableau d'objets 'Passager' :
                                 $_SESSION['passagers'] = $passagers;         

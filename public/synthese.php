@@ -37,6 +37,18 @@ if (!isset($_SESSION)) {
                 </div>
 
                 <div>
+                    
+                <div id="error">
+                    <?php if (isset($_SESSION['message'])) : ?>
+                        <p><?php echo $_SESSION['message']; ?></p>
+                        <?php
+                        // On détruit le message en session une fois
+                        // qu'il a été affiché
+                        unset($_SESSION['message']);
+                    endif;
+                    ?>
+                </div>
+                    
                     <p>Vous souhaitez réserver <?php echo $_SESSION['nb_passagers']; ?> place(s) pour le 
                         <?php echo $vol->getDateHeureDepart(); // TODO ?> pour le vol <?php echo $vol->getNumvol(); // TODO ?>
                         de <?php echo $vol->getLieuDepart(); // TODO  ?> à <?php echo $vol->getLieuArrivee(); // TODO  ?>.
