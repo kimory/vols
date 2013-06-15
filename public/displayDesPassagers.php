@@ -25,36 +25,40 @@ if (!isset($_SESSION)) {
                 </div>
                 <div id="menu">
                      <ul class="nav nav-tabs">
-                        <li class="active"><a href="#vol" data-toggle="tab">Vol</a></li>
-                        <li><a href="#passager" data-toggle="tab">Passager</a></li>
-                        <li><a href="#employe" data-toggle="tab">Employé</a></li>
-                        <li><a href="#reservation" data-toggle="tab">Réservation</a></li>
-                        <li><a href="#client" data-toggle="tab">Client</a></li>
+                        <li><a href="vol" data-toggle="tab">Vol</a></li>
+                        <li class="active"><a href="passager" data-toggle="tab">Passager</a></li>
+                        <li><a href="employe" data-toggle="tab">Employé</a></li>
+                        <li><a href="reservation" data-toggle="tab">Réservation</a></li>
+                        <li><a href="client" data-toggle="tab">Client</a></li>
                     </ul>
                     </div>
                  </div>
         <div id="developpement">
+            <?php
+            // ici on affichera le bouton de déconnexion
+			include('include/back_office_login_form.php');
+            ?>
         <div class="tab-content">
 		<?php 
-			// ici on affichera le bouton de déconnexion
-			include('include/back_office_login_form.php');
+			
 			// On affiche le message d'erreur le cas échéant :
 			if (isset($message) && strlen($message) > 0) : ?>
 				<p><?php echo $message ?></p>
-                
+                                 
         <?php
 				
         // Si il n'y a pas d'erreur, on affiche la liste des passagers concernés par la réservation :
               else : ?>
         
-                <div><h3>Passagers sur la réservation <a href="/affichageReservationController/action/<?php echo htmlentities($_GET['numreservation'], ENT_QUOTES, 'UTF-8');?>"><?php echo htmlentities($_GET['numreservation'], ENT_QUOTES, 'UTF-8') ?></a></h3></div>
+                <div><h3>Passagers sur la réservation <a href="/affichageReservationController/action/<?php echo htmlentities($_GET['numreservation'], ENT_QUOTES, 'UTF-8');?>"><?php echo htmlentities($_GET['numreservation'], ENT_QUOTES, 'UTF-8') ?></a></h3></div><br/>
 
             <!-- Remarque : le htmlentities est une sécurité, il convertit les caractères
             éligibles en entités HTML -->
-            <div>
+           
+                <div id="tablepassagerresa">  
                 <table>
                     <tr>
-                        <th>N° de passager</th><th>N° de place</th>
+                        <th>N° de passager &nbsp;&nbsp;&nbsp;</th><th>N° de place</th>
                     </tr>
                     <?php foreach ($tab as $value) : ?>
                     <tr>
@@ -68,6 +72,7 @@ if (!isset($_SESSION)) {
             </div>
             
         <?php endif; ?>
+                                </div><br/>
                 
         <div><a href="/choixducritere">retour au choix du critère</a></div>
         </div>
@@ -75,7 +80,7 @@ if (!isset($_SESSION)) {
         <!-- Ci-dessous le JavaScript pour la navigation en onglets --> 
         <script src="http://code.jquery.com/jquery-latest.js"></script>
         <script src="js/bootstrap.js"></script>
-        </div>
+       
             <div id="footer">
                 <p> &nbsp;&nbsp; &copy; Tous droits réservés &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- DEV-FLY 2013 --</p>
            </div> 

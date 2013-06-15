@@ -26,9 +26,9 @@ if (!isset($_SESSION)) {
                 <div id="menu">
                    
                       <ul class="nav nav-tabs">
-                        <li class="active"><a href="#vol" data-toggle="tab">Vol</a></li>
+                        <li><a href="#vol" data-toggle="tab">Vol</a></li>
                         <li><a href="#passager" data-toggle="tab">Passager</a></li>
-                        <li><a href="#employe" data-toggle="tab">Employé</a></li>
+                        <li class="active"><a href="#employe" data-toggle="tab">Employé</a></li>
                         <li><a href="#reservation" data-toggle="tab">Réservation</a></li>
                         <li><a href="#client" data-toggle="tab">Client</a></li>
                     </ul>
