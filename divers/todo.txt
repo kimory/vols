@@ -31,12 +31,15 @@ BDD :
 Back office :
         * inutilité du menu en haut = on ne peut pas cliquer dessus
 
-Controler passager :
-        * si le client est connecté, passer directement à la vue récap
-        * transmettre à la vue suivante les infos du passager
-
 createUserController :
         * à créer !
+
+syntheseController :
+        * en cours mais pas pu être testé
+
+vue "synthèse" :
+        * à vérifier (il faut changer le select pour l'année pour que ce soit valable tout le temps)
+        * inscrire le prix (+ modifier dans l'IHM)
 
 Après l'étape 'paiement' :
         * rentrer dans la BDD les passagers reliés au client, à 1 vol, et à 1 réservation
