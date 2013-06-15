@@ -1,13 +1,3 @@
-<?php
-if (!isset($_SESSION)) {
-	session_start();
-}
-
-use entity\Client;
-use entity\Passager;
-
-?>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -39,19 +29,17 @@ use entity\Passager;
 
 		<div class="container">
 		<p>Vous souhaitez réserver <?php echo $_SESSION['nb_passagers']; ?> place(s) pour le 
-			<?php echo $vol->getDateHeureDepart(); // TODO ?> pour le vol <?php echo $vol->getNumvol(); // TODO ?>
-			de <?php echo $vol->getLieuDepart(); // TODO ?> à <?php echo $vol->getLieuArrivee(); // TODO ?>.
+			<?php echo $_SESSION['vol']->getDateHeureDepart(); // TODO ?> pour le vol <?php echo $_SESSION['vol']->getNumvol(); // TODO ?>
+			de <?php echo $_SESSION['vol']->getLieuDepart(); // TODO ?> à <?php echo $_SESSION['vol']->getLieuArrivee(); // TODO ?>.
 		</p>
 		<p>Pour les passagers suivants : </p>
 <?php
-		$i = 0;
-		while($i < $_SESSION['nb_passagers'])
+		foreach($_SESSION['passagers'] as $passager)
 		{
 			echo 
-				$_SESSION['passagers'][$i]->getNom() . " " . 
-				$_SESSION['passagers'][$i]->getPrenom() . ' né(e) le : ' . 
-				$_SESSION['passagers'][$i]->getDateNaissance() . PHPEOL;
-			$i++;
+				$passager->getNom() . " " . 
+				$passager->getPrenom() . ' né(e) le : ' . 
+				$passager->getDateNaissance() . PHP_EOL;
 		}
 ?>
 		</div>

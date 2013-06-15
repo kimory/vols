@@ -2,14 +2,14 @@
 
 namespace controller;
 
-if (!isset($_SESSION)) {
-    session_start();
-}
-
 use dao\MysqlDao;
 use entity\Client;
 use entity\Passager;
 use \DateTime;
+
+if (!isset($_SESSION)) {
+    session_start();
+}
 
 class passengerRegistrationController {
 

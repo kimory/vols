@@ -2,14 +2,7 @@
 
 namespace controller;
 
-if (!isset($_SESSION)) {
-	session_start();
-}
-
 use dao\MysqlDao;
-use entity\Client;
-use entity\Passager;
-use \DateTime;
 
 class syntheseController {
 
@@ -23,7 +16,6 @@ class syntheseController {
 		// revient sur ce controlleur, et on vérifie qu'il a rentré
 		// Son numéro de carte, son numéro de sécurité, 
 		// La date d'expiration de sa carte, le nom du porteur
-
 		$dao = new MysqlDao();
 		if( $dao->isClientConnected() )
 		{
@@ -50,7 +42,7 @@ class syntheseController {
 			{
 
 				// getVolById renvoie un objet Vol
-				$vol = $dao->getVolById($_SESSION['volchoisi']);
+				$_SESSION['vol'] = $dao->getVolById($_SESSION['volchoisi']);
 				include VIEW . "synthese.php";
 			}
 			else // il manque des informations, on repart sur recherche

@@ -1,9 +1,14 @@
 <?php 
-if (!isset($_SESSION)) {
-    session_start();
-}
- 
+
 include '../setup.php';
+
+use entity\Personne;
+use entity\Client;
+use entity\Passager;
+use \DateTime;
+
+session_start();
+ 
 // on récupère le nom du controlleur saisi dans l'URL
 $controllerName = $_GET['controller'];
 // on récupèrera la méthode
