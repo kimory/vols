@@ -463,7 +463,70 @@ class MysqlDao {
 
 		return $result;
 	}
-
+        
+        public function AjoutClient($civilite, $nom, $prenom, $adresse, $cp, $ville, $pays, $mail, $telFixe, $telPortable, $login, $password) {
+ 
+ 
+    $sql ="INSERT INTO client SET
+          civilite= :civilite,
+          nom = :nom,
+          prenom = :prenom,
+          adresse = :adresse,
+          cp = :cp,
+          ville = :ville,
+          pays = : pays,
+          mail = : mail,
+          telFixe = :telFixe,
+          telPortable = :telPortable,
+          login = : login,
+          password = :password ";
+          
+		
+    $stmt = $this->dbh->prepare($sql);
+    $stm->bindValue(':civilite',$civilite);
+    $stm->bindValue(':nom',$nom);
+    $stm->bindValue(':prenom', $prenom);
+    $stm->bindValue(':adresse', $adresse);
+    $stm->bindValue(':cp', $cp);
+    $stm->bindValue(':ville', $ville);
+    $stm->bindValue(':pays', $pays);  
+    $stm->bindValue(':mail', $mail); 
+    $stm->bindValue(':telFixe', $telFixe);   
+    $stm->bindValue(':telPortable', $telportable);
+    $stm->bindValue(':login', $login);
+    $stm->bindValue(':password', $password);
+    $stm->execute();
+     
+      $result = array();
+		while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+			$result[] = $row; // on insère une copie du tableau $row dans $result
+		}
+     return $result;
+    }
+    
+         public function AjoutPassager($civilite,$nom, $prenom, $dateNaissance) {
+ 
+ 
+    $sql ="INSERT INTO passager SET
+          civilite= :civilite,
+          nom = :nom,
+          prenom = : prenom,
+         dateNaissance = :dateNaissance";
+          
+		
+    $stmt = $this->dbh->prepare($sql);
+    $stm->bindValue(':civilite',$civilite);
+    $stm->bindValue(':nom',$nom);
+    $stm->bindValue(':prenom', $prenom);
+    $stm->bindValue(':dateNaissance', $dateNaissance);
+    $stm->execute();
+     
+      $result = array();
+		while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+			$result[] = $row; // on insère une copie du tableau $row dans $result
+		}
+     return $result;
+    }
 }
 
 ?>
