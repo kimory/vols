@@ -40,7 +40,7 @@ class syntheseController {
                                 ctype_digit($_POST['moisexpiration']) &&
                                 $_POST['moisexpiration'] > 0 && $_POST['moisexpiration'] < 13 &&
                                 $_POST['anneeexpiration'] >= $anneCourante && $_POST['anneeexpiration'] <= $anneCourante + 5 &&
-                                preg_match("/^[A-Za-z-]+$/", $_POST['nomporteur']) &&
+                                preg_match("/^[ A-Za-z-]+$/", $_POST['nomporteur']) &&
                                 preg_match("/^[0-9]{3}$/", $_POST['codesecurite'])){
                                 
                                     // TODO
