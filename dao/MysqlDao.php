@@ -58,6 +58,7 @@ class MysqlDao {
 		$result = array();
 
 		while($row = $stmt->fetch(PDO::FETCH_ASSOC))
+                // On récupère un tableau associatif indexé par le nom de colonne
 		{
 			$numvol = $row['numvol'];
 			$datedepart = $row['datedep'];
