@@ -78,7 +78,9 @@ use \DateTime;
         <div><a href="/choixducritere">retour au choix du critère</a></div>
            </div>
         <div id="footer">
-                <p> &nbsp;&nbsp; &copy; Tous droits réservés &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- DEV-FLY 2013 --</p>
+                <?php
+                include './include/footer.php';
+               ?>
            </div> 
         </div>
     </body>

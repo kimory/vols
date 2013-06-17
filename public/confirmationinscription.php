@@ -38,7 +38,9 @@ if (!isset($_SESSION)) {
         <p> Votre inscription a été réalisé avec succés</p>
         </div>
             <div id="footer">
-               <p> &nbsp;&nbsp; &copy; Tous droits réservés &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- DEV-FLY 2013 --</p>
+               <?php
+                include './include/footer.php';
+               ?>
            </div> 
         </div>
     </body>

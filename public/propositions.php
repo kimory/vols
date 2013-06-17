@@ -90,9 +90,10 @@ $datedepartsouhaitee = $_SESSION['date_depart_souhaitee'];
                 </div>
                
            </div>
-
-            <div id="footer">
-               <p> &nbsp;&nbsp; &copy; Tous droits réservés &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- DEV-FLY 2013 --</p>
+               <div id="footer">
+                <?php
+                include './include/footer.php';
+               ?>
            </div> 
         </div>
     </body>

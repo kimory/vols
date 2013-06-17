@@ -82,7 +82,9 @@ if (!isset($_SESSION)) {
         <script src="js/bootstrap.js"></script>
        
             <div id="footer">
-                <p> &nbsp;&nbsp; &copy; Tous droits réservés &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- DEV-FLY 2013 --</p>
+                <?php
+                include './include/footer.php';
+               ?>
            </div> 
         </div>
     </body>

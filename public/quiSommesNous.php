@@ -39,7 +39,9 @@ if (!isset($_SESSION)) {
                 Choisir DEV-FLY, c'est profiter de prix très compétitifs pour voyager selon vos envies... À ce jour, notre catalogue couvre plus de 40 destinations : profitez-en !</p>
            </div>
             <div id="footer">
-               <p> &nbsp;&nbsp; &copy; Tous droits réservés &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- DEV-FLY 2013 --</p>
+                <?php
+                include './include/footer.php';
+               ?>
            </div> 
         </div>
     </body>
