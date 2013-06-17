@@ -477,7 +477,7 @@ class MysqlDao {
 
 		$stmt = $this->dbh->prepare($sql);
 
-		return true === $stmt->execute(array(
+		return true === $stmt->execute(array( // on vérifie que c'est équivalent à vrai
 			':civilite' => $civilite,
 			':nom' => $nom,
 			':prenom' => $prenom,
@@ -504,7 +504,7 @@ class MysqlDao {
 		$stmt->bindParam( ':prenom', $prenom);
 		$stmt->bindParam( ':dateNaissance', $dateNaissance);
 
-		return true === $stmt->execute();
+		return true === $stmt->execute(); // on vérifie que c'est équivalent à vrai
 	}
 }
 
