@@ -53,20 +53,20 @@ if (!isset($_SESSION)) {
                     <fieldset>
                         <h5>Vos coordonnées</h5> 
 
-                        <label for ="nom">Nom</label>
+                        <label for = "nom">Nom</label>
                            <input type="text" name="nom" id="nom" size="30" >
 
-                        <label for ="prenom">Prénom</label>
+                        <label for = "prenom">Prénom</label>
                            <input type="text" name="prenom" id="prenom" size="30" ><br>
 
-                        <label for ="mail">Votre e-mail</label> 
+                        <label for = "mail">Votre e-mail</label> 
                            <input type="text" name="mail" size="30" /><br>
                         
-                        <label for ="sujet">Sujet</label>
+                        <label for = "sujet">Sujet</label>
                         <input type="text" name="sujet" size="30" /><br>
                         <textarea name="message" rows="6" wrap="virtual" cols="30"></textarea><br>
                         
-                        <label for="tel">Téléphone</label>
+                        <label for= "tel">Téléphone</label>
                         <input type="text" name="tel" size="30" /><br>       
                         <div id="submit">
                             

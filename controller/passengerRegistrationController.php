@@ -49,7 +49,8 @@ class passengerRegistrationController {
 				}                              
                                 
 				if(strlen($_POST['nom'][$i]) == 0 ||
-                                  !preg_match("/^[A-Za-z-]+$/", $_POST['nom'][$i]))
+                                  !preg_match("/^[ A-Za-z-]+$/", $_POST['nom'][$i]))
+                                  // Remarque : on autorise les espaces (cf "M. de XXX")
 				{
 					$messages_erreur[] = "Le nom n'est pas correct pour le passager " . ($i+1) . '.' ;
 				}

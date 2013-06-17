@@ -21,12 +21,11 @@ Pour l'espace client :
         * bouton "Voir ses réservations" inactif ?
 
 CSS :
-        * div footer à passer dans le dossier include
         * commenter le code CSS
         * back office : recherche par numéro de résa, clic sur le nb de passagers → style à faire
 
 BDD :
-        * en local, importer la bonne version de la BDD (plus de données)
+        * en local, importer la bonne version de la BDD (plus de données + autoincrement !)
 
 Back office :
         * inutilité du menu en haut = on ne peut pas cliquer dessus
