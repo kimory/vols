@@ -4,6 +4,13 @@ include_once("../setup.php");
 use entity\Client;
 
 if (! Client::isClientConnected()) :
+	if(isset($messages)) :
+		foreach($messages as $mes) :
+		?>
+			<p><?php echo $mes; ?></p>
+		<?php
+		endforeach;
+	endif;
     ?>
     <form action="/createUserController" method="POST" >
         <fieldset>
@@ -36,13 +43,11 @@ if (! Client::isClientConnected()) :
             <label for="login">Choisissez un identifiant :</label>
             <input type="text" name="login" id="login">
 
-            <label for ="passwd1">Choisissez un mot de passe : </label>
-            <input type="password" name="passwd1" id="passwd1"><br/>
+            <label for ="password1">Choisissez un mot de passe : </label>
+            <input type="password" name="password1" id="password1"><br/>
             
-            <label for ="passwd1">Choisissez un mot de passe : </label>
-            <input type="password" name="passwd1" id="passwd1">
-            <label for ="passwd2">Confirmez le mot de passe : </label>
-            <input type="password" name="passwd2" id="passwd2"><br>
+            <label for ="password2">Confirmez le mot de passe : </label>
+            <input type="password" name="password2" id="password2"><br>
 
             <input type="submit" value="valider"> 
             <input type="reset" value="annuler">        
