@@ -64,22 +64,22 @@ class CreateUserController {
             $messages[] = "L'adresse mail est  incorrecte.";
         }
         
-       if(isset($_POST['telFixe']) && preg_match("/^[0-9]{10,20}$/",$_POST['telFixe'])){
-            $telFixe = htmlentities($_POST['telFixe'], ENT_QUOTES, 'UTF-8');
+       if(isset($_POST['telfixe']) && preg_match("/^+?[0-9]{10,20}$/",$_POST['telfixe'])){
+            $telfixe = htmlentities($_POST['telfixe'], ENT_QUOTES, 'UTF-8');
 
         } else {
-            $messages[] = "Le numéro de téléphone fixe est incorrecte.";
+            $messages[] = "Le numéro de téléphone fixe est incorrect.";
         }
         
-        if(isset($_POST['telPortable']) && preg_match("/^[0-9]{10,20}$/",$_POST['telPortable'])){
-            $telPortable = htmlentities($_POST['telPortable'], ENT_QUOTES, 'UTF-8');
+        if(isset($_POST['mobile']) && preg_match("/^+?[0-9]{10,20}$/",$_POST['mobile'])){
+            $mobile = htmlentities($_POST['mobile'], ENT_QUOTES, 'UTF-8');
 
         } else {
-            $messages[] = "Le numéro de téléphone portable est incorrecte.";
+            $messages[] = "Le numéro de téléphone portable est incorrect.";
         }
         // On vérifie que les numéro de téléphone fixe et portable saisis ne sont pas les mêmes :
-        if (isset($_POST['telFixe']) && isset($_POST['telPortable']) &&
-            $_POST['telFixe'] == $_POST['telPortable']){
+        if (isset($_POST['telfixe']) && isset($_POST['mobile']) &&
+            $_POST['telfixe'] == $_POST['mobile']){
             $messages[] = "Les numéros de téléphone fixe et portable ne doivent pas être identiques.";
         }     
         
