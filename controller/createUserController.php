@@ -8,7 +8,7 @@ if (!isset($_SESSION)) {
     session_start();
 }
 
-class CreateUserController {
+class createUserController {
 
     public function inscription() {
 
@@ -17,7 +17,7 @@ class CreateUserController {
         if(!isset($_POST['nom']) || strlen($_POST['nom']) == 0 ){            
             $messages[] = "Merci d'indiquer votre nom.";            
         }elseif(ctype_digit($_POST['nom'])){
-            $messages[] = "Le nom saisi est incorrecte.";
+            $messages[] = "Le nom saisi est incorrect.";
         }else{
             $nom = htmlentities($_POST['nom'], ENT_QUOTES, 'UTF-8');
         }       
@@ -25,7 +25,7 @@ class CreateUserController {
         if(!isset($_POST['prenom']) || strlen($_POST['prenom']) == 0 ){
             $messages[] = "Merci d'indiquer votre prénom.";
         }elseif(ctype_digit($_POST['prenom'])){
-            $messages[] = "Le prénom saisi est incorrecte.";
+            $messages[] = "Le prénom saisi est incorrect.";
         } else {            
             $prenom = htmlentities($_POST['prenom'], ENT_QUOTES, 'UTF-8');           
         }
@@ -90,15 +90,15 @@ class CreateUserController {
             $messages[] = "Le login est incorrect.";
         }
         
-        if (isset($_POST['password']) && strlen($_POST['password']) > 0 &&
-            preg_match("/^[A-Za-z-][0-9]+$/", $_POST['password'])) {
+        if (isset($_POST['password1']) && strlen($_POST['password1']) > 0 &&
+            preg_match("/^[A-Za-z-][0-9]+$/", $_POST['password1'])) {
             $cp = htmlentities($_POST['password'], ENT_QUOTES, 'UTF-8');
         } else {
             $messages[] = "Le mot de passe est incorrect.";
         }
         
-         if (isset($_POST['password']) && strlen($_POST['password']) > 0 &&
-            preg_match("/^[A-Za-z-][0-9]+$/", $_POST['password'])) {
+         if (isset($_POST['password2']) && strlen($_POST['password2']) > 0 &&
+            preg_match("/^[A-Za-z-][0-9]+$/", $_POST['password2'])) {
             $cp = htmlentities($_POST['password'], ENT_QUOTES, 'UTF-8');
         } else {
             $messages[] = "Le mot de passe est incorrect.";

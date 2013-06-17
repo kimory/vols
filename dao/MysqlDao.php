@@ -465,7 +465,7 @@ class MysqlDao {
 		return $result;
 	}
         
-        public function AjoutClient($civilite, $nom, $prenom, $adresse, $cp, $ville, $pays, $mail, $telFixe, $telPortable, $login, $password) {
+        public function ajoutClient($civilite, $nom, $prenom, $adresse, $cp, $ville, $pays, $mail, $telFixe, $telPortable, $login, $password) {
  
  
     $sql ="INSERT INTO client SET
@@ -506,7 +506,7 @@ class MysqlDao {
      return $result;
     }
     
-         public function AjoutPassager($civilite,$nom, $prenom, $dateNaissance) {
+         public function ajoutPassager($civilite,$nom, $prenom, $dateNaissance) {
  
  
     $sql ="INSERT INTO passager SET
