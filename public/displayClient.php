@@ -19,20 +19,34 @@
                 </div>
                 <div id="menu">
                      <ul class="nav nav-tabs">
-                        <li class="active"><a href="#vol" data-toggle="tab">Vol</a></li>
-                        <li><a href="#passager" data-toggle="tab">Passager</a></li>
-                        <li><a href="#employe" data-toggle="tab">Employé</a></li>
-                        <li><a href="#reservation" data-toggle="tab">Réservation</a></li>
-                        <li><a href="#client" data-toggle="tab">Client</a></li>
+                         <li><a href="#vol" data-toggle="tab">Vol</a></li>
+                         <li><a href="#passager" data-toggle="tab">Passager</a></li>
+                         <li><a href="#employe" data-toggle="tab">Employé</a></li>
+                         <li><a href="#reservation" data-toggle="tab">Réservation</a></li>
+                         <li class="active"><a href="#client" data-toggle="tab">Client</a></li>
                     </ul>
                     </div>
-            </div>
-		<?php 
+                <?php 
 			// ici on affichera le bouton de déconnexion
 			include('include/back_office_login_form.php');
 		?>
+            </div>
          <div id="developpement">
-
+ <section class="tab-pane active" id="vol">
+                
+               </section>
+                <section class="tab-pane active" id="passager">
+                
+               </section>
+                <section class="tab-pane active" id="client">
+                
+               </section>
+                <section class="tab-pane active" id="employe">
+                
+               </section>
+                <section class="tab-pane active" id="reservation">
+                
+               </section>
         <form action="/affichageClientController" method="POST">
             <label for="numclient">Nouveau numéro de client :</label>
             <input type="text" id="numclient" name="numclient"><br>

@@ -26,16 +26,33 @@ use \DateTime;
 		
                 </div>
                 <div id="menu">
-                     <?php 
-				$_SESSION['page_actuelle'] = 'Contact';
-				include('include/menu_front_office.php'); 
-			?>
+                     <ul class="nav nav-tabs">
+                         <li class="active"><a href="#vol" data-toggle="tab">Vol</a></li>
+                         <li><a href="#passager" data-toggle="tab">Passager</a></li>
+                         <li><a href="#employe" data-toggle="tab">Employé</a></li>
+                         <li><a href="#reservation" data-toggle="tab">Réservation</a></li>
+                         <li><a href="#client" data-toggle="tab">Client</a></li>
+                    </ul>
                     </div>
 		       <?php include('include/back_office_login_form.php'); ?>
                 </div>
 			
             <div id="developpement">
-		
+		 <section class="tab-pane active" id="vol">
+                
+               </section>
+                <section class="tab-pane active" id="passager">
+                
+               </section>
+                <section class="tab-pane active" id="client">
+                
+               </section>
+                <section class="tab-pane active" id="employe">
+                
+               </section>
+                <section class="tab-pane active" id="reservation">
+                
+               </section>
         <form action="/affichageReservationController" method="POST">
             <label for="numreservation">Nouveau numéro de réservation :</label>
             <input type="text" id="numreservation" name="numreservation"><br>

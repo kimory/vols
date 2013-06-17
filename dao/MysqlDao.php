@@ -58,6 +58,7 @@ class MysqlDao {
 		$result = array();
 
 		while($row = $stmt->fetch(PDO::FETCH_ASSOC))
+                // On récupère un tableau associatif indexé par le nom de colonne
 		{
 			$numvol = $row['numvol'];
 			$datedepart = $row['datedep'];
@@ -463,7 +464,72 @@ class MysqlDao {
 
 		return $result;
 	}
-
+        
+        public function AjoutClient($civilite, $nom, $prenom, $adresse, $cp, $ville, $pays, $mail, $telFixe, $telPortable, $login, $password) {
+ 
+ 
+    $sql ="INSERT INTO client SET
+          civilite= :civilite,
+          nom = :nom,
+          prenom = :prenom,
+          adresse = :adresse,
+          codepostal = :cp,
+          ville = :ville,
+          pays = : pays,
+          mail = : mail,
+          telfixe = :telFixe,
+          mobile = :telPortable,
+          login = : login,
+          password = :password ";
+          
+		
+    $stmt = $this->dbh->prepare($sql);
+    $stmt->bindParam(array(
+        ':civilite' => $civilite,
+        ':nom' => $nom,
+        ':prenom' => $prenom,
+        ':adresse'=> $adresse,
+        ':cp' => $cp,
+        ':ville' => $ville,
+        ':pays' => $pays,  
+        ':mail' => $mail, 
+        ':telFixe' => $telFixe,   
+        ':telPortable' => $telPortable,
+        ':login' => $login,
+        ':password' => $password));
+    $stmt->execute();
+     
+      $result = array();
+		while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+			$result[] = $row; // on insère une copie du tableau $row dans $result
+		}
+     return $result;
+    }
+    
+         public function AjoutPassager($civilite,$nom, $prenom, $dateNaissance) {
+ 
+ 
+    $sql ="INSERT INTO passager SET
+          civilite= :civilite,
+          nom = :nom,
+          prenom = : prenom,
+         dateNaissance = :dateNaissance";
+          
+		
+    $stmt = $this->dbh->prepare($sql);
+    $stmt->bindParam(array(
+    ':civilite'=>$civilite,
+    ':nom' => $nom,
+    ':prenom' => $prenom,
+    ':datenaissance' => $dateNaissance));
+    $stmt->execute();
+     
+      $result = array();
+		while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+			$result[] = $row; // on insère une copie du tableau $row dans $result
+		}
+     return $result;
+    }
 }
 
 ?>

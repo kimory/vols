@@ -55,7 +55,7 @@ body form{
     height: 200px;
     margin-left: 250px;
 }
-/*les messages d'erreur des aurtes pages*/
+/*les messages d'erreur des autres pages*/
 #error{
    position: relative;
     width: 550px;
@@ -67,6 +67,30 @@ body form{
     position: relative;
     margin-top: 10px; 
 }
+
+/* la div contenant la table d'affichage des passagers dans un vol: page affichageDesPassagersController */
+#tablepassagerresa{
+    position: relative;
+    width: 400px;
+    margin-top: 0px;
+    margin-left: 100px;
+    text-align: center;
+}
+/* les th de la table contenant d'affichage  des passagers dans un vol: page affichageDesPassagersController */
+#tablepassagerresa th{
+    width: 400px;
+    border: 1px solid #003399;
+    text-align: center;
+}
+
+/* les td de la table contenant des passagers dans un vol: page affichageDesPassagersController */
+#tablepassagerresa td{
+    width: 400px;
+    text-align: center;
+    margin-top: 5px;
+    border: 1px solid #003399;
+}
+
 /* la div contenant la table d'affichage de la réservation dans la page client */
 .tablereservation{
     position: relative;
@@ -76,6 +100,7 @@ body form{
     text-align: center;
     
 }
+
 /* les th de la table contenant d'affichage de la réservation dans la page client */
 .tablereservation th{
     width: 500px;

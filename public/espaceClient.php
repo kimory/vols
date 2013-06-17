@@ -41,7 +41,7 @@ use entity\Client;
                         include('include/user_connection_form.php');
 			?>
                      <div id="btvision">
-                <a href='/reservationsController' ><button class="btn btn-large btn-primary" type="button">Voir ses réservations</button></a>
+                   <a href='/reservationsController' ><button class="btn btn-large btn-primary" type="button">Voir ses réservations</button></a>
                  </div>
                  </div>
                  <div id="inscription">

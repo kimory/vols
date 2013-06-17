@@ -39,8 +39,9 @@ if (!isset($_SESSION)) {
 			?>
                  </div>
                 <div id="errorrecherhe">
-                   <?php if (isset($_SESSION['messages'])) : ?>
+                  
                     <ul>
+                         <?php if (isset($_SESSION['messages'])) : ?>
                         <?php foreach ($_SESSION['messages'] as $value) : ?>
                             <li><?php echo $value ?></li>
                         <?php endforeach; ?>

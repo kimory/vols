@@ -2,12 +2,14 @@
 
 namespace controller;
 
+use dao\MysqlDao;
+use entity\Client;
+use entity\Passager;
+use \DateTime;
+
 if (!isset($_SESSION)) {
     session_start();
 }
-
-use dao\MysqlDao;
-use entity\Client;
 
 class passengerRegistrationController {
 
@@ -58,11 +60,25 @@ class passengerRegistrationController {
 					$messages_erreur[] = "Le prénom n'est pas correct pour le passager " . ($i+1) . '.' ;
 				}
                                 
-//                                if(strlen($_POST['date_de_naissance'][$i]) == 0 ||
-//                                  !preg_match("/^(0[1-9]|[12][09]|3[01])\/(0[1-9]|1[012])\/(19|20)[0-9]{2}$/", $_POST['date_de_naissance'][$i]))
-//				{
-//					$messages_erreur[] = "La date de naissance n'est pas correcte pour le passager " . ($i+1) . '.' ;
-//				}
+                                  if(strlen($_POST['date_de_naissance'][$i]) > 0 &&
+                                          preg_match("/[0-9]{2}\/[0-9]{2}\/[0-9]{4}/", $_POST['date_de_naissance'][$i])){
+                                      $tab = explode('/',$_POST['date_de_naissance'][$i]); // On récupère les différents éléments de la date
+                                      $jour = $tab[0];
+                                      $mois = $tab[1];
+                                      $annee = $tab[2];
+                                      
+                                      $datedujour = new DateTime(); // On récupère la date du jour
+                                      $anneeCourante = $datedujour->format("Y"); // On récupère l'année courante
+                                     
+                                      // On vérifie que la date saisie est cohérente
+                                      if($jour < 1 || $jour > 31 || $mois < 1 || $mois > 12 ||
+                                              $annee < 1900 || $annee > $anneeCourante){
+					$messages_erreur[] = "La date de naissance n'est pas correcte pour le passager " . ($i+1) . ".";
+                                      }
+                                  }
+                                  else{
+                                      $messages_erreur[] = "La date de naissance n'est pas correcte pour le passager " . ($i+1) . ". Veuillez respecter le format jj/mm/aaaa.";
+                                  }
                                 
 				$i++;
 			}
@@ -75,10 +91,20 @@ class passengerRegistrationController {
 			}
 			else
 			{
+                                $passagers = array();
+                                $i = 0;
+                                while($i < $_SESSION['nb_passagers']){
+                                    $passager = new Passager(null, $_POST['civilite'][$i], $_POST['nom'][$i], $_POST['prenom'][$i], $_POST['date_de_naissance'][$i]);
+                                    $passagers[] = $passager;
+                                    $i++;
+                                }
+                                // On récupère en session un tableau d'objets 'Passager' :
+                                $_SESSION['passagers'] = $passagers;         
+                            
 				if(Client::isClientConnected())
-					header('Location:');		// TODO
+					header('Location:/syntheseController');
 				else
-					header('Location:/clientConnection');
+					header('Location:/clientConnection'); 
 			}
 		}
 		else if(!isset($_SESSION['nb_passagers']) || 

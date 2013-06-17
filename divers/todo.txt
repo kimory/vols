@@ -1,30 +1,18 @@
--CSS pour embellir le site (la structure principale ne sera pas en Bootstrap)
 -Tester / Faire tester l'appli
 -Cahier des charges fini + mis en forme
 -Créer d'autres vols : dans les 2-3 mois après la date de fin de projet + dans les 2 mois après la date de présentation au jury
 -Donner avec l'appli la liste des vols créés + identifiants
 -Renommer les pages pour avoir une cohérence ??
--Penser aux sessions
 -Validation W3C
+-A faire ou à noter dans les remarques (...) : vérifier que les passagers renseignés correspondent bien aux nombres d'adultes et d'enfants renseignés (sinon le prix sera faux !)
+-Info : session toujours ouverte dans l'index
 
-
-- vérifier : 
-	* qu'on obtient toutes les réservations différentes sur la page espace client
-	* qu'on obtient toutes les informations sur la réservation que nous avons sélectionnée
-	* qu'on a bien inclus les fichiers CSS et JS de bootstrap
 
 - FAIRE :
 	* nouvelle réservation
 	* modification d'une réservation -> revient à annuler + réserver
-	* passer le formulaire de recherche dans le dossier include + l'inclure sur les bonnes pages
-	* résultats de la recherche
-	* mise en session du choix de l'utilisateur
-	* formulaire d'inscription des passagers dans le dossier include + l'inclure sur les bonnes pages
 	* fiche de synthèse + formulaire de paiement
 	* billet
-	* CSS
-	* reprendre IHM menu
-	* formulaire contact
 
 Pour l'espace client :
         * tests
@@ -35,10 +23,34 @@ Pour l'espace client :
 CSS :
         * div footer à passer dans le dossier include
         * commenter le code CSS
-        * décalage du bouton quand on se connecte en tant qu'admin
-
-passengerRegistrationController :
-        * résoudre le problème cas d'une date de naissance erronée
+        * back office : recherche par numéro de résa, clic sur le nb de passagers → style à faire
 
 BDD :
         * en local, importer la bonne version de la BDD (plus de données)
+
+Back office :
+        * inutilité du menu en haut = on ne peut pas cliquer dessus
+
+createUserController :
+        * à créer !
+
+syntheseController :
+        * en cours mais pas pu être testé
+
+vue "synthèse" :
+        * à vérifier (il faut changer le select pour l'année pour que ce soit valable tout le temps)
+        * date à passer au bon format
+        * inscrire le prix (+ modifier dans l'IHM)
+
+Après l'étape 'paiement' :
+        * rentrer dans la BDD les passagers reliés au client, à 1 vol, et à 1 réservation
+        * renvoyer la vue Billet à créer
+
+Balises HTML5 :
+        * il reste des balises HTML5 à remplacer par des <div> → vérifier le rendu à chaque fois
+
+IHM :
+        * reprendre les IHM une fois le site fini
+
+Cahier des charges :
+        * mise en forme une fois la V1 terminée
