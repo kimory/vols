@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: localhost
--- Généré le : Lun 17 Juin 2013 à 10:28
+-- Généré le : Lun 17 Juin 2013 à 11:39
 -- Version du serveur: 5.5.8
 -- Version de PHP: 5.3.5
 
@@ -209,7 +209,7 @@ INSERT INTO `passager` (`numpassager`, `civilite`, `nom`, `prenom`, `datenaissan
 --
 
 CREATE TABLE IF NOT EXISTS `place` (
-  `numplace` varchar(4) NOT NULL,
+  `numplace` int(11) NOT NULL AUTO_INCREMENT,
   `numpassager` int(11) NOT NULL,
   `numvol` varchar(10) NOT NULL,
   `numreservation` int(11) NOT NULL,
@@ -218,23 +218,23 @@ CREATE TABLE IF NOT EXISTS `place` (
   KEY `numreservation` (`numreservation`),
   KEY `numvol` (`numvol`),
   KEY `numpassager` (`numpassager`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=190 ;
 
 --
 -- Contenu de la table `place`
 --
 
 INSERT INTO `place` (`numplace`, `numpassager`, `numvol`, `numreservation`, `prix`) VALUES
-('A001', 283, 'DF1028', 71526, 1524),
-('B023', 2837, 'DF0183', 258014, 617),
-('B57', 4936, 'DF4693', 923735, 1472),
-('C093', 3849, 'DF1028', 476292, 1472),
-('C58', 4937, 'DF4693', 923735, 50),
-('D12', 3917, 'DF5609', 14561, 600),
-('D165', 3794, 'DF0810', 783920, 799),
-('E13', 3915, 'DF5609', 14561, 600),
-('F14', 3916, 'DF5609', 14561, 600),
-('F189', 7393, 'DF1028', 745860, 617);
+(1, 283, 'DF1028', 71526, 1524),
+(12, 3917, 'DF5609', 14561, 600),
+(13, 3915, 'DF5609', 14561, 600),
+(14, 3916, 'DF5609', 14561, 600),
+(23, 2837, 'DF0183', 258014, 617),
+(57, 4936, 'DF4693', 923735, 1472),
+(58, 4937, 'DF4693', 923735, 50),
+(93, 3849, 'DF1028', 476292, 1472),
+(165, 3794, 'DF0810', 783920, 799),
+(189, 7393, 'DF1028', 745860, 617);
 
 -- --------------------------------------------------------
 
@@ -362,9 +362,9 @@ INSERT INTO `vol` (`numvol`, `lieudep`, `lieuarriv`, `dateheuredep`, `dateheurea
 -- Contraintes pour la table `place`
 --
 ALTER TABLE `place`
-  ADD CONSTRAINT `place_ibfk_3` FOREIGN KEY (`numreservation`) REFERENCES `reservation` (`numreserv`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `place_ibfk_1` FOREIGN KEY (`numpassager`) REFERENCES `passager` (`numpassager`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `place_ibfk_2` FOREIGN KEY (`numvol`) REFERENCES `vol` (`numvol`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `place_ibfk_2` FOREIGN KEY (`numvol`) REFERENCES `vol` (`numvol`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `place_ibfk_3` FOREIGN KEY (`numreservation`) REFERENCES `reservation` (`numreserv`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `reservation`
