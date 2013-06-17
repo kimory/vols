@@ -473,30 +473,31 @@ class MysqlDao {
           nom = :nom,
           prenom = :prenom,
           adresse = :adresse,
-          cp = :cp,
+          codepostal = :cp,
           ville = :ville,
           pays = : pays,
           mail = : mail,
-          telFixe = :telFixe,
-          telPortable = :telPortable,
+          telfixe = :telFixe,
+          mobile = :telPortable,
           login = : login,
           password = :password ";
           
 		
     $stmt = $this->dbh->prepare($sql);
-    $stm->bindValue(':civilite',$civilite);
-    $stm->bindValue(':nom',$nom);
-    $stm->bindValue(':prenom', $prenom);
-    $stm->bindValue(':adresse', $adresse);
-    $stm->bindValue(':cp', $cp);
-    $stm->bindValue(':ville', $ville);
-    $stm->bindValue(':pays', $pays);  
-    $stm->bindValue(':mail', $mail); 
-    $stm->bindValue(':telFixe', $telFixe);   
-    $stm->bindValue(':telPortable', $telportable);
-    $stm->bindValue(':login', $login);
-    $stm->bindValue(':password', $password);
-    $stm->execute();
+    $stmt->bindParam(array(
+        ':civilite' => $civilite,
+        ':nom' => $nom,
+        ':prenom' => $prenom,
+        ':adresse'=> $adresse,
+        ':cp' => $cp,
+        ':ville' => $ville,
+        ':pays' => $pays,  
+        ':mail' => $mail, 
+        ':telFixe' => $telFixe,   
+        ':telPortable' => $telPortable,
+        ':login' => $login,
+        ':password' => $password));
+    $stmt->execute();
      
       $result = array();
 		while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
@@ -516,11 +517,12 @@ class MysqlDao {
           
 		
     $stmt = $this->dbh->prepare($sql);
-    $stm->bindValue(':civilite',$civilite);
-    $stm->bindValue(':nom',$nom);
-    $stm->bindValue(':prenom', $prenom);
-    $stm->bindValue(':dateNaissance', $dateNaissance);
-    $stm->execute();
+    $stmt->bindParam(array(
+    ':civilite'=>$civilite,
+    ':nom' => $nom,
+    ':prenom' => $prenom,
+    ':datenaissance' => $dateNaissance));
+    $stmt->execute();
      
       $result = array();
 		while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
