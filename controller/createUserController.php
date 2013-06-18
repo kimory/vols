@@ -36,7 +36,7 @@ class createUserController {
 
         if (!isset($_POST['nom']) || strlen($_POST['nom']) == 0) {
             $messages[] = "Merci d'indiquer votre nom.";
-        } else if (!preg_match("/^[a-zA-Z- ]+$/", $_POST['nom'])) {
+        } else if (!preg_match("/^[a-zA-ZàâäéèêëìîïôöòùûüçÀÂÄÉÈËÏÎÌÔÖÙÛÜÇ -]+$/", $_POST['nom'])) {
             $messages[] = "Le nom saisi est incorrect.";
         } else {
             $nom = htmlentities($_POST['nom'], ENT_QUOTES, 'UTF-8');
@@ -44,14 +44,14 @@ class createUserController {
 
         if (!isset($_POST['prenom']) || strlen($_POST['prenom']) == 0) {
             $messages[] = "Merci d'indiquer votre prénom.";
-        } else if (!preg_match("/^[a-zA-Z- ]+$/", $_POST['prenom'])) {
+        } else if (!preg_match("/^[a-zA-ZàâäéèêëìîïôöòùûüçÀÂÄÉÈËÏÎÌÔÖÙÛÜÇ -]+$/", $_POST['prenom'])) {
             $messages[] = "Le prénom saisi est incorrect.";
         } else {
             $prenom = htmlentities($_POST['prenom'], ENT_QUOTES, 'UTF-8');
         }
 
         if (isset($_POST['adresse']) && strlen($_POST['adresse']) > 0 &&
-                preg_match("/^[A-Za-zàâäéèêëôöùûüçÀÂÄÉÈËÔÖÙÛÜÇ0-9., -]+$/", $_POST['adresse'])) {
+                preg_match("/^[A-Za-zàâäéèêëìîïôöòùûüçÀÂÄÉÈËÏÎÌÔÖÙÛÜÇ0-9., -]+$/", $_POST['adresse'])) {
             $adresse = htmlentities($_POST['adresse'], ENT_QUOTES, 'UTF-8');
         } else {
             $messages[] = "L'adresse est incorrecte.";
@@ -65,14 +65,14 @@ class createUserController {
         }
 
         if (isset($_POST['ville']) && strlen($_POST['ville']) > 0 &&
-                preg_match("/^[A-Za-z-]+$/", $_POST['ville'])) {
+                preg_match("/^[A-Za-zàâäéèêëìîïôöòùûüçÀÂÄÉÈËÏÎÌÔÖÙÛÜÇ-]+$/", $_POST['ville'])) {
             $ville = htmlentities($_POST['ville'], ENT_QUOTES, 'UTF-8');
         } else {
             $messages[] = "La ville est incorrecte.";
         }
 
         if (isset($_POST['pays']) && strlen($_POST['pays']) > 0 &&
-                preg_match("/^[A-Za-z-]+$/", $_POST['pays'])) {
+                preg_match("/^[A-Za-zàâäéèêëìîïôöòùûüçÀÂÄÉÈËÏÎÌÔÖÙÛÜÇ-]+$/", $_POST['pays'])) {
             $pays = htmlentities($_POST['pays'], ENT_QUOTES, 'UTF-8');
         } else {
             $messages[] = "Le pays est incorrect.";

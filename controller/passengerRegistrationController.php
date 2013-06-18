@@ -45,14 +45,14 @@ class passengerRegistrationController {
 				}                              
                                 
 				if(strlen($_POST['nom'][$i]) == 0 ||
-                                  !preg_match("/^[ A-Za-z-]+$/", $_POST['nom'][$i]))
+                                  !preg_match("/^[ A-Za-zàâäéèêëìîïôöòùûüçÀÂÄÉÈËÏÎÌÔÖÙÛÜÇ-]+$/", $_POST['nom'][$i]))
                                   // Remarque : on autorise les espaces (cf "M. de XXX")
 				{
 					$messages_erreur[] = "Le nom n'est pas correct pour le passager " . ($i+1) . '.' ;
 				}
                                 
 				if(strlen($_POST['prenom'][$i]) == 0 ||
-                                  !preg_match("/^[A-Za-z-]+$/", $_POST['prenom'][$i]))
+                                  !preg_match("/^[A-Za-zàâäéèêëìîïôöòùûüçÀÂÄÉÈËÏÎÌÔÖÙÛÜÇ-]+$/", $_POST['prenom'][$i]))
 				{
 					$messages_erreur[] = "Le prénom n'est pas correct pour le passager " . ($i+1) . '.' ;
 				}
