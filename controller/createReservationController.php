@@ -8,18 +8,20 @@ class CreateReservationController {
 
     public function action() {
         $dao = new MysqlDao();
-        if ($dao->isClientConnected()) { // on vérifie au préalable que le client est bien connecté
-            //header('location:/displaycontact');   
-            //include VIEW . "confirmationinscription.php";;
-
+        if ($dao->isClientConnected()) { 
+           // on vérifie au préalable que le client est bien connecté
+            $login = $_SESSION['login'];
+            $password= $_SESSION['passwd'];
+        
+        
             $dao = new MysqlDao();
-            if (!$dao->ajoutReservation($date, $client)) {
+            if (!$dao->ajoutReservation($client,$passager,$vol,$reservation,$prix)) {
                 $_SESSION['messages'] = array();
                 $_SESSION['messages'][] = "Nous avons eu un problème à l'ajout d'une réservation dans la base de données.";
             } else {
 
                 // si la fonction ne retourne rien : erreur
-                if (null == $dao->clientLogin($login, $password)) {
+                if (!$dao->clientLogin($login, $password)) {
                     $_SESSION['messages'] = array();
                     $_SESSION['messages'][] = "Impossible de se connecter avec vos identifiants.";
                     header('Location:' . $_SERVER['HTTP_REFERER']); // renvoie vers la page précédente          
@@ -33,17 +35,17 @@ class CreateReservationController {
                     header('Location:' . $_SESSION['pagesurlaquelleondoitaller']);
                     unset($_SESSION['pagesurlaquelleondoitaller']);
                     return;
-                }
+                } 
             }
-                else {
-                    $_SESSION['messages'] = $messages;
-                    header('Location:' . $_SERVER['HTTP_REFERER']); // renvoie vers la page précédente          
-                }
+            
+                
+        }
              else {
                 $_SESSION['error_message'] = "Vous n'êtes pas connecté.";
                 header('Location:' . $_SERVER['HTTP_REFERER']);
             }
-        
-    
+    }
+    }
+ 
 
 ?>

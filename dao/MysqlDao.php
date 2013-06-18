@@ -324,7 +324,7 @@ class MysqlDao {
 			return array($login, $passwd);
 		}
 
-		return null;
+		return false;
 	}
 
 	public function clientLogin($login, $passwd){
@@ -340,10 +340,11 @@ class MysqlDao {
 
 		if($stmt->fetch(PDO::FETCH_ASSOC)){
 			return array($login, $passwd);
-		}
-
-		return null;
-	}
+		}else{
+		return false;
+        }
+        
+                }
 
 	public function isClientConnected() 
 	{
@@ -507,16 +508,21 @@ class MysqlDao {
 		return true === $stmt->execute(); // on vérifie que c'est équivalent à vrai
 	}
         
-        public function ajoutReservation($date, $client) {
+        public function ajoutReservation($client,$passager,$vol,$reservation,$prix) {
 
 		$sql = "INSERT INTO reservation (date, client)
-			VALUES(NOW(), :client)";
+			VALUES(NOW(), :client);
+                        INSERT INTO place (numpassager,numvol,numreservation,prix)
+                        VALUES (:numpassager, :numvol, :numvol, :numreservation, :prix);";
 
 
 		$stmt = $this->dbh->prepare($sql);
-		$stmt->bindParam( ':date', $date);
 		$stmt->bindParam( ':client', $client);
-
+                $stmt->bindParam( ':numpassager', $passager);
+                $stmt->bindParam( ':numvol', $vol);
+                $stmt->bindParam( ':numreservation', $reservation);
+                $stmt->bindParam( ':prix', $prix);
+                
 		return true === $stmt->execute(); // on vérifie que c'est équivalent à vrai
 	}
 }
