@@ -40,21 +40,21 @@ use \DateTime;
                        include('include/back_office_login_form.php'); ?>
             </div>
              <div id="developpement">
-              <section class="tab-pane active" id="vol">
+              <div class="tab-pane active" id="vol">
                 
-               </section>
-                <section class="tab-pane active" id="passager">
+               </div>
+                <div class="tab-pane active" id="passager">
                 
-               </section>
-                <section class="tab-pane active" id="client">
+               </div>
+                <div class="tab-pane active" id="client">
                 
-               </section>
-                <section class="tab-pane active" id="employe">
+               </div>
+                <div class="tab-pane active" id="employe">
                 
-               </section>
-                <section class="tab-pane active" id="reservation">
+               </div>
+                <div class="tab-pane active" id="reservation">
                 
-               </section>
+               </div>
         <form action="/affichagePassagerController" method="POST">
             <label for="numpassager">Nouveau numéro de passager :</label>
             <input type="text" id="numpassager" name="numpassager"><br>
