@@ -34,8 +34,8 @@ if (!isset($_SESSION)) {
 		       <?php include('include/back_office_login_form.php'); ?>
             </div>
              <div id="developpement">
-                    <h1>Inscription Confirmée</h1>
-        <p> Votre inscription a été réalisé avec succés</p>
+                    <h1>Inscription confirmée</h1>
+        <p>Votre inscription a été réalisé avec succès</p>
         </div>
             <div id="footer">
                <?php
