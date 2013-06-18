@@ -41,21 +41,6 @@ use \DateTime;
                 </div>
 			
             <div id="developpement">
-                <div class="tab-pane active" id="vol">
-                
-               </div>
-                <div class="tab-pane active" id="passager">
-                
-               </div>
-                <div class="tab-pane active" id="client">
-                
-               </div>
-                <div class="tab-pane active" id="employe">
-                
-               </div>
-                <div class="tab-pane active" id="reservation">
-                
-               </div>
 		
         <form action="/affichageVolController" method="POST">
             <label for="numvol">Nouveau numéro de vol :</label>
