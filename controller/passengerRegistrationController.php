@@ -49,7 +49,8 @@ class passengerRegistrationController {
 				}                              
                                 
 				if(strlen($_POST['nom'][$i]) == 0 ||
-                                  !preg_match("/^[A-Za-z-]+$/", $_POST['nom'][$i]))
+                                  !preg_match("/^[ A-Za-z-]+$/", $_POST['nom'][$i]))
+                                  // Remarque : on autorise les espaces (cf "M. de XXX")
 				{
 					$messages_erreur[] = "Le nom n'est pas correct pour le passager " . ($i+1) . '.' ;
 				}
@@ -104,7 +105,12 @@ class passengerRegistrationController {
 				if(Client::isClientConnected())
 					header('Location:/syntheseController');
 				else
+				{
+					// Une fois qu'on aura fini l'inscription, 
+					// il faudra aller sur cette page
+					$_SESSION['pagesurlaquelleondoitaller'] = '/syntheseController';
 					header('Location:/clientConnection'); 
+				}
 			}
 		}
 		else if(!isset($_SESSION['nb_passagers']) || 

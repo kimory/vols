@@ -27,6 +27,8 @@
             </div>
               <div id="developpement">
          <div><h3>Confirmation d'envoi</h3></div>
+         <!-- Note : s'il s'agissait d'une appli réelle, on ferait ici un envoi de mails
+         vers la(es) boîte(s) mail des personnes concernées dans la compagnie -->
 
             <!-- Remarque : le htmlentities est une sécurité, il convertit les caractères
             éligibles en entités HTML -->
