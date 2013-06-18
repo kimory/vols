@@ -25,6 +25,7 @@
 				<?php include('include/back_office_login_form.php'); ?>
 
 			</div>
+                    <div id="developpement">
 			<div id="error">
 				<?php if (isset($_SESSION['message'])) : ?>
 					<p><?php echo $_SESSION['message']; ?></p>
@@ -87,6 +88,7 @@
 				<input type="submit" value="Valider">
 			</form>
 			</div>
+                        </div>
 			<div id="footer">
                         <?php
                         include './include/footer.php';

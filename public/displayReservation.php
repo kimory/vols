@@ -38,21 +38,7 @@ use \DateTime;
                 </div>
 			
             <div id="developpement">
-		 <div class="tab-pane active" id="vol">
-                
-               </div>
-                <div class="tab-pane active" id="passager">
-                
-               </div>
-                <div class="tab-pane active" id="client">
-                
-               </div>
-                <div class="tab-pane active" id="employe">
-                
-               </div>
-                <div class="tab-pane active" id="reservation">
-                
-               </div>
+		 
         <form action="/affichageReservationController" method="POST">
             <label for="numreservation">Nouveau numéro de réservation :</label>
             <input type="text" id="numreservation" name="numreservation"><br>
