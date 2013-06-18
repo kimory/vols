@@ -1,5 +1,6 @@
 <?php
 include('../setup.php');
+
 if (!isset($_SESSION)) {
     session_start();
 }

@@ -41,21 +41,21 @@ use \DateTime;
                 </div>
 			
             <div id="developpement">
-                <section class="tab-pane active" id="vol">
+                <div class="tab-pane active" id="vol">
                 
-               </section>
-                <section class="tab-pane active" id="passager">
+               </div>
+                <div class="tab-pane active" id="passager">
                 
-               </section>
-                <section class="tab-pane active" id="client">
+               </div>
+                <div class="tab-pane active" id="client">
                 
-               </section>
-                <section class="tab-pane active" id="employe">
+               </div>
+                <div class="tab-pane active" id="employe">
                 
-               </section>
-                <section class="tab-pane active" id="reservation">
+               </div>
+                <div class="tab-pane active" id="reservation">
                 
-               </section>
+               </div>
 		
         <form action="/affichageVolController" method="POST">
             <label for="numvol">Nouveau numéro de vol :</label>

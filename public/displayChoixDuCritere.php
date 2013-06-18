@@ -49,50 +49,50 @@ if(!User::isAdminConnected()){
            </div>
         <div id="developpement">
         <div class="tab-content">
-            <section class="tab-pane active" id="vol">
+            <div class="tab-pane active" id="vol">
                 <h3>Vol</h3>
                 <form action="/affichageVolController" method="POST">
                     <label for="numvol">N° de vol :</label>
                     <input type="text" id="numvol" name="numvol"><br>
                     <input type="submit" value="Valider">
                 </form>
-            </section>
+            </div>
 
-            <section class="tab-pane" id="passager">
+            <div class="tab-pane" id="passager">
                 <h3>Passager</h3>
                 <form action="/affichagePassagerController" method="POST">
                     <label for="numpassager">N° de passager :</label>
                     <input type="text" id="numpassager" name="numpassager"><br>
                     <input type="submit" value="Valider">
                 </form>
-            </section>
+            </div>
 
-            <section class="tab-pane" id="employe">
+            <div class="tab-pane" id="employe">
                 <h3>Employé</h3>
                 <form action="/affichageEmployeController" method="POST">
                     <label for="numemploye">N° d'employé :</label>
                     <input type="text" id="numemploye" name="numemploye"><br>                          
                     <input type="submit" value="Valider">
                 </form>
-            </section>
+            </div>
 
-            <section class="tab-pane" id="reservation">
+            <div class="tab-pane" id="reservation">
                 <h3>Réservation</h3>
                 <form action="/affichageReservationController" method="POST">
                     <label for="numreservation">N° de réservation :</label>
                     <input type="text" id="numreservation" name="numreservation"><br>
                     <input type="submit" value="Valider">
                 </form>
-            </section>
+            </div>
 
-            <section class="tab-pane" id="client">
+            <div class="tab-pane" id="client">
                 <h3>Client</h3>
                 <form action="/affichageClientController" method="POST">
                     <label for="numclient">N° de client :</label>
                     <input type="text" id="numclient" name="numclient"><br>
                     <input type="submit" value="Valider">
                 </form>
-            </section>
+            </div>
         </div>
 
         <!-- Ci-dessous le JavaScript pour la navigation en onglets --> 
