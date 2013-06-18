@@ -118,16 +118,33 @@ class createUserController {
             $messages[] = "Le mot de passe est incorrect.";
         }
 
-        if (empty($messages)) {
+		if (empty($messages)) 
+		{
             //header('location:/displaycontact');   
             //include VIEW . "confirmationinscription.php";;
 
             $dao = new MysqlDao();
-            if (!$dao->ajoutClient($civilite, $nom, $prenom, $adresse, $cp, $ville, $pays, $email, $telfixe, $mobile, $login, $password)) {
+			$ret = $dao->ajoutClient($civilite, $nom, $prenom, $adresse, $cp, $ville, $pays, $email, $telfixe, $mobile, $login, $password);
+
+
+			if( $ret == 1)
+			{
+
+                $_SESSION['messages'] = array();
+                $_SESSION['messages'][] = "Le login entré existe déjà.";
+                header('Location:' . $_SERVER['HTTP_REFERER']); // renvoie vers la page précédente
+
+			}
+			else if ($ret == 2) // problème d'insertion
+			{
+
                 $_SESSION['messages'] = array();
                 $_SESSION['messages'][] = "Nous avons eu un problème à l'ajout d'un client dans la base de données.";
                 header('Location:' . $_SERVER['HTTP_REFERER']); // renvoie vers la page précédente
-            } else {
+
+			} 
+			else 
+			{
 
                 // si la fonction ne retourne rien : erreur
                 if (null == $dao->clientLogin($login, $password)) {
