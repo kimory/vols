@@ -32,21 +32,21 @@
 		?>
             </div>
          <div id="developpement">
- <section class="tab-pane active" id="vol">
+ <div class="tab-pane active" id="vol">
                 
-               </section>
-                <section class="tab-pane active" id="passager">
+               </div>
+                <div class="tab-pane active" id="passager">
                 
-               </section>
-                <section class="tab-pane active" id="client">
+               </div>
+                <div class="tab-pane active" id="client">
                 
-               </section>
-                <section class="tab-pane active" id="employe">
+               </div>
+                <div class="tab-pane active" id="employe">
                 
-               </section>
-                <section class="tab-pane active" id="reservation">
+               </div>
+                <div class="tab-pane active" id="reservation">
                 
-               </section>
+               </div>
         <form action="/affichageClientController" method="POST">
             <label for="numclient">Nouveau numéro de client :</label>
             <input type="text" id="numclient" name="numclient"><br>
