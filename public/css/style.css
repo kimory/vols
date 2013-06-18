@@ -9,6 +9,7 @@ body{
      padding: 0px;
 }
 
+/*toutes les balises "form"*/
 body form{
     margin: 0 0 0 0px;
 }
@@ -63,7 +64,8 @@ body form{
     height: 200px;
     margin-left: 250px;
 }
-
+/*la balise "h5" des formulaires d'inscription,du titre des fieldser,titre de la proposition(page proposition)
+titre de la page recherche*/
 .h5{
     position: relative;
     margin-top: 10px; 
@@ -222,7 +224,7 @@ body form{
   text-align: center;
   border: 2px outset;
 }
-
+/*les balises "a" se trouvant dans le "li" du menu*/
 .nav-tabs > li > a{
   padding-right: 20px;
   padding-left: 10px;
@@ -248,7 +250,7 @@ body form{
     
 }
 
-/*la table contenant le billet électronic*/
+/*la table contenant le billet électronique*/
 #billet{
     background-color: white;
     position: relative;
@@ -307,14 +309,6 @@ body form{
      margin-top: 0px;
      
  }
-
-.tab-content{
-    position: relative;
-    margin-top: 80px;
-    margin-left:202px;
-    width: 500px;
-    text-align: center;
-}
 
 /*le pied de page*/
 #footer{
