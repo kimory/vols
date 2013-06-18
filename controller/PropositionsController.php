@@ -100,6 +100,8 @@ class PropositionsController {
                 // Je stocke en session les éléments à conserver et j'envoie vers la vue Proposition
                 $_SESSION['vols'] = $vols; // un tableau d'objets Vol
                 $_SESSION['nb_passagers'] = $nbadultes + $nbenfants;
+                $_SESSION['nb_adultes'] = $nbadultes;
+                $_SESSION['nb_enfants'] = $nbenfants;
                 $_SESSION['date_depart_souhaitee'] = $datedepartsouhaitee;
                 header('Location:/propositions');
             }

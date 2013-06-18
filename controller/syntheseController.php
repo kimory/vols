@@ -47,14 +47,17 @@ class syntheseController {
 			}
                         // ici on fait la vérif la première fois qu'on arrive
                         // sur ce contrôleur :
-			else if(isset(
-				$_SESSION['volchoisi'],
-				$_SESSION['passagers'],
-				$_SESSION['nb_passagers']))
+			else if(isset($_SESSION['volchoisi']) &&
+				isset($_SESSION['volchoisi']) &&
+				isset($_SESSION['passagers']) &&
+				isset($_SESSION['nb_passagers']) &&
+                                isset($_SESSION['nb_adultes']) &&
+                                isset($_SESSION['nb_enfants']))
 			{
 
 				// getVolById renvoie un objet Vol
 				$_SESSION['vol'] = $dao->getVolById($_SESSION['volchoisi']);
+                                $_SESSION['tarif'] = ($_SESSION['vol']->getTarif() * $_SESSION['nb_adultes']) + (50 * $_SESSION['nb_enfants']);
 				include VIEW . "synthese.php";
 			}
 			else // il manque des informations, on repart sur la page "recherche"

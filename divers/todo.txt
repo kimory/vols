@@ -35,7 +35,7 @@ syntheseController :
 vue "synthèse" :
         * à vérifier (il faut changer le select pour l'année pour que ce soit valable tout le temps)
         * le message d'erreur ne s'affiche pas !!
-        * inscrire le prix (+ modifier dans l'IHM)
+        * corriger l'affichage des passagers en ligne
 
 Après l'étape 'paiement' :
         * rentrer dans la BDD les passagers reliés au client, à 1 vol, et à 1 réservation
@@ -44,8 +44,12 @@ Après l'étape 'paiement' :
 Formulaires :
         * garder les infos en session
 
+CSS :
+        * vue synthèse
+
 IHM :
         * reprendre les IHM une fois le site fini
+        * tarif sur la vue synthèse
 
 Cahier des charges :
         * mise en forme une fois la V1 terminée

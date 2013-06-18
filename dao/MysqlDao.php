@@ -224,7 +224,7 @@ class MysqlDao {
 	public function getVolById($numvol){
 		// récupère les infos sur un vol en fonction de son ID
 		// et retourne un objet Vol
-		$sql = "SELECT V.numvol, lieudep, lieuarriv, dateheuredep, dateheurearrivee, T.pilote,
+		$sql = "SELECT V.numvol, V.tarif, lieudep, lieuarriv, dateheuredep, dateheurearrivee, T.pilote,
 			T.copilote, T.hotesse_steward1, T.hotesse_steward2, T.hotesse_steward3, count(P.numplace) AS nb_places_vendues
 			FROM vol V
 			LEFT JOIN travailler T ON T.vol = V.numvol
@@ -237,6 +237,7 @@ class MysqlDao {
 
 		$row = $stmt->fetch(PDO::FETCH_ASSOC);
 		$numvol = $row['numvol'];
+                $tarif = $row['tarif'];
 		$lieudep = $row['lieudep'];
 		$lieuarriv = $row['lieuarriv'];
 		$dateheuredep = $row['dateheuredep'];
@@ -248,7 +249,7 @@ class MysqlDao {
 		$hotesse_steward3 = $row['hotesse_steward3'];
 		$nb_places_restantes = Vol::NB_PLACES - $row['nb_places_vendues'];
 
-		return $vol = new Vol($numvol, $lieudep, $lieuarriv, $dateheuredep, $dateheurearrivee, null,
+		return $vol = new Vol($numvol, $lieudep, $lieuarriv, $dateheuredep, $dateheurearrivee, $tarif,
 			$pilote, $copilote, $hotesse_steward1, $hotesse_steward2, $hotesse_steward3, $nb_places_restantes);
 	}
 
