@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: localhost
--- Généré le : Jeu 13 Juin 2013 à 12:48
+-- Généré le : Lun 17 Juin 2013 à 11:39
 -- Version du serveur: 5.5.8
 -- Version de PHP: 5.3.5
 
@@ -26,7 +26,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 
 CREATE TABLE IF NOT EXISTS `client` (
-  `numclient` varchar(5) NOT NULL,
+  `numclient` int(11) NOT NULL AUTO_INCREMENT,
   `civilite` varchar(3) DEFAULT NULL,
   `nom` varchar(50) DEFAULT NULL,
   `prenom` varchar(50) DEFAULT NULL,
@@ -40,20 +40,20 @@ CREATE TABLE IF NOT EXISTS `client` (
   `login` varchar(10) DEFAULT NULL,
   `password` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`numclient`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=525 ;
 
 --
 -- Contenu de la table `client`
 --
 
 INSERT INTO `client` (`numclient`, `civilite`, `nom`, `prenom`, `adresse`, `codepostal`, `ville`, `pays`, `mail`, `telfixe`, `mobile`, `login`, `password`) VALUES
-('CL025', 'Mme', 'TAYLOR', 'Isabella', '13-657 Hinalo Street  Pāhoa', 'HI 96778', 'Hawaï', 'USA', 'taylorisa@live.com', '+18089656153', '+18084674486', 'isabella', 'taylor'),
-('CL059', 'Mme', 'SYLLA', 'Lala', '33 route de Nouasser', ' 20190', 'Rabat', 'Maroc', 'lalasylla@yahoo.fr', '+21252297797', '+21261149425', 'lalasylla', 'rabat'),
-('CL198', 'M', 'WILLIAMS', 'Brian', '109 Burwood Road', '3122 ', 'Hawthorn V', 'Australie', 'willamsbrian@gmail.com', '+61735642342', '+61123456789', 'brian', 'williams'),
-('CL247', 'M', 'VENDA', 'Jonah', '37  Barotanyi. Liechtensteinstrasse', '21 1090 ', 'Wien', 'Autriche', 'jonah@venda.com', '+4392067130', '+4362503253', 'jonah', 'venda'),
-('CL375', 'M', 'MOUNA', 'Karim', '448  rue Radhia Haddad Standard ', '1023', ' Montplaisir', 'Tunisie', 'mounakarim@live.com', ' +216156960', '+216988122244', 'mouna', 'karim'),
-('CL397', 'M', 'AJAMI', 'Abdel', '384 West day', 'PO Box 266', 'Al khawr', 'Qatar', 'abdel.ajami@gmail.com', '+9748232133', '+9746541243', 'ajami', 'qatar'),
-('CL524', 'M', 'BAYOL', 'Simon', '105 rue Boileau', '93000', 'Saint-Denis', 'France', 'simonbayol@yahoo.fr', '+33136786141', '+33625734641', 'simon', 'bayol');
+(25, 'Mme', 'TAYLOR', 'Isabella', '13-657 Hinalo Street  Pāhoa', 'HI 96778', 'Hawaï', 'USA', 'taylorisa@live.com', '+18089656153', '+18084674486', 'isabella', 'taylor'),
+(59, 'Mme', 'SYLLA', 'Lala', '33 route de Nouasser', ' 20190', 'Rabat', 'Maroc', 'lalasylla@yahoo.fr', '+21252297797', '+21261149425', 'lalasylla', 'rabat'),
+(198, 'M', 'WILLIAMS', 'Brian', '109 Burwood Road', '3122 ', 'Hawthorn V', 'Australie', 'willamsbrian@gmail.com', '+61735642342', '+61123456789', 'brian', 'williams'),
+(247, 'M', 'VENDA', 'Jonah', '37  Barotanyi. Liechtensteinstrasse', '21 1090 ', 'Wien', 'Autriche', 'jonah@venda.com', '+4392067130', '+4362503253', 'jonah', 'venda'),
+(375, 'M', 'MOUNA', 'Karim', '448  rue Radhia Haddad Standard ', '1023', ' Montplaisir', 'Tunisie', 'mounakarim@live.com', ' +216156960', '+216988122244', 'mouna', 'karim'),
+(397, 'M', 'AJAMI', 'Abdel', '384 West day', 'PO Box 266', 'Al khawr', 'Qatar', 'abdel.ajami@gmail.com', '+9748232133', '+9746541243', 'ajami', 'qatar'),
+(524, 'M', 'BAYOL', 'Simon', '105 rue Boileau', '93000', 'Saint-Denis', 'France', 'simonbayol@yahoo.fr', '+33136786141', '+33625734641', 'simon', 'bayol');
 
 -- --------------------------------------------------------
 
@@ -178,29 +178,29 @@ INSERT INTO `employe` (`numemploye`, `civilite`, `nom`, `prenom`, `adresse`, `co
 --
 
 CREATE TABLE IF NOT EXISTS `passager` (
-  `numpassager` varchar(5) NOT NULL,
+  `numpassager` int(11) NOT NULL AUTO_INCREMENT,
   `civilite` varchar(3) NOT NULL,
   `nom` varchar(50) NOT NULL,
   `prenom` varchar(50) NOT NULL,
   `datenaissance` date NOT NULL,
   PRIMARY KEY (`numpassager`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7394 ;
 
 --
 -- Contenu de la table `passager`
 --
 
 INSERT INTO `passager` (`numpassager`, `civilite`, `nom`, `prenom`, `datenaissance`) VALUES
-('P0283', 'Mme', 'SYLLA', 'Lala', '1988-03-23'),
-('P2837', 'M', 'BAYOL', 'Simon', '1980-01-15'),
-('P3794', 'Mme', 'MOUNA', 'Farida', '1978-06-04'),
-('P3849', 'M', 'MOUNA', 'Madani', '1987-10-11'),
-('P3915', 'M', 'AJAMI', 'Nabil', '1993-08-18'),
-('P3916', 'M', 'AJAMI', 'Noha', '2001-10-10'),
-('P3917', 'Mme', 'AJAMI', 'Zeyna', '1970-07-15'),
-('P4936', 'M', ' WILLIAMS', 'Brian', '1966-11-27'),
-('P4937', 'Mme', ' WILLIAMS', 'Abbie', '2013-02-25'),
-('P7393', 'Mme', 'TAYLOR', 'Isabella', '1991-02-22');
+(283, 'Mme', 'SYLLA', 'Lala', '1988-03-23'),
+(2837, 'M', 'BAYOL', 'Simon', '1980-01-15'),
+(3794, 'Mme', 'MOUNA', 'Farida', '1978-06-04'),
+(3849, 'M', 'MOUNA', 'Madani', '1987-10-11'),
+(3915, 'M', 'AJAMI', 'Nabil', '1993-08-18'),
+(3916, 'M', 'AJAMI', 'Noha', '2001-10-10'),
+(3917, 'Mme', 'AJAMI', 'Zeyna', '1970-07-15'),
+(4936, 'M', ' WILLIAMS', 'Brian', '1966-11-27'),
+(4937, 'Mme', ' WILLIAMS', 'Abbie', '2013-02-25'),
+(7393, 'Mme', 'TAYLOR', 'Isabella', '1991-02-22');
 
 -- --------------------------------------------------------
 
@@ -209,32 +209,32 @@ INSERT INTO `passager` (`numpassager`, `civilite`, `nom`, `prenom`, `datenaissan
 --
 
 CREATE TABLE IF NOT EXISTS `place` (
-  `numplace` varchar(4) NOT NULL,
-  `numpassager` varchar(5) NOT NULL,
+  `numplace` int(11) NOT NULL AUTO_INCREMENT,
+  `numpassager` int(11) NOT NULL,
   `numvol` varchar(10) NOT NULL,
-  `numreservation` varchar(10) NOT NULL,
+  `numreservation` int(11) NOT NULL,
   `prix` float NOT NULL,
   PRIMARY KEY (`numplace`),
   KEY `numreservation` (`numreservation`),
   KEY `numvol` (`numvol`),
   KEY `numpassager` (`numpassager`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=190 ;
 
 --
 -- Contenu de la table `place`
 --
 
 INSERT INTO `place` (`numplace`, `numpassager`, `numvol`, `numreservation`, `prix`) VALUES
-('A001', 'P0283', 'DF1028', 'RV071526SY', 1524),
-('B023', 'P2837', 'DF0183', 'RV258014BA', 617),
-('B57', 'P4936', 'DF4693', 'RV923735WI', 1472),
-('C093', 'P3849', 'DF1028', 'RV476292MO', 1472),
-('C58', 'P4937', 'DF4693', 'RV923735WI', 50),
-('D12', 'P3917', 'DF5609', 'RV014561AJ', 600),
-('D165', 'P3794', 'DF0810', 'RV783920MO', 799),
-('E13', 'P3915', 'DF5609', 'RV014561AJ', 600),
-('F14', 'P3916', 'DF5609', 'RV014561AJ', 600),
-('F189', 'P7393', 'DF1028', 'RV745860TA', 617);
+(1, 283, 'DF1028', 71526, 1524),
+(12, 3917, 'DF5609', 14561, 600),
+(13, 3915, 'DF5609', 14561, 600),
+(14, 3916, 'DF5609', 14561, 600),
+(23, 2837, 'DF0183', 258014, 617),
+(57, 4936, 'DF4693', 923735, 1472),
+(58, 4937, 'DF4693', 923735, 50),
+(93, 3849, 'DF1028', 476292, 1472),
+(165, 3794, 'DF0810', 783920, 799),
+(189, 7393, 'DF1028', 745860, 617);
 
 -- --------------------------------------------------------
 
@@ -243,25 +243,25 @@ INSERT INTO `place` (`numplace`, `numpassager`, `numvol`, `numreservation`, `pri
 --
 
 CREATE TABLE IF NOT EXISTS `reservation` (
-  `numreserv` varchar(10) NOT NULL,
+  `numreserv` int(11) NOT NULL AUTO_INCREMENT,
   `datereserv` date NOT NULL,
-  `numclient` varchar(5) NOT NULL,
+  `numclient` int(11) NOT NULL,
   PRIMARY KEY (`numreserv`),
   KEY `numclient` (`numclient`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=923736 ;
 
 --
 -- Contenu de la table `reservation`
 --
 
 INSERT INTO `reservation` (`numreserv`, `datereserv`, `numclient`) VALUES
-('RV014561AJ', '2013-04-01', 'CL397'),
-('RV071526SY', '2013-04-22', 'CL059'),
-('RV258014BA', '2013-05-17', 'CL524'),
-('RV476292MO', '2013-04-09', 'CL247'),
-('RV745860TA', '2013-03-23', 'CL025'),
-('RV783920MO', '2013-04-26', 'CL247'),
-('RV923735WI', '2013-03-31', 'CL198');
+(14561, '2013-04-01', 397),
+(71526, '2013-04-22', 59),
+(258014, '2013-05-17', 524),
+(476292, '2013-04-09', 247),
+(745860, '2013-03-23', 25),
+(783920, '2013-04-26', 247),
+(923735, '2013-03-31', 198);
 
 -- --------------------------------------------------------
 
@@ -291,15 +291,14 @@ CREATE TABLE IF NOT EXISTS `travailler` (
 --
 
 INSERT INTO `travailler` (`vol`, `pilote`, `copilote`, `hotesse_steward1`, `hotesse_steward2`, `hotesse_steward3`, `date`) VALUES
-('DF0183', 'P0003', 'C0004', 'H0006', 'H0011', 'H0016', '2013-12-20'),
-('DF0810', 'P0006', 'C0003', 'H0001', 'H0012', 'H0017', '2013-12-14'),
-('DF1028', 'P0001', 'C0006', 'H0002', 'H0007', 'H0006', '2013-12-24'),
-('DF4693', 'P0005', 'C0002', 'H0004', 'H0008', 'H0013', '2013-12-30'),
-('DF5609', 'P0004', 'C0005', 'H0003', 'H0009', 'H0014', '2014-01-01'),
-('DF9174', 'P0002', 'C0001', 'H0005', 'H0010', 'H0015', '2013-12-26'),
-('DF4694', 'P0005', 'C0002', 'H0004', 'H0008', 'H0013', '2013-12-07'),
-('DF4695', 'P0005', 'C0002', 'H0004', 'H0008', 'H0013', '2013-12-14'),
-('DF5612', 'P0003', 'C0004', 'H0018', 'H0006', 'H0011', '2013-12-30');
+('DF0183', 'P0003', 'C0004', 'H0006', 'H0011', 'H0016', '2013-06-20'),
+('DF0810', 'P0006', 'C0003', 'H0001', 'H0012', 'H0017', '2013-07-14'),
+('DF1028', 'P0001', 'C0006', 'H0002', 'H0007', 'H0006', '2013-05-24'),
+('DF4693', 'P0005', 'C0002', 'H0004', 'H0008', 'H0013', '2013-06-30'),
+('DF5609', 'P0004', 'C0005', 'H0003', 'H0009', 'H0014', '2013-06-01'),
+('DF9174', 'P0002', 'C0001', 'H0005', 'H0010', 'H0015', '2013-05-26'),
+('DF4694', 'P0005', 'C0002', 'H0004', 'H0008', 'H0013', '2013-07-07'),
+('DF4695', 'P0005', 'C0002', 'H0004', 'H0008', 'H0013', '2013-07-14');
 
 -- --------------------------------------------------------
 
@@ -346,15 +345,14 @@ CREATE TABLE IF NOT EXISTS `vol` (
 --
 
 INSERT INTO `vol` (`numvol`, `lieudep`, `lieuarriv`, `dateheuredep`, `dateheurearrivee`, `tarif`) VALUES
-('DF0183', 'Paris', 'Saint-Martin', '2013-12-20 10:30:00', '2013-12-21 13:20:00', 617),
-('DF0810', 'Doha', 'Tokyo', '2013-12-14 22:30:00', '2013-12-15 10:50:00', 799),
-('DF1028', 'Casablanca', 'Honolulu', '2013-12-24 02:20:00', '2013-12-24 18:34:00', 1524),
-('DF4693', 'Berne', 'Sydney', '2013-12-30 06:50:00', '2013-12-30 20:05:00', 1472),
-('DF4694', 'Berne', 'Sydney', '2013-12-07 06:50:00', '2013-12-07 20:05:00', 1472),
-('DF4695', 'Berne', 'Sydney', '2013-12-14 06:50:00', '2013-12-14 20:05:00', 1472),
-('DF5609', 'Ottawa', 'Washington', '2014-01-01 12:40:00', '2014-01-01 19:34:00', 600),
-('DF5612', 'Paris', 'Saint-Martin', '2013-12-30 10:30:00', '2013-12-31 13:20:00', 617),
-('DF9174', 'Addids Adéba', 'Vienne', '2013-12-26 10:40:00', '2013-12-26 16:30:00', 893);
+('DF0183', 'Paris', 'Saint-Martin', '2013-06-20 10:30:00', '2013-06-21 13:20:00', 617),
+('DF0810', 'Doha', 'Tokyo', '2013-07-14 22:30:00', '2013-07-15 10:50:00', 799),
+('DF1028', 'Casablanca', 'Honolulu', '2013-05-24 02:20:00', '2013-05-25 18:34:00', 1524),
+('DF4693', 'Berne', 'Sydney', '2013-06-30 06:50:00', '2013-06-30 22:05:00', 1472),
+('DF4694', 'Berne', 'Sydney', '2013-07-07 06:50:00', '2013-07-07 22:05:00', 1472),
+('DF4695', 'Berne', 'Sydney', '2013-07-14 06:50:00', '2013-07-14 22:05:00', 1472),
+('DF5609', 'Ottawa', 'Washington', '2013-06-01 12:40:00', '2013-06-01 19:34:00', 600),
+('DF9174', 'Addids Adéba', 'Vienne', '2013-05-26 22:40:00', '2013-05-27 13:30:00', 893);
 
 --
 -- Contraintes pour les tables exportées
