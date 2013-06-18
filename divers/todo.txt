@@ -6,7 +6,7 @@
 -Validation W3C
 -A faire ou à noter dans les remarques (...) : vérifier que les passagers renseignés correspondent bien aux nombres d'adultes et d'enfants renseignés (sinon le prix sera faux !)
 -Faire en sorte qu'un client ne puisse pas s'inscrire avec un login déjà existant
--Info : session toujours ouverte dans l'index
+-Mot de passe client à chiffrer
 
 
 - FAIRE :
@@ -21,22 +21,28 @@ Pour l'espace client :
 
 BDD :
         * en local, importer la bonne version de la BDD (plus de données + autoincrement !)
+        * sur le serveur -> mettre la bonne version de la BDD quand la table contact sera OK
 
 Back office :
         * inutilité du menu en haut = on ne peut pas cliquer dessus
-        * les liens d'une partie à une autre ne sont plus visibles !
+
+Encodage :
+        * insertion (client, page contact, etc...) => dilemne du htmlentities
 
 syntheseController :
         * à vérifier
 
 vue "synthèse" :
         * à vérifier (il faut changer le select pour l'année pour que ce soit valable tout le temps)
-        * date à passer au bon format
+        * le message d'erreur ne s'affiche pas !!
         * inscrire le prix (+ modifier dans l'IHM)
 
 Après l'étape 'paiement' :
         * rentrer dans la BDD les passagers reliés au client, à 1 vol, et à 1 réservation
         * renvoyer la vue Billet à créer
+
+Formulaires :
+        * garder les infos en session
 
 IHM :
         * reprendre les IHM une fois le site fini
