@@ -5,9 +5,7 @@ namespace controller;
 use dao\MysqlDao;
 use \DateTime;
 
-if (!isset($_SESSION)) {
-    session_start();
-}
+
 
 class PropositionsController {
 
