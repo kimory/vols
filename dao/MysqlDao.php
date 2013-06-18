@@ -468,8 +468,20 @@ class MysqlDao {
 	}
         
 	public function ajoutClient($civilite, $nom, $prenom, $adresse, $cp, 
-		$ville, $pays, $mail, $telFixe, $telPortable, $login, $password) {
+		$ville, $pays, $mail, $telFixe, $telPortable, $login, $password) 
+	{
 
+		$sql = "SELECT login FROM client WHERE login=:login";
+
+		$stmt = $this->dbh->prepare($sql);
+		$stmt->bindParam(":login", $login);
+
+		$stmt->execute();
+
+		if($stmt->fetch(PDO::FETCH_ASSOC))
+		{
+			return 1;
+		}
 
 		$sql = "INSERT INTO client (civilite, nom, prenom, adresse, codepostal,
 			ville, pays, mail, telfixe, mobile, login, password)
@@ -479,7 +491,7 @@ class MysqlDao {
 
 		$stmt = $this->dbh->prepare($sql);
 
-		return true === $stmt->execute(array( // on vérifie que c'est équivalent à vrai
+		if(true === $stmt->execute(array( // on vérifie que c'est équivalent à vrai
 			':civilite' => $civilite,
 			':nom' => $nom,
 			':prenom' => $prenom,
@@ -491,7 +503,10 @@ class MysqlDao {
 			':telFixe' => $telFixe,   
 			':telPortable' => $telPortable,
 			':login' => $login,
-			':password' => $password));
+			':password' => $password)))
+			return 0;
+
+		return 2;
 	}
 
 	public function ajoutPassager($civilite,$nom, $prenom, $dateNaissance) {
@@ -508,39 +523,39 @@ class MysqlDao {
 
 		return true === $stmt->execute(); // on vérifie que c'est équivalent à vrai
 	}
-        
-        public function ajoutReservation($client,$passager,$vol,$reservation,$prix) {
+
+	public function ajoutReservation($client,$passager,$vol,$reservation,$prix) {
 
 		$sql = "INSERT INTO reservation (date, client)
 			VALUES(NOW(), :client);
-                        INSERT INTO place (numpassager,numvol,numreservation,prix)
-                        VALUES (:numpassager, :numvol, :numreservation, :prix);";
+		INSERT INTO place (numpassager,numvol,numreservation,prix)
+			VALUES (:numpassager, :numvol, :numreservation, :prix);";
 
 
 		$stmt = $this->dbh->prepare($sql);
 		$stmt->bindParam( ':client', $client);
-                $stmt->bindParam( ':numpassager', $passager);
-                $stmt->bindParam( ':numvol', $vol);
-                $stmt->bindParam( ':numreservation', $reservation);
-                $stmt->bindParam( ':prix', $prix);
-                
+		$stmt->bindParam( ':numpassager', $passager);
+		$stmt->bindParam( ':numvol', $vol);
+		$stmt->bindParam( ':numreservation', $reservation);
+		$stmt->bindParam( ':prix', $prix);
+
 		return true === $stmt->execute(); // on vérifie que c'est équivalent à vrai
 	}
-        public function addContact($nom,$prenom,$mail,$sujet,$telephone,$message){
-            
-            $sql = "INSERT INTO contact ( nom, prenom, mail, sujet, telephone,message) 
-                VALUES(:nom ,:prenom, :mail, :sujet, :telephone, :message)";
-            
-            $stmt = $this->dbh->prepare($sql);
-            $stmt->bindParam(':nom', $nom);
-            $stmt->bindParam(':prenom', $prenom);
-            $stmt->bindParam(':mail', $mail);
-            $stmt->bindParam(':sujet', $sujet);
-            $stmt->bindParam(':telephone', $telephone);
-            $stmt->bindParam(':message', $message);
-            
-            return true === $stmt->execute(); //on verifie si c'est bien cela
-        }
+	public function addContact($nom,$prenom,$mail,$sujet,$telephone,$message){
+
+		$sql = "INSERT INTO contact ( nom, prenom, mail, sujet, telephone,message) 
+			VALUES(:nom ,:prenom, :mail, :sujet, :telephone, :message)";
+
+		$stmt = $this->dbh->prepare($sql);
+		$stmt->bindParam(':nom', $nom);
+		$stmt->bindParam(':prenom', $prenom);
+		$stmt->bindParam(':mail', $mail);
+		$stmt->bindParam(':sujet', $sujet);
+		$stmt->bindParam(':telephone', $telephone);
+		$stmt->bindParam(':message', $message);
+
+		return true === $stmt->execute(); //on verifie si c'est bien cela
+	}
 }
 
 ?>
