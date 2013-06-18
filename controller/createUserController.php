@@ -45,7 +45,7 @@ class createUserController {
 		{
 			$messages[] = "Merci d'indiquer votre nom.";            
 		}
-		else if( ! preg_match("/^[a-zA-Z ]+$/", $_POST['nom']))
+		else if( ! preg_match("/^[a-zA-Z- ]+$/", $_POST['nom']))
 		{
 			$messages[] = "Le nom saisi est incorrect.";
 		}
@@ -58,7 +58,7 @@ class createUserController {
 		{
 			$messages[] = "Merci d'indiquer votre prénom.";
 		}
-		else if( ! preg_match("/^[a-zA-Z ]+$/", $_POST['prenom']))
+		else if( ! preg_match("/^[a-zA-Z- ]+$/", $_POST['prenom']))
 		{
 			$messages[] = "Le prénom saisi est incorrect.";
 		}

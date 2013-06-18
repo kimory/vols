@@ -105,7 +105,12 @@ class passengerRegistrationController {
 				if(Client::isClientConnected())
 					header('Location:/syntheseController');
 				else
+				{
+					// Une fois qu'on aura fini l'inscription, 
+					// il faudra aller sur cette page
+					$_SESSION['pagesurlaquelleondoitaller'] = '/syntheseController';
 					header('Location:/clientConnection'); 
+				}
 			}
 		}
 		else if(!isset($_SESSION['nb_passagers']) || 
