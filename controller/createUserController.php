@@ -4,9 +4,7 @@ namespace controller;
 
 use dao\MysqlDao;
 
-if (!isset($_SESSION)) {
-    session_start();
-}
+
 
 class createUserController {
 

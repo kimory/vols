@@ -7,9 +7,7 @@ use entity\Client;
 use entity\Passager;
 use \DateTime;
 
-if (!isset($_SESSION)) {
-    session_start();
-}
+
 
 class passengerRegistrationController {
 
