@@ -1,3 +1,4 @@
+<?php use \DateTime; ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -36,8 +37,9 @@
 				?>
 			</div>
 			<p>Vous souhaitez réserver <?php echo $_SESSION['nb_passagers']; ?> place(s) pour le 
-				<?php echo $_SESSION['vol']->getDateHeureDepart(); // TODO ?> pour le vol <?php echo $_SESSION['vol']->getNumvol(); // TODO ?>
-				de <?php echo $_SESSION['vol']->getLieuDepart(); // TODO ?> à <?php echo $_SESSION['vol']->getLieuArrivee(); // TODO ?>.
+				<?php $dateheuredep = new DateTime($_SESSION['vol']->getDateHeureDepart()); ?>
+                                <?php echo $dateheuredep->format('d/m/Y à H:i'); ?> pour le vol <?php echo $_SESSION['vol']->getNumvol(); ?>
+				de <?php echo $_SESSION['vol']->getLieuDepart(); ?> à <?php echo $_SESSION['vol']->getLieuArrivee(); ?>.
 			</p>
 			<p>Pour les passagers suivants : </p>
 			<?php
@@ -82,9 +84,9 @@
 				<input type="text" name="nomporteur" id="nomporteur">
 
 				<label for="codesecurite">Code de sécurité</label>
-				<input type="text" name="codesecurite" id="codesecurite">
+				<input type="text" name="codesecurite" id="codesecurite"><br>
+                                <input type="submit" value="valider">
 				<input type="reset" value="annuler">
-				<input type="submit" value="Valider">
 			</form>
 			</div>
 			<div id="footer">
