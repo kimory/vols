@@ -7,8 +7,6 @@ use entity\Client;
 use entity\Passager;
 use \DateTime;
 
-
-
 class passengerRegistrationController {
 
     public function action() {

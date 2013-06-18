@@ -2,8 +2,6 @@
 
 namespace controller;
 
-
-
 use dao\MysqlDao;
 
 class deconnexionController {

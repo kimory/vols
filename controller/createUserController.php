@@ -24,16 +24,16 @@ class createUserController {
 
         $messages = array(); // On initialise un tableau d'erreurs potentielles
 
+        // On vérifie que les champs ont été correctement renseignés
+        
         if (!isset($_POST['civilite']) || strlen($_POST['civilite']) == 0) {
             $messages[] = "Merci d'indiquer votre civilité.";
         } else if (strcmp($_POST['civilite'], 'm') != 0 && strcmp($_POST['civilite'], 'mme') != 0) {
             $messages[] = "Il y a un soucis dans la sélection de la civilité.";
         } else {
-            $civilite = $_POST['civilite'];
+            $civilite = htmlentities($_POST['civilite'], ENT_QUOTES, 'UTF-8');
         }
 
-
-        // On vérifie que les champs ont été correctement renseignés
         if (!isset($_POST['nom']) || strlen($_POST['nom']) == 0) {
             $messages[] = "Merci d'indiquer votre nom.";
         } else if (!preg_match("/^[a-zA-Z- ]+$/", $_POST['nom'])) {
@@ -51,7 +51,7 @@ class createUserController {
         }
 
         if (isset($_POST['adresse']) && strlen($_POST['adresse']) > 0 &&
-                preg_match("/^[A-Za-z0-9-., ]+$/", $_POST['adresse'])) {
+                preg_match("/^[A-Za-zàâäéèêëôöùûüçÀÂÄÉÈËÔÖÙÛÜÇ0-9., -]+$/", $_POST['adresse'])) {
             $adresse = htmlentities($_POST['adresse'], ENT_QUOTES, 'UTF-8');
         } else {
             $messages[] = "L'adresse est incorrecte.";
