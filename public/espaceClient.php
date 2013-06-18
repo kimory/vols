@@ -39,12 +39,16 @@ use entity\Client;
                  <div id="connectionuser">
                      <?php
                         include('include/user_connection_form.php');
-			?>
-                     <div id="btvision">
-                   <a href='/reservationsController' ><button class="btn btn-large btn-primary" type="button">Voir ses réservations</button></a>
-                 </div>
-                 </div>
-                 <div id="inscription">
+				if (Client::isClientConnected()) : // on affiche le bouton seulement si le client est connecté
+				?>
+				<div id="btvision">
+					<a href='/reservationsController' ><button class="btn btn-large btn-primary" type="button">Voir ses réservations</button></a>
+				</div>
+				<?php
+				endif;
+				?>
+			</div>
+			<div id="inscription">
             <?php
             // Si l'utilisateur n'est pas connecté
             if (!Client::isClientConnected()) {
