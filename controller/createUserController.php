@@ -58,7 +58,8 @@ class createUserController {
         }
 
         if (isset($_POST['code_postal']) && strlen($_POST['code_postal']) > 0 &&
-                preg_match("/^[0-9]{5}$/", $_POST['code_postal'])) {
+                preg_match("/^[a-zA-Z0-9]{3,}$/", $_POST['code_postal'])) {
+                // On prévoit les codes postaux étrangers
             $cp = htmlentities($_POST['code_postal'], ENT_QUOTES, 'UTF-8');
         } else {
             $messages[] = "Le code postal est incorrect.";
@@ -85,21 +86,21 @@ class createUserController {
             $messages[] = "L'adresse mail est  incorrecte.";
         }
 
-        if (isset($_POST['telfixe']) && preg_match("/^\+?[0-9]{10,20}$/", $_POST['telfixe'])) {
+        if (isset($_POST['telfixe']) && preg_match("/^\+?[0-9]{8,20}$/", $_POST['telfixe'])) {
             $telfixe = htmlentities($_POST['telfixe'], ENT_QUOTES, 'UTF-8');
         } else {
             $messages[] = "Le numéro de téléphone fixe est incorrect.";
         }
 
         if (isset($_POST['telportable']) &&
-                preg_match("/^\+?[0-9]{10,20}$/", $_POST['telportable'])) {
+                preg_match("/^\+?[0-9]{8,20}$/", $_POST['telportable'])) {
             $mobile = htmlentities($_POST['telportable'], ENT_QUOTES, 'UTF-8');
         } else {
             $messages[] = "Le numéro de téléphone portable est incorrect.";
         }
 
         if (isset($_POST['login']) && strlen($_POST['login']) > 0 &&
-                preg_match("/^[A-Za-z0-9]+$/", $_POST['login'])) {
+                preg_match("/^[A-Za-z0-9_]+$/", $_POST['login'])) {
             $login = htmlentities($_POST['login'], ENT_QUOTES, 'UTF-8');
         } else {
             $messages[] = "Le login est incorrect.";
@@ -125,6 +126,7 @@ class createUserController {
             if (!$dao->ajoutClient($civilite, $nom, $prenom, $adresse, $cp, $ville, $pays, $email, $telfixe, $mobile, $login, $password)) {
                 $_SESSION['messages'] = array();
                 $_SESSION['messages'][] = "Nous avons eu un problème à l'ajout d'un client dans la base de données.";
+                header('Location:' . $_SERVER['HTTP_REFERER']); // renvoie vers la page précédente
             } else {
 
                 // si la fonction ne retourne rien : erreur
@@ -141,7 +143,7 @@ class createUserController {
                     // ou la page définie avant d'aller sur la page d'inscription
                     header('Location:' . $_SESSION['pagesurlaquelleondoitaller']);
                     unset($_SESSION['pagesurlaquelleondoitaller']);
-                    return;
+                    //return;
                 }
             }
         } else {
