@@ -4,9 +4,7 @@ namespace controller;
 
 use dao\MysqlDao;
 
-if (!isset($_SESSION)) {
-	session_start();
-}
+
 
 class syntheseController {
 
@@ -69,7 +67,7 @@ class syntheseController {
 			{
 				// TODO
 				// Vérifier que cette variable de session sera affichée dans la vue
-                                $messages = array(); // cf la page recherche parcourt un tableau de messages
+                                $messages = array(); // cf la page recherche parcours un tableau de messages
                                 $messages[] = "Certaines informations sont manquantes !";
 				$_SESSION['messages'] = $messages;
 				header('Location:/recherche');
@@ -79,7 +77,7 @@ class syntheseController {
 		{
 			// TODO
 			// Vérifier que cette variable de session sera affichée dans la vue
-                        $messages = array(); // cf la page recherche parcourt un tableau de messages
+                        $messages = array(); // cf la page recherche parcours un tableau de messages
                                 $messages[] = "Votre session a expiré ! Merci de recommencer votre recherche !";
 				$_SESSION['messages'] = $messages;
 				header('Location:/recherche');
