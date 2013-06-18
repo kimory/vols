@@ -38,21 +38,7 @@ if (!isset($_SESSION)) {
                        include('include/back_office_login_form.php'); ?>
             </div>
              <div id="developpement">
-		 <div class="tab-pane active" id="vol">
-                
-               </div>
-                <div class="tab-pane active" id="passager">
-                
-               </div>
-                <div class="tab-pane active" id="client">
-                
-               </div>
-                <div class="tab-pane active" id="employe">
-                
-               </div>
-                <div class="tab-pane active" id="reservation">
-                
-               </div>
+		 
         <form action="/affichageEmployeController" method="POST">
             <label for="numemploye">Nouveau numéro d'employé :</label>
             <input type="text" id="numemploye" name="numemploye"><br>

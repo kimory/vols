@@ -1,10 +1,3 @@
-<?php 
-if (!isset($_SESSION)) {
-    session_start();
-}
-?>
-
-<? header("HTTP/1.1 500 INTERNAL SERVER ERROR"); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -15,33 +8,46 @@ if (!isset($_SESSION)) {
         <meta name="robots" content="index, follow, all">    
         <link rel="stylesheet" type="text/css" href="/css/style.css" />
         <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
-        <title>DEV-FLY - Confirmation Inscription</title>
+        <title>DEV-FLY - Billet Electronique</title>
     </head>
     <body>
-        <div id="container">
+          <div id="container">
             <div id="header">
                 <div id="logo">
                   <img id='logo' src='/images/logo.jpg' alt='logo de DEV-FLY' />
 		
                 </div>
                 <div id="menu">
-                <?php
-            $_SESSION['page_actuelle'] = 'Espace client';
-            		include('include/menu_front_office.php'); 
-		        
-	         ?>
+                     <?php 
+				$_SESSION['page_actuelle'] = 'Contact';
+				include('include/menu_front_office.php'); 
+			?>
                     </div>
-		       <?php include('include/back_office_login_form.php'); ?>
+                 <?php
+            // ici on affichera le bouton de déconnexion
+			include('include/back_office_login_form.php');
+            ?>
+                 </div>
+        <div id="developpement">
+           
+             <div id="billet">  
+                <table>
+                    <tr>
+                        <th>Date&nbsp;&nbsp;&nbsp;</th><th>Horaire</th><th>Ville de départ</th><th>Ville d'arrivée</th>
+                    <th>Compagnie</th>
+                    </tr>
+                    
+                </table>
             </div>
-             <div id="developpement">
-                    <h1>Inscription confirmée</h1>
-        <p>Votre inscription a été réalisé avec succès</p>
         </div>
+        
+       
             <div id="footer">
-               <?php
+                <?php
                 include './include/footer.php';
                ?>
            </div> 
         </div>
     </body>
+    
 </html>

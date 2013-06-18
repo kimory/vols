@@ -5,6 +5,7 @@
 -Renommer les pages pour avoir une cohérence ??
 -Validation W3C
 -A faire ou à noter dans les remarques (...) : vérifier que les passagers renseignés correspondent bien aux nombres d'adultes et d'enfants renseignés (sinon le prix sera faux !)
+-Faire en sorte qu'un client ne puisse pas s'inscrire avec un login déjà existant
 -Info : session toujours ouverte dans l'index
 
 
@@ -24,9 +25,6 @@ BDD :
 Back office :
         * inutilité du menu en haut = on ne peut pas cliquer dessus
         * les liens d'une partie à une autre ne sont plus visibles !
-
-createUserController :
-        * à compléter !
 
 syntheseController :
         * à vérifier
