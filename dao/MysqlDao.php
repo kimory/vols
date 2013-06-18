@@ -531,7 +531,7 @@ class MysqlDao {
                 VALUES(:nom ,:prenom, :mail, :sujet, :telephone, :message)";
             
             $stmt = $this->dbh->prepare($sql);
-            $stmt->bindValue(':nom', $nom);
+            $stmt->bindParam(':nom', $nom);
             $stmt->bindParam(':prenom', $prenom);
             $stmt->bindParam(':mail', $mail);
             $stmt->bindParam(':sujet', $sujet);
