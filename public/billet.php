@@ -8,7 +8,7 @@
         <meta name="robots" content="index, follow, all">    
         <link rel="stylesheet" type="text/css" href="/css/style.css" />
         <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
-        <title>DEV-FLY - Billet Electronic</title>
+        <title>DEV-FLY - Billet Electronique</title>
     </head>
     <body>
           <div id="container">

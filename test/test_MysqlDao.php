@@ -1,8 +1,10 @@
 <?php
 include '../setup.php';
 include DAO.'MysqlDao.php';
+include ENTITY.'Client.php';
 
 use dao\MysqlDao;
+use entity\Client;
 
 $dao = new MysqlDao();
 
@@ -24,7 +26,8 @@ $dao = new MysqlDao();
 
 
 //var_dump($dao->ajoutPassager('m', 'jean', 'jean', '2000-01-03'));
-var_dump($dao->ajoutClient('m', 'nom', 'prenom', 'adresse', 'cp', 
-	'ville', 'pays', 'mail', 'telFixe', 'telPortable', 'login', 'password'));
-
+//var_dump($dao->ajoutClient('m', 'nom', 'prenom', 'adresse', 'cp', 
+	//'ville', 'pays', 'mail', 'telFixe', 'telPortable', 'login', 'password'));
+$client = new Client(null, null, null, null, '18 rue Fr&eacute;d&eacute;ric', null, null, null, null, null, null, null, null);
+echo $client->getAdresse();
 ?>
