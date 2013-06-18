@@ -87,16 +87,24 @@ class PropositionsController {
         }
 
         // Il faut au minimum 1 adulte pour que la réservation puisse se faire :
-        if (isset($_POST['nbreadultes']) && ctype_digit($_POST['nbreadultes']) && $_POST['nbreadultes'] >= 1) {
-            $nbadultes = $_POST['nbreadultes'];
+        if (isset($_POST['nbreadultes'])) {
+            if (ctype_digit($_POST['nbreadultes']) && $_POST['nbreadultes'] >= 1) {
+                $nbadultes = $_POST['nbreadultes'];
+            } else {
+                $messages[] = "Le nombre d'adultes est incorrect.";
+            }
         } else {
-            $messages[] = "Le nombre d'adultes est incorrect.";
+            $messages[] = "Veuillez renseigner un nombre d'adultes.";
         }
 
-        if (isset($_POST['nbreenfants']) && ctype_digit($_POST['nbreenfants']) && $_POST['nbreenfants'] >= 0) {
-            $nbenfants = $_POST['nbreenfants'];
+        if (isset($_POST['nbreenfants'])) {
+            if (ctype_digit($_POST['nbreenfants']) && $_POST['nbreenfants'] >= 0) {
+                $nbenfants = $_POST['nbreenfants'];
+            } else {
+                $messages[] = "Le nombre d'enfants est incorrect.";
+            }
         } else {
-            $messages[] = "Le nombre d'enfants est incorrect.";
+            $messages[] = "Veuillez renseigner un nombre d'enfants.";
         }
 
         // Si le tableau de messages d'erreurs est vide, on récupère les vols susceptibles
@@ -120,6 +128,8 @@ class PropositionsController {
                 $_SESSION['jour'] = $_POST['jour'];
                 $_SESSION['mois'] = $_POST['mois'];
                 $_SESSION['annee'] = $_POST['annee'];
+                $_SESSION['nbreadultes'] = $_POST['nbreadultes'];
+                $_SESSION['nbreenfants'] = $_POST['nbreenfants'];
 
                 // On redirige vers le formulaire précédent
                 header('Location:/recherche');
@@ -155,6 +165,14 @@ class PropositionsController {
 
             if (isset($_POST['annee'])) {
                 $_SESSION['annee'] = $_POST['annee'];
+            }
+            
+            if (isset($_POST['nbreadultes'])) {
+                $_SESSION['nbreadultes'] = $_POST['nbreadultes'];
+            }
+            
+            if (isset($_POST['nbreenfants'])) {
+                $_SESSION['nbreenfants'] = $_POST['nbreenfants'];
             }
 
             $_SESSION['messages'] = $messages;

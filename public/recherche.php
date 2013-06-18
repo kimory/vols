@@ -109,12 +109,34 @@ if (!isset($_SESSION)) {
                         </div>
                                 
                         <label for ="nbreadultes">Nombre d'adultes</label>
-                           <input type='number' value="1" min='1' max='50' name="nbreadultes" id="nbreadultes">
+                           <input type='number' value="<?php 
+				if(isset($_SESSION['nbreadultes']))
+				{
+                                        // la valeur par défaut est celle précédemment
+                                        // saisie si elle existe.
+					echo $_SESSION['nbreadultes'];
+                                        unset($_SESSION['nbreadultes']);
+                                }else{
+                                    // Ou "1" (cf un adulte au minimum doit voyager).
+                                    echo "1";
+                                }
+                                    ?>" 
+                                  min='1' max='50' name="nbreadultes" id="nbreadultes">
 
                         <label for ="nbreenfants">Nombre d'enfants (moins de 3 ans)</label>
-                           <input type='number' value="0" min='0' max='50' name="nbreenfants" id="nbreenfants"><br>
+                           <input type='number' value="<?php 
+				if(isset($_SESSION['nbreenfants']))
+				{
+                                        // la valeur par défaut est celle précédemment
+                                        // saisie si elle existe.
+					echo $_SESSION['nbreenfants'];
+                                        unset($_SESSION['nbreenfants']);
+                                }else{
+                                    // Ou "0" (par défaut aucun enfant ne voyage).
+                                    echo "0";
+                                }
+                                    ?>" min='0' max='50' name="nbreenfants" id="nbreenfants"><br>
                        
-                        
                            <input type="submit" value="valider">          
                            <input type="reset" value="annuler">
                  
