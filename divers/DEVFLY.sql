@@ -7,6 +7,16 @@
 -- Version du serveur: 5.5.8
 -- Version de PHP: 5.3.5
 
+DROP TABLE `place`;
+DROP TABLE `reservation`;
+DROP TABLE `passager`;
+DROP TABLE `client`;
+DROP TABLE `destination`;
+DROP TABLE `travailler`;
+DROP TABLE `user`;
+DROP TABLE `employe`;
+DROP TABLE `vol`;
+
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 

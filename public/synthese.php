@@ -1,8 +1,11 @@
 <?php
+use \DateTime;
+use entity\Vol;
+
 if (!isset($_SESSION)) {
     session_start();
 }
-use \DateTime;
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -31,17 +34,19 @@ use \DateTime;
 				<?php include('include/back_office_login_form.php'); ?>
 
 			</div>
-                    <div id="developpement">
-			<div id="error">
-				<?php if (isset($_SESSION['message'])) : ?>
+			<div id="developpement">
+				<?php 
+				if (isset($_SESSION['message'])) : ?>
+				<div id="error">
+					<p>Votre message d'erreur : </p>
 					<p><?php echo $_SESSION['message']; ?></p>
-					<?php
+				</div>
+				<?php
 					// On détruit le message en session une fois
 					// qu'il a été affiché
 					unset($_SESSION['message']);
 				endif;
 				?>
-			</div>
 			<p>Vous souhaitez réserver <?php echo $_SESSION['nb_passagers']; ?> place(s) pour le 
 				<?php $dateheuredep = new DateTime($_SESSION['vol']->getDateHeureDepart()); ?>
                                 <?php echo $dateheuredep->format('d/m/Y à H:i'); ?> pour le vol <?php echo $_SESSION['vol']->getNumvol(); ?>
@@ -62,39 +67,22 @@ use \DateTime;
                         <br>
 			<div>
 			<p>Les e-cartes bleues et cartes transcash ne sont pas acceptées.</p>
-			<form action="/syntheseController" >
+			<form method="post" action="/syntheseController" >
 				<label for="numcarte">Numéro de carte</label>
 				<input type="text" name="numcarte" id="numcarte">
 
-				<label for="moisexpiration">Date d'expiration</label>
-				<select name='moisexpiration' id='moisexpiration' >
-				<option value="1">01</option>
-				<option value="2">02</option>
-				<option value="3">03</option>
-				<option value="4">04</option>
-				<option value="5">05</option>
-				<option value="6">06</option>
-				<option value="7">07</option>
-				<option value="8">08</option>
-				<option value="9">09</option>
-				<option value="10">10</option>
-				<option value="11">11</option>
-				<option value="12">12</option>
-				</select>
-				<select name='anneeexpiration' id='anneeexpiration' >
-				<option value="13">13</option>
-				<option value="14">14</option>
-				<option value="15">15</option>
-				<option value="16">16</option>
-				<option value="17">17</option>
-				<option value="18">18</option>
-				</select>
+				<label for="moisexpiration">Mois d'expiration : </label>
+				<input type="text" name="moisexpiration" id="moisexpiration">
+				<label for="anneeexpiration">Année d'expiration : </label>
+				<input type="text" name="anneeexpiration" id="anneeexpiration">
+
 				<label for="nomporteur">Nom du porteur</label>
 				<input type="text" name="nomporteur" id="nomporteur">
 
 				<label for="codesecurite">Code de sécurité</label>
 				<input type="text" name="codesecurite" id="codesecurite"><br>
-                                <input type="submit" value="valider">
+
+				<input type="submit" value="valider">
 				<input type="reset" value="annuler">
 			</form>
 			</div>
