@@ -506,6 +506,19 @@ class MysqlDao {
 
 		return true === $stmt->execute(); // on vérifie que c'est équivalent à vrai
 	}
+        
+        public function ajoutReservation($date, $client) {
+
+		$sql = "INSERT INTO reservation (date, client)
+			VALUES(NOW(), :client)";
+
+
+		$stmt = $this->dbh->prepare($sql);
+		$stmt->bindParam( ':date', $date);
+		$stmt->bindParam( ':client', $client);
+
+		return true === $stmt->execute(); // on vérifie que c'est équivalent à vrai
+	}
 }
 
 ?>

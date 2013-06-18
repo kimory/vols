@@ -4,8 +4,6 @@ namespace controller;
 
 use dao\MysqlDao;
 
-
-
 class syntheseController {
 
 	public function action() {
