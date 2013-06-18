@@ -31,8 +31,10 @@ class syntheseController {
 
 				if(ctype_digit($_POST['numcarte']) &&
 					ctype_digit($_POST['moisexpiration']) &&
-					$_POST['moisexpiration'] > 0 && $_POST['moisexpiration'] < 13 &&
-					$_POST['anneeexpiration'] >= $anneeCourante && $_POST['anneeexpiration'] <= $anneeCourante + 5 &&
+					$_POST['moisexpiration'] > 0 && 
+					$_POST['moisexpiration'] < 13 &&
+					$_POST['anneeexpiration'] >= $anneeCourante && 
+					$_POST['anneeexpiration'] <= $anneeCourante + 5 &&
 					preg_match("/^[ A-Za-z-]+$/", $_POST['nomporteur']) &&
 					preg_match("/^[0-9]{3}$/", $_POST['codesecurite']))
 				{
@@ -40,6 +42,16 @@ class syntheseController {
 					// TODO
 					// enregistrer les informations de la résa dans la BDD
 					// passer à la vue suivante
+
+					if (!$dao->ajoutReservation($_SESSION['login'], 
+						$_SESSION['passagers'], 
+						$_SESSION['vol'], 
+						$reservation)) 
+					{
+						$_SESSION['message'] = "Erreur lors de l'ajout d'une réservation dans la base de données.";
+						include VIEW . "synthese.php";
+					}
+					
 
 				} 
 				else 

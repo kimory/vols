@@ -509,38 +509,117 @@ class MysqlDao {
 		return 2; // il y a eu une erreur lors de l'insertion
 	}
 
-	public function ajoutPassager($civilite,$nom, $prenom, $dateNaissance) {
+	public function ajoutReservation($loginclient, $passagers, $vol, $reservation) 
+	{
 
-		$sql = "INSERT INTO passager (civilite, nom, prenom, dateNaissance)
-			VALUES(:civilite, :nom, :prenom, :dateNaissance)";
+		// Réservation :
+		// Les passagers : vérifier pour chacun s'ils existent en base,
+		// sinon ajouter : numpassager autoincrement, civilite nom prenom datenaissance
+		// Créer places*nbpassagers : 
 
+		$sql = "SELECT numclient FROM client WHERE login=:login";
+		$stmt->bindParam(':login', $loginclient);
 
-		$stmt = $this->dbh->prepare($sql);
-		$stmt->bindParam( ':civilite', $civilite);
-		$stmt->bindParam( ':nom', $nom);
-		$stmt->bindParam( ':prenom', $prenom);
-		$stmt->bindParam( ':dateNaissance', $dateNaissance);
-
-		return true === $stmt->execute(); // on vérifie que c'est équivalent à vrai
-	}
-
-	public function ajoutReservation($client,$passager,$vol,$reservation,$prix) {
+		if(($row = $stmt->fetch(PDO::FETCH_ASSOC)))
+		{
+			$numclient = $row['numclient'];
+		}
+		else
+		{
+			return 1;	// le client n'existe pas
+		}
 
 		$sql = "INSERT INTO reservation (date, client)
-			VALUES(NOW(), :client);
-		INSERT INTO place (numpassager,numvol,numreservation,prix)
-			VALUES (:numpassager, :numvol, :numreservation, :prix);";
-
+			VALUES(NOW(), :numclient);";
 
 		$stmt = $this->dbh->prepare($sql);
-		$stmt->bindParam( ':client', $client);
-		$stmt->bindParam( ':numpassager', $passager);
-		$stmt->bindParam( ':numvol', $vol);
-		$stmt->bindParam( ':numreservation', $reservation);
-		$stmt->bindParam( ':prix', $prix);
+		$stmt->bindParam(':numclient', $numclient);
 
-		return true === $stmt->execute(); // on vérifie que c'est équivalent à vrai
+		// si l'exécution se passe mal
+		if(!(true === $stmt->execute()))
+		{
+			return 2;	// impossible d'entrer une nouvelle réservation
+		}
+
+		// recherche d'un numéro de passager
+		$sql = "SELECT numpassager 
+			FROM passager
+			WHERE civilite=:civilite AND
+			nom=:nom AND prenom=:prenom AND 
+			DATE_FORMAT(datenaissance, '%d/%m/%Y')=:datenaissance";
+		$stmt = $this->dbh->prepare($sql);
+
+		// création d'un passager (si on ne l'a pas trouvé)
+		$sql2 = "INSERT INTO passager (civilite, nom, prenom, datenaissance)
+			VALUES(:civilite, :nom, :prenom, :datenaissance)";
+		$stmt2 = $this->dbh->prepare($sql2);
+
+		// création d'une place
+		$sql3 = "INSERT INTO place (numpassager,numvol,numreservation,prix)
+			VALUES (:numpassager, :numvol, :numreservation, :prix);";
+		$stmt3 = $this->dbh->prepare($sql3);
+
+		foreach($passagers as $passager)
+		{
+			$stmt->bindParam(':civilite', $passager->getCivilite());
+			$stmt->bindParam(':nom', $passager->getNom());
+			$stmt->bindParam(':prenom', $passager->getPrenom());
+			$stmt->bindParam(':datenaissance', $passager->getDateNaissance());
+
+			$stmt->execute();
+			// si on trouve une correspondance
+			if($row = $stmt->fetch(PDO::FETCH_ASSOC))
+			{
+				$numpassager = $row['numpassager'];
+			}
+			else
+			{ 
+				$dt = DateTime::createFromFormat('d/m/Y', $date);
+				
+				// on insère un nouveau passager
+				$stmt2->bindParam(':civilite', $passager->getCivilite());
+				$stmt2->bindParam(':nom', $passager->getNom());
+				$stmt2->bindParam(':prenom', $passager->getPrenom());
+				$stmt2->bindParam(':datenaissance', $dt->format('Y-m-d'));
+
+				if(!(true === $stmt2->execute()))
+				{
+					return 3;	// impossible d'insérer un passager
+				}
+
+				// on récupère ensuite son numéro de passager
+				$stmt->bindParam(':civilite', $passager->getCivilite());
+				$stmt->bindParam(':nom', $passager->getNom());
+				$stmt->bindParam(':prenom', $passager->getPrenom());
+				$stmt->bindParam(':datenaissance', $passager->getDateNaissance());
+
+				$stmt->execute();
+				// si on trouve une correspondance
+				if($row = $stmt->fetch(PDO::FETCH_ASSOC))
+				{
+					$numpassager = $row['numpassager'];
+				}
+				else
+				{ 
+					return 4;	// après insertion du passager on ne le retrouve plus
+				}
+			}
+
+			// on donne une place au passager
+
+		$sql3 = "INSERT INTO place (numpassager,numvol,numreservation,prix)
+			VALUES (:numpassager, :numvol, :numreservation, :prix);";
+			$stmt->bindParam(':numpassager', $passager);
+			$stmt->bindParam(':numvol', $vol->get);
+			$stmt->bindParam(':numreservation', $reservation);
+			$stmt->bindParam(':prix', $prix);
+
+
+		}
+
+
 	}
+
 	public function addContact($nom,$prenom,$mail,$sujet,$telephone,$message){
 
 		$sql = "INSERT INTO contact ( nom, prenom, mail, sujet, telephone,message) 
