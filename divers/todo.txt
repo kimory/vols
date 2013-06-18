@@ -15,14 +15,8 @@
 	* billet
 
 Pour l'espace client :
-        * tests
         * manipuler des objets dans l'espace client
         * htmlentities pour protéger
-        * bouton "Voir ses réservations" inactif ?
-
-CSS :
-        * commenter le code CSS
-        * back office : recherche par numéro de résa, clic sur le nb de passagers → style à faire
 
 BDD :
         * en local, importer la bonne version de la BDD (plus de données + autoincrement !)
@@ -32,10 +26,10 @@ Back office :
         * les liens d'une partie à une autre ne sont plus visibles !
 
 createUserController :
-        * à créer !
+        * à compléter !
 
 syntheseController :
-        * en cours mais pas pu être testé
+        * à vérifier
 
 vue "synthèse" :
         * à vérifier (il faut changer le select pour l'année pour que ce soit valable tout le temps)
@@ -45,9 +39,6 @@ vue "synthèse" :
 Après l'étape 'paiement' :
         * rentrer dans la BDD les passagers reliés au client, à 1 vol, et à 1 réservation
         * renvoyer la vue Billet à créer
-
-Balises HTML5 :
-        * il reste des balises HTML5 à remplacer par des <div> → vérifier le rendu à chaque fois
 
 IHM :
         * reprendre les IHM une fois le site fini

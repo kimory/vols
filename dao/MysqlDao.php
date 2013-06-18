@@ -513,7 +513,7 @@ class MysqlDao {
 		$sql = "INSERT INTO reservation (date, client)
 			VALUES(NOW(), :client);
                         INSERT INTO place (numpassager,numvol,numreservation,prix)
-                        VALUES (:numpassager, :numvol, :numvol, :numreservation, :prix);";
+                        VALUES (:numpassager, :numvol, :numreservation, :prix);";
 
 
 		$stmt = $this->dbh->prepare($sql);
