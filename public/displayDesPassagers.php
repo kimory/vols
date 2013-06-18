@@ -32,13 +32,12 @@ if (!isset($_SESSION)) {
                         <li><a href="client" data-toggle="tab">Client</a></li>
                     </ul>
                     </div>
-                 </div>
-        <div id="developpement">
-            <?php
+                 <?php
             // ici on affichera le bouton de déconnexion
 			include('include/back_office_login_form.php');
             ?>
-        <div class="tab-content">
+                 </div>
+        <div id="developpement">
 		<?php 
 			
 			// On affiche le message d'erreur le cas échéant :
@@ -71,8 +70,7 @@ if (!isset($_SESSION)) {
                 </table>
             </div>
             
-        <?php endif; ?>
-                                </div><br/>
+        <?php endif; ?><br/>
                 
         <div><a href="/choixducritere">retour au choix du critère</a></div>
         </div>

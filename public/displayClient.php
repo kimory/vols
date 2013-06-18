@@ -32,21 +32,8 @@
 		?>
             </div>
          <div id="developpement">
- <div class="tab-pane active" id="vol">
-                
-               </div>
-                <div class="tab-pane active" id="passager">
-                
-               </div>
-                <div class="tab-pane active" id="client">
-                
-               </div>
-                <div class="tab-pane active" id="employe">
-                
-               </div>
-                <div class="tab-pane active" id="reservation">
-                
-               </div>
+             
+              
         <form action="/affichageClientController" method="POST">
             <label for="numclient">Nouveau numéro de client :</label>
             <input type="text" id="numclient" name="numclient"><br>
