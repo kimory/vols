@@ -12,17 +12,17 @@ class ContactController {
         // htmlentities permet de convertir tous les caractères éligibles en entités HTML  
         // ENT_QUOTES permet de convertir les doubles quotes et simples quotes en entités HTML 
         if(!isset($_POST['nom']) || strlen($_POST['nom']) == 0 ){            
-            $messages[] = "Merci d'indiquer votre nom.";            
-        }elseif(ctype_digit($_POST['nom'])){
-            $messages[] = "Votre saisie du nom est incorrecte.";
+            $messages[] = "Merci d'indiquer votre nom.";         
+        }elseif(!preg_match("/^[a-zA-Zàáâãäåçèéêëìíîïðòóôõöùúûüýÿ -]$/",$_POST['nom'])){
+            $message[] = "Votre saisie du nom est incorrecte";         
         }else{
             $nom = htmlentities($_POST['nom'], ENT_QUOTES, 'UTF-8');
-        }       
+        }
              
         if(!isset($_POST['prenom']) || strlen($_POST['prenom']) == 0 ){
-            $messages[] = "Merci d'indiquer votre prénom.";
-        }elseif(ctype_digit($_POST['prenom'])){
-            $messages[] = "Votre saisie du prénom est incorrecte.";
+            $messages[] = "Merci d'indiquer votre prénom.";       
+        }elseif(!preg_match("/^[a-zA-Zàáâãäåçèéêëìíîïðòóôõöùúûüýÿ-]$/",$_POST['prenom'])){
+            $message[] = "Votre saisie du prénom est incorrecte"; 
         } else {            
             $prenom = htmlentities($_POST['prenom'], ENT_QUOTES, 'UTF-8');           
         }
@@ -35,11 +35,13 @@ class ContactController {
         
         if(isset($_POST['sujet']) && strlen($_POST['sujet']) > 0) {
             $sujet = htmlentities($_POST['sujet'], ENT_QUOTES, 'UTF-8');
-        } else {
+        }elseif(!preg_match("/^[a-zA-Z1-9àáâãäåçèéêëìíîïðòóôõöùúûüýÿ-]$/", $_POST['sujet'])){
+            $messages [] = "Votre saisie du sujet est incorrecte";
+        }else{
             $messages[] = "Votre saisie du sujet est incorrecte.";
         } 
         
-        if(isset($_POST['tel']) && preg_match("/^[0-9]{10,20}$/",$_POST['tel'])){
+        if(isset($_POST['tel']) && preg_match("/^\+?[0-9]{8,20}$/",$_POST['tel'])){
             $telephone = htmlentities($_POST['tel'], ENT_QUOTES, 'UTF-8');
 
         } else {
