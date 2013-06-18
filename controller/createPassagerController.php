@@ -4,11 +4,9 @@ namespace controller;
 
 use dao\MysqlDao;
 
-
-
 class CreatePassagerController {
 
-    public function inscription() {
+    public function action() {
 
         $messages = array(); // On initialise un tableau d'erreurs potentielles
         // On vérifie que les champs ont été correctement renseignés

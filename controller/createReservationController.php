@@ -4,17 +4,11 @@ namespace controller;
 
 use dao\MysqlDao;
 
-if (!isset($_SESSION)) {
-    session_start();
-}
-
 class CreateReservationController {
 
-    public function inscription() {
-           $dao = new MysqlDao();
-		if($dao->isClientConnected()) // on vérifie au préalable que le client est bien connecté
-		{
-	          if (empty($messages)) {
+    public function action() {
+        $dao = new MysqlDao();
+        if ($dao->isClientConnected()) { // on vérifie au préalable que le client est bien connecté
             //header('location:/displaycontact');   
             //include VIEW . "confirmationinscription.php";;
 
@@ -41,20 +35,15 @@ class CreateReservationController {
                     return;
                 }
             }
-        } else {
-            $_SESSION['messages'] = $messages;
-            header('Location:' . $_SERVER['HTTP_REFERER']); // renvoie vers la page précédente          
-        }
+                else {
+                    $_SESSION['messages'] = $messages;
+                    header('Location:' . $_SERVER['HTTP_REFERER']); // renvoie vers la page précédente          
                 }
-        else 
-		{
-			$_SESSION['error_message'] = "Vous n'êtes pas connecté.";
-			header('Location:' . $_SERVER['HTTP_REFERER']);
-		}
+             else {
+                $_SESSION['error_message'] = "Vous n'êtes pas connecté.";
+                header('Location:' . $_SERVER['HTTP_REFERER']);
+            }
         
-        }
-    }
-
-
+    
 
 ?>
