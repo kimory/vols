@@ -57,6 +57,8 @@ use \DateTime;
 				$passager->getDateNaissance() . PHP_EOL;
 			}
 			?>
+                        <br>
+                        <p>Prix total : <?php echo $_SESSION['vol']->getTarif();?></p>
 			<div>
 			<p>Les e-cartes bleues et cartes transcash ne sont pas acceptées.</p>
 			<form action="/syntheseController" >
