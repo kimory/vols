@@ -24,7 +24,7 @@ body form{
 	 min-height:550px;
      background-color:rgba(204,237,240,0.9);
 }
-/*toutes les balises "a"du menu ne seront pas soulignées et seront en noir*/
+/*toutes les balises "a" du menu ne seront pas soulignées et seront en noir*/
 #menu a {
     text-decoration: none;
     color: black;
@@ -33,7 +33,7 @@ body form{
 #btvision{
     
 }
-/*les messages d'erreur du formulaire paassager*/
+/*les messages d'erreur du formulaire passager*/
 #errorpassager{
     float: right;
     width: 500px;
@@ -64,7 +64,7 @@ body form{
     height: 200px;
     margin-left: 250px;
 }
-/*la balise "h5" des formulaires d'inscription,du titre des fieldser,titre de la proposition(page proposition)
+/*la balise "h5" des formulaires d'inscription,du titre des fieldset,titre de la proposition(page proposition)
 titre de la page recherche*/
 .h5{
     position: relative;
@@ -79,14 +79,14 @@ titre de la page recherche*/
     margin-left: 100px;
     text-align: center;
 }
-/* les th de la table contenant d'affichage  des passagers dans un vol: page affichageDesPassagersController */
+/* les th de la table contenant l'affichage  des passagers dans un vol: page affichageDesPassagersController */
 #tablepassagerresa th{
     width: 700px;
     border: 1px solid #003399;
     text-align: center;
 }
 
-/* les td de la table contenant des passagers dans un vol: page affichageDesPassagersController */
+/* les td de la table contenant les passagers dans un vol: page affichageDesPassagersController */
 #tablepassagerresa td{
     width: 700px;
     text-align: center;
@@ -104,14 +104,14 @@ titre de la page recherche*/
     
 }
 
-/* les th de la table contenant d'affichage de la réservation dans la page client */
+/* les th de la table contenant l'affichage de la réservation dans la page client */
 .tablereservation th{
     width: 700px;
     border: 1px solid #003399;
     text-align: center;
 }
 
-/* les td de la table contenant d'affichage de la réservation */
+/* les td de la table contenant l'affichage de la réservation */
 .tablereservation td{
     width: 700px;
     text-align: center;
@@ -304,7 +304,7 @@ titre de la page recherche*/
     margin-right: -90px;
  }
  
-  /* formulaire d'enregistremant du passager'*/
+  /* formulaire d'enregistrement du passager'*/
  #enregistrementpassager{
      margin-top: 0px;
      

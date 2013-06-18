@@ -12,8 +12,7 @@ class ContactController {
         // htmlentities permet de convertir tous les caractères éligibles en entités HTML  
         // ENT_QUOTES permet de convertir les doubles quotes et simples quotes en entités HTML 
         if(!isset($_POST['nom']) || strlen($_POST['nom']) == 0 ){            
-            $messages[] = "Merci d'indiquer votre nom.";   
-            //l'expression régulière [^ \w] intercépte tous les caractères spéciaux.        
+            $messages[] = "Merci d'indiquer votre nom.";         
         }elseif(!preg_match("/^[a-zA-Zàáâãäåçèéêëìíîïðòóôõöùúûüýÿ -]$/",$_POST['nom'])){
             $message[] = "Votre saisie du nom est incorrecte";         
         }else{
@@ -42,7 +41,7 @@ class ContactController {
             $sujet = htmlentities($_POST['sujet'], ENT_QUOTES, 'UTF-8');
         } 
         
-        if(isset($_POST['tel']) && preg_match("/^[0-9]{10,20}$/",$_POST['tel'])){
+        if(isset($_POST['tel']) && preg_match("/^\+?[0-9]{8,20}$/",$_POST['tel'])){
             $telephone = htmlentities($_POST['tel'], ENT_QUOTES, 'UTF-8');
 
         } else {
