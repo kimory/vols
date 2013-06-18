@@ -480,7 +480,7 @@ class MysqlDao {
 
 		if($stmt->fetch(PDO::FETCH_ASSOC))
 		{
-			return 1;
+			return 1; // si le login existe déjà
 		}
 
 		$sql = "INSERT INTO client (civilite, nom, prenom, adresse, codepostal,
@@ -504,9 +504,9 @@ class MysqlDao {
 			':telPortable' => $telPortable,
 			':login' => $login,
 			':password' => $password)))
-			return 0;
+			return 0; // l'insertion s'est terminée correctement
 
-		return 2;
+		return 2; // il y a eu une erreur lors de l'insertion
 	}
 
 	public function ajoutPassager($civilite,$nom, $prenom, $dateNaissance) {

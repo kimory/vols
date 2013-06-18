@@ -4,8 +4,6 @@ namespace controller;
 
 use dao\MysqlDao;
 
-
-
 class createUserController {
 
     public function action() {
@@ -23,9 +21,8 @@ class createUserController {
         $_SESSION['inscription_login'] = htmlentities($_POST['login'], ENT_QUOTES, 'UTF-8');
 
         $messages = array(); // On initialise un tableau d'erreurs potentielles
-
         // On vérifie que les champs ont été correctement renseignés
-        
+
         if (!isset($_POST['civilite']) || strlen($_POST['civilite']) == 0) {
             $messages[] = "Merci d'indiquer votre civilité.";
         } else if (strcmp($_POST['civilite'], 'm') != 0 && strcmp($_POST['civilite'], 'mme') != 0) {
@@ -59,7 +56,7 @@ class createUserController {
 
         if (isset($_POST['code_postal']) && strlen($_POST['code_postal']) > 0 &&
                 preg_match("/^[a-zA-Z0-9]{3,}$/", $_POST['code_postal'])) {
-                // On prévoit les codes postaux étrangers
+            // On prévoit les codes postaux étrangers
             $cp = htmlentities($_POST['code_postal'], ENT_QUOTES, 'UTF-8');
         } else {
             $messages[] = "Le code postal est incorrect.";
@@ -118,33 +115,25 @@ class createUserController {
             $messages[] = "Le mot de passe est incorrect.";
         }
 
-		if (empty($messages)) 
-		{
+        if (empty($messages)) {
             //header('location:/displaycontact');   
             //include VIEW . "confirmationinscription.php";;
 
             $dao = new MysqlDao();
-			$ret = $dao->ajoutClient($civilite, $nom, $prenom, $adresse, $cp, $ville, $pays, $email, $telfixe, $mobile, $login, $password);
+            $ret = $dao->ajoutClient($civilite, $nom, $prenom, $adresse, $cp, $ville, $pays, $email, $telfixe, $mobile, $login, $password);
 
 
-			if( $ret == 1)
-			{
+            if ($ret == 1) { // le login saisi existe déjà en base
 
                 $_SESSION['messages'] = array();
-                $_SESSION['messages'][] = "Le login entré existe déjà.";
+                $_SESSION['messages'][] = "Le login choisi est déjà utilisé. Veuillez choisir un autre login !";
                 header('Location:' . $_SERVER['HTTP_REFERER']); // renvoie vers la page précédente
-
-			}
-			else if ($ret == 2) // problème d'insertion
-			{
+            } else if ($ret == 2) { // problème d'insertion
 
                 $_SESSION['messages'] = array();
                 $_SESSION['messages'][] = "Nous avons eu un problème à l'ajout d'un client dans la base de données.";
                 header('Location:' . $_SERVER['HTTP_REFERER']); // renvoie vers la page précédente
-
-			} 
-			else 
-			{
+            } else {
 
                 // si la fonction ne retourne rien : erreur
                 if (null == $dao->clientLogin($login, $password)) {
@@ -160,7 +149,6 @@ class createUserController {
                     // ou la page définie avant d'aller sur la page d'inscription
                     header('Location:' . $_SESSION['pagesurlaquelleondoitaller']);
                     unset($_SESSION['pagesurlaquelleondoitaller']);
-                    //return;
                 }
             }
         } else {
