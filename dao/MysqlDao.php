@@ -465,71 +465,47 @@ class MysqlDao {
 		return $result;
 	}
         
-        public function AjoutClient($civilite, $nom, $prenom, $adresse, $cp, $ville, $pays, $mail, $telFixe, $telPortable, $login, $password) {
- 
- 
-    $sql ="INSERT INTO client SET
-          civilite= :civilite,
-          nom = :nom,
-          prenom = :prenom,
-          adresse = :adresse,
-          codepostal = :cp,
-          ville = :ville,
-          pays = : pays,
-          mail = : mail,
-          telfixe = :telFixe,
-          mobile = :telPortable,
-          login = : login,
-          password = :password ";
-          
-		
-    $stmt = $this->dbh->prepare($sql);
-    $stmt->bindParam(array(
-        ':civilite' => $civilite,
-        ':nom' => $nom,
-        ':prenom' => $prenom,
-        ':adresse'=> $adresse,
-        ':cp' => $cp,
-        ':ville' => $ville,
-        ':pays' => $pays,  
-        ':mail' => $mail, 
-        ':telFixe' => $telFixe,   
-        ':telPortable' => $telPortable,
-        ':login' => $login,
-        ':password' => $password));
-    $stmt->execute();
-     
-      $result = array();
-		while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-			$result[] = $row; // on insère une copie du tableau $row dans $result
-		}
-     return $result;
-    }
-    
-         public function AjoutPassager($civilite,$nom, $prenom, $dateNaissance) {
- 
- 
-    $sql ="INSERT INTO passager SET
-          civilite= :civilite,
-          nom = :nom,
-          prenom = : prenom,
-         dateNaissance = :dateNaissance";
-          
-		
-    $stmt = $this->dbh->prepare($sql);
-    $stmt->bindParam(array(
-    ':civilite'=>$civilite,
-    ':nom' => $nom,
-    ':prenom' => $prenom,
-    ':datenaissance' => $dateNaissance));
-    $stmt->execute();
-     
-      $result = array();
-		while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-			$result[] = $row; // on insère une copie du tableau $row dans $result
-		}
-     return $result;
-    }
+	public function ajoutClient($civilite, $nom, $prenom, $adresse, $cp, 
+		$ville, $pays, $mail, $telFixe, $telPortable, $login, $password) {
+
+
+		$sql = "INSERT INTO client (civilite, nom, prenom, adresse, codepostal,
+			ville, pays, mail, telfixe, mobile, login, password)
+			VALUES( :civilite, :nom,:prenom, :adresse, :cp, :ville, :pays, 
+			:mail, :telFixe, :telPortable, :login, :password)";
+
+
+		$stmt = $this->dbh->prepare($sql);
+
+		return true === $stmt->execute(array( // on vérifie que c'est équivalent à vrai
+			':civilite' => $civilite,
+			':nom' => $nom,
+			':prenom' => $prenom,
+			':adresse'=> $adresse,
+			':cp' => $cp,
+			':ville' => $ville,
+			':pays' => $pays,  
+			':mail' => $mail, 
+			':telFixe' => $telFixe,   
+			':telPortable' => $telPortable,
+			':login' => $login,
+			':password' => $password));
+	}
+
+	public function ajoutPassager($civilite,$nom, $prenom, $dateNaissance) {
+
+		$sql = "INSERT INTO passager (civilite, nom, prenom, dateNaissance)
+			VALUES(:civilite, :nom, :prenom, :dateNaissance)";
+
+
+		$stmt = $this->dbh->prepare($sql);
+		$stmt->bindParam( ':civilite', $civilite);
+		$stmt->bindParam( ':nom', $nom);
+		$stmt->bindParam( ':prenom', $prenom);
+		$stmt->bindParam( ':dateNaissance', $dateNaissance);
+
+		return true === $stmt->execute(); // on vérifie que c'est équivalent à vrai
+	}
 }
 
 ?>
