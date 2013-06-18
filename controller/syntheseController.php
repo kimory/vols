@@ -7,10 +7,6 @@ use dao\MysqlDao;
 class syntheseController {
 
 	public function action() {
-		// TODO
-		// récupérer les informations nécessaires pour afficher la vue
-		// À savoir : ville de départ et d'arrivée, les passagers
-		// La date de départ
 		$dao = new MysqlDao();
 		if( $dao->isClientConnected() )
 		{
