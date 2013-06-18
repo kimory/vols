@@ -1,39 +1,42 @@
-/*style du body et image de fond */
+/* style du body et image de fond */
 body{
     font-family:sans-serif;
-     background-position:center;
-     background-image:url("../images/avions1.jpg");
-     background-repeat:no-repeat;
-     font-size:18px;
-     margin:0px;
-     padding: 0px;
+    background-position:center;
+    background-image:url("../images/avions1.jpg");
+    background-repeat:no-repeat;
+    font-size:18px;
+    margin:0px;
+    padding:0px;
 }
 
-/*toutes les balises "form"*/
+/* toutes les balises "form" */
 body form{
     margin: 0 0 0 0px;
 }
 
-/*le container: fond bleu ciel et transparent*/
+/* le container: fond bleu ciel et transparent */
 #container{
-     position:relative;
-     margin-top:50px;
-     margin-left: 190px;
-	 width:990px;
-	 border:5px outset white;
-	 min-height:550px;
-     background-color:rgba(204,237,240,0.9);
+    position:relative;
+    margin-top:50px;
+    margin-left: 190px;
+    width:990px;
+    border:5px outset white;
+    min-height:550px;
+    background-color:rgba(204,237,240,0.9);
 }
-/*toutes les balises "a" du menu ne seront pas soulignées et seront en noir*/
+
+/* toutes les balises "a" du menu ne seront pas soulignées et seront en noir */
 #menu a {
     text-decoration: none;
     color: black;
 }
-/*bouton pour voir les réservations : page espace client*/
+
+/* bouton pour voir les réservations : page espace client */
 #btvision{
-    
+
 }
-/*les messages d'erreur du formulaire passager*/
+
+/* les messages d'erreur du formulaire passager */
 #errorpassager{
     float: right;
     width: 500px;
@@ -42,36 +45,38 @@ body form{
     margin-left:10px;
 }
 
-
-/*les messages d'erreur de la page proposition*/
+/* les messages d'erreur de la page proposition */
 #errorprososition{
-   position: relative;
+    position: relative;
     width: 550px;
     height: 200px;
     margin-left: 250px;
 }
-/*les messages d'erreur de la page recherche*/
+
+/* les messages d'erreur de la page recherche */
 #errorrecherhe{
-   position: relative;
+    position: relative;
     width: 550px;
     height: 200px;
     margin-left: 250px;
 }
-/*les messages d'erreur des autres pages*/
+
+/* les messages d'erreur des autres pages */
 #error{
-   position: relative;
+    position: relative;
     width: 550px;
     height: 200px;
     margin-left: 250px;
 }
-/*la balise "h5" des formulaires d'inscription,du titre des fieldset,titre de la proposition(page proposition)
-titre de la page recherche*/
+
+/* la balise "h5" des formulaires d'inscription, du titre des fieldsets,
+titre de la proposition (page proposition), titre de la page recherche */
 .h5{
     position: relative;
     margin-top: 10px; 
 }
 
-/* la div contenant la table d'affichage des passagers dans un vol: page affichageDesPassagersController */
+/* la div contenant la table d'affichage des passagers dans un vol (back office) */
 #tablepassagerresa{
     position: relative;
     width: 700px;
@@ -79,14 +84,15 @@ titre de la page recherche*/
     margin-left: 100px;
     text-align: center;
 }
-/* les th de la table contenant l'affichage  des passagers dans un vol: page affichageDesPassagersController */
+
+/* les th de la table contenant l'affichage des passagers dans un vol (back office) */
 #tablepassagerresa th{
     width: 700px;
     border: 1px solid #003399;
     text-align: center;
 }
 
-/* les td de la table contenant les passagers dans un vol: page affichageDesPassagersController */
+/* les td de la table contenant l'affichage des passagers dans un vol (back office) */
 #tablepassagerresa td{
     width: 700px;
     text-align: center;
@@ -101,7 +107,7 @@ titre de la page recherche*/
     margin-top: 0px;
     margin-left: 50px;
     text-align: center;
-    
+
 }
 
 /* les th de la table contenant l'affichage de la réservation dans la page client */
@@ -111,13 +117,14 @@ titre de la page recherche*/
     text-align: center;
 }
 
-/* les td de la table contenant l'affichage de la réservation */
+/* les td de la table contenant l'affichage de la réservation dans la page client */
 .tablereservation td{
     width: 700px;
     text-align: center;
     margin-top: 5px;
     border: 1px solid #003399;
 }
+
 /* formulaire de connexion du client */
 #connectionuser{
     position: relative;
@@ -126,22 +133,24 @@ titre de la page recherche*/
     margin-bottom: 0px;
     margin-top: 0px;
 }
+
 /* formulaire de la page de contact */
 #contact{
     margin-top: -200px;
-    
+
 }
-/* boutton de déconnexion de l'admin*/
+
+/* bouton de déconnexion de l'admin */
 #deconnexionadmin{
     float: right;
     width: 100px;
     height: 40px;
     margin-top: 50px;
     margin-right:50px;
-    
+
 }
 
-/* message d'erreur pour la connexion de l'administrateur*/
+/* message d'erreur pour la connexion de l'administrateur */
 #connectionadmin{
     position: relative;
     width: 800px;
@@ -149,90 +158,101 @@ titre de la page recherche*/
     margin-left: 100px;
     margin-top: 0px;
 }
- /* formulaire de recherche de vol*/
+
+/* formulaire de recherche de vol */
 #recherche{
     position: relative;
     margin-top: -200px;
 }
 
-/*input de la date du formulaire de recherche de vol*/
+/* input de la date du formulaire de recherche de vol */
 #date input{
     width: 53px;
     padding: 0px;
 }
-/*formulaire d'inscription du client dans espaceclient.php*/
-#inscription{
-   float: left;
-}
- /*l'en-tête de la page avec le logo et le menu*/
-#header{
-     margin-top: 1px;
-     width:980px; 
-     height:90px;
-	 
-}
- /*le cadre contenant le logo*/
-#logo{
-     position:absolute;
-     width: 100px;
-     height: 85px;
-     margin-left:0px;
-     margin-top:-1px;;
- }
-  /*l'image du logo*/
- #logo img{
-     width: 100px;
-     height:90px;
- }
- /*la div contenant le formulaire*/
-#backoffice {
-     margin-top: 45px;
-     float: right;
-     width: 800px;
-     height: 42px;
- }
- 
- /*le formulaire de la connexion de l'administrateur*/
- #backoffice form {
-     margin-top:15px;
- }
-  /*input du formulaire de connexion de l'administrateur'*/
- #backoffice form input{
-     margin:0px;
-     padding: 2px;
-     display: inline;
-     margin-top: -10px;
- }
- /*la div contenant le formulaire d'inscription du client*/
- #utilisateur{
-     float: left;
-     margin-top: 5px;
-     padding:10px;
- }
 
-/*la div du menu*/
+/* formulaire d'inscription du client dans espaceclient.php */
+#inscription{
+    float: left;
+}
+
+/* l'en-tête de la page avec le logo et le menu */
+#header{
+    margin-top: 1px;
+    width:980px; 
+    height:90px;
+
+}
+
+/* le cadre contenant le logo */
+#logo{
+    position:absolute;
+    width: 100px;
+    height: 85px;
+    margin-left:0px;
+    margin-top:-1px;;
+}
+
+/* l'image du logo */
+#logo img{
+    width: 100px;
+    height:90px;
+}
+
+/* la div contenant le formulaire */
+#backoffice {
+    margin-top: 45px;
+    float: right;
+    width: 800px;
+    height: 42px;
+}
+
+/* le formulaire de connexion de l'administrateur */
+#backoffice form {
+    margin-top:15px;
+}
+
+/* input du formulaire de connexion de l'administrateur */
+#backoffice form input{
+    margin:0px;
+    padding: 2px;
+    display: inline;
+    margin-top: -10px;
+}
+
+/* la div contenant le formulaire d'inscription du client */
+#utilisateur{
+    float: left;
+    margin-top: 5px;
+    padding:10px;
+}
+
+/* la div du menu */
 #menu{
-     position:absolute;
-     width:770px; 
-     height:40px;
-     margin:0px 0px 5px 170px;
+    position:absolute;
+    width:770px; 
+    height:40px;
+    margin:0px 0px 5px 170px;
 }
-/*les ul > li(les boutons) du menu*/
+
+/* les ul > li (les boutons) du menu */
 .nav-tabs > li {
-  float: left;
-  width: 150px;
-  text-align: center;
-  border: 2px outset;
+    float: left;
+    width: 150px;
+    text-align: center;
+    border: 2px outset;
 }
-/*les balises "a" se trouvant dans le "li" du menu*/
+
+/* les balises "a" se trouvant dans le "li" du menu */
 .nav-tabs > li > a{
-  padding-right: 20px;
-  padding-left: 10px;
-  margin-right: 20px;
-  margin-left: 15px;
-  line-height: 15px;
+    padding-right: 20px;
+    padding-left: 10px;
+    margin-right: 20px;
+    margin-left: 15px;
+    line-height: 15px;
 }
-/*div contenant tous les affichages (les formulaires,le carousel...)*/
+
+/* div contenant tous les affichages (les formulaires, le carousel...) */
 #developpement{
     position: relative;
     margin: 10px 5px 0px 15px;
@@ -240,17 +260,17 @@ titre de la page recherche*/
     border: 3px inset #eeeeee;
     padding: 15px;
     overflow: auto;
-} 
-/*les balises "a" des affiches*/
+}
+
+/* les balises "a" des affichages */
 #developpement a{
     font-weight: bold;
     font-style: italic;
     color: black;
     text-decoration: underline;
-    
 }
 
-/*la table contenant le billet électronique*/
+/* la table contenant le billet électronique */
 #billet{
     background-color: white;
     position: relative;
@@ -274,7 +294,8 @@ titre de la page recherche*/
     margin-top: 5px;
     border: 1px solid #eeeeee;
 }
-/*la div contenant les images du carousel*/
+
+/* la div contenant les images du carousel */
 #carousel{
     position: relative;
     margin: 10px 5px 0px 70px;
@@ -283,12 +304,13 @@ titre de la page recherche*/
     border: 4px graytext inset;
 }
 
-/*la taille des images du carousel*/
+/* la taille des images du carousel */
 .carousel-inner img{
     width: 850px;
     height: 500px;
 }
- /*la div contenant le texte de "bienvenue et cliquez ici"*/
+
+/* la div contenant le texte de "bienvenue et cliquez ici" */
 #bienvenue{
     position: relative;
     text-align: center;
@@ -296,30 +318,32 @@ titre de la page recherche*/
     width: 300px;
     border: 2px inset #eeeeee;
     margin: 5px 0px 5px 350px;
- }
-  /* bouton de déconnexion du client*/
+}
+
+/* bouton de déconnexion du client */
 #deconnexionuser{
     float: right;
     margin-top: 10px;
     margin-right: -90px;
- }
- 
-  /* formulaire d'enregistrement du passager'*/
- #enregistrementpassager{
-     margin-top: 0px;
-     
- }
+}
 
-/*le pied de page*/
+/* formulaire d'enregistrement du passager */
+#enregistrementpassager{
+    margin-top: 0px;
+
+}
+
+/* le pied de page */
 #footer{
     position:relative;
-     width:990px; 
-     height:70px;
-     margin-top:10px;
+    width:990px; 
+    height:70px;
+    margin-top:10px;
 }
-/* la balise 'p' dans le footer*/
+
+/* la balise "p" dans le footer */
 #footer p {
     text-align: center;
     margin:0px 0px 0px 500px;
-    
+
 }
