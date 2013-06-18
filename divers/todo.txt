@@ -29,6 +29,7 @@ BDD :
 
 Back office :
         * inutilité du menu en haut = on ne peut pas cliquer dessus
+        * les liens d'une partie à une autre ne sont plus visibles !
 
 createUserController :
         * à créer !
