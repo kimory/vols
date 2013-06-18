@@ -525,6 +525,21 @@ class MysqlDao {
                 
 		return true === $stmt->execute(); // on vérifie que c'est équivalent à vrai
 	}
+        public function addContact($nom,$prenom,$mail,$sujet,$telephone,$message){
+            
+            $sql = "INSERT INTO contact ( nom, prenom, mail, sujet, telephone,message) 
+                VALUES(:nom ,:prenom, :mail, :sujet, :telephone, :message)";
+            
+            $stmt = $this->dbh->prepare($sql);
+            $stmt->bindValue(':nom', $nom);
+            $stmt->bindParam(':prenom', $prenom);
+            $stmt->bindParam(':mail', $mail);
+            $stmt->bindParam(':sujet', $sujet);
+            $stmt->bindParam(':telephone', $telephone);
+            $stmt->bindParam(':message', $message);
+            
+            return true === $stmt->execute(); //on verifie si c'est bien cela
+        }
 }
 
 ?>
