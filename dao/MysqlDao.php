@@ -676,6 +676,7 @@ class MysqlDao {
 
 	// retourne un tableau multidimensionnel, aux indexs :
 	// 'places' = l'ensemble des informations sur les passagers (nom prenom civilite tarif place)
+	// 'vol' = l'ensemble des informations sur le vol
 
 	public function getInfoBillet($numreservation)
 	{
