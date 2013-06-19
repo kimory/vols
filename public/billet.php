@@ -72,8 +72,8 @@
 						endforeach;
 						?>
 					</table>
-                                      </div>
-				<?
+
+				<?php
 				endif;
 				?>
 			</div>

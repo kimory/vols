@@ -115,8 +115,7 @@ class createUserController {
             $messages[] = "Le mot de passe est incorrect.";
         }
 
-        if (empty($messages)) {   
-
+        if (empty($messages)) {
             $dao = new MysqlDao();
             $ret = $dao->ajoutClient($civilite, $nom, $prenom, $adresse, $cp, $ville, $pays, $email, $telfixe, $mobile, $login, $password);
 

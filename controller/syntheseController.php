@@ -67,6 +67,7 @@ class syntheseController {
 							include VIEW . "synthese.php";
 							break;
 						case 4 :
+                                                        // A priori on ne devrait jamais avoir cette erreur...
 							$_SESSION['message'] = "Après insertion d'un passager, nous ne le retrouvons plus dans la base.";
 							include VIEW . "synthese.php";
 							break;
@@ -80,7 +81,6 @@ class syntheseController {
 							break;
 					}
 					
-
 				} 
 				else 
 				{
@@ -109,7 +109,7 @@ class syntheseController {
 			else // il manque des informations, on repart sur la page "recherche"
 			{
 
-				$messages = array(); // cf la page recherche parcours un tableau de messages
+				$messages = array(); // cf sur la page recherche, on parcourt un tableau de messages
 				$messages[] = "Certaines informations sont manquantes !";
 				$_SESSION['messages'] = $messages;
 				header('Location:/recherche');
@@ -118,7 +118,7 @@ class syntheseController {
 		}
 		else
 		{
-			$messages = array(); // cf la page recherche parcours un tableau de messages
+			$messages = array(); // cf sur la page recherche, on parcourt un tableau de messages
 			$messages[] = "Votre session a expiré ! Merci de recommencer votre recherche !";
 			$_SESSION['messages'] = $messages;
 			header('Location:/recherche');
