@@ -20,7 +20,7 @@ Pour l'espace client :
 
 BDD :
         * en local, importer la bonne version de la BDD (plus de données + autoincrement !)
-        * sur le serveur -> mettre la bonne version de la BDD quand la table contact sera OK
+        * !!! sur le serveur -> mettre la bonne version de la BDD quand la table contact sera OK !!!
 
 Back office :
         * inutilité du menu en haut = on ne peut pas cliquer dessus
