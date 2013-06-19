@@ -541,8 +541,8 @@ class MysqlDao {
 		$numreservation = $row['maxid'];
 		$numreservation += 1;	// ID de la prochaine réservation
 
-		$sql = "INSERT INTO reservation (numreserv, date, client)
-			VALUES(:numreserv, NOW(), :numclient);";
+		$sql = "INSERT INTO reservation (numreserv, datereserv, numclient)
+			VALUES (:numreserv, DATE_FORMAT(NOW(), '%Y-%m-%d'), :numclient)";
 
 		$stmt = $this->dbh->prepare($sql);
 		$stmt->bindParam(':numreserv', $numreservation);
@@ -553,8 +553,6 @@ class MysqlDao {
 		{
 			return 2;	// impossible d'entrer une nouvelle réservation
 		}
-
-		echo "ON ESezgeT LAAAAA";
 
 		// recherche d'un numéro de passager
 		$sql = "SELECT numpassager 
@@ -589,7 +587,7 @@ class MysqlDao {
 			}
 			else	// s'il faut créer le passager
 			{ 
-				$dt = DateTime::createFromFormat('d/m/Y', $date);
+				$dt = DateTime::createFromFormat('d/m/Y', $passager->getDateNaissance());
 				
 				// on insère un nouveau passager
 				$stmt2->bindParam(':civilite', $passager->getCivilite());
@@ -624,7 +622,7 @@ class MysqlDao {
 			$stmt3->bindParam(':numpassager', $numpassager);
 			$stmt3->bindParam(':numvol', $vol->getNumvol());
 			$stmt3->bindParam(':numreservation', $numreservation);
-			$prix = (payePleinTarif($passager->getDateNaissance())) ? $vol->getTarif() : 50;
+			$prix = ($this->payePleinTarif($passager->getDateNaissance())) ? $vol->getTarif() : 50;
 			$stmt3->bindParam(':prix', $prix);
 
 			if(!(true === $stmt3->execute()))
