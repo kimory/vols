@@ -44,6 +44,19 @@ body form{
     margin-top: 10px;
     margin-left:10px;
 }
+/* la div comportant le texte de synthese*/
+#synthese{
+   position: relative;
+    margin-top: -150px; 
+}
+/* les messages d'erreur de la page synthese*/
+#errorsynthese{
+     position: relative;
+    width: 500px;
+    height: 200px;
+    margin-top: 10px;
+    margin-left:10px;
+}
 
 /* les messages d'erreur de la page proposition */
 #errorprososition{
