@@ -46,6 +46,9 @@ Après l'étape 'paiement' :
 Formulaire passager :
         * garder les infos en session
 
+Page d'accueil :
+        * le texte "bienvenue" ne s'affiche pas correctement sous Chrome
+
 CSS :
         * vue synthèse (passagers en ligne ?)
         * vues back office : centrer
