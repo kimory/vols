@@ -512,8 +512,11 @@ class MysqlDao {
 	public function ajoutReservation($loginclient, $passagers, $vol, $reservation) 
 	{
 
+		// Premièrement : on récupère notre numéro de client
 		$sql = "SELECT numclient FROM client WHERE login=:login";
 		$stmt->bindParam(':login', $loginclient);
+
+		$stmt->execute();
 
 		if(($row = $stmt->fetch(PDO::FETCH_ASSOC)))
 		{
@@ -525,7 +528,7 @@ class MysqlDao {
 		}
 
 		// On récupère l'id max de la table réservation
-		$sql = "SELECT MAX(numreserv) as maxid
+		$sql = "SELECT ifnull(MAX(numreserv), 0) as maxid
 			FROM reservation";
 
 		$stmt = $this->dbh->prepare($sql);
@@ -579,7 +582,7 @@ class MysqlDao {
 			{
 				$numpassager = $row['numpassager'];
 			}
-			else
+			else	// s'il faut créer le passager
 			{ 
 				$dt = DateTime::createFromFormat('d/m/Y', $date);
 				
@@ -621,8 +624,14 @@ class MysqlDao {
 
 			$stmt3->execute();
 
+			if(!(true === $stmt3->execute()))
+			{
+				return 5;	// impossible d'insérer une place
+			}
+
 		}
 
+		return 0;
 	}
 
 	// date_de_naissance au format 

@@ -43,13 +43,40 @@ class syntheseController {
 					// enregistrer les informations de la résa dans la BDD
 					// passer à la vue suivante
 
-					if (!$dao->ajoutReservation($_SESSION['login'], 
+					$ret = $dao->ajoutReservation($_SESSION['login'], 
 						$_SESSION['passagers'], 
 						$_SESSION['vol'], 
-						$reservation)) 
+						$reservation);
+
+					switch($ret)
 					{
-						$_SESSION['message'] = "Erreur lors de l'ajout d'une réservation dans la base de données.";
-						include VIEW . "synthese.php";
+						case 0 : 
+							include VIEW . "synthese.php";
+							break;
+						case 1 :
+							$_SESSION['message'] = "Le client actuel n'existe pas.";
+							include VIEW . "synthese.php";
+							break;
+						case 2 :
+							$_SESSION['message'] = "Impossible d'entrer une nouvelle réservation.";
+							include VIEW . "synthese.php";
+							break;
+						case 3 :
+							$_SESSION['message'] = "Impossible d'insérer un nouveau passager.";
+							include VIEW . "synthese.php";
+							break;
+						case 4 :
+							$_SESSION['message'] = "Après insertion d'un passager, nous ne le retrouvons plus dans la base.";
+							include VIEW . "synthese.php";
+							break;
+						case 5 :
+							$_SESSION['message'] = "Impossible d'insérer une place.";
+							include VIEW . "synthese.php";
+							break;
+						default :
+							$_SESSION['message'] = "Erreur lors de l'ajout d'une réservation dans la base de données.";
+							include VIEW . "synthese.php";
+							break;
 					}
 					
 
