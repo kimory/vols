@@ -26,6 +26,11 @@
 
 			</div>
 			<div id="developpement">
+				<div id="connectionuser">
+					<?php
+					include('include/user_connection_form.php');
+					 ?>
+				</div>
 				<?php 
 				// soit nous affichons un message d'erreur
 				// soit la requête s'est bien passée, nous pouvons afficher le billet
