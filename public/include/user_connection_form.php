@@ -28,11 +28,11 @@ else
 ?>
                      <fieldset>
                          Connexion Utilisateur : &nbsp;&nbsp;&nbsp;
-			<label for ="login">login</label>
-			<input type="text" name="login" id="login">
+			<label for ="login_client">login</label>
+			<input type="text" name="login" id="login_client">
 
-			<label for ="passwd">password</label>
-			<input type="password" name="passwd" id="passwd">
+			<label for ="passwd_client">password</label>
+			<input type="password" name="passwd" id="passwd_client">
 
 			<input type="submit" value="ok">          
 		</fieldset>
