@@ -75,27 +75,12 @@ include_once("../setup.php");
                             </select>
 
                             <label for="nom<?php echo $i; ?>">Nom</label>
-                            <input type="text" name="nom[]" id="nom<?php echo $i; ?>" value="<?php 
-				if(isset($_SESSION['nom']))
-				{
-					echo $_SESSION['nom'];
-                                        unset($_SESSION['nom']);
-				}?>">
+                            <input type="text" name="nom[]" id="nom<?php echo $i; ?>">
                             <label for="prenom<?php echo $i; ?>">Prénom</label>
-                            <input type="text" name="prenom[]" id="prenom<?php echo $i; ?>"value="<?php 
-				if(isset($_SESSION['prenom']))
-				{
-					echo $_SESSION['prenom'];
-                                        unset($_SESSION['prenom']);
-				}?>">
+                            <input type="text" name="prenom[]" id="prenom<?php echo $i; ?>>
                                 
                             <label for="date_de_naissance<?php echo $i; ?>">Date de naissance</label>
-                            <input type="text" name="date_de_naissance[]" id="date_de_naissance<?php echo $i; ?>" placeholder="jj/mm/aaaa"value="<?php 
-				if(isset($_SESSION['date_de_naissance']))
-				{
-					echo $_SESSION['date_de_naissance'];
-                                        unset($_SESSION['date_de_naissance']);
-				}?>">
+                            <input type="text" name="date_de_naissance[]" id="date_de_naissance<?php echo $i; ?>" placeholder="jj/mm/aaaa">
 
                         </fieldset>
                             
