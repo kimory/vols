@@ -674,8 +674,8 @@ class MysqlDao {
 			PA.civilite as civilite,
 			PA.nom as nom,
 			PA.prenom as prenom,
-			DATE_FORMAT(datenaissance, '%d/%m/%Y') as datenaissance
-			FROM place PL JOIN passager PA 
+			DATE_FORMAT(PA.datenaissance, '%d/%m/%Y') as datenaissance
+			FROM place PL INNER JOIN passager PA 
 			ON PL.numpassager = PA.numpassager
 			WHERE PL.numreservation=:numreservation";
 		$stmt = $this->dbh->prepare($sql);
@@ -702,10 +702,10 @@ class MysqlDao {
 			V.lieudep as lieudep,
 			V.lieuarriv as lieuarriv,
 			DATE_FORMAT(V.dateheuredep, '%d/%m/%Y %H:%i') as datedepart,
-			DATE_FORMAT(V.dateheurearrivee, '%d/%m/%Y %H:%i') as datearrivee,
-			FROM place PL JOIN vol V
+			DATE_FORMAT(V.dateheurearrivee, '%d/%m/%Y %H:%i') as datearrivee
+			FROM place PL INNER JOIN vol V
 			ON PL.numvol = V.numvol
-			WHERE PL.numreservation = :numreservation";
+			WHERE PL.numreservation=:numreservation";
 		$stmt = $this->dbh->prepare($sql);
 		$stmt->bindParam(':numreservation', $numreservation);
 		$stmt->execute();
@@ -713,7 +713,7 @@ class MysqlDao {
 		if($row = $stmt->fetch(PDO::FETCH_ASSOC))
 		{
 			// on récupère les informations sur le vol
-			$resultat['vol'][] = $row;
+			$resultat['vol'] = $row;
 		}
 		else
 		{
