@@ -509,11 +509,14 @@ class MysqlDao {
 		return 2; // il y a eu une erreur lors de l'insertion
 	}
 
-	public function ajoutReservation($loginclient, $passagers, $vol, $reservation) 
+	public function ajoutReservation($loginclient, $passagers, $numvol) 
 	{
+
+		$vol = $this->getVolById($numvol);
 
 		// Premièrement : on récupère notre numéro de client
 		$sql = "SELECT numclient FROM client WHERE login=:login";
+		$stmt = $this->dbh->prepare($sql);
 		$stmt->bindParam(':login', $loginclient);
 
 		$stmt->execute();
@@ -550,6 +553,8 @@ class MysqlDao {
 		{
 			return 2;	// impossible d'entrer une nouvelle réservation
 		}
+
+		echo "ON ESezgeT LAAAAA";
 
 		// recherche d'un numéro de passager
 		$sql = "SELECT numpassager 
@@ -621,8 +626,6 @@ class MysqlDao {
 			$stmt3->bindParam(':numreservation', $numreservation);
 			$prix = (payePleinTarif($passager->getDateNaissance())) ? $vol->getTarif() : 50;
 			$stmt3->bindParam(':prix', $prix);
-
-			$stmt3->execute();
 
 			if(!(true === $stmt3->execute()))
 			{

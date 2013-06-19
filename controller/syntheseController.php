@@ -43,10 +43,15 @@ class syntheseController {
 					// enregistrer les informations de la résa dans la BDD
 					// passer à la vue suivante
 
+					/*
+					var_dump($_SESSION['login']);
+					var_dump($_SESSION['passagers']);
+					var_dump($_SESSION['vol']);
+					 */
+
 					$ret = $dao->ajoutReservation($_SESSION['login'], 
 						$_SESSION['passagers'], 
-						$_SESSION['vol'], 
-						$reservation);
+						$_SESSION['volchoisi']);
 
 					switch($ret)
 					{
