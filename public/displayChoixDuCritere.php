@@ -1,10 +1,10 @@
 <?php
+use entity\User;
+
 if (!isset($_SESSION)) {
     session_start();
 }
 include_once("../setup.php");
-
-use entity\User;
 
 if(!User::isAdminConnected()){
     // Si un utilisateur non connecté en tant qu'admin tente d'accéder à cette page directement

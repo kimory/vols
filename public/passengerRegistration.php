@@ -1,10 +1,9 @@
 <?php
+include_once("../setup.php");
+
 if (!isset($_SESSION)) {
     session_start();
 }
-
-include_once("../setup.php");
-
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
