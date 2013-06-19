@@ -26,8 +26,8 @@ else
 			<label for ="login_admin">LOGIN</label>
 			<input type="text" name="login_admin" id="login_admin">
                    
-			<label for ="passwd">PASSWORD</label>
-			<input type="password" name="passwd" id="passwd">
+			<label for ="passwd_admin">PASSWORD</label>
+			<input type="password" name="passwd" id="passwd_admin">
                         
                         <input type="submit" name="valider" id="valider" value="ok">         
 		</form>

@@ -35,6 +35,11 @@ if (!isset($_SESSION)) {
                 </div>
 			
             <div id="developpement">
+				<div id="connectionuser">
+					<?php
+					include('include/user_connection_form.php');
+					 ?>
+				</div>
                 <div id="error">
                    <?php if (isset($_SESSION['messages'])) : ?>
                         <ul>
