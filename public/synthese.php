@@ -35,7 +35,7 @@ if (!isset($_SESSION)) {
 
 			</div>
 			<div id="developpement">
-                            <div id="errorrecherhe">
+                            <div id="errorsynthese">
 				<?php 
 				if (isset($_SESSION['message'])) : ?>
                                     <div id="error">
@@ -48,6 +48,7 @@ if (!isset($_SESSION)) {
 				endif;
 				?>
                                 </div>
+                            <div id="synthese">
 			<p>Vous souhaitez réserver <?php echo $_SESSION['nb_passagers']; ?> place(s) pour le 
 				<?php $dateheuredep = new DateTime($_SESSION['vol']->getDateHeureDepart()); ?>
                                 <?php echo $dateheuredep->format('d/m/Y à H:i'); ?> pour le vol <?php echo $_SESSION['vol']->getNumvol(); ?>
@@ -64,7 +65,7 @@ if (!isset($_SESSION)) {
                                 
 			}
 			?>
-                        <br><br>
+                        </div><br><br>
                         <p>Prix total : <?php echo $_SESSION['tarif'];?> €</p>
                         <br>
 			<div>
