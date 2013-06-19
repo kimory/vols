@@ -510,6 +510,7 @@ class MysqlDao {
 	}
 
 	// Le dernier paramètre permet de récupérer le numéro de réservation
+        // On le passe par référence.
 	public function ajoutReservation($loginclient, $passagers, $numvol, &$numres) 
 	{
 
@@ -523,6 +524,7 @@ class MysqlDao {
 		$stmt->execute();
 
 		if(($row = $stmt->fetch(PDO::FETCH_ASSOC)))
+                // on regarde si qqch est renvoyé
 		{
 			$numclient = $row['numclient'];
 		}
@@ -628,6 +630,7 @@ class MysqlDao {
 			$stmt3->bindParam(':numpassager', $numpassager);
 			$stmt3->bindParam(':numvol', $vol->getNumvol());
 			$stmt3->bindParam(':numreservation', $numreservation);
+                        // Attention, le prix dépend de l'âge du passager :
 			$prix = ($this->payePleinTarif($passager->getDateNaissance())) ? $vol->getTarif() : 50;
 			$stmt3->bindParam(':prix', $prix);
 
@@ -649,18 +652,18 @@ class MysqlDao {
 
 		$interval = $today->diff($dt);
 
+                // Avec int on récupérera un entier
 		return ((int)$interval->format('%a')) > 365*3; // on regarde si il a plus de 3 ans
-                // on récupérera un entier
+                // renvoie "true" si c'est un adulte, ou "false" si c'est un enfant (< 3 ans)              
 	}
 
 	// retourne un tableau multidimensionnel, aux indexs :
 	// 'places' = l'ensemble des informations sur les passagers (nom prenom civilite tarif place)
 	// 'vol' = l'ensemble des informations sur le vol
-
 	public function getInfoBillet($numreservation)
 	{
-		// voici le résultat final
-		$resultat = array();	// C'est un tableau de tableaux
+                // le résultat final sera enregistrée dans un tableau de tableaux
+		$resultat = array();
 		// l'ensemble des infos sur les places réservées
 		$resultat['places'] = array();	
 		// l'ensemble des infos sur le vol  : 
@@ -681,9 +684,6 @@ class MysqlDao {
 		$stmt = $this->dbh->prepare($sql);
 		$stmt->bindParam(':numreservation', $numreservation);
 		$stmt->execute();
-
-		// cette variable va nous servir pour tous les résultats de requête
-		$row = array();	
 
 		while($row = $stmt->fetch(PDO::FETCH_ASSOC))
 		{

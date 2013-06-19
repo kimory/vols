@@ -32,14 +32,6 @@ Encodage :
 Boutons de déconnexion client :
         * à intégrer sur les bonnes pages
 
-syntheseController :
-        * à vérifier
-        * voir si certains controller font doublon = à supprimer ?
-
-vue "synthèse" :
-        * à vérifier
-        * corriger l'affichage des passagers en ligne
-
 Après l'étape 'paiement' :
         * rentrer dans la BDD les passagers reliés au client, à 1 vol, et à 1 réservation
         * renvoyer la vue Billet à créer
@@ -53,6 +45,7 @@ Page d'accueil :
 CSS :
         * vue synthèse (passagers en ligne ?)
         * vues back office : centrer
+        * corriger le "errorproSosition"
 
 IHM :
         * reprendre les IHM une fois le site fini

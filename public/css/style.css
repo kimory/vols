@@ -49,7 +49,7 @@ body form{
    position: relative;
     margin-top: -150px; 
 }
-/* les messages d'erreur de la page synthese*/
+/* les messages d'erreur de la page synthèse*/
 #errorsynthese{
      position: relative;
     width: 500px;
