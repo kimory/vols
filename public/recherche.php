@@ -68,32 +68,83 @@ if (!isset($_SESSION)) {
                         <h5>Votre sélection</h5>
 
                         <label for ="villedepart">Ville de départ</label>
-                           <input type="text" name="villedepart" id="villedepart">
+                           <input type="text" name="villedepart" id="villedepart" value="<?php 
+				if(isset($_SESSION['villedepart']))
+				{
+					echo $_SESSION['villedepart'];
+                                        unset($_SESSION['villedepart']);
+				}?>">
 
                         <label for ="villearrivee">Ville d'arrivée</label>
-                           <input type="text" name="villearrivee" id="villearrivee"><br>
-                                   <div id="date">
+                           <input type="text" name="villearrivee" id="villearrivee" value="<?php 
+				if(isset($_SESSION['villearrivee']))
+				{
+					echo $_SESSION['villearrivee'];
+                                        unset($_SESSION['villearrivee']);
+				}?>">                                
+                                  <br>
+                        <div id="date">
                         <label for ="datedepart">Date de départ (jj/mm/aaaa) </label>                        
-                           <input type="text" id="jour" name="jour" >/
-                           <input type="text" id="mois" name="mois" >/
-                           <input type="text" id="annee" name="annee" ><br>
+                           <input type="text" id="jour" name="jour" value="<?php 
+				if(isset($_SESSION['jour']))
+				{
+					echo $_SESSION['jour'];
+                                        unset($_SESSION['jour']);
+				}?>">                                      
+                            /
+                           <input type="text" id="mois" name="mois" value="<?php 
+				if(isset($_SESSION['mois']))
+				{
+					echo $_SESSION['mois'];
+                                        unset($_SESSION['mois']);
+				}?>">        
+                            /
+                           <input type="text" id="annee" name="annee" value="<?php 
+				if(isset($_SESSION['annee']))
+				{
+					echo $_SESSION['annee'];
+                                        unset($_SESSION['annee']);
+				}?>">
+                               <br>
+                        </div>
                                 
                         <label for ="nbreadultes">Nombre d'adultes</label>
-                           <input type='number' value="1" min='1' max='50' name="nbreadultes" id="nbreadultes">
+                           <input type='number' value="<?php 
+				if(isset($_SESSION['nbreadultes']))
+				{
+                                        // la valeur par défaut est celle précédemment
+                                        // saisie si elle existe.
+					echo $_SESSION['nbreadultes'];
+                                        unset($_SESSION['nbreadultes']);
+                                }else{
+                                    // Ou "1" (cf un adulte au minimum doit voyager).
+                                    echo "1";
+                                }
+                                    ?>" 
+                                  min='1' max='50' name="nbreadultes" id="nbreadultes">
 
                         <label for ="nbreenfants">Nombre d'enfants (moins de 3 ans)</label>
-                           <input type='number' value="0" min='0' max='50' name="nbreenfants" id="nbreenfants"><br>
-                             </div>
-                        
+                           <input type='number' value="<?php 
+				if(isset($_SESSION['nbreenfants']))
+				{
+                                        // la valeur par défaut est celle précédemment
+                                        // saisie si elle existe.
+					echo $_SESSION['nbreenfants'];
+                                        unset($_SESSION['nbreenfants']);
+                                }else{
+                                    // Ou "0" (par défaut aucun enfant ne voyage).
+                                    echo "0";
+                                }
+                                    ?>" min='0' max='50' name="nbreenfants" id="nbreenfants"><br>
+                       
                            <input type="submit" value="valider">          
                            <input type="reset" value="annuler">
                  
-
                     </fieldset>
                   </div>
                 </form>
-
              </div>
+            
             <div id="footer">
                <?php
                 include './include/footer.php';

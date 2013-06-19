@@ -37,10 +37,9 @@ if (!isset($_SESSION)) {
 			<div id="developpement">
 				<?php 
 				if (isset($_SESSION['message'])) : ?>
-				<div id="error">
-					<p>Votre message d'erreur : </p>
-					<p><?php echo $_SESSION['message']; ?></p>
-				</div>
+                                    <div id="error">
+                                        <p><?php echo $_SESSION['message']; ?></p>
+                                    </div>
 				<?php
 					// On détruit le message en session une fois
 					// qu'il a été affiché

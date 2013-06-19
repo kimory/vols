@@ -5,7 +5,6 @@
 -Renommer les pages pour avoir une cohérence ??
 -Validation W3C
 -A faire ou à noter dans les remarques (...) : vérifier que les passagers renseignés correspondent bien aux nombres d'adultes et d'enfants renseignés (sinon le prix sera faux !)
--Faire en sorte qu'un client ne puisse pas s'inscrire avec un login déjà existant
 -Mot de passe client à chiffrer
 
 
@@ -31,17 +30,17 @@ Encodage :
 
 syntheseController :
         * à vérifier
+        * voir si certains controller font doublon = à supprimer ?
 
 vue "synthèse" :
-        * à vérifier (il faut changer le select pour l'année pour que ce soit valable tout le temps)
-        * le message d'erreur ne s'affiche pas !!
+        * à vérifier
         * corriger l'affichage des passagers en ligne
 
 Après l'étape 'paiement' :
         * rentrer dans la BDD les passagers reliés au client, à 1 vol, et à 1 réservation
         * renvoyer la vue Billet à créer
 
-Formulaires :
+Formulaire passager :
         * garder les infos en session
 
 CSS :
