@@ -116,8 +116,6 @@ class createUserController {
         }
 
         if (empty($messages)) {
-            //header('location:/displaycontact');   
-            //include VIEW . "confirmationinscription.php";;
 
             $dao = new MysqlDao();
             $ret = $dao->ajoutClient($civilite, $nom, $prenom, $adresse, $cp, $ville, $pays, $email, $telfixe, $mobile, $login, $password);
