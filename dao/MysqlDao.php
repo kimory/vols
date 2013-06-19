@@ -512,11 +512,6 @@ class MysqlDao {
 	public function ajoutReservation($loginclient, $passagers, $vol, $reservation) 
 	{
 
-		// Réservation :
-		// Les passagers : vérifier pour chacun s'ils existent en base,
-		// sinon ajouter : numpassager autoincrement, civilite nom prenom datenaissance
-		// Créer places*nbpassagers : 
-
 		$sql = "SELECT numclient FROM client WHERE login=:login";
 		$stmt->bindParam(':login', $loginclient);
 
@@ -529,10 +524,22 @@ class MysqlDao {
 			return 1;	// le client n'existe pas
 		}
 
-		$sql = "INSERT INTO reservation (date, client)
-			VALUES(NOW(), :numclient);";
+		// On récupère l'id max de la table réservation
+		$sql = "SELECT MAX(numreserv) as maxid
+			FROM reservation";
 
 		$stmt = $this->dbh->prepare($sql);
+		$stmt->execute();
+
+		$row = $stmt->fetch(PDO::FETCH_ASSOC);
+		$numreservation = $row['maxid'];
+		$numreservation += 1;	// ID de la prochaine réservation
+
+		$sql = "INSERT INTO reservation (numreserv, date, client)
+			VALUES(:numreserv, NOW(), :numclient);";
+
+		$stmt = $this->dbh->prepare($sql);
+		$stmt->bindParam(':numreserv', $numreservation);
 		$stmt->bindParam(':numclient', $numclient);
 
 		// si l'exécution se passe mal
@@ -555,7 +562,7 @@ class MysqlDao {
 		$stmt2 = $this->dbh->prepare($sql2);
 
 		// création d'une place
-		$sql3 = "INSERT INTO place (numpassager,numvol,numreservation,prix)
+		$sql3 = "INSERT INTO place (numpassager, numvol, numreservation, prix)
 			VALUES (:numpassager, :numvol, :numreservation, :prix);";
 		$stmt3 = $this->dbh->prepare($sql3);
 
@@ -606,18 +613,49 @@ class MysqlDao {
 			}
 
 			// on donne une place au passager
+			$stmt3->bindParam(':numpassager', $numpassager);
+			$stmt3->bindParam(':numvol', $vol->getNumvol());
+			$stmt3->bindParam(':numreservation', $numreservation);
+			$prix = (payePleinTarif($passager->getDateNaissance())) ? $vol->getTarif() : 50;
+			$stmt3->bindParam(':prix', $prix);
 
-		$sql3 = "INSERT INTO place (numpassager,numvol,numreservation,prix)
-			VALUES (:numpassager, :numvol, :numreservation, :prix);";
-			$stmt->bindParam(':numpassager', $passager);
-			$stmt->bindParam(':numvol', $vol->get);
-			$stmt->bindParam(':numreservation', $reservation);
-			$stmt->bindParam(':prix', $prix);
-
+			$stmt3->execute();
 
 		}
 
+	}
 
+	// date_de_naissance au format 
+	public function payePleinTarif($date_de_naissance)
+	{
+		$dt = DateTime::createFromFormat('d/m/Y', $date_de_naissance);
+		$today = new DateTime();
+
+		$interval = $today->diff($dt);
+
+		return ((int)$interval->format('%a')) > 365*3;
+
+		/*	TODO : virer ce code si devenu inutile
+		$anneenaissance = $dt->format('Y');
+		$moisnaissance = $dt->format('m');
+		$journaissance = $dt->format('d');
+		$anneenaissance = (int) $anneenaissance;
+		$moisnaissance = (int) $moisnaissance;
+		$journaissance = (int) $journaissance;
+
+		$anneecourante = $today->format('Y');
+		$moiscourant = $today->format('m');
+		$jourcourant = $today->format('d');
+		$anneecourante = (int) $anneecourante;
+		$moiscourant = (int) $moiscourant;
+		$jourcourant = (int) $jourcourant;
+
+		if(($anneecourante - $anneenaissance) > 3)
+			return true;
+
+
+		return ;
+		 */
 	}
 
 	public function addContact($nom,$prenom,$mail,$sujet,$telephone,$message){
