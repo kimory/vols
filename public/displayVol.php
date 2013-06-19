@@ -34,13 +34,13 @@ if (!isset($_SESSION)) {
                 </div>
 			
             <div id="developpement">
-		
+                <div id="display">
         <form action="/affichageVolController" method="POST">
             <label for="numvol">Nouveau numéro de vol :</label>
             <input type="text" id="numvol" name="numvol"><br>
             <input type="submit" value="OK">
         </form>
-        
+        </div>
         <?php // On affiche le message d'erreur le cas échéant :
               if (isset($message) && strlen($message) > 0) : ?>
                 <p><?php echo $message ?></p>

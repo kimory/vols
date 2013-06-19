@@ -33,13 +33,13 @@ if (!isset($_SESSION)) {
                        include('include/back_office_login_form.php'); ?>
             </div>
              <div id="developpement">
-                
+                    
         <form action="/affichagePassagerController" method="POST">
             <label for="numpassager">Nouveau numéro de passager :</label>
             <input type="text" id="numpassager" name="numpassager"><br>
             <input type="submit" value="OK">
         </form>
-        
+              
         <?php // On affiche le message d'erreur le cas échéant :
               if (isset($message) && strlen($message) > 0) : ?>
                 <p><?php echo $message ?></p>
