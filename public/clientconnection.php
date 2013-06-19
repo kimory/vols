@@ -1,8 +1,8 @@
 <?php
+use entity\Client;
 if (!isset($_SESSION)) {
 	session_start();
 }
-use entity\Client;
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -32,7 +32,7 @@ use entity\Client;
                                     <?php include('include/back_office_login_form.php'); ?>
                                         
 			</div>
-                    
+
 			<div id="developpement">
                             <div id="connectionuser">
 				<?php
