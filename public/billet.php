@@ -73,7 +73,7 @@
 						?>
 					</table>
 
-				<?
+				<?php
 				endif;
 				?>
 			</div>
