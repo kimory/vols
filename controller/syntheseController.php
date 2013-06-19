@@ -39,16 +39,6 @@ class syntheseController {
 					preg_match("/^[0-9]{3}$/", $_POST['codesecurite']))
 				{
 
-					// TODO
-					// enregistrer les informations de la résa dans la BDD
-					// passer à la vue suivante
-
-					/*
-					var_dump($_SESSION['login']);
-					var_dump($_SESSION['passagers']);
-					var_dump($_SESSION['vol']);
-					 */
-
 					// on y mettra le numéro de réservation calculé
 					$numreservation = '';
 					$ret = $dao->ajoutReservation($_SESSION['login'], 
@@ -119,8 +109,6 @@ class syntheseController {
 			else // il manque des informations, on repart sur la page "recherche"
 			{
 
-				// TODO
-				// Vérifier que cette variable de session sera affichée dans la vue
 				$messages = array(); // cf la page recherche parcours un tableau de messages
 				$messages[] = "Certaines informations sont manquantes !";
 				$_SESSION['messages'] = $messages;
@@ -130,8 +118,6 @@ class syntheseController {
 		}
 		else
 		{
-			// TODO
-			// Vérifier que cette variable de session sera affichée dans la vue
 			$messages = array(); // cf la page recherche parcours un tableau de messages
 			$messages[] = "Votre session a expiré ! Merci de recommencer votre recherche !";
 			$_SESSION['messages'] = $messages;
