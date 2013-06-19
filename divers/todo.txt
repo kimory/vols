@@ -30,6 +30,7 @@ Encodage :
 
 syntheseController :
         * à vérifier
+        * voir si certains controller font doublon = à supprimer ?
 
 vue "synthèse" :
         * à vérifier
