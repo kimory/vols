@@ -173,7 +173,7 @@ titre de la proposition (page proposition), titre de la page recherche */
 /* bouton de déconnexion de l'admin */
 #deconnexionadmin{
     float: right;
-    width: 100px;
+    width: 300px;
     height: 40px;
     margin-top: 50px;
     margin-right:50px;
