@@ -509,7 +509,8 @@ class MysqlDao {
 		return 2; // il y a eu une erreur lors de l'insertion
 	}
 
-	public function ajoutReservation($loginclient, $passagers, $numvol) 
+	// Le dernier paramètre permet de récupérer le numéro de réservation
+	public function ajoutReservation($loginclient, $passagers, $numvol, &$numres) 
 	{
 
 		$vol = $this->getVolById($numvol);
@@ -540,6 +541,11 @@ class MysqlDao {
 		$row = $stmt->fetch(PDO::FETCH_ASSOC);
 		$numreservation = $row['maxid'];
 		$numreservation += 1;	// ID de la prochaine réservation
+
+		// on retourne ainsi le numéro de réservation
+		// on réutilisera cette variable plus tard pour récupérer l'ensemble
+		// des informations qu'il nous faudra afficher sur la page du billet
+		$numres = $numreservation;
 
 		$sql = "INSERT INTO reservation (numreserv, datereserv, numclient)
 			VALUES (:numreserv, DATE_FORMAT(NOW(), '%Y-%m-%d'), :numclient)";
@@ -666,6 +672,75 @@ class MysqlDao {
 
 		return ;
 		 */
+	}
+
+	// retourne un tableau multidimensionnel, aux indexs :
+	// 'places' = l'ensemble des informations sur les passagers (nom prenom civilite tarif place)
+
+	public function getInfoBillet($numreservation)
+	{
+		// voici le résultat final
+		$resultat = array();	// C'est un tableau de tableaux
+		// l'ensemble des infos sur les places réservées
+		$resultat['places'] = array();	
+		// l'ensemble des infos sur le vol  : 
+		// numéro de vol date de départ & arrivée, lieu de départ & d'arrivée
+		$resultat['vol'] = array();
+
+		// on récupère les informations sur les passagers
+		$sql = "SELECT 
+			PL.numplace as numplace,
+			PL.prix as prix,
+			PA.civilite as civilite,
+			PA.nom as nom,
+			PA.prenom as prenom,
+			DATE_FORMAT(datenaissance, '%d/%m/%Y') as datenaissance
+			FROM place PL JOIN passager PA 
+			ON PL.numpassager = PA.numpassager
+			WHERE PL.numreservation=:numreservation";
+		$stmt = $this->dbh->prepare($sql);
+		$stmt->bindParam(':numreservation', $numreservation);
+		$stmt->execute();
+
+		// cette variable va nous servir pour tous les résultats de requête
+		$row = array();	
+
+		while($row = $stmt->fetch(PDO::FETCH_ASSOC))
+		{
+			// pour rappel : $row contient les informations sur les passagers
+			$resultat['places'][] = $row;
+		}
+
+		if(sizeof($resultat['places']) == 0)
+		{
+			return 1;	// On n'a pas trouvé de passager : erreur
+		}
+
+		// on récupère les informations sur le vol
+		$sql = "SELECT 
+			V.numvol as numvol,
+			V.lieudep as lieudep,
+			V.lieuarriv as lieuarriv,
+			DATE_FORMAT(V.dateheuredep, '%d/%m/%Y %H:%i') as datedepart,
+			DATE_FORMAT(V.dateheurearrivee, '%d/%m/%Y %H:%i') as datearrivee,
+			FROM place PL JOIN vol V
+			ON PL.numvol = V.numvol
+			WHERE PL.numreservation = :numreservation";
+		$stmt = $this->dbh->prepare($sql);
+		$stmt->bindParam(':numreservation', $numreservation);
+		$stmt->execute();
+
+		if($row = $stmt->fetch(PDO::FETCH_ASSOC))
+		{
+			// on récupère les informations sur le vol
+			$resultat['vol'][] = $row;
+		}
+		else
+		{
+			return 2;	// On ne trouve pas les informations sur le vol
+		}
+
+		return $resultat;
 	}
 
 	public function addContact($nom,$prenom,$mail,$sujet,$telephone,$message){

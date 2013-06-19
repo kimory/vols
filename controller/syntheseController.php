@@ -49,14 +49,20 @@ class syntheseController {
 					var_dump($_SESSION['vol']);
 					 */
 
+					// on y mettra le numéro de réservation calculé
+					$numreservation = '';
 					$ret = $dao->ajoutReservation($_SESSION['login'], 
 						$_SESSION['passagers'], 
-						$_SESSION['volchoisi']);
+						$_SESSION['volchoisi'],
+						$numreservation);
+
+					$_SESSION['numreservation'] = $numreservation;
 
 					switch($ret)
 					{
 						case 0 : 
-							include VIEW . "synthese.php";
+							header('Location:/billetController');
+							//include VIEW . "synthese.php";
 							break;
 						case 1 :
 							$_SESSION['message'] = "Le client actuel n'existe pas.";
