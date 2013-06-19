@@ -9,6 +9,7 @@ if(User::isAdminConnected())
 	// Si un administrateur est connecté, on lui propose de se déconnecter : 
 ?>
 <div id="deconnexionadmin">
+<a href='/choixducritere'><button class="btn btn-primary" type="button">Choix du critère</button></a>
 <a href='/deconnexionController'><button class="btn btn-large btn-primary" type="button">Déconnexion</button></a>
 </div>
     <?php 
