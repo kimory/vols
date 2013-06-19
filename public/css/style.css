@@ -271,7 +271,7 @@ titre de la proposition (page proposition), titre de la page recherche */
 }
 
 /* la table contenant le billet électronique */
-#billet{
+#billet table{
     background-color: white;
     position: relative;
     width: 700px;

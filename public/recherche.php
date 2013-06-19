@@ -107,7 +107,7 @@ if (!isset($_SESSION)) {
 				}?>">
                                <br>
                         </div>
-                                
+                          <div id="date">    
                         <label for ="nbreadultes">Nombre d'adultes</label>
                            <input type='number' value="<?php 
 				if(isset($_SESSION['nbreadultes']))
@@ -136,7 +136,7 @@ if (!isset($_SESSION)) {
                                     echo "0";
                                 }
                                     ?>" min='0' max='50' name="nbreenfants" id="nbreenfants"><br>
-                       
+                       </div> 
                            <input type="submit" value="valider">          
                            <input type="reset" value="annuler">
                  

@@ -47,7 +47,7 @@
 						Lieu de départ : <?php echo	$resultat['vol']['lieudep']; ?> <br>
 						Lieu d'arrivée : <?php echo	$resultat['vol']['lieuarriv']; ?> <br>
 					</p>
-
+                            <div id="billet">
 					<table>
 						<tr>
 							<th>Numéro de place</th>
@@ -72,7 +72,7 @@
 						endforeach;
 						?>
 					</table>
-
+                                      </div>
 				<?
 				endif;
 				?>

@@ -59,6 +59,7 @@ if (!isset($_SESSION)) {
 				$passager->getNom() . " " . 
 				$passager->getPrenom() . ' né(e) le : ' . 
 				$passager->getDateNaissance() . PHP_EOL;
+                                
 			}
 			?>
                         <br><br>
@@ -69,12 +70,12 @@ if (!isset($_SESSION)) {
 			<form method="post" action="/syntheseController" >
 				<label for="numcarte">Numéro de carte</label>
 				<input type="text" name="numcarte" id="numcarte">
-
+                                    <div id="date">
 				<label for="moisexpiration">Mois d'expiration : </label>
 				<input type="text" name="moisexpiration" id="moisexpiration">
 				<label for="anneeexpiration">Année d'expiration : </label>
 				<input type="text" name="anneeexpiration" id="anneeexpiration">
-
+                                   </div>
 				<label for="nomporteur">Nom du porteur</label>
 				<input type="text" name="nomporteur" id="nomporteur">
 
