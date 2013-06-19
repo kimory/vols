@@ -19,7 +19,7 @@ BDD :
         * !!! sur le serveur -> mettre la bonne version de la BDD quand la table contact sera OK !!!
 
 Back office :
-        * inutilité du menu en haut = on ne peut pas cliquer dessus
+        * inutilité du menu en haut = on ne peut pas cliquer dessus (maintenant les bonnes rubriques st bien sélectionnées)
 
 Boutons de déconnexion client :
         * à intégrer sur les bonnes pages
