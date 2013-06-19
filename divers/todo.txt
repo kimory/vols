@@ -26,7 +26,10 @@ Back office :
         * inutilité du menu en haut = on ne peut pas cliquer dessus
 
 Encodage :
-        * insertion (client, page contact, etc...) => dilemne du htmlentities
+        * insertion (client, page contact, etc...) => dilemne du htmlentities -> à mettre uniquement en sortie !!
+
+Boutons de déconnexion client :
+        * à intégrer sur les bonnes pages
 
 syntheseController :
         * à vérifier
@@ -44,7 +47,8 @@ Formulaire passager :
         * garder les infos en session
 
 CSS :
-        * vue synthèse
+        * vue synthèse (passagers en ligne ?)
+        * vues back office : centrer
 
 IHM :
         * reprendre les IHM une fois le site fini

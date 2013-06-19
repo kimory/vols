@@ -42,10 +42,10 @@
 
 					<p>Voici les détails de votre billet :
 						Numéro de vol : <?php echo $resultat['vol']['numvol']; ?> <br>
-						Date de départ : <?php echo	$resultat['vol']['datedepart']; ?> <br>
-						Date d'arrivée : <?php echo	$resultat['vol']['datearrivee']; ?> <br>
-						Lieu de départ : <?php echo	$resultat['vol']['lieudep']; ?> <br>
-						Lieu d'arrivée : <?php echo	$resultat['vol']['lieuarriv']; ?> <br>
+						Date de départ : <?php echo $resultat['vol']['datedepart']; ?> <br>
+						Date d'arrivée : <?php echo $resultat['vol']['datearrivee']; ?> <br>
+						Lieu de départ : <?php echo $resultat['vol']['lieudep']; ?> <br>
+						Lieu d'arrivée : <?php echo $resultat['vol']['lieuarriv']; ?> <br>
 					</p>
                             <div id="billet">
 					<table>
@@ -62,8 +62,8 @@
 						?>
 							<tr>
 								<td><?php echo $passager['numplace']; ?></td>
-								<td><?php echo $passager['prix']; ?></td>
-								<td><?php echo $passager['civilite']; ?></td>
+								<td><?php echo $passager['prix']; ?> €</td>
+                                                                <td><?php echo strtoupper($passager['civilite']); ?></td>
 								<td><?php echo $passager['nom']; ?></td>
 								<td><?php echo $passager['prenom']; ?></td>
 								<td><?php echo $passager['datenaissance']; ?></td>
