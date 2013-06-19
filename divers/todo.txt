@@ -22,9 +22,6 @@ Back office :
         * inutilité du menu en haut = on ne peut pas cliquer dessus (maintenant les bonnes rubriques st bien sélectionnées)
         * OK back office maintenant accessible de partout !
 
-Formulaire passager :
-        * garder les infos en mémoire
-
 Page d'accueil :
         * le texte "bienvenue" ne s'affiche pas correctement sous Chrome
 
