@@ -9,15 +9,10 @@
 -Mot de passe client à chiffrer
 
 
-- FAIRE :
-	* nouvelle réservation
-	* modification d'une réservation -> revient à annuler + réserver
-	* fiche de synthèse + formulaire de paiement
-	* billet
-
 Pour l'espace client :
         * manipuler des objets dans l'espace client
         * htmlentities pour protéger
+        * modification d'une réservation -> revient à annuler + réserver
 
 BDD :
         * en local, importer la bonne version de la BDD (plus de données + autoincrement !)
@@ -32,12 +27,8 @@ Encodage :
 Boutons de déconnexion client :
         * à intégrer sur les bonnes pages
 
-Après l'étape 'paiement' :
-        * rentrer dans la BDD les passagers reliés au client, à 1 vol, et à 1 réservation
-        * renvoyer la vue Billet à créer
-
 Formulaire passager :
-        * garder les infos en session
+        * garder les infos en mémoire
 
 Page d'accueil :
         * le texte "bienvenue" ne s'affiche pas correctement sous Chrome
