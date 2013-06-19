@@ -542,7 +542,7 @@ class MysqlDao {
 		$numreservation = $row['maxid'];
 		$numreservation += 1;	// ID de la prochaine réservation
 
-		// on retourne ainsi le numéro de réservation
+		// on récupère ainsi le numéro de réservation
 		// on réutilisera cette variable plus tard pour récupérer l'ensemble
 		// des informations qu'il nous faudra afficher sur la page du billet
 		$numres = $numreservation;
@@ -638,10 +638,10 @@ class MysqlDao {
 
 		}
 
-		return 0;
+		return 0; // si tout se passe bien
 	}
 
-	// date_de_naissance au format 
+	// date_de_naissance au format d/m/Y
 	public function payePleinTarif($date_de_naissance)
 	{
 		$dt = DateTime::createFromFormat('d/m/Y', $date_de_naissance);
@@ -649,29 +649,8 @@ class MysqlDao {
 
 		$interval = $today->diff($dt);
 
-		return ((int)$interval->format('%a')) > 365*3;
-
-		/*	TODO : virer ce code si devenu inutile
-		$anneenaissance = $dt->format('Y');
-		$moisnaissance = $dt->format('m');
-		$journaissance = $dt->format('d');
-		$anneenaissance = (int) $anneenaissance;
-		$moisnaissance = (int) $moisnaissance;
-		$journaissance = (int) $journaissance;
-
-		$anneecourante = $today->format('Y');
-		$moiscourant = $today->format('m');
-		$jourcourant = $today->format('d');
-		$anneecourante = (int) $anneecourante;
-		$moiscourant = (int) $moiscourant;
-		$jourcourant = (int) $jourcourant;
-
-		if(($anneecourante - $anneenaissance) > 3)
-			return true;
-
-
-		return ;
-		 */
+		return ((int)$interval->format('%a')) > 365*3; // on regarde si il a plus de 3 ans
+                // on récupérera un entier
 	}
 
 	// retourne un tableau multidimensionnel, aux indexs :

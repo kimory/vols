@@ -22,7 +22,7 @@ class billetController {
 				if($resultat == 1)
 					$message = "Nous n'avons pas trouvé de passager.";
 				else if($resultat == 2)
-					$message = "Nous n'avons pas trouvé d'information sur le vol.";
+					$message = "Nous n'avons pas trouvé d'informations sur le vol.";
 
 				include VIEW . "billet.php";
 			}
