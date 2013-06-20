@@ -81,9 +81,7 @@ class ContactController {
             }
             $_SESSION['messages'] = $messages;
             header('location:/contact');            
-        }
-        
-       
+        }      
         } 
 }
 ?>
