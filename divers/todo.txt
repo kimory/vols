@@ -12,7 +12,6 @@
 
 Pour l'espace client :
         * manipuler des objets dans l'espace client
-        * htmlentities pour protéger
         * modification d'une réservation -> revient à annuler + réserver
 
 BDD :

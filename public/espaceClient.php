@@ -77,19 +77,19 @@ if (!isset($_SESSION)) {
                             <?php
                             // affichage de toutes les lignes
                             foreach ($_SESSION['resultat_liste_reservations'] as $row) :
-                                ?>
+                                ?>                         
                                 <tr>
                                     <td><a href="/reservationDetailsController/action/<?php
-                                        echo $row['numreservation'] ?>"><?php
+                                        echo htmlentities($row['numreservation'], ENT_QUOTES, 'UTF-8')?>"><?php
                                         echo $row['numreservation'] ?></a>
                                     </td>
                                     
                                     <?php $datereservation = new Datetime($row['datereservation']);?>
-                                    <td><?php echo $datereservation->format('d/m/Y'); ?></td>
-                                    <td><?php echo $row['lieudepart'] ?></td>
-                                    <td><?php echo $row['lieuarrivee'] ?></td><br/>
+                                    <td><?php echo htmlentities($datereservation->format('d/m/Y'), ENT_QUOTES, 'UTF-8'); ?></td>
+                                    <td><?php echo htmlentities($row['lieudepart'], ENT_QUOTES, 'UTF-8'); ?></td>
+                                    <td><?php echo htmlentities($row['lieuarrivee'], ENT_QUOTES, 'UTF-8'); ?></td><br/>
                                     <?php $datedepart = new Datetime($row['datedepart']);?>
-                                    <td><?php echo $datedepart->format('d/m/Y H:i');?></td>
+                                    <td><?php echo htmlentities($datedepart->format('d/m/Y H:i'), ENT_QUOTES, 'UTF-8');?></td>
                                 </tr>
                         <?php endforeach; ?>
                         </table>
@@ -139,16 +139,16 @@ if (!isset($_SESSION)) {
             foreach ($_SESSION['resultat_infos_reservation'] as $row) :
                 ?>
                                 <tr>
-                                    <td><?php echo $row['numreservation'] ?> &nbsp;&nbsp;&nbsp;</td>
+                                    <td><?php echo htmlentities($row['numreservation'], ENT_QUOTES, 'UTF-8'); ?> &nbsp;&nbsp;&nbsp;</td>
                                     <?php $datereservation = new Datetime($row['datereservation']);?>
-                                    <td><?php echo $datereservation->format('d/m/Y'); ?> &nbsp;&nbsp;&nbsp;</td>
-                                    <td><?php echo $row['lieudepart'] ?>&nbsp;&nbsp;&nbsp;</td>
-                                    <td><?php echo $row['lieuarrivee'] ?>&nbsp;&nbsp;&nbsp;</td>
+                                    <td><?php echo htmlentities($datereservation->format('d/m/Y'), ENT_QUOTES, 'UTF-8'); ?> &nbsp;&nbsp;&nbsp;</td>
+                                    <td><?php echo htmlentities($row['lieudepart'], ENT_QUOTES, 'UTF-8'); ?>&nbsp;&nbsp;&nbsp;</td>
+                                    <td><?php echo htmlentities($row['lieuarrivee'], ENT_QUOTES, 'UTF-8'); ?>&nbsp;&nbsp;&nbsp;</td>
                                     <?php $datedepart = new Datetime($row['datedepart']);?>
                                     <td><?php echo $datedepart->format('d/m/Y H:i');?>&nbsp;&nbsp;&nbsp;</td>
-                                    <td><?php echo $row['prix'] ?>&nbsp;&nbsp;&nbsp;</td>
-                                    <td><?php echo $row['numeroplace'] ?>&nbsp;&nbsp;&nbsp;</td>
-                                    <td><?php echo $row['numeropassager'] ?>&nbsp;&nbsp;&nbsp;</td>
+                                    <td><?php echo htmlentities($row['prix'], ENT_QUOTES, 'UTF-8'); ?>&nbsp;&nbsp;&nbsp;</td>
+                                    <td><?php echo htmlentities($row['numeroplace'], ENT_QUOTES, 'UTF-8'); ?>&nbsp;&nbsp;&nbsp;</td>
+                                    <td><?php echo htmlentities($row['numeropassager'], ENT_QUOTES, 'UTF-8'); ?>&nbsp;&nbsp;&nbsp;</td>
                                 </tr>
                         <?php endforeach; ?>
                         </table>
