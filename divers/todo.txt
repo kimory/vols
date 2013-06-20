@@ -31,3 +31,6 @@ IHM :
 
 Cahier des charges :
         * mise en forme une fois la V1 terminée
+
+A solutionner pour la V2 :
+        * un client qui se connecte depuis l'espace client est renvoyé sur la page sur laquelle il était avant d'arriver sur l'espace client (ou lieu de l'ec lui-même)
