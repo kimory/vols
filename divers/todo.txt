@@ -22,6 +22,10 @@ BDD :
 Back office :
         * inutilité du menu en haut = on ne peut pas cliquer dessus (maintenant les bonnes rubriques st bien sélectionnées)
 
+Page contact :
+        * garder les infos saisies en mémoire sur le formulaire
+        * vérifier la prise en compte des retours ligne
+
 IHM :
         * reprendre les IHM une fois le site fini
         * tarif sur la vue synthèse
