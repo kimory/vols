@@ -12,6 +12,7 @@ if (!isset($_SESSION)) {
         <meta name="author" content="GRETA 2013">
         <meta name="description" content="application pour une compagnie aérienne">
         <meta name="robots" content="index, follow, all">    
+        <meta http-equiv="X-UA-Compatible&quot" content="IE=edge&quot" />
         <link rel="stylesheet" type="text/css" href="/css/style.css" />
         <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
         <title>DEV-FLY - Détails des passagers</title>
