@@ -55,7 +55,7 @@ class ContactController {
         }
         
         if(empty($messages)){  
-           include VIEW . "displaycontact.php";
+           include VIEW . "affichagecontact.php";
         }else{
             $_SESSION['messages'] = $messages;
             header('location:/contact');            
