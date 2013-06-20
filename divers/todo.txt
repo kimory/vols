@@ -26,9 +26,6 @@ Back office :
         - sur la vue : si on récupère une ancre, on inclut la "portion" de vue concernée
         - attention, il y a un pb d'affichage qui sera à corriger : Bootstrap - .tab-content - display:none;
 
-Page contact :
-        * garder les infos saisies en mémoire sur le formulaire
-
 IHM :
         * reprendre les IHM une fois le site fini
         * tarif sur la vue synthèse

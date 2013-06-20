@@ -65,28 +65,27 @@ if (!isset($_SESSION)) {
                         <label for = "nom">Nom</label>
                            <input type="text" name="nom" id="nom" size="30" value="<?php
                            if (isset($_SESSION['nom'])) echo  $_SESSION['nom']; 
-                                   unset($_SESSION['nom'])?>" >
+                                   unset($_SESSION['nom']);?>" >
 
                         <label for = "prenom">Prénom</label>
                            <input type="text" name="prenom" id="prenom" size="30" value="<?php
                            if (isset($_SESSION['prenom'])) echo  $_SESSION['prenom']; 
-                                  unset($_SESSION['prenom'])?>" >
+                                  unset($_SESSION['prenom']);?>" >
                                <br>
 
                         <label for = "mail">Votre e-mail</label> 
                            <input type="text" name="mail" size="30" value="<?php
                            if (isset($_SESSION['mail'])) echo  $_SESSION['mail']; 
-                           unset($_SESSION['mail'])?>"/><br>
+                           unset($_SESSION['mail']);?>"/><br>
                         
                         <label for = "sujet">Sujet</label>
                         <input type="text" name="sujet" size="30" value="<?php
                            if (isset($_SESSION['sujet'])) echo  $_SESSION['sujet']; 
-                            unset($_SESSION['sujet'])?>"/><br>
+                            unset($_SESSION['sujet']);?>"/><br>
                             
-                        <textarea name="message" rows="6" wrap="virtual" cols="30">
-                          <?php if (isset($_SESSION['message'])) echo $_SESSION['message']; 
-                            unset($_SESSION['message'])?>
-                        </textarea><br>
+                        <textarea name="message" rows="6" wrap="virtual" cols="30"><?php
+                        if (isset($_SESSION['message'])) echo $_SESSION['message']; 
+                            unset($_SESSION['message']);?></textarea><br>
                         
                         <label for= "telephone">Téléphone</label>
                         <input type="text" name="telephone" size="30" value="<?php
