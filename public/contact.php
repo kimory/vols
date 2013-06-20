@@ -62,20 +62,25 @@ if (!isset($_SESSION)) {
                         <h5>Vos coordonnées</h5> 
 
                         <label for = "nom">Nom</label>
-                           <input type="text" name="nom" id="nom" size="30" >
+                           <input type="text" name="nom" id="nom" size="30" value="<?php
+                           if (isset($_POST['nom'])) echo  $_POST['nom']; ?>" >
 
                         <label for = "prenom">Prénom</label>
-                           <input type="text" name="prenom" id="prenom" size="30" ><br>
+                           <input type="text" name="prenom" id="prenom" size="30" value="<?php
+                           if (isset($_POST['prenom'])) echo  $_POST['prenom']; ?>" ><br>
 
                         <label for = "mail">Votre e-mail</label> 
-                           <input type="text" name="mail" size="30" /><br>
+                           <input type="text" name="mail" size="30" value="<?php
+                           if (isset($_POST['mail'])) echo  $_POST['mail']; ?>"/><br>
                         
                         <label for = "sujet">Sujet</label>
-                        <input type="text" name="sujet" size="30" /><br>
+                        <input type="text" name="sujet" size="30" value="<?php
+                           if (isset($_POST['sujet'])) echo  $_POST['sujet']; ?>"/><br>
                         <textarea name="message" rows="6" wrap="virtual" cols="30"></textarea><br>
                         
                         <label for= "telephone">Téléphone</label>
-                        <input type="text" name="telephone" size="30" /><br>       
+                        <input type="text" name="telephone" size="30" value="<?php
+                           if (isset($_POST['telephone'])) echo  $_POST['telephone']; ?>"/><br>       
                         <div id="submit">
                             
                            <input type="submit" value="valider">          
