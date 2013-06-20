@@ -22,7 +22,10 @@ body form{
     width:990px;
     border:5px outset white;
     min-height:550px;
-    background-color:rgba(204,237,240,0.9);
+    background-color: #BEE2EB;
+    filter:alpha(opacity=90); /*opacité de la couleur de fond: propriétaire IE */
+    -moz-opacity:0.90; /*opacité de la couleur de fond: propriétaire Firefox */
+     opacity:0.90; /*opacité de la couleur de fond: CSS3 */
 }
 
 /* toutes les balises "a" du menu ne seront pas soulignées et seront en noir */
