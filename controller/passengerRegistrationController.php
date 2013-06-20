@@ -82,9 +82,7 @@ class passengerRegistrationController {
 
 			if(!empty($messages_erreur))
 			{
-				//$_SESSION['messages_erreur'];
 				include VIEW . "passengerRegistration.php";
-				//unset($_SESSION['messages_erreur']);
 			}
 			else
 			{
