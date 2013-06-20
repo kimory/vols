@@ -7,7 +7,8 @@ if (!isset($_SESSION)) {
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible&quot" content="IE=edge&quot" />
+    <!-- régle le probléme de compatibilité des autres versions de IE et les met par défaut en IE9-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <title>DEV-FLY - Accueil</title>
