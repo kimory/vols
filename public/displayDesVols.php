@@ -14,6 +14,8 @@ if (!isset($_SESSION)) {
         <meta name="author" content="GRETA 2013">
         <meta name="description" content="application pour une compagnie aérienne">
         <meta name="robots" content="index, follow, all">    
+        <!-- règle le problème de compatibilité avec les versions d'IE antérieures à IE9-->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <link rel="stylesheet" type="text/css" href="/css/style.css" />
         <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
         <title>DEV-FLY - Détails des vols</title>
@@ -40,7 +42,7 @@ if (!isset($_SESSION)) {
 				<p><?php echo $message ?></p>
               <?php
 				
-        // Si il n'y a pas d'erreur, on affiche la liste des vols sur lesquels l'employé travaille :
+                // Si il n'y a pas d'erreur, on affiche la liste des vols sur lesquels l'employé travaille :
 			else : ?>
         
                 <div><h3>Description des vols de l'employé N° <a href="/affichageEmployeController/action/<?php echo htmlentities($_GET['numemploye'], ENT_QUOTES, 'UTF-8');?>"><?php echo htmlentities($_GET['numemploye'], ENT_QUOTES, 'UTF-8') ?></a></h3></div>

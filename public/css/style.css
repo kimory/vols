@@ -22,7 +22,10 @@ body form{
     width:990px;
     border:5px outset white;
     min-height:550px;
-    background-color:rgba(204,237,240,0.9);
+    background-color: #BEE2EB;
+    filter:alpha(opacity=90); /* opacité de la couleur de fond : pour IE */
+    -moz-opacity:0.90; /* opacité de la couleur de fond : pour Firefox */
+     opacity:0.90; /* opacité de la couleur de fond - CSS3 : pour les autres navigateurs */
 }
 
 /* toutes les balises "a" du menu ne seront pas soulignées et seront en noir */
@@ -38,6 +41,7 @@ body form{
 
 /* les messages d'erreur du formulaire passager */
 #errorpassager{
+    color: red;
     float: right;
     width: 500px;
     height: 200px;
@@ -51,6 +55,7 @@ body form{
 }
 /* les messages d'erreur de la page synthèse*/
 #errorsynthese{
+     color: red;
      position: relative;
     width: 500px;
     height: 200px;
@@ -60,6 +65,7 @@ body form{
 
 /* les messages d'erreur de la page proposition */
 #errorproposition{
+     color: red;
     position: relative;
     width: 550px;
     height: 200px;
@@ -69,6 +75,7 @@ body form{
 
 /* les messages d'erreur de la page recherche */
 #errorrecherhe{
+     color: red;
     position: relative;
     width: 550px;
     height: 200px;
@@ -77,6 +84,7 @@ body form{
 
 /* les messages d'erreur des autres pages */
 #error{
+     color: red;
     position: relative;
     width: 550px;
     height: 200px;
@@ -97,7 +105,7 @@ titre de la proposition (page proposition), titre de la page recherche */
     margin-top: 50px;
 }
 
-/* titre des formulaires dans le back office (vol,passager...) */
+/* titre des formulaires dans le back office (vol, passager...) */
 .tab-content h3{
     text-align: center;
 }
@@ -255,7 +263,7 @@ titre de la proposition (page proposition), titre de la page recherche */
 #utilisateur{
     float: left;
     margin-top: 5px;
-/*    padding:10px;*/
+    /*padding:10px;*/
 }
 
 /* la div du menu */

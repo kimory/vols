@@ -17,8 +17,8 @@ $methodName = $_GET['method'];
 $controllerClassName = "controller\\$controllerName";
 
 try{
-    // Code générique : quand on arrive sur l'index, on sait qu'on va appeler
-    // un controller et une méthode, mais on ne sait pas encore lesquels.
+    // Code générique. (Quand on arrive sur l'index, on sait qu'on va appeler
+    // un controller et une méthode, mais on ne sait pas encore lesquels).
     $class = new ReflectionClass($controllerClassName);
     $instance = $class->newInstance();
     $method = $class->getMethod($methodName);

@@ -54,8 +54,7 @@ class ContactController {
             $messages[] = "Votre saisie du message est incorrecte.";
         }
         
-        if(empty($messages)){
-            //header('location:/displaycontact');   
+        if(empty($messages)){  
            include VIEW . "displaycontact.php";
         }else{
             $_SESSION['messages'] = $messages;

@@ -6,6 +6,8 @@
 		<meta name="author" content="GRETA 2013">
 		<meta name="description" content="application pour une compagnie aérienne">
 		<meta name="robots" content="index, follow, all">    
+                <!-- règle le problème de compatibilité avec les versions d'IE antérieures à IE9-->
+                <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<link rel="stylesheet" type="text/css" href="/css/style.css" />
 		<link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />     
 		<title>DEV-FLY - Billet</title>

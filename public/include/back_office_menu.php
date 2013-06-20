@@ -1,6 +1,7 @@
 <div id="menu">
 	<ul class="nav nav-tabs">
 		<li <?php
+// La partie du menu qui est "sélectionnée" (visuellement) doit être celle qui correspond à la page actuelle :
 if(isset($_SESSION['page_actuelle']) && strcmp($_SESSION['page_actuelle'], 'Vol') == 0){
 	echo 'class="active"';
 }?>><a href="/choixducritere#vol" data-toggle="tab">Vol</a></li>
