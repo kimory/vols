@@ -7,7 +7,7 @@ if (!isset($_SESSION)) {
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- régle le probléme de compatibilité des autres versions de IE et les met par défaut en IE9-->
+    <!-- règle le probléme de compatibilité avec les versions d'IE antérieures à IE9-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
