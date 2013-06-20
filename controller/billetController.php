@@ -29,7 +29,7 @@ class billetController {
 		}
 		else
 		{
-			$messages = array(); // cf la page recherche parcours un tableau de messages
+			$messages = array(); // cf sur la page recherche, on parcourt un tableau de messages
 			$messages[] = "Votre session a expiré ! Merci de recommencer votre recherche !";
 			$_SESSION['messages'] = $messages;
 			header('Location:/recherche');

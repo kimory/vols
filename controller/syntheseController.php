@@ -57,7 +57,6 @@ class syntheseController {
 					{
 						case 0 : // Tout s'est bien passé, on passe à la vue suivante :
 							header('Location:/billetController');
-							//include VIEW . "synthese.php";
 							break;
 						case 1 :
 							$_SESSION['message'] = "Le client actuel n'existe pas.";
