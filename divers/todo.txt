@@ -12,7 +12,7 @@
 
 
 Pour l'espace client :
-        * manipuler des objets dans l'espace client
+        * impression des billets
         * modification d'une réservation -> revient à annuler + réserver
 
 BDD :
