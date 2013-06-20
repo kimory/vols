@@ -47,8 +47,8 @@ if (!isset($_SESSION)) {
 				<?php
 				endif;
 				?>
-			</div>
-			<div id="inscription">
+                </div>
+                <div id="inscription">
             <?php
             // Si l'utilisateur n'est pas connecté
             if (!Client::isClientConnected()) {
@@ -159,7 +159,7 @@ if (!isset($_SESSION)) {
                 }
             }
             ?>
-                        </div>
+              </div>
          </div>
             <div id="footer">
                 <?php
