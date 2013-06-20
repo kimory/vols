@@ -37,7 +37,7 @@ class ContactController {
 
         if (!isset($_POST['sujet']) || strlen($_POST['sujet']) == 0) {
             $messages[] = "Merci d'indiquer votre sujet.";
-        } elseif (!preg_match("/^[ A-Za-z0-9'àâäéèêëìîïôöòùûüçÀÂÄÉÈËÏÎÌÔÖÙÛÜÇ-]+$/", $_POST['sujet'])) {
+        } elseif (!preg_match("/^[ A-Za-z0-9'àâäéèêëìîïôöòùûüçÀÂÄÉÈËÏÎÌÔÖÙÛÜÇ,.;!?-]+$/", $_POST['sujet'])) {
             $messages[] = "Votre saisie du sujet est incorrecte.";
         } else {
             $sujet = $_POST['sujet'];
