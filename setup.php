@@ -1,5 +1,5 @@
 <?php
-
+// On définit des constantes qui pourront être utilisées au sein de l'appli :
 define('ROOT', realpath(__DIR__).DIRECTORY_SEPARATOR);
 define('ENTITY', ROOT."entity".DIRECTORY_SEPARATOR);
 define('DAO', ROOT."dao".DIRECTORY_SEPARATOR);

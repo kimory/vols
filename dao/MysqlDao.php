@@ -662,7 +662,7 @@ class MysqlDao {
 	// 'vol' = l'ensemble des informations sur le vol
 	public function getInfoBillet($numreservation)
 	{
-                // le résultat final sera enregistrée dans un tableau de tableaux
+                // le résultat final sera enregistré dans un tableau de tableaux
 		$resultat = array();
 		// l'ensemble des infos sur les places réservées
 		$resultat['places'] = array();	
