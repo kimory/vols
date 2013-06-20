@@ -21,6 +21,10 @@ BDD :
 
 Back office :
         * inutilité du menu en haut = on ne peut pas cliquer dessus (maintenant les bonnes rubriques st bien sélectionnées)
+        Piste :
+        - remplacer # par / et récupérer via ?anchor=$1 (à définir dans le .htaccess)
+        - sur la vue : si on récupère une ancre, on inclut la "portion" de vue concernée
+        - attention, il y a un pb d'affichage qui sera à corriger : Bootstrap - .tab-content - display:none;
 
 Page contact :
         * garder les infos saisies en mémoire sur le formulaire
@@ -32,5 +36,6 @@ IHM :
 Cahier des charges :
         * mise en forme une fois la V1 terminée
 
-A solutionner pour la V2 :
+A corriger / solutionner pour la V2 :
         * un client qui se connecte depuis l'espace client est renvoyé sur la page sur laquelle il était avant d'arriver sur l'espace client (ou lieu de l'ec lui-même)
+        * voir si les vues dans le .htaccess ont du sens, on pourrait les faire passer via le contrôleur à chaque fois
