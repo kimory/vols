@@ -735,8 +735,7 @@ class MysqlDao {
 		$stmt->bindParam(':sujet', $sujet);
 		$stmt->bindParam(':telephone', $telephone);
 		$stmt->bindParam(':message', $message);
-
-		return true === $stmt->execute(); // on vérifie si c'est bon
+		$stmt->execute(); 
 	}
 }
 

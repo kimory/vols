@@ -2,6 +2,8 @@
 
 namespace controller;
 
+use dao\MysqlDao;
+
 class ContactController {
 
     public function action() {
@@ -55,6 +57,8 @@ class ContactController {
         }
         
         if(empty($messages)){  
+            $dao = new MysqlDao();            
+            $dao->addContact($nom, $prenom, $mail, $sujet, $telephone, $message);
            include VIEW . "affichagecontact.php";
         }else{
             $_SESSION['messages'] = $messages;
