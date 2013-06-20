@@ -4,6 +4,7 @@
 -Donner avec l'appli la liste des vols créés + identifiants
 -Renommer les pages pour avoir une cohérence ??
 -Validation W3C
+-Ajouter une mention de la page "contact" dans le CDG ?
 -A faire ou à noter dans les remarques (...) : vérifier que les passagers renseignés correspondent bien aux nombres d'adultes et d'enfants renseignés (sinon le prix sera faux !)
 -Au moins un adulte voyage -> vérifier qu'il a au moins 18 ans (et pas 3 ans)
 -Note : dans la partie back office, un passager n'est relié qu'à un seul vol (une seule résa), ce qui pourra être changé pour la V2
@@ -11,7 +12,7 @@
 
 
 Pour l'espace client :
-        * manipuler des objets dans l'espace client
+        * impression des billets
         * modification d'une réservation -> revient à annuler + réserver
 
 BDD :
@@ -20,6 +21,10 @@ BDD :
 
 Back office :
         * inutilité du menu en haut = on ne peut pas cliquer dessus (maintenant les bonnes rubriques st bien sélectionnées)
+
+Page contact :
+        * garder les infos saisies en mémoire sur le formulaire
+        * vérifier la prise en compte des retours ligne
 
 IHM :
         * reprendre les IHM une fois le site fini

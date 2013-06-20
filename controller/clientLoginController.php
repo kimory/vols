@@ -18,7 +18,7 @@ class clientLoginController {
             $result = $dao->clientLogin($login, $passwd);
 
             if ($result == null) {
-                $_SESSION['message_login_client'] = 'Le login et le mot de passe saisis n\' existent pas.';
+                $_SESSION['message_login_client'] = 'Le login et le mot de passe saisis n\'existent pas.';
                 // On stocke 1 message d'erreur en session
                 // et on renvoie vers la page précédente en cas d'erreur de saisie :
             } else {
