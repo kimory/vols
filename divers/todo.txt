@@ -20,13 +20,12 @@ BDD :
 
 Back office :
         * inutilité du menu en haut = on ne peut pas cliquer dessus (maintenant les bonnes rubriques st bien sélectionnées)
-        * OK back office maintenant accessible de partout !
 
 Page d'accueil :
         * le texte "bienvenue" ne s'affiche pas correctement sous Chrome
 
 CSS :
-        * vue synthèse (passagers en ligne ?)
+        * vue synthèse
         * corriger le "errorproSosition"
 
 IHM :

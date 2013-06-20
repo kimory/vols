@@ -87,12 +87,12 @@ if (!isset($_SESSION)) {
 
                             <label for="prenom<?php echo $i; ?>">Prénom</label>
                             <input type="text" name="prenom[]" 
-    <?php if (isset($_POST['prenom'][$i - 1])) echo 'value="' . $_POST['prenom'][$i - 1] . '"'; ?>
+                                <?php if (isset($_POST['prenom'][$i - 1])) echo 'value="' . $_POST['prenom'][$i - 1] . '"'; ?>
                                    id="prenom<?php echo $i; ?>">
 
                              <label for="date_de_naissance<?php echo $i; ?>">Date de naissance</label>
                              <input type="text" name="date_de_naissance[]" 
-    <?php if (isset($_POST['date_de_naissance'][$i - 1])) echo 'value="' . $_POST['date_de_naissance'][$i - 1] . '"'; ?>
+                                <?php if (isset($_POST['date_de_naissance'][$i - 1])) echo 'value="' . $_POST['date_de_naissance'][$i - 1] . '"'; ?>
                                    id="date_de_naissance<?php echo $i; ?>" placeholder="jj/mm/aaaa">
 
                     </fieldset>

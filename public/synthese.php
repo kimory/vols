@@ -60,17 +60,19 @@ if (!isset($_SESSION)) {
 				de <?php echo $_SESSION['vol']->getLieuDepart(); ?> à <?php echo $_SESSION['vol']->getLieuArrivee(); ?>.
 			</p>
 			<p>Pour les passagers suivants : </p>
-			<?php
-			foreach($_SESSION['passagers'] as $passager)
-			{
-				echo 
-				$passager->getNom() . " " . 
-				$passager->getPrenom() . ' né(e) le : ' . 
-				$passager->getDateNaissance() . PHP_EOL;
-                                
-			}
-			?>
-                        </div><br><br>
+                        <ul>
+			<?php foreach($_SESSION['passagers'] as $passager) : ?>
+                                <li>
+                                <?php
+				echo $passager->getNom() . " " . 
+				$passager->getPrenom() . ', né(e) le : ' . 
+				$passager->getDateNaissance();
+                                ?>
+                                </li>        
+			<?php endforeach; ?>
+                        </ul>
+                        
+                        </div><br>
                         <p>Prix total : <?php echo $_SESSION['tarif'];?> €</p>
                         <br>
 			<div>
