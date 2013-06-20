@@ -76,7 +76,10 @@ if (!isset($_SESSION)) {
                         <label for = "sujet">Sujet</label>
                         <input type="text" name="sujet" size="30" value="<?php
                            if (isset($_POST['sujet'])) echo  $_POST['sujet']; ?>"/><br>
-                        <textarea name="message" rows="6" wrap="virtual" cols="30"></textarea><br>
+                            
+                        <textarea name="message" rows="6" wrap="virtual" cols="30">
+                            <?php if (isset($_POST['message'])) echo $_POST['message']; ?>
+                        </textarea><br>
                         
                         <label for= "telephone">Téléphone</label>
                         <input type="text" name="telephone" size="30" value="<?php
