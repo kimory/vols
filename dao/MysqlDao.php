@@ -15,7 +15,7 @@ class MysqlDao {
 	private $dbh;
 
 	public function __construct() {
-		// Connexion à la BD. Les options permettent de renvoyer une exception
+		// Connexion à la BDD. Les options permettent de renvoyer une exception
 		// + d'afficher correctement en UTF8 :
 		$attributes = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
 			PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'");
