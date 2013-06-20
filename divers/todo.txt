@@ -21,7 +21,6 @@ BDD :
 Back office :
         * inutilité du menu en haut = on ne peut pas cliquer dessus (maintenant les bonnes rubriques st bien sélectionnées)
 
-
 IHM :
         * reprendre les IHM une fois le site fini
         * tarif sur la vue synthèse
