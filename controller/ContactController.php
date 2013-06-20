@@ -41,8 +41,8 @@ class ContactController {
             $sujet = htmlentities($_POST['sujet'], ENT_QUOTES, 'UTF-8');
         } 
         
-        if(isset($_POST['tel']) && preg_match("/^\+?[0-9]{8,20}$/",$_POST['tel'])){
-            $telephone = htmlentities($_POST['tel'], ENT_QUOTES, 'UTF-8');
+        if(isset($_POST['telephone']) && preg_match("/^\+?[0-9]{8,20}$/",$_POST['tel'])){
+            $telephone = htmlentities($_POST['telephone'], ENT_QUOTES, 'UTF-8');
 
         } else {
             $messages[] = "Votre saisie du téléphone est incorrecte.";
@@ -55,8 +55,8 @@ class ContactController {
         }
         
         if(empty($messages)){
-            header('location:/displaycontact');   
-          // include VIEW . "displaycontact.php";
+            //header('location:/displaycontact');   
+           include VIEW . "displaycontact.php";
         }else{
             $_SESSION['messages'] = $messages;
             header('location:/contact');            

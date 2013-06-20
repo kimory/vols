@@ -67,8 +67,8 @@ if (!isset($_SESSION)) {
                         <input type="text" name="sujet" size="30" /><br>
                         <textarea name="message" rows="6" wrap="virtual" cols="30"></textarea><br>
                         
-                        <label for= "tel">Téléphone</label>
-                        <input type="text" name="tel" size="30" /><br>       
+                        <label for= "telephone">Téléphone</label>
+                        <input type="text" name="telephone" size="30" /><br>       
                         <div id="submit">
                             
                            <input type="submit" value="valider">          
