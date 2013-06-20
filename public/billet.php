@@ -47,7 +47,7 @@
 				else :	// il n'y a pas de message d'erreur : la requête s'est bien passée
 				?>
 
-					<p>Voici les détails de votre billet :
+					<p>Voici les détails de votre billet :<br>
 						Numéro de vol : <?php echo $resultat['vol']['numvol']; ?> <br>
 						Date de départ : <?php echo $resultat['vol']['datedepart']; ?> <br>
 						Date d'arrivée : <?php echo $resultat['vol']['datearrivee']; ?> <br>

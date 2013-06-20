@@ -36,5 +36,6 @@ Cahier des charges :
 A corriger / solutionner pour la V2 :
         * gérer les allers-retours
         * chiffrer le mot de passe du client
+        * vérifier la présence de protections (type htmlentities) à l'affichage
         * un client qui se connecte depuis l'espace client est renvoyé sur la page sur laquelle il était avant d'arriver sur l'espace client (ou lieu de l'ec lui-même)
         * voir si les vues dans le .htaccess ont du sens, on pourrait les faire passer via le contrôleur à chaque fois
