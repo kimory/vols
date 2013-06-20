@@ -8,17 +8,17 @@ class createUserController {
 
     public function action() {
 
-        $_SESSION['inscription_civilite'] = htmlentities($_POST['civilite'], ENT_QUOTES, 'UTF-8');
-        $_SESSION['inscription_nom'] = htmlentities($_POST['nom'], ENT_QUOTES, 'UTF-8');
-        $_SESSION['inscription_prenom'] = htmlentities($_POST['prenom'], ENT_QUOTES, 'UTF-8');
-        $_SESSION['inscription_adresse'] = htmlentities($_POST['adresse'], ENT_QUOTES, 'UTF-8');
-        $_SESSION['inscription_code_postal'] = htmlentities($_POST['code_postal'], ENT_QUOTES, 'UTF-8');
-        $_SESSION['inscription_ville'] = htmlentities($_POST['ville'], ENT_QUOTES, 'UTF-8');
-        $_SESSION['inscription_pays'] = htmlentities($_POST['pays'], ENT_QUOTES, 'UTF-8');
-        $_SESSION['inscription_email'] = htmlentities($_POST['email'], ENT_QUOTES, 'UTF-8');
-        $_SESSION['inscription_telfixe'] = htmlentities($_POST['telfixe'], ENT_QUOTES, 'UTF-8');
-        $_SESSION['inscription_telportable'] = htmlentities($_POST['telportable'], ENT_QUOTES, 'UTF-8');
-        $_SESSION['inscription_login'] = htmlentities($_POST['login'], ENT_QUOTES, 'UTF-8');
+        $_SESSION['inscription_civilite'] = $_POST['civilite'];
+        $_SESSION['inscription_nom'] = $_POST['nom'];
+        $_SESSION['inscription_prenom'] = $_POST['prenom'];
+        $_SESSION['inscription_adresse'] = $_POST['adresse'];
+        $_SESSION['inscription_code_postal'] = $_POST['code_postal'];
+        $_SESSION['inscription_ville'] = $_POST['ville'];
+        $_SESSION['inscription_pays'] = $_POST['pays'];
+        $_SESSION['inscription_email'] = $_POST['email'];
+        $_SESSION['inscription_telfixe'] = $_POST['telfixe'];
+        $_SESSION['inscription_telportable'] = $_POST['telportable'];
+        $_SESSION['inscription_login'] = $_POST['login'];
 
         $messages = array(); // On initialise un tableau d'erreurs potentielles
         // On vérifie que les champs ont été correctement renseignés
@@ -28,7 +28,7 @@ class createUserController {
         } else if (strcmp($_POST['civilite'], 'm') != 0 && strcmp($_POST['civilite'], 'mme') != 0) {
             $messages[] = "Il y a un soucis dans la sélection de la civilité.";
         } else {
-            $civilite = htmlentities($_POST['civilite'], ENT_QUOTES, 'UTF-8');
+            $civilite = $_POST['civilite'];
         }
 
         if (!isset($_POST['nom']) || strlen($_POST['nom']) == 0) {
@@ -36,7 +36,7 @@ class createUserController {
         } else if (!preg_match("/^[a-zA-ZàâäéèêëìîïôöòùûüçÀÂÄÉÈËÏÎÌÔÖÙÛÜÇ -]+$/", $_POST['nom'])) {
             $messages[] = "Le nom saisi est incorrect.";
         } else {
-            $nom = htmlentities($_POST['nom'], ENT_QUOTES, 'UTF-8');
+            $nom = $_POST['nom'];
         }
 
         if (!isset($_POST['prenom']) || strlen($_POST['prenom']) == 0) {
@@ -44,12 +44,12 @@ class createUserController {
         } else if (!preg_match("/^[a-zA-ZàâäéèêëìîïôöòùûüçÀÂÄÉÈËÏÎÌÔÖÙÛÜÇ -]+$/", $_POST['prenom'])) {
             $messages[] = "Le prénom saisi est incorrect.";
         } else {
-            $prenom = htmlentities($_POST['prenom'], ENT_QUOTES, 'UTF-8');
+            $prenom = $_POST['prenom'];
         }
 
         if (isset($_POST['adresse']) && strlen($_POST['adresse']) > 0 &&
                 preg_match("/^[A-Za-zàâäéèêëìîïôöòùûüçÀÂÄÉÈËÏÎÌÔÖÙÛÜÇ0-9., -]+$/", $_POST['adresse'])) {
-            $adresse = htmlentities($_POST['adresse'], ENT_QUOTES, 'UTF-8');
+            $adresse = $_POST['adresse'];
         } else {
             $messages[] = "L'adresse est incorrecte.";
         }
@@ -57,48 +57,48 @@ class createUserController {
         if (isset($_POST['code_postal']) && strlen($_POST['code_postal']) > 0 &&
                 preg_match("/^[a-zA-Z0-9]{3,}$/", $_POST['code_postal'])) {
             // On prévoit les codes postaux étrangers
-            $cp = htmlentities($_POST['code_postal'], ENT_QUOTES, 'UTF-8');
+            $cp = $_POST['code_postal'];
         } else {
             $messages[] = "Le code postal est incorrect.";
         }
 
         if (isset($_POST['ville']) && strlen($_POST['ville']) > 0 &&
                 preg_match("/^[A-Za-zàâäéèêëìîïôöòùûüçÀÂÄÉÈËÏÎÌÔÖÙÛÜÇ-]+$/", $_POST['ville'])) {
-            $ville = htmlentities($_POST['ville'], ENT_QUOTES, 'UTF-8');
+            $ville = $_POST['ville'];
         } else {
             $messages[] = "La ville est incorrecte.";
         }
 
         if (isset($_POST['pays']) && strlen($_POST['pays']) > 0 &&
                 preg_match("/^[A-Za-zàâäéèêëìîïôöòùûüçÀÂÄÉÈËÏÎÌÔÖÙÛÜÇ-]+$/", $_POST['pays'])) {
-            $pays = htmlentities($_POST['pays'], ENT_QUOTES, 'UTF-8');
+            $pays = $_POST['pays'];
         } else {
             $messages[] = "Le pays est incorrect.";
         }
 
         if (isset($_POST['email']) && strlen($_POST['email']) > 0 &&
                 preg_match("/^[a-zA-Z0-9.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/", $_POST['email'])) {
-            $email = htmlentities($_POST['email'], ENT_QUOTES, 'UTF-8');
+            $email = $_POST['email'];
         } else {
             $messages[] = "L'adresse mail est  incorrecte.";
         }
 
         if (isset($_POST['telfixe']) && preg_match("/^\+?[0-9]{8,20}$/", $_POST['telfixe'])) {
-            $telfixe = htmlentities($_POST['telfixe'], ENT_QUOTES, 'UTF-8');
+            $telfixe = $_POST['telfixe'];
         } else {
             $messages[] = "Le numéro de téléphone fixe est incorrect.";
         }
 
         if (isset($_POST['telportable']) &&
                 preg_match("/^\+?[0-9]{8,20}$/", $_POST['telportable'])) {
-            $mobile = htmlentities($_POST['telportable'], ENT_QUOTES, 'UTF-8');
+            $mobile = $_POST['telportable'];
         } else {
             $messages[] = "Le numéro de téléphone portable est incorrect.";
         }
 
         if (isset($_POST['login']) && strlen($_POST['login']) > 0 &&
                 preg_match("/^[A-Za-z0-9_]+$/", $_POST['login'])) {
-            $login = htmlentities($_POST['login'], ENT_QUOTES, 'UTF-8');
+            $login = $_POST['login'];
         } else {
             $messages[] = "Le login est incorrect.";
         }
@@ -107,7 +107,7 @@ class createUserController {
                 strlen($_POST['password1']) > 0 &&
                 strlen($_POST['password1']) == strlen($_POST['password2'])) {
             if (strcmp($_POST['password1'], $_POST['password2']) == 0) {
-                $password = htmlentities($_POST['password1'], ENT_QUOTES, 'UTF-8');
+                $password = $_POST['password1'];
             } else {
                 $messages[] = "Les mots de passe ne sont pas identiques.";
             }

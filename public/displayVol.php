@@ -1,9 +1,9 @@
-<?php 
+<?php
+use \DateTime;
+
 if (!isset($_SESSION)) {
     session_start();
 }
-
-use \DateTime;
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -25,29 +25,22 @@ use \DateTime;
                   <img id='logo' src='/images/logo.jpg' alt='logo de DEV-FLY' />
 		
                 </div>
-                <div id="menu">
-                      <ul class="nav nav-tabs">
-                        <li class="active"><a href="#vol" data-toggle="tab">Vol</a></li>
-                        <li><a href="#passager" data-toggle="tab">Passager</a></li>
-                        <li><a href="#employe" data-toggle="tab">Employé</a></li>
-                        <li><a href="#reservation" data-toggle="tab">Réservation</a></li>
-                        <li><a href="#client" data-toggle="tab">Client</a></li>
-                    </ul>
-                    </div>
-                
 		       <?php
+				// on inclut le menu du backoffice
+				$_SESSION['page_actuelle'] = 'Vol';
+				include('include/back_office_menu.php');
                        // ici on affichera le bouton de déconnexion
                        include('include/back_office_login_form.php'); ?>
                 </div>
 			
             <div id="developpement">
-		
+                <div id="display">
         <form action="/affichageVolController" method="POST">
             <label for="numvol">Nouveau numéro de vol :</label>
             <input type="text" id="numvol" name="numvol"><br>
             <input type="submit" value="OK">
         </form>
-        
+        </div>
         <?php // On affiche le message d'erreur le cas échéant :
               if (isset($message) && strlen($message) > 0) : ?>
                 <p><?php echo $message ?></p>

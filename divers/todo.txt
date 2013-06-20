@@ -5,46 +5,29 @@
 -Renommer les pages pour avoir une cohérence ??
 -Validation W3C
 -A faire ou à noter dans les remarques (...) : vérifier que les passagers renseignés correspondent bien aux nombres d'adultes et d'enfants renseignés (sinon le prix sera faux !)
+-Au moins un adulte voyage -> vérifier qu'il a au moins 18 ans (et pas 3 ans)
+-Note : dans la partie back office, un passager n'est relié qu'à un seul vol (une seule résa), ce qui pourra être changé pour la V2
 -Mot de passe client à chiffrer
 
-
-- FAIRE :
-	* nouvelle réservation
-	* modification d'une réservation -> revient à annuler + réserver
-	* fiche de synthèse + formulaire de paiement
-	* billet
 
 Pour l'espace client :
         * manipuler des objets dans l'espace client
         * htmlentities pour protéger
+        * modification d'une réservation -> revient à annuler + réserver
 
 BDD :
         * en local, importer la bonne version de la BDD (plus de données + autoincrement !)
-        * sur le serveur -> mettre la bonne version de la BDD quand la table contact sera OK
+        * !!! sur le serveur -> mettre la bonne version de la BDD quand la table contact sera OK !!!
 
 Back office :
-        * inutilité du menu en haut = on ne peut pas cliquer dessus
+        * inutilité du menu en haut = on ne peut pas cliquer dessus (maintenant les bonnes rubriques st bien sélectionnées)
 
-Encodage :
-        * insertion (client, page contact, etc...) => dilemne du htmlentities
-
-syntheseController :
-        * à vérifier
-        * voir si certains controller font doublon = à supprimer ?
-
-vue "synthèse" :
-        * à vérifier
-        * corriger l'affichage des passagers en ligne
-
-Après l'étape 'paiement' :
-        * rentrer dans la BDD les passagers reliés au client, à 1 vol, et à 1 réservation
-        * renvoyer la vue Billet à créer
-
-Formulaire passager :
-        * garder les infos en session
+Page d'accueil :
+        * le texte "bienvenue" ne s'affiche pas correctement sous Chrome
 
 CSS :
         * vue synthèse
+        * corriger le "errorproSosition"
 
 IHM :
         * reprendre les IHM une fois le site fini

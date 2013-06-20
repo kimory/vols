@@ -71,6 +71,8 @@ if (!isset($_SESSION)) {
                            <input type="text" name="villedepart" id="villedepart" value="<?php 
 				if(isset($_SESSION['villedepart']))
 				{
+                                        // la valeur par défaut est celle précédemment
+                                        // saisie si elle existe.
 					echo $_SESSION['villedepart'];
                                         unset($_SESSION['villedepart']);
 				}?>">
@@ -79,6 +81,8 @@ if (!isset($_SESSION)) {
                            <input type="text" name="villearrivee" id="villearrivee" value="<?php 
 				if(isset($_SESSION['villearrivee']))
 				{
+                                        // la valeur par défaut est celle précédemment
+                                        // saisie si elle existe.
 					echo $_SESSION['villearrivee'];
                                         unset($_SESSION['villearrivee']);
 				}?>">                                
@@ -88,6 +92,8 @@ if (!isset($_SESSION)) {
                            <input type="text" id="jour" name="jour" value="<?php 
 				if(isset($_SESSION['jour']))
 				{
+                                        // la valeur par défaut est celle précédemment
+                                        // saisie si elle existe.
 					echo $_SESSION['jour'];
                                         unset($_SESSION['jour']);
 				}?>">                                      
@@ -95,6 +101,8 @@ if (!isset($_SESSION)) {
                            <input type="text" id="mois" name="mois" value="<?php 
 				if(isset($_SESSION['mois']))
 				{
+                                        // la valeur par défaut est celle précédemment
+                                        // saisie si elle existe.
 					echo $_SESSION['mois'];
                                         unset($_SESSION['mois']);
 				}?>">        
@@ -102,6 +110,8 @@ if (!isset($_SESSION)) {
                            <input type="text" id="annee" name="annee" value="<?php 
 				if(isset($_SESSION['annee']))
 				{
+                                        // la valeur par défaut est celle précédemment
+                                        // saisie si elle existe.
 					echo $_SESSION['annee'];
                                         unset($_SESSION['annee']);
 				}?>">

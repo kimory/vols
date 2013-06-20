@@ -44,6 +44,19 @@ body form{
     margin-top: 10px;
     margin-left:10px;
 }
+/* la div comportant le texte de synthese*/
+#synthese{
+   position: relative;
+    margin-top: -150px; 
+}
+/* les messages d'erreur de la page synthèse*/
+#errorsynthese{
+     position: relative;
+    width: 500px;
+    height: 200px;
+    margin-top: 10px;
+    margin-left:10px;
+}
 
 /* les messages d'erreur de la page proposition */
 #errorprososition{
@@ -74,6 +87,23 @@ titre de la proposition (page proposition), titre de la page recherche */
 .h5{
     position: relative;
     margin-top: 10px; 
+}
+
+/* la div contenant le formulaire des back office */
+.tab-content{
+    position: relative;
+    margin-left: 5px;
+    margin-top: 50px;
+}
+
+/* titre formulaire du tab-content des back office */
+.tab-content h3{
+    text-align: center;
+}
+
+/* le formulaire du tab-content des back office */
+.tab-content form{
+    text-align: center;
 }
 
 /* la div contenant la table d'affichage des passagers dans un vol (back office) */
@@ -143,7 +173,7 @@ titre de la proposition (page proposition), titre de la page recherche */
 /* bouton de déconnexion de l'admin */
 #deconnexionadmin{
     float: right;
-    width: 100px;
+    width: 300px;
     height: 40px;
     margin-top: 50px;
     margin-right:50px;
@@ -195,7 +225,7 @@ titre de la proposition (page proposition), titre de la page recherche */
 
 /* l'image du logo */
 #logo img{
-    width: 100px;
+    /*width: 100px;*/
     height:90px;
 }
 
@@ -224,7 +254,7 @@ titre de la proposition (page proposition), titre de la page recherche */
 #utilisateur{
     float: left;
     margin-top: 5px;
-    padding:10px;
+/*    padding:10px;*/
 }
 
 /* la div du menu */

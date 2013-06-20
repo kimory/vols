@@ -33,6 +33,11 @@ if (!isset($_SESSION)) {
 		       <?php include('include/back_office_login_form.php'); ?>
             </div>
              <div id="developpement">
+				<div id="connectionuser">
+					<?php
+					include('include/user_connection_form.php');
+					 ?>
+				</div>
                 <h1>Qui sommes-nous ?</h1>
                 <p>DEV-FLY est une filiale d'Air France créée en décembre 2012, dont les locaux sont basés à Paris.<br/>
                 Nos avions Airbus transportent des milliers de passagers chaque jour sur les différents continents.<br/>

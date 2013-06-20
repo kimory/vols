@@ -35,7 +35,12 @@ if (!isset($_SESSION)) {
 
 			</div>
 			<div id="developpement">
-                            <div id="errorrecherhe">
+				<div id="connectionuser">
+					<?php
+					include('include/user_connection_form.php');
+					 ?>
+				</div>
+                            <div id="errorsynthese">
 				<?php 
 				if (isset($_SESSION['message'])) : ?>
                                     <div id="error">
@@ -48,23 +53,26 @@ if (!isset($_SESSION)) {
 				endif;
 				?>
                                 </div>
+                            <div id="synthese">
 			<p>Vous souhaitez réserver <?php echo $_SESSION['nb_passagers']; ?> place(s) pour le 
 				<?php $dateheuredep = new DateTime($_SESSION['vol']->getDateHeureDepart()); ?>
                                 <?php echo $dateheuredep->format('d/m/Y à H:i'); ?> pour le vol <?php echo $_SESSION['vol']->getNumvol(); ?>
 				de <?php echo $_SESSION['vol']->getLieuDepart(); ?> à <?php echo $_SESSION['vol']->getLieuArrivee(); ?>.
 			</p>
 			<p>Pour les passagers suivants : </p>
-			<?php
-			foreach($_SESSION['passagers'] as $passager)
-			{
-				echo 
-				$passager->getNom() . " " . 
-				$passager->getPrenom() . ' né(e) le : ' . 
-				$passager->getDateNaissance() . PHP_EOL;
-                                
-			}
-			?>
-                        <br><br>
+                        <ul>
+			<?php foreach($_SESSION['passagers'] as $passager) : ?>
+                                <li>
+                                <?php
+				echo $passager->getNom() . " " . 
+				$passager->getPrenom() . ', né(e) le : ' . 
+				$passager->getDateNaissance();
+                                ?>
+                                </li>        
+			<?php endforeach; ?>
+                        </ul>
+                        
+                        </div><br>
                         <p>Prix total : <?php echo $_SESSION['tarif'];?> €</p>
                         <br>
 			<div>

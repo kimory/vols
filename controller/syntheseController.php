@@ -46,11 +46,13 @@ class syntheseController {
 						$_SESSION['volchoisi'],
 						$numreservation);
 
+                                        // Le numéro de réservation est passé par référence,
+                                        // $numreservation aura donc été modifié.
 					$_SESSION['numreservation'] = $numreservation;
 
 					switch($ret)
 					{
-						case 0 : 
+						case 0 : // Tout s'est bien passé, on passe à la vue suivante :
 							header('Location:/billetController');
 							//include VIEW . "synthese.php";
 							break;

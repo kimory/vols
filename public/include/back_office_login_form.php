@@ -9,6 +9,7 @@ if(User::isAdminConnected())
 	// Si un administrateur est connecté, on lui propose de se déconnecter : 
 ?>
 <div id="deconnexionadmin">
+<a href='/choixducritere'><button class="btn btn-primary" type="button">Choix du critère</button></a>
 <a href='/deconnexionController'><button class="btn btn-large btn-primary" type="button">Déconnexion</button></a>
 </div>
     <?php 
@@ -25,8 +26,8 @@ else
 			<label for ="login_admin">LOGIN</label>
 			<input type="text" name="login_admin" id="login_admin">
                    
-			<label for ="passwd">PASSWORD</label>
-			<input type="password" name="passwd" id="passwd">
+			<label for ="passwd_admin">PASSWORD</label>
+			<input type="password" name="passwd" id="passwd_admin">
                         
                         <input type="submit" name="valider" id="valider" value="ok">         
 		</form>

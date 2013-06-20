@@ -1,10 +1,9 @@
 <?php
+include_once("../setup.php");
+
 if (!isset($_SESSION)) {
     session_start();
 }
-
-include_once("../setup.php");
-
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -27,34 +26,32 @@ include_once("../setup.php");
 		
                 </div>
                 <div id="menu">
-             <?php
-            $_SESSION['page_actuelle'] = 'Rechercher un vol';
-            		include('include/menu_front_office.php'); 
-		        
-			?>
-                    </div>
+                <?php
+                        $_SESSION['page_actuelle'] = 'Rechercher un vol';
+            		include('include/menu_front_office.php');       
+                ?>
+                </div>
                     <?php
                     include('include/back_office_login_form.php');
                     ?>
-                    
-		     
-            </div>
+                        
+           </div>
            <div id="developpement">
               <div id="connectionuser">
                      <?php
                         include('include/user_connection_form.php');
-			?>
-                 </div>
+		     ?>
+              </div>
            <div id="errorpassager">
                    <?php if (isset($messages_erreur)) : ?>
                     <ul>
                         <?php foreach ($messages_erreur as $value) : ?>
                             <li><?php echo $value; ?></li>
                         <?php endforeach; ?>
-                   </ul>
-                <?php endif; ?>
+                    </ul>
+                   <?php endif; ?>
            </div>    
-               <div id="enregistrementpassager">
+           <div id="enregistrementpassager">
             <form action="/passengerRegistrationController" method="POST" >
                 <fieldset>
                     <h5>Formulaire d'inscription</h5> 
@@ -66,39 +63,40 @@ include_once("../setup.php");
                     // qui correspond au nombre qu'il a indiqué
                     while ($i <= $_SESSION['nb_passagers']) {
                         ?>
-                        <fieldset>
+                    <fieldset>
                             <!-- On récupérera les valeurs sous forme de tableaux -->
                             <h5>Enregistrement du passager n°<?php echo $i; ?></h5>
                             <select name='civilite[]' id='civilite<?php echo $i; ?>' >
-                                <option value="m">Monsieur</option>
-                                <option value="mme">Madame</option>
+                                <option
+                                <?php // attention le premier passager est à l'indice zéro !
+                                if (isset($_POST['civilite'][$i - 1]) && strcmp($_POST['civilite'][$i - 1], 'm') == 0)
+                                    echo 'selected="selected"';
+                                ?>
+                                    value="m">Monsieur</option>
+                                <option 
+                                <?php if (isset($_POST['civilite'][$i - 1]) && strcmp($_POST['civilite'][$i - 1], 'mme') == 0)
+                                    echo 'selected="selected"';
+                                ?>
+                                    value="mme">Madame</option>
                             </select>
 
                             <label for="nom<?php echo $i; ?>">Nom</label>
-                            <input type="text" name="nom[]" id="nom<?php echo $i; ?>" value="<?php 
-				if(isset($_SESSION['nom']))
-				{
-					echo $_SESSION['nom'];
-                                        unset($_SESSION['nom']);
-				}?>">
-                            <label for="prenom<?php echo $i; ?>">Prénom</label>
-                            <input type="text" name="prenom[]" id="prenom<?php echo $i; ?>"value="<?php 
-				if(isset($_SESSION['prenom']))
-				{
-					echo $_SESSION['prenom'];
-                                        unset($_SESSION['prenom']);
-				}?>">
-                                
-                            <label for="date_de_naissance<?php echo $i; ?>">Date de naissance</label>
-                            <input type="text" name="date_de_naissance[]" id="date_de_naissance<?php echo $i; ?>" placeholder="jj/mm/aaaa"value="<?php 
-				if(isset($_SESSION['date_de_naissance']))
-				{
-					echo $_SESSION['date_de_naissance'];
-                                        unset($_SESSION['date_de_naissance']);
-				}?>">
+                            <input type="text" name="nom[]"
+                                <?php if (isset($_POST['nom'][$i - 1])) echo 'value="' . $_POST['nom'][$i - 1] . '"'; ?>
+                                   id="nom<?php echo $i; ?>">
 
-                        </fieldset>
-                            
+                            <label for="prenom<?php echo $i; ?>">Prénom</label>
+                            <input type="text" name="prenom[]" 
+                                <?php if (isset($_POST['prenom'][$i - 1])) echo 'value="' . $_POST['prenom'][$i - 1] . '"'; ?>
+                                   id="prenom<?php echo $i; ?>">
+
+                             <label for="date_de_naissance<?php echo $i; ?>">Date de naissance</label>
+                             <input type="text" name="date_de_naissance[]" 
+                                <?php if (isset($_POST['date_de_naissance'][$i - 1])) echo 'value="' . $_POST['date_de_naissance'][$i - 1] . '"'; ?>
+                                   id="date_de_naissance<?php echo $i; ?>" placeholder="jj/mm/aaaa">
+
+                    </fieldset>
+
 <?php
     // On incrémente $i de 1 (la boucle se terminera une fois le nombre de passagers indiqués atteint)
                         $i++;

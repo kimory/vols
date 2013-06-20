@@ -1,9 +1,9 @@
-<?php 
+<?php
+use \DateTime;
+
 if (!isset($_SESSION)) {
     session_start();
 }
-
-use \DateTime;
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -34,7 +34,12 @@ use \DateTime;
                          <li><a href="#client" data-toggle="tab">Client</a></li>
                     </ul>
                     </div>
-		       <?php include('include/back_office_login_form.php'); ?>
+			   <?php 
+				// on inclut le menu du backoffice
+				$_SESSION['page_actuelle'] = 'Réservation';
+				include('include/back_office_menu.php');
+				include('include/back_office_login_form.php'); 
+				?>
                 </div>
 			
             <div id="developpement">
