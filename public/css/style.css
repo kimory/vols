@@ -191,11 +191,12 @@ titre de la proposition (page proposition), titre de la page recherche */
 
 /* message d'erreur pour la connexion de l'administrateur */
 #connectionadmin{
+    color: red;
     position: relative;
     width: 800px;
     height: 90px;
     margin-left: 100px;
-    margin-top: 0px;
+    margin-top: -4px;
 }
 
 /* formulaire de recherche de vol */

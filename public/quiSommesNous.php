@@ -41,8 +41,8 @@ if (!isset($_SESSION)) {
 					 ?>
 				</div>
                 <h1>Qui sommes-nous ?</h1>
-                <p>DEV-FLY est une filiale d'Air France créée en décembre 2012, dont les locaux sont basés à Paris.<br/>
-                Nos avions Airbus transportent des milliers de passagers chaque jour sur les différents continents.<br/>
+                <p>DEV-FLY est une filiale d'Air Greta France créée en décembre 2012, dont les locaux sont basés à Paris.<br/>
+                Nos avions Airfly transportent des milliers de passagers chaque jour sur les différents continents.<br/>
                 Choisir DEV-FLY, c'est profiter de prix très compétitifs pour voyager selon vos envies... À ce jour, notre catalogue couvre plus de 40 destinations : profitez-en !</p>
            </div>
             <div id="footer">
