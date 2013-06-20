@@ -37,7 +37,7 @@ class ContactController {
         
         if(!isset($_POST['sujet']) || strlen($_POST['sujet']) == 0) {
             $messages[] = "Merci d'indiquer votre sujet.";
-        }elseif(!preg_match("/^[ A-Za-z0-9àâäéèêëìîïôöòùûüçÀÂÄÉÈËÏÎÌÔÖÙÛÜÇ-]+$/", $_POST['sujet'])){            
+        }elseif(!preg_match("/^[ A-Za-z0-9'àâäéèêëìîïôöòùûüçÀÂÄÉÈËÏÎÌÔÖÙÛÜÇ-]+$/", $_POST['sujet'])){            
              $messages[] = "Votre saisie du sujet est incorrecte.";
         }else{           
             $sujet = $_POST['sujet'];
@@ -61,6 +61,24 @@ class ContactController {
             $dao->addContact($nom, $prenom, $mail, $sujet, $telephone, $message);
            include VIEW . "affichagecontact.php";
         }else{
+            if(isset($_POST['nom'])){
+                $_SESSION['nom'] = $_POST['nom'];
+            }
+            if(isset($_POST['prenom'])){
+                $_SESSION['prenom'] = $_POST['prenom'];
+            }
+            if(isset($_POST['mail'])){
+                $_SESSION['mail'] = $_POST['mail'];
+            }
+            if(isset($_POST['sujet'])){
+                $_SESSION['sujet'] = $_POST['sujet'];
+            }
+            if(isset($_POST['telephone'])){
+                $_SESSION['telephone'] = $_POST['telephone'];
+            }
+            if(isset($_POST['message'])){
+                $_SESSION['message'] = $_POST['message'];
+            }
             $_SESSION['messages'] = $messages;
             header('location:/contact');            
         }
