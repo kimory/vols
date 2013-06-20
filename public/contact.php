@@ -4,6 +4,7 @@ include('../setup.php');
 if (!isset($_SESSION)) {
     session_start();
 }
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -62,20 +63,28 @@ if (!isset($_SESSION)) {
                         <h5>Vos coordonnées</h5> 
 
                         <label for = "nom">Nom</label>
-                           <input type="text" name="nom" id="nom" size="30" >
+                           <input type="text" name="nom" id="nom" size="30" value="<?php
+                           if (isset($_SESSION['nom'])) echo  $_SESSION['nom']; ?>" >
 
                         <label for = "prenom">Prénom</label>
-                           <input type="text" name="prenom" id="prenom" size="30" ><br>
+                           <input type="text" name="prenom" id="prenom" size="30" value="<?php
+                           if (isset($_SESSION['prenom'])) echo  $_SESSION['prenom']; ?>" ><br>
 
                         <label for = "mail">Votre e-mail</label> 
-                           <input type="text" name="mail" size="30" /><br>
+                           <input type="text" name="mail" size="30" value="<?php
+                           if (isset($_SESSION['mail'])) echo  $_SESSION['mail']; ?>"/><br>
                         
                         <label for = "sujet">Sujet</label>
-                        <input type="text" name="sujet" size="30" /><br>
-                        <textarea name="message" rows="6" wrap="virtual" cols="30"></textarea><br>
+                        <input type="text" name="sujet" size="30" value="<?php
+                           if (isset($_SESSION['sujet'])) echo  $_SESSION['sujet']; ?>"/><br>
+                            
+                        <textarea name="message" rows="6" wrap="virtual" cols="30">
+                            <?php if (isset($_SESSION['message'])) echo $_SESSION['message']; ?>
+                        </textarea><br>
                         
                         <label for= "telephone">Téléphone</label>
-                        <input type="text" name="telephone" size="30" /><br>       
+                        <input type="text" name="telephone" size="30" value="<?php
+                           if (isset($_SESSION['telephone'])) echo  $_SESSION['telephone']; ?>"/><br>       
                         <div id="submit">
                             
                            <input type="submit" value="valider">          
