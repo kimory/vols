@@ -25,9 +25,6 @@ Back office :
 Page d'accueil :
         * le texte "bienvenue" ne s'affiche pas correctement sous Chrome
 
-CSS :
-        * vue synthèse
-        * corriger le "errorproSosition"
 
 IHM :
         * reprendre les IHM une fois le site fini

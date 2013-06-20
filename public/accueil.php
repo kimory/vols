@@ -7,6 +7,7 @@ if (!isset($_SESSION)) {
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; />
     <title>DEV-FLY - Accueil</title>
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
@@ -44,7 +45,7 @@ if (!isset($_SESSION)) {
               
           </div>
           <div id="bienvenue">
-              <p><a href="/recherche"><marquee>Bienvenue &nbsp; Cliquez ici</marquee></a></p>
+              <p><a href="/recherche">Bienvenue &nbsp; Cliquez ici</a></p>
           </div>
       </div>
 	   	   
