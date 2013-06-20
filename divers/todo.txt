@@ -24,7 +24,6 @@ Back office :
 
 Page contact :
         * garder les infos saisies en mémoire sur le formulaire
-        * vérifier la prise en compte des retours ligne
 
 IHM :
         * reprendre les IHM une fois le site fini
