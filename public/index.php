@@ -11,7 +11,7 @@ session_start(); // on passe toujours par cette page, la session est toujours ou
  
 // on récupère le nom du controlleur saisi dans l'URL
 $controllerName = $_GET['controller'];
-// on récupèrera la méthode
+// on récupère la méthode
 $methodName = $_GET['method'];
 
 $controllerClassName = "controller\\$controllerName";
