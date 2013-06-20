@@ -23,11 +23,12 @@ Back office :
         * inutilité du menu en haut = on ne peut pas cliquer dessus (maintenant les bonnes rubriques st bien sélectionnées)
 
 Page d'accueil :
-        * le texte "bienvenue" ne s'affiche pas correctement sous Chrome
+        * le texte "bienvenue" ne s'affiche pas correctement sous Chrome ancienne version
 
 CSS :
         * vue synthèse
         * corriger le "errorproSosition"
+        * harmoniser sur les différents navigateurs
 
 IHM :
         * reprendre les IHM une fois le site fini

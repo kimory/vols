@@ -59,11 +59,12 @@ body form{
 }
 
 /* les messages d'erreur de la page proposition */
-#errorprososition{
+#errorproposition{
     position: relative;
     width: 550px;
     height: 200px;
     margin-left: 250px;
+    margin-top: -10px;
 }
 
 /* les messages d'erreur de la page recherche */
@@ -86,22 +87,22 @@ body form{
 titre de la proposition (page proposition), titre de la page recherche */
 .h5{
     position: relative;
-    margin-top: 10px; 
+    margin-top: -150px; 
 }
 
-/* la div contenant le formulaire des back office */
+/* la div contenant les formulaires du back office */
 .tab-content{
     position: relative;
     margin-left: 5px;
     margin-top: 50px;
 }
 
-/* titre formulaire du tab-content des back office */
+/* titre des formulaires dans le back office (vol,passager...) */
 .tab-content h3{
     text-align: center;
 }
 
-/* le formulaire du tab-content des back office */
+/* les formulaires du back office */
 .tab-content form{
     text-align: center;
 }
