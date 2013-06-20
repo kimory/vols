@@ -9,7 +9,6 @@
 -A faire ou à noter dans les remarques (...) : vérifier que les passagers renseignés correspondent bien aux nombres d'adultes et d'enfants renseignés (sinon le prix sera faux !)
 -Au moins un adulte voyage -> vérifier qu'il a au moins 18 ans (et pas 3 ans)
 -Note : dans la partie back office, un passager n'est relié qu'à un seul vol (une seule résa), ce qui pourra être changé pour la V2
--Mot de passe client à chiffrer
 
 
 Pour l'espace client :
@@ -17,7 +16,7 @@ Pour l'espace client :
         * modification d'une réservation -> revient à annuler + réserver
 
 BDD :
-        * en local, importer la bonne version de la BDD (plus de données + autoincrement !)
+        * en local, importer la bonne version de la BDD (plus de données + autoincrement + table contact)
         * !!! sur le serveur -> mettre la bonne version de la BDD quand la table contact sera OK !!!
 
 Back office :
@@ -35,5 +34,7 @@ Cahier des charges :
         * mise en forme une fois la V1 terminée
 
 A corriger / solutionner pour la V2 :
+        * gérer les allers-retours
+        * chiffrer le mot de passe du client
         * un client qui se connecte depuis l'espace client est renvoyé sur la page sur laquelle il était avant d'arriver sur l'espace client (ou lieu de l'ec lui-même)
         * voir si les vues dans le .htaccess ont du sens, on pourrait les faire passer via le contrôleur à chaque fois
