@@ -57,7 +57,7 @@ $datedepartsouhaitee = $_SESSION['date_depart_souhaitee'];
                        <p><?php echo $_SESSION['msg_vol_non_choisi']; ?></p>
                        <?php
                        // On détruit le message en session une fois
-                       // qu'il a été affiché
+                       // qu'il a été affiché.
                        unset($_SESSION['msg_vol_non_choisi']);
                    endif;
                    ?>
