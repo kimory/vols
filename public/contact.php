@@ -84,8 +84,8 @@ if (!isset($_SESSION)) {
                             unset($_SESSION['sujet'])?>"/><br>
                             
                         <textarea name="message" rows="6" wrap="virtual" cols="30">
-                            <?php if (isset($_SESSION['message'])) echo $_SESSION['message']; 
-                             unset($_SESSION['message'])?>
+                          <?php if (isset($_SESSION['message'])) echo $_SESSION['message']; 
+                            unset($_SESSION['message'])?>
                         </textarea><br>
                         
                         <label for= "telephone">Téléphone</label>
