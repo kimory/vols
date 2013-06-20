@@ -11,7 +11,7 @@ if (!isset($_SESSION)) {
         <meta name="author" content="GRETA 2013">
         <meta name="description" content="application pour une compagnie aérienne">
         <meta name="robots" content="index, follow, all">   
-        <!-- règle le probléme de compatibilité avec les versions d'IE antérieures à IE9-->
+        <!-- règle le problème de compatibilité avec les versions d'IE antérieures à IE9-->
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <link rel="stylesheet" type="text/css" href="/css/style.css" />
         <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
@@ -50,7 +50,7 @@ if (!isset($_SESSION)) {
                    </ul>
                         <?php
                             // On détruit les messages en session une fois
-                            // qu'ils ont été affichés
+                            // qu'ils ont été affichés.
                             unset($_SESSION['messages']);
 			endif; ?>
                     
@@ -59,7 +59,7 @@ if (!isset($_SESSION)) {
 				<p><?php echo $_SESSION['message_nb_passagers']; ?></p>
                                 <?php 
                                 // On détruit le message en session une fois
-                                // qu'il a été affiché
+                                // qu'il a été affiché.
                                 unset($_SESSION['message_nb_passagers']);
                     endif; ?>
                     
@@ -125,11 +125,11 @@ if (!isset($_SESSION)) {
 				if(isset($_SESSION['nbreadultes']))
 				{
                                         // la valeur par défaut est celle précédemment
-                                        // saisie si elle existe.
+                                        // saisie si elle existe
 					echo $_SESSION['nbreadultes'];
                                         unset($_SESSION['nbreadultes']);
                                 }else{
-                                    // Ou "1" (cf un adulte au minimum doit voyager).
+                                    // ou "1" (cf un adulte au minimum doit voyager).
                                     echo "1";
                                 }
                                     ?>" 
@@ -140,11 +140,11 @@ if (!isset($_SESSION)) {
 				if(isset($_SESSION['nbreenfants']))
 				{
                                         // la valeur par défaut est celle précédemment
-                                        // saisie si elle existe.
+                                        // saisie si elle existe
 					echo $_SESSION['nbreenfants'];
                                         unset($_SESSION['nbreenfants']);
                                 }else{
-                                    // Ou "0" (par défaut aucun enfant ne voyage).
+                                    // ou "0" (par défaut aucun enfant ne voyage).
                                     echo "0";
                                 }
                                     ?>" min='0' max='50' name="nbreenfants" id="nbreenfants"><br>

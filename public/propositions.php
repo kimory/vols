@@ -22,7 +22,7 @@ $datedepartsouhaitee = $_SESSION['date_depart_souhaitee'];
         <meta name="author" content="GRETA 2013">
         <meta name="description" content="application pour une compagnie aérienne">
         <meta name="robots" content="index, follow, all">    
-        <!-- règle le probléme de compatibilité avec les versions d'IE antérieures à IE9-->
+        <!-- règle le problème de compatibilité avec les versions d'IE antérieures à IE9-->
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <link rel="stylesheet" type="text/css" href="/css/style.css" />
         <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
@@ -57,7 +57,7 @@ $datedepartsouhaitee = $_SESSION['date_depart_souhaitee'];
                        <p><?php echo $_SESSION['msg_vol_non_choisi']; ?></p>
                        <?php
                        // On détruit le message en session une fois
-                       // qu'il a été affiché
+                       // qu'il a été affiché.
                        unset($_SESSION['msg_vol_non_choisi']);
                    endif;
                    ?>

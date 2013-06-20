@@ -21,7 +21,7 @@ if(!User::isAdminConnected()){
         <meta name="author" content="GRETA 2013">
         <meta name="description" content="application pour une compagnie aérienne">
         <meta name="robots" content="index, follow, all">    
-        <!-- règle le probléme de compatibilité avec les versions d'IE antérieures à IE9-->
+        <!-- règle le problème de compatibilité avec les versions d'IE antérieures à IE9-->
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <link rel="stylesheet" type="text/css" href="/css/style.css" />
         <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
@@ -38,7 +38,6 @@ if(!User::isAdminConnected()){
 				// on inclut le menu du backoffice
 				$_SESSION['page_actuelle'] = 'Vol';
 				include('include/back_office_menu.php');
-                        //echo "Bonjour " . $_SESSION['login_admin'];
                        include('include/back_office_login_form.php');
                       ?>
                     

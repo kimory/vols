@@ -15,7 +15,7 @@ if (!isset($_SESSION)) {
         <meta name="author" content="GRETA 2013">
         <meta name="description" content="application pour une compagnie aérienne">
         <meta name="robots" content="index, follow, all">  
-        <!-- règle le probléme de compatibilité avec les versions d'IE antérieures à IE9-->  
+        <!-- règle le problème de compatibilité avec les versions d'IE antérieures à IE9-->  
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <link rel="stylesheet" type="text/css" href="/css/style.css" />
         <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />  
@@ -117,7 +117,7 @@ if (!isset($_SESSION)) {
                     if (isset($_SESSION['error_message']) &&
                             strlen($_SESSION['error_message']) > 0) {
                         echo $_SESSION['error_message'];
-                        // On détruit variables une fois affichée
+                        // On détruit les variables une fois affichées
                         unset($_SESSION['error_message']);
                         unset($_SESSION['resultat_infos_reservation']);
                     } else {
