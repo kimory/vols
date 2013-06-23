@@ -17,7 +17,6 @@ Pour l'espace client :
 
 BDD :
         * en local, importer la bonne version de la BDD (plus de données + autoincrement + table contact)
-        * !!! sur le serveur -> mettre la bonne version de la BDD quand la table contact sera OK !!!
 
 Back office :
         * inutilité du menu en haut = on ne peut pas cliquer dessus (maintenant les bonnes rubriques st bien sélectionnées)
@@ -40,3 +39,14 @@ A corriger / solutionner pour la V2 :
         * un client qui se connecte depuis l'espace client est renvoyé sur la page sur laquelle il était avant d'arriver sur l'espace client (ou lieu de l'ec lui-même)
         * voir si les vues dans le .htaccess ont du sens, on pourrait les faire passer via le contrôleur à chaque fois
         * regrouper des méthodes au sein d'un même contrôleur ?
+        * corriger le projet pour coller aux remarques du prof ci-dessous
+
+Remarques générales du prof sur les projets :
+        * respecter les règles de nommage
+        * pas de traitement dans la vue !
+        * avoir un jeu de tests
+        * commenter le code
+        * découper les grandes méthodes en sous-méthodes de 20-30 lignes
+        * indenter le code
+        * au-delà de 3 (?) niveaux d'indentation, faire une méthode
+        * si qqch se répète, penser à l'héritage !
