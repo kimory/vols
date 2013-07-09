@@ -33,6 +33,7 @@ IHM :
 
 Cahier des charges :
         * mise en forme une fois la V1 terminée
+        * ajouter une table des matières
 
 A corriger / solutionner pour la V2 :
         * gérer les allers-retours
