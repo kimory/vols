@@ -7,6 +7,7 @@
 -Validation W3C
 -Ajouter une mention de la page "contact" dans le CDG ?
 -A faire ou à noter dans les remarques (...) : vérifier que les passagers renseignés correspondent bien aux nombres d'adultes et d'enfants renseignés (sinon le prix sera faux !)
+-Pour l'âge : partir de la date du voyage et pas de la date du jour...
 -Au moins un adulte voyage -> vérifier qu'il a au moins 18 ans (et pas 3 ans)
 -Note : dans la partie back office, un passager n'est relié qu'à un seul vol (une seule résa), ce qui pourra être changé pour la V2
 
@@ -14,6 +15,7 @@
 Pour l'espace client :
         * impression des billets
         * modification d'une réservation -> revient à annuler + réserver
+        * adresse du client visible et modifiable ? (ou en Java  ?)
 
 BDD :
         * en local, importer la bonne version de la BDD (plus de données + autoincrement + table contact)
@@ -41,7 +43,7 @@ A corriger / solutionner pour la V2 :
         * regrouper des méthodes au sein d'un même contrôleur ?
         * corriger le projet pour coller aux remarques du prof ci-dessous
 
-Remarques générales du prof sur les projets :
+Remarques générales du formateur sur les projets :
         * respecter les règles de nommage
         * pas de traitement dans la vue !
         * avoir un jeu de tests
