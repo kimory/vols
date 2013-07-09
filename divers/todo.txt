@@ -15,7 +15,7 @@
 Pour l'espace client :
         * impression des billets
         * modification d'une réservation -> revient à annuler + réserver
-        * adresse du client visible et modifiable ? (ou en Java  ?)
+        * adresse du client visible et modifiable
 
 BDD :
         * en local, importer la bonne version de la BDD (plus de données + autoincrement + table contact)
