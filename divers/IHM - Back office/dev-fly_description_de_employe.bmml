@@ -1,4 +1,4 @@
-<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="625" measuredH="593" mockupW="537" mockupH="563">
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="625" measuredH="588" mockupW="537" mockupH="558">
   <controls>
     <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="88" y="30" w="537" h="492" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
       <controlProperties>
@@ -76,9 +76,9 @@
         <text>Voir%20les%20vols%20attribu%E9s%20%E0%20cet%20employ%E9</text>
       </controlProperties>
     </control>
-    <control controlID="23" controlTypeID="com.balsamiq.mockups::MultilineButton" x="88" y="527" w="537" h="66" measuredW="463" measuredH="66" zOrder="15" locked="false" isInGroup="-1">
+    <control controlID="23" controlTypeID="com.balsamiq.mockups::MultilineButton" x="95" y="522" w="524" h="66" measuredW="139" measuredH="66" zOrder="15" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Un%20clic%20qur%20le%20lien%20%22voir%20les%20vols%20...%22%20envoie%20sur%20l%27IHM%20suivante.</text>
+        <text>Un%20clic%20que%20le%20lien%20%22voir%20les%20vols%20...%22%20envoie%20sur%20l%27IHM%20suivante.</text>
       </controlProperties>
     </control>
   </controls>

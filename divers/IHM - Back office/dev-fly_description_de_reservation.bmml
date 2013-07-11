@@ -1,4 +1,4 @@
-<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="632" measuredH="720" mockupW="544" mockupH="686">
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="672" measuredH="720" mockupW="584" mockupH="686">
   <controls>
     <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="95" y="34" w="537" h="492" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
       <controlProperties>
@@ -21,9 +21,9 @@
         <text>D%E9connexion</text>
       </controlProperties>
     </control>
-    <control controlID="5" controlTypeID="com.balsamiq.mockups::Label" x="157" y="174" w="-1" h="-1" measuredW="193" measuredH="21" zOrder="4" locked="false" isInGroup="-1">
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::Label" x="157" y="174" w="-1" h="-1" measuredW="194" measuredH="21" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Nouveau%20num%E9ro%20de%20reservation%20%3A</text>
+        <text>Nouveau%20num%E9ro%20de%20r%E9servation%20%3A</text>
       </controlProperties>
     </control>
     <control controlID="6" controlTypeID="com.balsamiq.mockups::TextInput" x="159" y="200" w="129" h="-1" measuredW="79" measuredH="26" zOrder="5" locked="false" isInGroup="-1">
@@ -91,17 +91,17 @@
         <text>3</text>
       </controlProperties>
     </control>
-    <control controlID="27" controlTypeID="com.balsamiq.mockups::MultilineButton" x="88" y="522" w="537" h="66" measuredW="139" measuredH="66" zOrder="18" locked="false" isInGroup="-1">
+    <control controlID="27" controlTypeID="com.balsamiq.mockups::MultilineButton" x="88" y="522" w="537" h="66" measuredW="477" measuredH="66" zOrder="18" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Un%20clic%20sur%20le%20nombre%20de%20passagers%20am%E8ne%20sur%20l%27IHM%20suivante.</text>
       </controlProperties>
     </control>
-    <control controlID="28" controlTypeID="com.balsamiq.mockups::MultilineButton" x="88" y="588" w="537" h="66" measuredW="139" measuredH="66" zOrder="19" locked="false" isInGroup="-1">
+    <control controlID="28" controlTypeID="com.balsamiq.mockups::MultilineButton" x="88" y="588" w="584" h="66" measuredW="564" measuredH="66" zOrder="19" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Un%20clic%20sur%20le%20num%E9ro%20de%20client%20am%E8ne%20sur%20la%20page%20descriptive%20de%20ce%20client.</text>
       </controlProperties>
     </control>
-    <control controlID="29" controlTypeID="com.balsamiq.mockups::MultilineButton" x="88" y="654" w="537" h="66" measuredW="139" measuredH="66" zOrder="20" locked="false" isInGroup="-1">
+    <control controlID="29" controlTypeID="com.balsamiq.mockups::MultilineButton" x="88" y="654" w="537" h="66" measuredW="528" measuredH="66" zOrder="20" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Un%20clic%20sur%20le%20num%E9ro%20de%20vol%20am%E8ne%20sur%20la%20page%20descriptive%20de%20ce%20vol.</text>
       </controlProperties>

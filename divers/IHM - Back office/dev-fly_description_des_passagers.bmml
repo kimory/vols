@@ -67,14 +67,14 @@
         <text>N%B013</text>
       </controlProperties>
     </control>
-    <control controlID="33" controlTypeID="com.balsamiq.mockups::MultilineButton" x="27" y="510" w="648" h="66" measuredW="139" measuredH="66" zOrder="18" locked="false" isInGroup="-1">
+    <control controlID="33" controlTypeID="com.balsamiq.mockups::MultilineButton" x="27" y="510" w="648" h="66" measuredW="588" measuredH="66" zOrder="18" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Un%20clic%20sur%20le%20N%B0%20de%20passager%20am%E9ne%20sur%20la%20page%20descriptive%20de%20ce%20passager</text>
       </controlProperties>
     </control>
-    <control controlID="34" controlTypeID="com.balsamiq.mockups::MultilineButton" x="27" y="576" w="648" h="66" measuredW="139" measuredH="66" zOrder="19" locked="false" isInGroup="-1">
+    <control controlID="34" controlTypeID="com.balsamiq.mockups::MultilineButton" x="27" y="576" w="648" h="66" measuredW="562" measuredH="66" zOrder="19" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Un%20clic%20sur%20le%20num%E9ro%20de%20r%E9servation%20en%20haut%20renvoie%20sur%20l%27IHM%20precedente</text>
+        <text>Un%20clic%20sur%20le%20num%E9ro%20de%20r%E9servation%20en%20haut%20renvoie%20sur%20l%27IHM%20pr%E9c%E9dente</text>
       </controlProperties>
     </control>
   </controls>
