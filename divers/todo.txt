@@ -1,3 +1,4 @@
+- Montrer procédure GitHub !
 -Tester / Faire tester l'appli
 -Cahier des charges fini + mis en forme
 -Créer d'autres vols : dans les 2-3 mois après la date de fin de projet + dans les 2 mois après la date de présentation au jury
@@ -6,39 +7,44 @@
 -Voir si les use dans l'index ont du sens
 -Validation W3C
 -Ajouter une mention de la page "contact" dans le CDG ?
--A faire ou à noter dans les remarques (...) : vérifier que les passagers renseignés correspondent bien aux nombres d'adultes et d'enfants renseignés (sinon le prix sera faux !)
--Pour l'âge : partir de la date du voyage et pas de la date du jour...
--Au moins un adulte voyage -> vérifier qu'il a au moins 18 ans (et pas 3 ans)
--Note : dans la partie back office, un passager n'est relié qu'à un seul vol (une seule résa), ce qui pourra être changé pour la V2
 
+Pour la réservation d'un vol :
+        * rendre plus visible la possibilité de se connecter plutôt que de s'inscrire lors de la procédure (+ message lors de la connexion)
+        * Vérifier que les passagers renseignés correspondent bien aux nombres d'adultes et d'enfants renseignés (sinon le prix sera faux !)
+        * Pour l'âge : partir de la date du voyage et non de la date du jour...
+        * Au moins un adulte voyage -> vérifier qu'il a au moins 18 ans à la date du vol (et pas 3 ans)
+        * gérer les allers-retours
 
 Pour l'espace client :
-        * impression des billets
+        * visualisation des billets pour impression
         * modification d'une réservation -> revient à annuler + réserver
         * adresse du client visible et modifiable
+        * chiffrer le mot de passe du client ?
 
-BDD :
-        * en local, importer la bonne version de la BDD (plus de données + autoincrement + table contact)
-
-Back office :
+Pour la partie back office :
+        * rajouter d'autres critères de recherche ?
+        * un passager n'est relié qu'à un seul vol (une seule résa), ce qui pourra être changé pour la V2
         * inutilité du menu en haut = on ne peut pas cliquer dessus (maintenant les bonnes rubriques st bien sélectionnées)
         Piste :
         - remplacer # par / et récupérer via ?anchor=$1 (à définir dans le .htaccess)
         - sur la vue : si on récupère une ancre, on inclut la "portion" de vue concernée
         - attention, il y a un pb d'affichage qui sera à corriger : Bootstrap - .tab-content - display:none;
 
+BDD :
+        * en local, importer la bonne version de la BDD (plus de données + autoincrement + table contact)
+
 IHM :
         * reprendre les IHM une fois le site fini
         * tarif sur la vue synthèse
 
 Cahier des charges :
+        * PENSER À ENVOYER CHAQUE MODIF DE SUITE pour éviter les conflits !
         * mise en forme une fois la V1 terminée
         * ajouter une table des matières
 
-A corriger / solutionner pour la V2 :
-        * gérer les allers-retours
-        * chiffrer le mot de passe du client
+Divers à corriger / solutionner pour la V2 :
         * vérifier la présence de protections (type htmlentities) à l'affichage
+        * rendre les URL plus esthétiques ?
         * un client qui se connecte depuis l'espace client est renvoyé sur la page sur laquelle il était avant d'arriver sur l'espace client (ou lieu de l'ec lui-même)
         * voir si les vues dans le .htaccess ont du sens, on pourrait les faire passer via le contrôleur à chaque fois
         * regrouper des méthodes au sein d'un même contrôleur ?
