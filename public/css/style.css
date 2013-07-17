@@ -51,12 +51,12 @@ body form{
 /* la div comportant le texte de synthese*/
 #synthese{
    position: relative;
-    margin-top: -150px; 
+   margin-top: -150px; 
 }
 /* les messages d'erreur de la page synthèse*/
 #errorsynthese{
-     color: red;
-     position: relative;
+    color: red;
+    position: relative;
     width: 500px;
     height: 200px;
     margin-top: 10px;
@@ -65,7 +65,7 @@ body form{
 
 /* les messages d'erreur de la page proposition */
 #errorproposition{
-     color: red;
+    color: red;
     position: relative;
     width: 550px;
     height: 200px;
@@ -75,7 +75,7 @@ body form{
 
 /* les messages d'erreur de la page recherche */
 #errorrecherhe{
-     color: red;
+    color: red;
     position: relative;
     width: 550px;
     height: 200px;
@@ -84,7 +84,7 @@ body form{
 
 /* les messages d'erreur des autres pages */
 #error{
-     color: red;
+    color: red;
     position: relative;
     width: 550px;
     height: 200px;
@@ -384,5 +384,4 @@ titre de la proposition (page proposition), titre de la page recherche */
 #footer p {
     text-align: center;
     margin:0px 0px 0px 500px;
-
 }

@@ -86,6 +86,5 @@ abstract class Personne{
         $this->pays = $pays;
     }
 
-
 }
 ?>

@@ -19,6 +19,5 @@ final class Employe extends Personne{
         $this->fonction = $fonction;
     }
 
-
 }
 ?>

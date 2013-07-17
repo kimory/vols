@@ -328,24 +328,23 @@ class MysqlDao {
 		return false;
 	}
 
-	public function clientLogin($login, $passwd){
-		// renvoie un tableau avec le login et le mot de passe
-		$sql = "SELECT login 
-			FROM client 
-			WHERE login=:login and password=:passwd";
+	public function clientLogin($login, $passwd) {
+        // renvoie un tableau avec le login et le mot de passe
+            $sql = "SELECT login 
+                            FROM client 
+                            WHERE login=:login and password=:passwd";
 
-		$stmt = $this->dbh->prepare($sql);
-		$stmt->bindParam(":login", $login);
-		$stmt->bindParam(":passwd", $passwd );
-		$stmt->execute();
+            $stmt = $this->dbh->prepare($sql);
+            $stmt->bindParam(":login", $login);
+            $stmt->bindParam(":passwd", $passwd);
+            $stmt->execute();
 
-		if($stmt->fetch(PDO::FETCH_ASSOC)){
-			return array($login, $passwd);
-		}else{
-		return false;
+            if ($stmt->fetch(PDO::FETCH_ASSOC)) {
+                return array($login, $passwd);
+            } else {
+                return false;
+            }
         }
-        
-                }
 
 	public function isClientConnected() 
 	{
