@@ -23,8 +23,8 @@ if (!isset($_SESSION)) {
             <div id="header">
                 <div id="logo">
                   <img id='logo' src='/images/logo.jpg' alt='logo de DEV-FLY' />
-		
                 </div>
+                
                 <div id="menu">
                 <?php
                         $_SESSION['page_actuelle'] = 'Qui sommes nous';
@@ -32,19 +32,22 @@ if (!isset($_SESSION)) {
 		        
 	         ?>
                  </div>
-		       <?php include('include/back_office_login_form.php'); ?>
+                
+		 <?php include('include/back_office_login_form.php'); ?>
             </div>
+           
              <div id="developpement">
-				<div id="connectionuser">
-					<?php
-					include('include/user_connection_form.php');
-					 ?>
-				</div>
+                <div id="connectionuser">
+                    <?php
+                    include('include/user_connection_form.php');
+                     ?>
+                </div>
                 <h1>Qui sommes-nous ?</h1>
                 <p>DEV-FLY est une filiale d'Air Greta France créée en décembre 2012, dont les locaux sont basés à Paris.<br/>
                 Nos avions Airfly transportent des milliers de passagers chaque jour sur les différents continents.<br/>
                 Choisir DEV-FLY, c'est profiter de prix très compétitifs pour voyager selon vos envies... À ce jour, notre catalogue couvre plus de 40 destinations : profitez-en !</p>
-           </div>
+            </div>
+           
             <div id="footer">
                 <?php
                 include './include/footer.php';

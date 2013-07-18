@@ -28,6 +28,7 @@ $dao = new MysqlDao();
 //var_dump($dao->ajoutPassager('m', 'jean', 'jean', '2000-01-03'));
 //var_dump($dao->ajoutClient('m', 'nom', 'prenom', 'adresse', 'cp', 
 	//'ville', 'pays', 'mail', 'telFixe', 'telPortable', 'login', 'password'));
-$client = new Client(null, null, null, null, '18 rue Fr&eacute;d&eacute;ric', null, null, null, null, null, null, null, null);
+$client = new Client(null, null, null, null, '250 rue Fr&eacute;d&eacute;ric', null, null, null, null, null, null, null, null);
+$client = new Client(null, null, null, null, '251 rue Frédéric', null, null, null, null, null, null, null, null);
 echo $client->getAdresse();
 ?>

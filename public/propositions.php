@@ -33,15 +33,16 @@ $datedepartsouhaitee = $_SESSION['date_depart_souhaitee'];
             <div id="header">
                 <div id="logo">
                   <img id='logo' src='/images/logo.jpg' alt='logo de DEV-FLY' />
-		
                 </div>
+                
                 <div id="menu">
-		 <?php
-            $_SESSION['page_actuelle'] = 'Rechercher un vol';
-            		include('include/menu_front_office.php'); 
-			?>
-                    </div>
-		       <?php include('include/back_office_login_form.php'); ?>
+                    <?php
+                    $_SESSION['page_actuelle'] = 'Rechercher un vol';
+                    include('include/menu_front_office.php'); 
+                    ?>
+                </div>
+                
+		<?php include('include/back_office_login_form.php'); ?>
             </div>
             
            <div id="developpement">
@@ -92,12 +93,13 @@ $datedepartsouhaitee = $_SESSION['date_depart_souhaitee'];
                     </form>
                 </div>
                
-           </div>
-               <div id="footer">
+            </div>
+            
+            <div id="footer">
                 <?php
                 include './include/footer.php';
-               ?>
-           </div> 
+                ?>
+            </div> 
         </div>
     </body>
 </html>

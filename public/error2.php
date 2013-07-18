@@ -20,34 +20,35 @@ if (!isset($_SESSION)) {
         <title>DEV-FLY - Erreur</title>
     </head>
     <body>
-           <div id="container">
+        <div id="container">
             <div id="header">
                 <div id="logo">
-                  <img id='logo' src='/images/logo.jpg' alt='logo de DEV-FLY' />
-		
+                    <img id='logo' src='/images/logo.jpg' alt='logo de DEV-FLY' />
                 </div>
+                
                 <div id="menu">
-                <?php
-            $_SESSION['page_actuelle'] = 'Qui sommes nous ?';
-            		include('include/menu_front_office.php'); 
-		        
-	         ?>
-                    </div>
-		       <?php include('include/back_office_login_form.php'); ?>
+                    <?php
+                    $_SESSION['page_actuelle'] = 'Qui sommes nous ?';
+                    include('include/menu_front_office.php');
+                    ?>
+                </div>
+                <?php include('include/back_office_login_form.php'); ?>
             </div>
-             <div id="developpement">
-        <h1>Erreur</h1>
-        
-        <p>Vous devez être connecté pour accéder à cette page !</p>
-        
-        <p>En cas de problème, merci de contacter l'administrateur du site.</p>
-        <p><a href="/">retour à l'accueil</a></p>
-        </div>
+            
+            <div id="developpement">
+                <h1>Erreur</h1>
+
+                <p>Vous devez être connecté pour accéder à cette page !</p>
+
+                <p>En cas de problème, merci de contacter l'administrateur du site.</p>
+                <p><a href="/">retour à l'accueil</a></p>
+            </div>
+            
             <div id="footer">
                 <?php
                 include './include/footer.php';
-               ?>
-           </div> > 
+                ?>
+            </div>
         </div>
     </body>
 </html>
