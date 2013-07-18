@@ -96,7 +96,7 @@ if(!User::isAdminConnected()){
             
             <div id="footer">
                 <?php
-                include './include/footer.php';
+                include VIEW . 'include/footer.php';
                ?>
            </div> 
         </div>
