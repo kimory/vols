@@ -23,27 +23,28 @@ if (!isset($_SESSION)) {
         <div id="container">
             <div id="header">
                 <div id="logo">
-                  <img id='logo' src='/images/logo.jpg' alt='logo de DEV-FLY' />
-		
+                    <img id='logo' src='/images/logo.jpg' alt='logo de DEV-FLY' />
                 </div>
+                
                 <div id="menu">
-                <?php
-            $_SESSION['page_actuelle'] = 'Espace client';
-            		include('include/menu_front_office.php'); 
-		        
-	         ?>
-                    </div>
-		       <?php include('include/back_office_login_form.php'); ?>
+                    <?php
+                    $_SESSION['page_actuelle'] = 'Espace client';
+                    include('include/menu_front_office.php');
+                    ?>
+                </div>
+                <?php include('include/back_office_login_form.php'); ?>
             </div>
-             <div id="developpement">
-                    <h1>Inscription confirmée</h1>
-        <p>Votre inscription a été réalisé avec succès</p>
-        </div>
+            
+            <div id="developpement">
+                <h1>Inscription confirmée</h1>
+                <p>Votre inscription a été réalisé avec succès</p>
+            </div>
+            
             <div id="footer">
-               <?php
+                <?php
                 include './include/footer.php';
-               ?>
-           </div> 
+                ?>
+            </div> 
         </div>
     </body>
 </html>

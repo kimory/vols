@@ -22,29 +22,30 @@ if (!isset($_SESSION)) {
     </head>
     
     <body>
-            <div id="container">
+        <div id="container">
             <div id="header">
                 <div id="logo">
-                  <img id='logo' src='/images/logo.jpg' alt='logo de DEV-FLY' />
-		
+                    <img id='logo' src='/images/logo.jpg' alt='logo de DEV-FLY' />
                 </div>
+                
                 <div id="menu">
-                     <?php 
-				$_SESSION['page_actuelle'] = 'Contact';
-				include('include/menu_front_office.php'); 
-			?>
-                    </div>
-		       <?php include('include/back_office_login_form.php'); ?>
+                    <?php
+                    $_SESSION['page_actuelle'] = 'Contact';
+                    include('include/menu_front_office.php');
+                    ?>
                 </div>
-			
+                <?php include('include/back_office_login_form.php'); ?>
+            </div>
+
             <div id="developpement">
-				<div id="connectionuser">
-					<?php
-					include('include/user_connection_form.php');
-					 ?>
-				</div>
+                <div id="connectionuser">
+                    <?php
+                    include('include/user_connection_form.php');
+                    ?>
+                </div>
+                
                 <div id="error">
-                   <?php if (isset($_SESSION['messages'])) : ?>
+                    <?php if (isset($_SESSION['messages'])) : ?>
                         <ul>
                             <?php foreach ($_SESSION['messages'] as $value) : ?>
                                 <li><?php echo $value ?></li>
@@ -57,58 +58,78 @@ if (!isset($_SESSION)) {
                     endif;
                     ?>
                 </div>
+                
                 <div id="contact">
-                <form action="/ContactController" method="POST" >
-                    <fieldset>
-                        <h5>Vos coordonnées</h5> 
+                    <form action="/ContactController" method="POST" >
+                        <fieldset>
+                            <h5>Vos coordonnées</h5> 
 
-                        <label for = "nom">Nom</label>
-                           <input type="text" name="nom" id="nom" size="30" value="<?php
-                           if (isset($_SESSION['nom'])) echo  $_SESSION['nom']; 
-                                   unset($_SESSION['nom']);?>" >
+                            <label for = "nom">Nom</label>
+                            <input type="text" name="nom" id="nom" size="30" value="<?php
+                            if (isset($_SESSION['nom'])){
+                                echo $_SESSION['nom'];
+                                unset($_SESSION['nom']);
+                            }
+                            ?>" >
 
-                        <label for = "prenom">Prénom</label>
-                           <input type="text" name="prenom" id="prenom" size="30" value="<?php
-                           if (isset($_SESSION['prenom'])) echo  $_SESSION['prenom']; 
-                                  unset($_SESSION['prenom']);?>" >
-                               <br>
+                            <label for = "prenom">Prénom</label>
+                            <input type="text" name="prenom" id="prenom" size="30" value="<?php
+                            if (isset($_SESSION['prenom'])){
+                                echo $_SESSION['prenom'];
+                                unset($_SESSION['prenom']);
+                            }
+                            ?>" >
+                            <br>
 
-                        <label for = "mail">Votre e-mail</label> 
-                           <input type="text" name="mail" size="30" value="<?php
-                           if (isset($_SESSION['mail'])) echo  $_SESSION['mail']; 
-                           unset($_SESSION['mail']);?>"/><br>
-                        
-                        <label for = "sujet">Sujet</label>
-                        <input type="text" name="sujet" size="30" value="<?php
-                           if (isset($_SESSION['sujet'])) echo  $_SESSION['sujet']; 
-                            unset($_SESSION['sujet']);?>"/><br>
-                            
-                        <textarea name="message" rows="6" wrap="virtual" cols="30"><?php
-                        if (isset($_SESSION['message'])) echo $_SESSION['message']; 
-                            unset($_SESSION['message']);?></textarea><br>
-                        
-                        <label for= "telephone">Téléphone</label>
-                        <input type="text" name="telephone" size="30" value="<?php
-                           if (isset($_SESSION['telephone'])) echo  $_SESSION['telephone']; 
-                            unset($_SESSION['telephone'])?>"/>
-                        <br>       
-                        <div id="submit">
-                            
-                           <input type="submit" value="valider">          
-                           <input type="reset" value="annuler">
-                        </div>
+                            <label for = "mail">Votre e-mail</label> 
+                            <input type="text" name="mail" size="30" value="<?php
+                            if (isset($_SESSION['mail'])){
+                                echo $_SESSION['mail'];
+                                unset($_SESSION['mail']);
+                            }
+                            ?>"/>
+                            <br>
 
-                    </fieldset>
+                            <label for = "sujet">Sujet</label>
+                            <input type="text" name="sujet" size="30" value="<?php
+                            if (isset($_SESSION['sujet'])){
+                                echo $_SESSION['sujet'];
+                                unset($_SESSION['sujet']);
+                            }
+                            ?>"/><br>
 
-                </form>
-                    </div>
+                            <textarea name="message" rows="6" wrap="virtual" cols="30"><?php
+                            if (isset($_SESSION['message'])){
+                                echo $_SESSION['message'];
+                                unset($_SESSION['message']);
+                            }
+                            ?></textarea><br>
 
-             </div>
+                            <label for= "telephone">Téléphone</label>
+                            <input type="text" name="telephone" size="30" value="<?php
+                            if (isset($_SESSION['telephone'])){
+                                echo $_SESSION['telephone'];
+                                unset($_SESSION['telephone']);
+                            }
+                            ?>"/>
+                            <br>  
+                                
+                            <div id="submit">
+                                <input type="submit" value="valider">          
+                                <input type="reset" value="annuler">
+                            </div>
+
+                        </fieldset>
+                    </form>
+                </div>
+
+            </div>
+            
             <div id="footer">
                 <?php
                 include './include/footer.php';
-               ?>
-           </div> 
+                ?>
+            </div> 
         </div>
     </body>
 </html>
