@@ -19,9 +19,9 @@
         </li>
         
         <li <?php
-            if (isset($_SESSION['page_actuelle']) && strcmp($_SESSION['page_actuelle'], 'Employé') == 0) {
-                echo 'class="active"';
-            }
+        if (isset($_SESSION['page_actuelle']) && strcmp($_SESSION['page_actuelle'], 'Employé') == 0) {
+            echo 'class="active"';
+        }
         ?>>
             <a href="/choixducritere#employe" data-toggle="tab">Employé</a>
         </li>

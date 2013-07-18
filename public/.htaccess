@@ -1,7 +1,7 @@
 #Note : ce fichier .htaccess surcharge la conf d'Apache
 Options -Indexes
-RewriteEngine on
 # pour la récriture d'URL
+RewriteEngine on
 RewriteRule ^$ accueil.php [L]
 RewriteRule ^recherche$ recherche.php [L]
 RewriteRule ^propositions$ propositions.php [L]
