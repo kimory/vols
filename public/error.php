@@ -24,25 +24,26 @@ if (!isset($_SESSION)) {
             <div id="header">
                 <div id="logo">
                   <img id='logo' src='/images/logo.jpg' alt='logo de DEV-FLY' />
-		
                 </div>
+                
                 <div id="menu">
-                <?php
-            $_SESSION['page_actuelle'] = 'Qui sommes nous ?';
-            		include('include/menu_front_office.php'); 
-		        
-	         ?>
-                    </div>
-		       <?php include('include/back_office_login_form.php'); ?>
+                    <?php
+                    $_SESSION['page_actuelle'] = 'Qui sommes nous ?';
+                    include('include/menu_front_office.php');
+                    ?>
+                </div>
+		<?php include('include/back_office_login_form.php'); ?>
             </div>
-             <div id="developpement">
-        <h1>Erreur</h1>
-        <p>La page que vous cherchez n'a pas pu s'afficher correctement !<br>
-        Nous vous invitons à réessayer.</p>
-        
-        <p>Si l'erreur persiste, merci de contacter l'administrateur du site.</p>
-        <p><a href="/">retour à l'accueil</a></p>
-        </div>
+            
+            <div id="developpement">
+                <h1>Erreur</h1>
+                <p>La page que vous cherchez n'a pas pu s'afficher correctement !<br>
+                Nous vous invitons à réessayer.</p>
+
+                <p>Si l'erreur persiste, merci de contacter l'administrateur du site.</p>
+                <p><a href="/">retour à l'accueil</a></p>
+            </div>
+            
             <div id="footer">
                 <?php
                 include './include/footer.php';

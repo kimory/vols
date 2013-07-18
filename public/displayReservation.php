@@ -24,75 +24,70 @@ if (!isset($_SESSION)) {
         <div id="container">
             <div id="header">
                 <div id="logo">
-                  <img id='logo' src='/images/logo.jpg' alt='logo de DEV-FLY' />
-		
+                    <img id='logo' src='/images/logo.jpg' alt='logo de DEV-FLY' />
                 </div>
-                <div id="menu">
-                     <ul class="nav nav-tabs">
-                         <li class="active"><a href="#vol" data-toggle="tab">Vol</a></li>
-                         <li><a href="#passager" data-toggle="tab">Passager</a></li>
-                         <li><a href="#employe" data-toggle="tab">Employé</a></li>
-                         <li><a href="#reservation" data-toggle="tab">Réservation</a></li>
-                         <li><a href="#client" data-toggle="tab">Client</a></li>
-                    </ul>
-                    </div>
-			   <?php 
-				// on inclut le menu du backoffice
-				$_SESSION['page_actuelle'] = 'Réservation';
-				include('include/back_office_menu.php');
-				include('include/back_office_login_form.php'); 
-				?>
-                </div>
-			
-            <div id="developpement">
-		 
-        <form action="/affichageReservationController" method="POST">
-            <label for="numreservation">Nouveau numéro de réservation :</label>
-            <input type="text" id="numreservation" name="numreservation"><br>
-            <input type="submit" value="OK">
-        </form>
-        
-        <?php // On affiche le message d'erreur le cas échéant :
-              if (isset($message) && strlen($message) > 0) : ?>
-                <p><?php echo $message ?></p>
                 
-        <?php // Si il n'y a pas d'erreur, on affiche les informations sur le passager recherché :
-				
-              else : ?>
-        
-                <div><h3>Description de la réservation</h3></div>
+                <div id="menu">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#vol" data-toggle="tab">Vol</a></li>
+                        <li><a href="#passager" data-toggle="tab">Passager</a></li>
+                        <li><a href="#employe" data-toggle="tab">Employé</a></li>
+                        <li><a href="#reservation" data-toggle="tab">Réservation</a></li>
+                        <li><a href="#client" data-toggle="tab">Client</a></li>
+                    </ul>
+                </div>
+                <?php
+                // on inclut le menu du backoffice
+                $_SESSION['page_actuelle'] = 'Réservation';
+                include('include/back_office_menu.php');
+                include('include/back_office_login_form.php');
+                ?>
+            </div>
 
-            <!-- Remarque : le htmlentities est une sécurité, il convertit les caractères
-            éligibles en entités HTML -->
-            <div>
-                <p>N° réservation : <?php echo htmlentities($reservation->getNumReservation(), ENT_QUOTES, 'UTF-8') ?></p>
-                <p>N° vol : <a href="/affichageVolController/action/<?php
-                    echo htmlentities($reservation->getVol()->getNumvol(), ENT_QUOTES, 'UTF-8')?>"><?php
-                    echo htmlentities($reservation->getVol()->getNumvol(), ENT_QUOTES, 'UTF-8') ?></a></p>
-                <?php $dateheuredep = new DateTime($reservation->getDateDuVol())?>
-                <p>Date de départ : <?php 
-                    echo htmlentities($dateheuredep->format('d/m/Y'), ENT_QUOTES, 'UTF-8') ?></p>
-                <p>Heure de départ : <?php 
-                    echo htmlentities($dateheuredep->format('H:i'), ENT_QUOTES, 'UTF-8') ?></p>
-                <!-- On veut récupérer le numéro du client pour l'utiliser dans la méthode action
-                du controller affichageClientController : -->
-                <p>N° client : <a href="/affichageClientController/action/<?php
-                    echo htmlentities($reservation->getClient()->getId(), ENT_QUOTES, 'UTF-8')?>"><?php 
-                    echo htmlentities($reservation->getClient()->getId(), ENT_QUOTES, 'UTF-8') ?></a></p>
-                <p>Nombre de passager(s) : <a href="/affichageDesPassagersController/action/<?php 
-                    echo htmlentities($reservation->getNumReservation(), ENT_QUOTES, 'UTF-8')?>"><?php 
-                    echo htmlentities($reservation->getNbpassagers(), ENT_QUOTES, 'UTF-8') ?></a></p>
+            <div id="developpement">
+
+                <form action="/affichageReservationController" method="POST">
+                    <label for="numreservation">Nouveau numéro de réservation :</label>
+                    <input type="text" id="numreservation" name="numreservation"><br>
+                    <input type="submit" value="OK">
+                </form>
+
+                <?php // On affiche le message d'erreur le cas échéant :
+                if (isset($message) && strlen($message) > 0) :
+                    ?>
+                    <p><?php echo $message ?></p>
+
+                    <?php // Si il n'y a pas d'erreur, on affiche les informations sur le passager recherché :
+
+                else :
+                    ?>
+
+                    <div><h3>Description de la réservation</h3></div>
+
+                    <!-- Remarque : le htmlentities est une sécurité, il convertit les caractères
+                    éligibles en entités HTML -->
+                    <div>
+                        <p>N° réservation : <?php echo htmlentities($reservation->getNumReservation(), ENT_QUOTES, 'UTF-8') ?></p>
+                        <p>N° vol : <a href="/affichageVolController/action/<?php echo htmlentities($reservation->getVol()->getNumvol(), ENT_QUOTES, 'UTF-8') ?>"><?php echo htmlentities($reservation->getVol()->getNumvol(), ENT_QUOTES, 'UTF-8') ?></a></p>
+                        <?php $dateheuredep = new DateTime($reservation->getDateDuVol()) ?>
+                        <p>Date de départ : <?php echo htmlentities($dateheuredep->format('d/m/Y'), ENT_QUOTES, 'UTF-8') ?></p>
+                        <p>Heure de départ : <?php echo htmlentities($dateheuredep->format('H:i'), ENT_QUOTES, 'UTF-8') ?></p>
+                        <!-- On veut récupérer le numéro du client pour l'utiliser dans la méthode action
+                        du controller affichageClientController : -->
+                        <p>N° client : <a href="/affichageClientController/action/<?php echo htmlentities($reservation->getClient()->getId(), ENT_QUOTES, 'UTF-8') ?>"><?php echo htmlentities($reservation->getClient()->getId(), ENT_QUOTES, 'UTF-8') ?></a></p>
+                        <p>Nombre de passager(s) : <a href="/affichageDesPassagersController/action/<?php echo htmlentities($reservation->getNumReservation(), ENT_QUOTES, 'UTF-8') ?>"><?php echo htmlentities($reservation->getNbpassagers(), ENT_QUOTES, 'UTF-8') ?></a></p>
+                    </div>
+
+                    <?php endif; ?>
+
+                <div><a href="/choixducritere">retour au choix du critère</a></div>
             </div>
             
-        <?php endif; ?>
-                
-        <div><a href="/choixducritere">retour au choix du critère</a></div>
-        </div>
             <div id="footer">
                 <?php
                 include './include/footer.php';
-               ?>
-           </div>  
+                ?>
+            </div>  
         </div>
     </body>
     
