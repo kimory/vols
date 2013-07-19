@@ -76,6 +76,8 @@ $datedepartsouhaitee = $_SESSION['date_depart_souhaitee'];
                     <form action="/passengerRegistrationController" method="POST">
                         <fieldset>
                             <h5>Nos propositions</h5>
+                            <p class="remarque">Remarque : les prix sont indiqués en fonction des nombres d'adultes
+                                et d'enfants renseignés.</p>
 
                             <?php // On parcourt la liste des vols récupérés pour les proposer au client.
                             foreach($vols as $vol) : ?>

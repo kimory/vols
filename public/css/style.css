@@ -48,11 +48,13 @@ body form{
     margin-top: 10px;
     margin-left:10px;
 }
+
 /* la div comportant le texte de synthese*/
 #synthese{
    position: relative;
    margin-top: -150px; 
 }
+
 /* les messages d'erreur de la page synthèse*/
 #errorsynthese{
     color: red;
@@ -370,6 +372,11 @@ titre de la proposition (page proposition), titre de la page recherche */
 /* formulaire d'enregistrement du passager */
 #enregistrementpassager{
     margin-top: 0px;
+}
+
+/* les remarques en italique */
+.remarque{
+    font-style:italic;
 }
 
 /* le pied de page */
