@@ -37,7 +37,6 @@ Cahier des charges :
         * ajouter une table des matières
 
 Divers à corriger / solutionner pour la V2 :
-        * vérifier la présence de protections (type htmlentities) à l'affichage de ce qui provient de la BDD
         * rendre les URL plus esthétiques ?
         * voir si les vues dans le .htaccess ont du sens, on pourrait les faire passer via le contrôleur à chaque fois
         * regrouper des méthodes au sein d'un même contrôleur ?
