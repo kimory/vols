@@ -18,14 +18,16 @@ else
 ?>      
     <div id="utilisateur">
 	<form class="form-inline" action="/clientLoginController" method="POST">
-		  
-            <?php
-            if (isset($_SESSION['message_login_client']) && strlen($_SESSION['message_login_client']) > 0) 
-            {
-                    echo $_SESSION['message_login_client'] . PHP_EOL;
-                    $_SESSION['message_login_client'] = '';
-            }
-            ?>
+            
+            <div id="errorconnexionclient">
+                <?php
+                if (isset($_SESSION['message_login_client']) && strlen($_SESSION['message_login_client']) > 0) 
+                {
+                        echo $_SESSION['message_login_client'] . PHP_EOL;
+                        $_SESSION['message_login_client'] = '';
+                }
+                ?>
+            </div>
             
             <fieldset>
                Connexion Utilisateur : &nbsp;&nbsp;&nbsp;

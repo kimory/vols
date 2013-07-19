@@ -84,6 +84,16 @@ body form{
     margin-left: 250px;
 }
 
+/* les messages d'erreur de la page d'inscription du client */
+#errorinscription{
+    color: red;
+}
+
+/* les messages d'erreur lors de la connexion du client */
+#errorconnexionclient{
+    color: red;
+}
+
 /* les messages d'erreur des autres pages */
 #error{
     color: red;
