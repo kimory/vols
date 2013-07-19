@@ -76,7 +76,7 @@ body form{
 }
 
 /* les messages d'erreur de la page recherche */
-#errorrecherhe{
+#errorrecherche{
     color: red;
     position: relative;
     width: 550px;
