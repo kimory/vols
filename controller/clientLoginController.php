@@ -32,14 +32,14 @@ class clientLoginController {
             $_SESSION['message_login_client'] = 'Vous devez renseigner un login et un mot de passe.';
         }
 
-		if(isset($_SESSION['message_login_client']) || ! isset($_SESSION['pagesurlaquelleondoitaller']))
-		{
-			header('Location:' . $_SERVER['HTTP_REFERER']); // renvoie vers la page précédente
-		}
-		else
-		{
-			header('Location:' . $_SESSION['pagesurlaquelleondoitaller']);
-		}
+            if(isset($_SESSION['message_login_client']) || ! isset($_SESSION['pagesurlaquelleondoitaller']))
+            {
+                    header('Location:' . $_SERVER['HTTP_REFERER']); // renvoie vers la page précédente
+            }
+            else
+            {
+                    header('Location:' . $_SESSION['pagesurlaquelleondoitaller']);
+            }
     }
 }
 

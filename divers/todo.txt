@@ -39,7 +39,6 @@ Cahier des charges :
 Divers à corriger / solutionner pour la V2 :
         * vérifier la présence de protections (type htmlentities) à l'affichage de ce qui provient de la BDD
         * rendre les URL plus esthétiques ?
-        * un client qui se connecte depuis l'espace client est renvoyé sur la page sur laquelle il était avant d'arriver sur l'espace client (ou lieu de l'ec lui-même)
         * voir si les vues dans le .htaccess ont du sens, on pourrait les faire passer via le contrôleur à chaque fois
         * regrouper des méthodes au sein d'un même contrôleur ?
         * corriger le projet pour coller aux remarques du prof ci-dessous
