@@ -69,13 +69,14 @@
                             <?php
                             foreach ($resultat['places'] as $passager) :
                             ?>
+                                <!-- htmlentities convertit les caractères éligibles en entités HTML (sécurité) -->
                                 <tr>
-                                    <td><?php echo $passager['numplace']; ?></td>
-                                    <td><?php echo $passager['prix']; ?> €</td>
-                                    <td><?php echo strtoupper($passager['civilite']); ?></td>
-                                    <td><?php echo $passager['nom']; ?></td>
-                                    <td><?php echo $passager['prenom']; ?></td>
-                                    <td><?php echo $passager['datenaissance']; ?></td>
+                                    <td><?php echo htmlentities($passager['numplace'], ENT_QUOTES, 'UTF-8'); ?></td>
+                                    <td><?php echo htmlentities($passager['prix'], ENT_QUOTES, 'UTF-8'); ?> €</td>
+                                    <td><?php echo htmlentities(strtoupper($passager['civilite']), ENT_QUOTES, 'UTF-8'); ?></td>
+                                    <td><?php echo htmlentities($passager['nom'], ENT_QUOTES, 'UTF-8'); ?></td>
+                                    <td><?php echo htmlentities($passager['prenom'], ENT_QUOTES, 'UTF-8'); ?></td>
+                                    <td><?php echo htmlentities($passager['datenaissance'], ENT_QUOTES, 'UTF-8'); ?></td>
                                 </tr>
                             <?php
                             endforeach;
