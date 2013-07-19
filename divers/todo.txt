@@ -3,7 +3,6 @@
 -Créer d'autres vols : dans les 2-3 mois après la date de fin de projet + dans les 2 mois après la date de présentation au jury
 -Donner avec l'appli la liste des vols créés + identifiants
 -Renommer les pages pour avoir une cohérence ??
--Voir si les use dans l'index ont du sens
 -Validation W3C
 -Ajouter une mention de la page "contact" dans le CDG ?
 
