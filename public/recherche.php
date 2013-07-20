@@ -41,7 +41,7 @@ if (!isset($_SESSION)) {
                     ?>
                  </div>
                 
-                <div id="errorrecherhe">
+                <div id="errorrecherche">
                   
                     <ul>
                         <?php if (isset($_SESSION['messages'])) : ?>

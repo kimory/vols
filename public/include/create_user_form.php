@@ -15,11 +15,16 @@ if (! Client::isClientConnected()) :
 
 
 	if(isset($_SESSION['messages'])) :
-		foreach($_SESSION['messages'] as $mes) :
-		?>
-			<p><?php echo $mes; ?></p>
-		<?php
-		endforeach;
+        ?>
+                <div id="errorinscription">
+                    <?php
+                    foreach($_SESSION['messages'] as $mes) :
+                    ?>
+                            <p><?php echo $mes; ?></p>
+                    <?php
+                    endforeach;?>
+                </div>
+                <?php
 		unset($_SESSION['messages']);
 	endif;
     ?>

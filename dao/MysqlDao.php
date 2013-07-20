@@ -515,7 +515,7 @@ class MysqlDao {
 
 		$vol = $this->getVolById($numvol);
 
-		// Premièrement : on récupère notre numéro de client
+		// Premièrement : on récupère le numéro de client
 		$sql = "SELECT numclient FROM client WHERE login=:login";
 		$stmt = $this->dbh->prepare($sql);
 		$stmt->bindParam(':login', $loginclient);

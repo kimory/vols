@@ -3,7 +3,6 @@
 -Créer d'autres vols : dans les 2-3 mois après la date de fin de projet + dans les 2 mois après la date de présentation au jury
 -Donner avec l'appli la liste des vols créés + identifiants
 -Renommer les pages pour avoir une cohérence ??
--Voir si les use dans l'index ont du sens
 -Validation W3C
 -Ajouter une mention de la page "contact" dans le CDG ?
 
@@ -37,7 +36,6 @@ Cahier des charges :
         * ajouter une table des matières
 
 Divers à corriger / solutionner pour la V2 :
-        * vérifier la présence de protections (type htmlentities) à l'affichage de ce qui provient de la BDD
         * rendre les URL plus esthétiques ?
         * voir si les vues dans le .htaccess ont du sens, on pourrait les faire passer via le contrôleur à chaque fois
         * regrouper des méthodes au sein d'un même contrôleur ?

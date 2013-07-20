@@ -88,7 +88,7 @@ $_SESSION['pagesurlaquelleondoitaller'] = $_SERVER['REQUEST_URI'];
                                             <tr>
                                                 <td><a href="/reservationDetailsController/action/<?php
                                                     echo htmlentities($row['numreservation'], ENT_QUOTES, 'UTF-8')?>"><?php
-                                                    echo $row['numreservation'] ?></a>
+                                                    echo htmlentities($row['numreservation'], ENT_QUOTES, 'UTF-8') ?></a>
                                                 </td>
 
                                                 <?php $datereservation = new Datetime($row['datereservation']);?>

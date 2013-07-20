@@ -2,11 +2,6 @@
 
 include '../setup.php';
 
-use entity\Personne;
-use entity\Client;
-use entity\Passager;
-use \DateTime;
-
 session_start(); // on passe toujours par cette page, la session est toujours ouverte ici
  
 // on récupère le nom du controlleur saisi dans l'URL

@@ -47,7 +47,7 @@ if (!isset($_SESSION)) {
                 else :
                     ?>
 
-                    <div><h3>Description des vols de l'employé N° <a href="/affichageEmployeController/action/<?php echo htmlentities($_GET['numemploye'], ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlentities($_GET['numemploye'], ENT_QUOTES, 'UTF-8') ?></a></h3></div>
+                    <div><h3>Description des vols de l'employé N° <a href="/employe/<?php echo htmlentities($_GET['numemploye'], ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlentities($_GET['numemploye'], ENT_QUOTES, 'UTF-8') ?></a></h3></div>
 
                     <!-- Remarque : le htmlentities est une sécurité, il convertit les caractères
                     éligibles en entités HTML -->
@@ -62,7 +62,7 @@ if (!isset($_SESSION)) {
                                            <?php echo htmlentities($value->getLieuDepart(), ENT_QUOTES, 'UTF-8'); ?> -
                                            <?php echo htmlentities($value->getLieuArrivee(), ENT_QUOTES, 'UTF-8'); ?>
                                     </td>       
-                                    <td><a href="/affichageVolController/action/<?php echo htmlentities($value->getNumVol(), ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlentities($value->getNumVol(), ENT_QUOTES, 'UTF-8') ?></a></td>
+                                    <td><a href="/vol/<?php echo htmlentities($value->getNumVol(), ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlentities($value->getNumVol(), ENT_QUOTES, 'UTF-8') ?></a></td>
                                     <?php $datedep = new DateTime($value->getDateHeureDepart()); ?>
                                     <td><?php echo htmlentities($datedep->format('d/m/Y'), ENT_QUOTES, 'UTF-8'); ?></td>
                                 </tr>

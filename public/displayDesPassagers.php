@@ -45,7 +45,7 @@ if (!isset($_SESSION)) {
                 else :
                     ?>
 
-                    <div><h3>Passagers sur la réservation <a href="/affichageReservationController/action/<?php echo htmlentities($_GET['numreservation'], ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlentities($_GET['numreservation'], ENT_QUOTES, 'UTF-8') ?></a></h3></div><br/>
+                    <div><h3>Passagers sur la réservation <a href="/reservation/<?php echo htmlentities($_GET['numreservation'], ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlentities($_GET['numreservation'], ENT_QUOTES, 'UTF-8') ?></a></h3></div><br/>
 
                     <!-- Remarque : le htmlentities est une sécurité, il convertit les caractères
                     éligibles en entités HTML -->
@@ -57,7 +57,7 @@ if (!isset($_SESSION)) {
                             </tr>
                             <?php foreach ($tab as $value) : ?>
                                 <tr>
-                                    <td><a href="/affichagePassagerController/action/<?php echo htmlentities($value['numpassager'], ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlentities($value['numpassager'], ENT_QUOTES, 'UTF-8') ?></a></td>
+                                    <td><a href="/passager/<?php echo htmlentities($value['numpassager'], ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlentities($value['numpassager'], ENT_QUOTES, 'UTF-8') ?></a></td>
                                     <td><?php echo htmlentities($value['numplace'], ENT_QUOTES, 'UTF-8'); ?></td>
                                 </tr>
                             <?php endforeach; ?>
