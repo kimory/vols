@@ -630,7 +630,7 @@ class MysqlDao {
 			$stmt3->bindParam(':numvol', $vol->getNumvol());
 			$stmt3->bindParam(':numreservation', $numreservation);
                         // Attention, le prix dépend de l'âge du passager :
-			$prix = ($this->payePleinTarif($passager->getDateNaissance())) ? $vol->getTarif() : 50;
+			$prix = ($this->payePleinTarif($passager->getDateNaissance(), $vol->getDateHeureDepart())) ? $vol->getTarif() : 50;
 			$stmt3->bindParam(':prix', $prix);
 
 			if(!(true === $stmt3->execute()))
@@ -643,13 +643,26 @@ class MysqlDao {
 		return 0; // si tout se passe bien
 	}
 
-	// date_de_naissance au format d/m/Y
-	public function payePleinTarif($date_de_naissance)
+	// date naissance passager , date départ vol
+	public function estMajeur($dn_p, $dd_v)
 	{
-		$dt = DateTime::createFromFormat('d/m/Y', $date_de_naissance);
-		$today = new DateTime();
+		$dn_p_dt = new DateTime($dn_p);
+		$dd_v_dt = new DateTime($dd_v);
 
-		$interval = $today->diff($dt);
+		$interval = $dd_v_dt->diff($dn_p_dt);
+
+		// Avec int on récupérera un entier
+		// On vérifie que la personne a plus de 18 ans
+		return ((int)$interval->format('%a')) > 365*18;
+	}
+
+	// date_de_naissance passager et date départ du vol au format ISO
+	public function payePleinTarif($date_de_naissance, $date_depart)
+	{
+		$dn_p_dt = new DateTime($date_de_naissance);
+		$dd_v_dt = new DateTime($date_depart);
+
+		$interval = $dd_v_dt->diff($dn_p_dt);
 
                 // Avec int on récupérera un entier
 		return ((int)$interval->format('%a')) > 365*3; // on regarde si il a plus de 3 ans

@@ -70,9 +70,11 @@ if (!isset($_SESSION)) {
                         <?php foreach($_SESSION['passagers'] as $passager) : ?>
                             <li>
                                 <?php
+					$dn_p_dt = new DateTime( $passager->getDateNaissance()) ;
+
                                 echo $passager->getNom() . " " . 
                                 $passager->getPrenom() . ', né(e) le : ' . 
-                                $passager->getDateNaissance();
+								$dn_p_dt->format('d/m/Y');
                                 ?>
                             </li>        
                         <?php endforeach; ?>
