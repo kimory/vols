@@ -643,29 +643,36 @@ class MysqlDao {
 		return 0; // si tout se passe bien
 	}
 
-	// date naissance passager , date départ vol
+	// date naissance du passager, date de départ du vol, au format ISO
 	public function estMajeur($dn_p, $dd_v)
 	{
+                // On vérifie que la personne est majeure à la date du vol
+            
 		$dn_p_dt = new DateTime($dn_p);
 		$dd_v_dt = new DateTime($dd_v);
 
+                // On récupère l'intervalle entre la date de naissance du passager
+                // et la date du vol.
 		$interval = $dd_v_dt->diff($dn_p_dt);
 
 		// Avec int on récupérera un entier
-		// On vérifie que la personne a plus de 18 ans
-		return ((int)$interval->format('%a')) > 365*18;
+		// On vérifie que la personne a au moins 18 ans
+		return ((int)$interval->format('%a')) >= 365*18;
 	}
 
-	// date_de_naissance passager et date départ du vol au format ISO
+	// date de naissance du passager, date départ du vol, au format ISO
 	public function payePleinTarif($date_de_naissance, $date_depart)
 	{
+                // Rappel : toute personne qui a au moins 3 ans à la
+                // date du vol paye plein tarif.
+            
 		$dn_p_dt = new DateTime($date_de_naissance);
 		$dd_v_dt = new DateTime($date_depart);
 
 		$interval = $dd_v_dt->diff($dn_p_dt);
 
                 // Avec int on récupérera un entier
-		return ((int)$interval->format('%a')) > 365*3; // on regarde si il a plus de 3 ans
+		return ((int)$interval->format('%a')) >= 365*3; // on regarde si il a plus de 3 ans
                 // renvoie "true" si c'est un adulte, ou "false" si c'est un enfant (< 3 ans)              
 	}
 

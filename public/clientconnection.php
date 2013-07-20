@@ -39,7 +39,7 @@ if (!isset($_SESSION)) {
             <div id="developpement">
                 <div id="connectionuser">
 					<h2>Se connecter</h2>
-					<p class='remarque' >Si vous possédez déjà un compte.</p>
+					<p class='remarque'>Si vous possédez déjà un compte.</p>
                     <?php
                     include('include/user_connection_form.php');
                     ?>
@@ -50,7 +50,8 @@ if (!isset($_SESSION)) {
                 if (!Client::isClientConnected()) :
 					?>
 					<h2>S'enregistrer</h2>
-					<p class='remarque' >Si vous n'êtes pas encore client.</p>
+					<p class='remarque'>Si vous n'êtes pas encore inscrit.<br>
+                                           Vous serez automatiquement connecté à votre compte client dès l'inscription effectuée !</p>
 					<?php
                     include('include/create_user_form.php');
                 endif;

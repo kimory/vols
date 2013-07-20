@@ -7,11 +7,8 @@
 -Ajouter une mention de la page "contact" dans le CDG ?
 
 Pour la réservation d'un vol :
-        * rendre plus visible la possibilité de se connecter plutôt que de s'inscrire lors de la procédure (+ message lors de la connexion)
-        * Vérifier que les passagers renseignés correspondent bien aux nombres d'adultes et d'enfants renseignés (sinon le prix sera faux !)
-        * Pour l'âge : partir de la date du voyage et non de la date du jour...
-        * Au moins un adulte voyage -> vérifier qu'il a au moins 18 ans à la date du vol (et pas 3 ans)
         * gérer les allers-retours
+        * IHM : reprendre la page d'enregistrement ou connection à la BDD
 
 Pour l'espace client :
         * visualisation des billets pour impression
