@@ -9,7 +9,8 @@ use \DateTime;
 
 class passengerRegistrationController {
 
-    public function action() {
+    public function action() { 
+		$dao = new MysqlDao();
                 // Cas où la personne n'a pas choisi un vol parmi les
                 // propositions sur la vue précédente :
                 if(isset($_POST['volchoisi']) && strlen($_POST['volchoisi']) > 0){
@@ -79,31 +80,61 @@ class passengerRegistrationController {
                                 
 				$i++;
 			}
-
 			if(!empty($messages_erreur))
 			{
 				include VIEW . "passengerRegistration.php";
 			}
 			else
 			{
-                                $passagers = array();
-                                $i = 0;
-                                while($i < $_SESSION['nb_passagers']){
-                                    $passager = new Passager(null, $_POST['civilite'][$i], $_POST['nom'][$i], $_POST['prenom'][$i], $_POST['date_de_naissance'][$i]);
-                                    $passagers[] = $passager;
-                                    $i++;
-                                }
-                                // On récupère en session un tableau d'objets 'Passager' :
-                                $_SESSION['passagers'] = $passagers;         
-                            
-				if(Client::isClientConnected())
-					header('Location:/syntheseController');
+				// On enregitre en session les passagers
+				// et nous vérifions également leur âge au départ du vol
+                $passagers = array();
+                $i = 0;
+				$_SESSION['nb_adultes'] = 0;
+				$_SESSION['nb_enfants'] = 0;
+				$un_vrai_adulte_present = false;
+
+				$vol = $dao->getVolById($_SESSION['volchoisi']);
+
+                while($i < $_SESSION['nb_passagers']){
+					$dt = DateTime::createFromFormat('d/m/Y', $_POST['date_de_naissance'][$i]);
+                    $passager = new Passager(null, $_POST['civilite'][$i], $_POST['nom'][$i], $_POST['prenom'][$i], $dt->format('Y-m-d'));
+                    $passagers[] = $passager;
+					if( $dao->payePleinTarif($passager->getDateNaissance(), $vol->getDateHeureDepart()) )
+					{
+						$_SESSION['nb_adultes']++;
+						if($dao->estMajeur($passager->getDateNaissance(), $vol->getDateHeureDepart()))
+						{
+							$un_vrai_adulte_present = true;
+						}
+					}
+					else
+					{
+						$_SESSION['nb_enfants']++;
+					}
+                    $i++;
+                }
+
+				if(! $un_vrai_adulte_present)
+				{
+                      $messages_erreur[] = "Il n'y a pas d'adulte parmis les passagers.";
+					  include VIEW . "passengerRegistration.php";
+					  return;
+				}
 				else
 				{
-					// Une fois qu'on aura fini l'inscription, 
-					// il faudra aller sur cette page
-					$_SESSION['pagesurlaquelleondoitaller'] = '/syntheseController';
-					header('Location:/clientConnection'); 
+					// On récupère en session un tableau d'objets 'Passager' :
+					$_SESSION['passagers'] = $passagers;         
+
+					if(Client::isClientConnected())
+						header('Location:/syntheseController');
+					else
+					{
+						// Une fois qu'on aura fini l'inscription, 
+						// il faudra aller sur cette page
+						$_SESSION['pagesurlaquelleondoitaller'] = '/syntheseController';
+						header('Location:/clientConnection'); 
+					}
 				}
 			}
 		}
@@ -119,6 +150,7 @@ class passengerRegistrationController {
 			include VIEW . "passengerRegistration.php";
 		}
 	}
+
 }
 
 ?>
