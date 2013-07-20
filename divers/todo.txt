@@ -5,16 +5,17 @@
 -Renommer les pages pour avoir une cohérence ??
 -Validation W3C
 -Ajouter une mention de la page "contact" dans le CDG ?
+-Chiffrer le mot de passe du client ?
 
 Pour la réservation d'un vol :
         * gérer les allers-retours
-        * IHM : reprendre la page d'enregistrement ou connection à la BDD
+        * IHM : reprendre la page d'enregistrement ou connection du client
 
 Pour l'espace client :
         * visualisation des billets pour impression
         * modification d'une réservation -> revient à annuler + réserver
         * adresse du client visible et modifiable
-        * chiffrer le mot de passe du client ?
+        * dans le détail des réservations, ajouter le nom des passagers ?
 
 Pour la partie back office :
         * rajouter d'autres critères de recherche ?
