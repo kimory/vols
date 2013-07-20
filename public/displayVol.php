@@ -67,11 +67,11 @@ if (!isset($_SESSION)) {
                         <p>Date et heure de départ : <?php echo htmlentities($dateheuredep->format('d/m/Y à H:i'), ENT_QUOTES, 'UTF-8') ?></p>
                         <?php $dateheurearrivee = new DateTime($vol->getDateHeureArrivee()) ?>
                         <p>Date et heure d'arrivée : <?php echo htmlentities($dateheurearrivee->format('d/m/Y à H:i'), ENT_QUOTES, 'UTF-8') ?></p>
-                        <p>N° pilote : <a href="/affichageEmployeController/action/<?php echo htmlentities($vol->getPilote(), ENT_QUOTES, 'UTF-8') ?>"><?php echo htmlentities($vol->getPilote(), ENT_QUOTES, 'UTF-8') ?></a></p>
-                        <p>N° copilote : <a href="/affichageEmployeController/action/<?php echo htmlentities($vol->getCopilote(), ENT_QUOTES, 'UTF-8') ?>"><?php echo htmlentities($vol->getCopilote(), ENT_QUOTES, 'UTF-8') ?></a></p>
-                        <p>N° hôtesse / steward 1 : <a href="/affichageEmployeController/action/<?php echo htmlentities($vol->getHotesse_steward1(), ENT_QUOTES, 'UTF-8') ?>"><?php echo htmlentities($vol->getHotesse_steward1(), ENT_QUOTES, 'UTF-8') ?></a></p>
-                        <p>N° hôtesse / steward 2 : <a href="/affichageEmployeController/action/<?php echo htmlentities($vol->getHotesse_steward2(), ENT_QUOTES, 'UTF-8') ?>"><?php echo htmlentities($vol->getHotesse_steward2(), ENT_QUOTES, 'UTF-8') ?></a></p>
-                        <p>N° hôtesse / steward 3 : <a href="/affichageEmployeController/action/<?php echo htmlentities($vol->getHotesse_steward3(), ENT_QUOTES, 'UTF-8') ?>"><?php echo htmlentities($vol->getHotesse_steward3(), ENT_QUOTES, 'UTF-8') ?></a></p>
+                        <p>N° pilote : <a href="/employe/<?php echo htmlentities($vol->getPilote(), ENT_QUOTES, 'UTF-8') ?>"><?php echo htmlentities($vol->getPilote(), ENT_QUOTES, 'UTF-8') ?></a></p>
+                        <p>N° copilote : <a href="/employe/<?php echo htmlentities($vol->getCopilote(), ENT_QUOTES, 'UTF-8') ?>"><?php echo htmlentities($vol->getCopilote(), ENT_QUOTES, 'UTF-8') ?></a></p>
+                        <p>N° hôtesse / steward 1 : <a href="/employe/<?php echo htmlentities($vol->getHotesse_steward1(), ENT_QUOTES, 'UTF-8') ?>"><?php echo htmlentities($vol->getHotesse_steward1(), ENT_QUOTES, 'UTF-8') ?></a></p>
+                        <p>N° hôtesse / steward 2 : <a href="/employe/<?php echo htmlentities($vol->getHotesse_steward2(), ENT_QUOTES, 'UTF-8') ?>"><?php echo htmlentities($vol->getHotesse_steward2(), ENT_QUOTES, 'UTF-8') ?></a></p>
+                        <p>N° hôtesse / steward 3 : <a href="/employe/<?php echo htmlentities($vol->getHotesse_steward3(), ENT_QUOTES, 'UTF-8') ?>"><?php echo htmlentities($vol->getHotesse_steward3(), ENT_QUOTES, 'UTF-8') ?></a></p>
                         <p>Nombre de places restantes sur ce vol : <?php echo htmlentities($vol->getNb_places_restantes(), ENT_QUOTES, 'UTF-8') ?></p>
                     </div>
 
