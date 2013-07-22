@@ -7,7 +7,7 @@ use entity\Client;
 use entity\Passager;
 use \DateTime;
 
-class passengerRegistrationController {
+class EnregistrementPassagersController {
 
     public function action() {
         $dao = new MysqlDao();
@@ -113,11 +113,11 @@ class passengerRegistrationController {
                     $_SESSION['passagers'] = $passagers;
 
                     if (Client::isClientConnected())
-                        header('Location:/syntheseController');
+                        header('Location:/SyntheseController');
                     else {
                         // Une fois qu'on aura fini l'inscription, 
                         // il faudra aller sur cette page
-                        $_SESSION['pagesurlaquelleondoitaller'] = '/syntheseController';
+                        $_SESSION['pagesurlaquelleondoitaller'] = '/SyntheseController';
                         header('Location:/clientConnection');
                     }
                 }

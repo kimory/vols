@@ -4,7 +4,7 @@ namespace controller;
 
 use dao\MysqlDao;
 
-class createUserController {
+class CreationClientController {
 
     public function action() {
 

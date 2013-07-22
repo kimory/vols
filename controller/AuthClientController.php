@@ -5,7 +5,7 @@ namespace controller;
 
 use dao\MysqlDao;
 
-class clientLoginController {
+class AuthClientController {
 
     public function action() {
 

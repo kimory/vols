@@ -566,7 +566,7 @@ class MysqlDao {
 			FROM passager
 			WHERE civilite=:civilite AND
 			nom=:nom AND prenom=:prenom AND 
-			DATE_FORMAT(datenaissance, '%d/%m/%Y')=:datenaissance";
+			datenaissance=:datenaissance";
 		$stmt = $this->dbh->prepare($sql);
 
 		// création d'un passager (si on ne l'a pas trouvé)
@@ -594,8 +594,8 @@ class MysqlDao {
 			}
 			else	// s'il faut créer le passager
 			{ 
-				$dt = DateTime::createFromFormat('d/m/Y', $passager->getDateNaissance());
-				
+				$dt = new DateTime($passager->getDateNaissance());
+
 				// on insère un nouveau passager
 				$stmt2->bindParam(':civilite', $passager->getCivilite());
 				$stmt2->bindParam(':nom', $passager->getNom());

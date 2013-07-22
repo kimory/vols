@@ -5,7 +5,7 @@ namespace controller;
 use dao\MysqlDao;
 use \DateTime;
 
-class syntheseController {
+class SyntheseController {
 
 	public function action() {
 		$dao = new MysqlDao();
@@ -41,7 +41,7 @@ class syntheseController {
 
 					// on y mettra le numéro de réservation calculé
                                         // (cf il est passé par référence en paramètre
-                                        // de "ajoutReservation").
+                                        // de "ajoutReservation").                                      
 					$numreservation = '';
 					$ret = $dao->ajoutReservation($_SESSION['login'], 
 						$_SESSION['passagers'], 
@@ -56,7 +56,7 @@ class syntheseController {
 					switch($ret)
 					{
 						case 0 : // Tout s'est bien passé, on passe à la vue suivante :
-							header('Location:/billetController');
+							header('Location:/BilletController');
 							break;
 						case 1 :
 							$_SESSION['message'] = "Le client actuel n'existe pas.";

@@ -28,7 +28,7 @@ if (! Client::isClientConnected()) :
 		unset($_SESSION['messages']);
 	endif;
     ?>
-    <form action="/createUserController" method="POST" >
+    <form action="/CreationClientController" method="POST" >
         <fieldset>
             <h5>S'inscrire</h5>
 

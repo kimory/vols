@@ -9,7 +9,7 @@ if (User::isAdminConnected()) {
     ?>
     <div id="deconnexionadmin">
         <a href='/choixducritere'><button class="btn btn-primary" type="button">Choix du critère</button></a>
-        <a href='/deconnexionController'><button class="btn btn-large btn-primary" type="button">Déconnexion</button></a>
+        <a href='/DeconnexionController'><button class="btn btn-large btn-primary" type="button">Déconnexion</button></a>
     </div>
     <?php
 } else {
@@ -18,7 +18,7 @@ if (User::isAdminConnected()) {
 
     <div id="backoffice">
 
-        <form class="form-inline" action="/backOfficeLoginController" method="POST">
+        <form class="form-inline" action="/AuthAdminController" method="POST">
             Connexion administrateur: &nbsp;
             <label for ="login_admin">LOGIN</label>
             <input type="text" name="login_admin" id="login_admin">

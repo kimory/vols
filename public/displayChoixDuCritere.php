@@ -45,7 +45,7 @@ if(!User::isAdminConnected()){
                 <div class="tab-content">
                     <div class="tab-pane active" id="vol">
                         <h3>Vol</h3>
-                        <form action="/affichageVolController" method="POST">
+                        <form action="/AffichageVolController" method="POST">
                             <label for="numvol">N° de vol :</label>
                             <input type="text" id="numvol" name="numvol"><br>
                             <input type="submit" value="Valider">
@@ -54,7 +54,7 @@ if(!User::isAdminConnected()){
 
                     <div class="tab-pane" id="passager">
                         <h3>Passager</h3>
-                        <form action="/affichagePassagerController" method="POST">
+                        <form action="/AffichagePassagerController" method="POST">
                             <label for="numpassager">N° de passager :</label>
                             <input type="text" id="numpassager" name="numpassager"><br>
                             <input type="submit" value="Valider">
@@ -63,7 +63,7 @@ if(!User::isAdminConnected()){
 
                     <div class="tab-pane" id="employe">
                         <h3>Employé</h3>
-                        <form action="/affichageEmployeController" method="POST">
+                        <form action="/AffichageEmployeController" method="POST">
                             <label for="numemploye">N° d'employé :</label>
                             <input type="text" id="numemploye" name="numemploye"><br>                          
                             <input type="submit" value="Valider">
@@ -72,7 +72,7 @@ if(!User::isAdminConnected()){
 
                     <div class="tab-pane" id="reservation">
                         <h3>Réservation</h3>
-                        <form action="/affichageReservationController" method="POST">
+                        <form action="/AffichageReservationController" method="POST">
                             <label for="numreservation">N° de réservation :</label>
                             <input type="text" id="numreservation" name="numreservation"><br>
                             <input type="submit" value="Valider">
@@ -81,7 +81,7 @@ if(!User::isAdminConnected()){
 
                     <div class="tab-pane" id="client">
                         <h3>Client</h3>
-                        <form action="/affichageClientController" method="POST">
+                        <form action="/AffichageClientController" method="POST">
                             <label for="numclient">N° de client :</label>
                             <input type="text" id="numclient" name="numclient"><br>
                             <input type="submit" value="Valider">

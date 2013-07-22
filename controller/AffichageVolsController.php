@@ -4,7 +4,7 @@ namespace controller;
 
 use dao\MysqlDao;
 
-class affichageDesVolsController {
+class AffichageVolsController {
 
     public function action() {
         $dao = new MysqlDao();

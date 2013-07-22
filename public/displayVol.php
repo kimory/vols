@@ -38,7 +38,7 @@ if (!isset($_SESSION)) {
 
             <div id="developpement">
                 <div id="display">
-                    <form action="/affichageVolController" method="POST">
+                    <form action="/AffichageVolController" method="POST">
                         <label for="numvol">Nouveau numéro de vol :</label>
                         <input type="text" id="numvol" name="numvol"><br>
                         <input type="submit" value="OK">

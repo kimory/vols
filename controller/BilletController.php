@@ -5,7 +5,7 @@ namespace controller;
 use dao\MysqlDao;
 //use \DateTime;
 
-class billetController {
+class BilletController {
 
 	public function action() {
 		$dao = new MysqlDao();

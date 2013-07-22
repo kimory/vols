@@ -4,7 +4,7 @@ namespace controller;
 
 use dao\MysqlDao;
 
-class affichagePassagerController {
+class AffichagePassagerController {
 
     public function action() {
         $dao = new MysqlDao();

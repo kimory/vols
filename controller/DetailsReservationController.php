@@ -4,7 +4,7 @@ namespace controller;
 
 use dao\MysqlDao;
 
-class reservationDetailsController {
+class DetailsReservationController {
 
 	public function action() {
 

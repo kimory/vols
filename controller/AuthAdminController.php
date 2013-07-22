@@ -6,7 +6,7 @@ namespace controller;
 
 use dao\MysqlDao;
 
-class backOfficeLoginController {
+class AuthAdminController {
 
     public function action() {
 

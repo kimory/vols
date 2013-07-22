@@ -87,7 +87,7 @@ if (!isset($_SESSION)) {
                     
                 <div>
                     <p>Les e-cartes bleues et cartes transcash ne sont pas acceptées.</p>
-                    <form method="post" action="/syntheseController" >
+                    <form method="post" action="/SyntheseController" >
                             <label for="numcarte">Numéro de carte</label>
                             <input type="text" name="numcarte" id="numcarte">
 

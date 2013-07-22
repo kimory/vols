@@ -4,7 +4,7 @@ namespace controller;
 
 use dao\MysqlDao;
 
-class reservationsController {
+class ListeReservationsController {
 
 	public function action() {
 		$dao = new MysqlDao();

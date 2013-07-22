@@ -4,7 +4,7 @@ namespace controller;
 
 use dao\MysqlDao;
 
-class affichageDesPassagersController {
+class AffichagePassagersController {
 
     public function action() {
         $message = null;

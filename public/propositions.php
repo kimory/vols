@@ -73,7 +73,7 @@ $datedepartsouhaitee = $_SESSION['date_depart_souhaitee'];
                 </div>
                
                 <div>
-                    <form action="/passengerRegistrationController" method="POST">
+                    <form action="/EnregistrementPassagersController" method="POST">
                         <fieldset>
                             <h5>Nos propositions</h5>
                             <p class="remarque">Remarque : les prix sont indiqués en fonction des nombres d'adultes
