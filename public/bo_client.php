@@ -61,7 +61,7 @@
 
                 <?php endif; ?>
 
-                <div id="retour"><a href="/choixducritere">retour au choix du critère</a></div>
+                <div id="retour"><a href="/bo_choix_critere">retour au choix du critère</a></div>
             </div>
             
             <div id="footer">

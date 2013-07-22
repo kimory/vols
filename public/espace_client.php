@@ -86,7 +86,7 @@ $_SESSION['pagesurlaquelleondoitaller'] = $_SERVER['REQUEST_URI'];
                                         foreach ($_SESSION['resultat_liste_reservations'] as $row) :
                                             ?>                         
                                             <tr>
-                                                <td><a href="detailsreservation/<?php
+                                                <td><a href="detailsReservation/<?php
                                                     echo htmlentities($row['numreservation'], ENT_QUOTES, 'UTF-8')?>"><?php
                                                     echo htmlentities($row['numreservation'], ENT_QUOTES, 'UTF-8') ?></a>
                                                 </td>

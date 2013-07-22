@@ -70,7 +70,7 @@ class EnregistrementPassagersController {
                 $i++;
             }
             if (!empty($messages_erreur)) {
-                include VIEW . "passengerRegistration.php";
+                include VIEW . "enregistrement_passagers.php";
             } else {
                 // On enregitre en session les passagers
                 // et on vérifie leur âge au départ du vol
@@ -106,7 +106,7 @@ class EnregistrementPassagersController {
 
                 if (!$un_vrai_adulte_present) {
                     $messages_erreur[] = "Désolés, il faut au minimum une personne majeure parmi les passagers.";
-                    include VIEW . "passengerRegistration.php";
+                    include VIEW . "enregistrement_passagers.php";
                     return; // permet de sortir de la fonction
                 } else {
                     // On récupère en session un tableau d'objets 'Passager' :
@@ -118,7 +118,7 @@ class EnregistrementPassagersController {
                         // Une fois qu'on aura fini l'inscription, 
                         // il faudra aller sur cette page
                         $_SESSION['pagesurlaquelleondoitaller'] = '/SyntheseController';
-                        header('Location:/clientConnection');
+                        header('Location:/connexion_client');
                     }
                 }
             }
@@ -128,7 +128,7 @@ class EnregistrementPassagersController {
                     PHP_EOL . 'Merci de recommencer en indiquant le nombre de voyageurs.';
             header('Location:/recherche');
         } else {
-            include VIEW . "passengerRegistration.php";
+            include VIEW . "enregistrement_passagers.php";
         }
     }
 

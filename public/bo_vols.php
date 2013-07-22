@@ -1,11 +1,13 @@
-<?php 
+<?php
+use \DateTime;
+
 if (!isset($_SESSION)) {
     session_start();
 }
-?>
 
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta http-equiv="content-language" content="fr">
@@ -16,7 +18,7 @@ if (!isset($_SESSION)) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <link rel="stylesheet" type="text/css" href="/css/style.css" />
         <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
-        <title>DEV-FLY - Détails des passagers</title>
+        <title>DEV-FLY - Détails des vols</title>
     </head>
     <body>
         <div id="container">
@@ -24,9 +26,10 @@ if (!isset($_SESSION)) {
                 <div id="logo">
                     <img id='logo' src='/images/logo.jpg' alt='logo de DEV-FLY' />
                 </div>
+
                 <?php
                 // on inclut le menu du backoffice
-                $_SESSION['page_actuelle'] = 'Passager';
+                $_SESSION['page_actuelle'] = 'Vol';
                 include('include/back_office_menu.php');
                 // ici on affichera le bouton de déconnexion
                 include('include/back_office_login_form.php');
@@ -39,45 +42,45 @@ if (!isset($_SESSION)) {
                 if (isset($message) && strlen($message) > 0) :
                     ?>
                     <p><?php echo $message ?></p>
-
                     <?php
-                // Si il n'y a pas d'erreur, on affiche la liste des passagers concernés par la réservation :
+                // Si il n'y a pas d'erreur, on affiche la liste des vols sur lesquels l'employé travaille :
                 else :
                     ?>
 
-                    <div><h3>Passagers sur la réservation <a href="/reservation/<?php echo htmlentities($_GET['numreservation'], ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlentities($_GET['numreservation'], ENT_QUOTES, 'UTF-8') ?></a></h3></div><br/>
+                    <div><h3>Description des vols de l'employé N° <a href="/employe/<?php echo htmlentities($_GET['numemploye'], ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlentities($_GET['numemploye'], ENT_QUOTES, 'UTF-8') ?></a></h3></div>
 
                     <!-- Remarque : le htmlentities est une sécurité, il convertit les caractères
                     éligibles en entités HTML -->
-
-                    <div id="tablepassagerresa">  
+                    <div>
                         <table>
                             <tr>
-                                <th>N° de passager &nbsp;&nbsp;&nbsp;</th><th>N° de place</th>
+                                <th>Trajet</th><th>N° du vol</th><th>Date de départ</th>
                             </tr>
                             <?php foreach ($tab as $value) : ?>
                                 <tr>
-                                    <td><a href="/passager/<?php echo htmlentities($value['numpassager'], ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlentities($value['numpassager'], ENT_QUOTES, 'UTF-8') ?></a></td>
-                                    <td><?php echo htmlentities($value['numplace'], ENT_QUOTES, 'UTF-8'); ?></td>
+                                    <td>
+                                           <?php echo htmlentities($value->getLieuDepart(), ENT_QUOTES, 'UTF-8'); ?> -
+                                           <?php echo htmlentities($value->getLieuArrivee(), ENT_QUOTES, 'UTF-8'); ?>
+                                    </td>       
+                                    <td><a href="/vol/<?php echo htmlentities($value->getNumVol(), ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlentities($value->getNumVol(), ENT_QUOTES, 'UTF-8') ?></a></td>
+                                    <?php $datedep = new DateTime($value->getDateHeureDepart()); ?>
+                                    <td><?php echo htmlentities($datedep->format('d/m/Y'), ENT_QUOTES, 'UTF-8'); ?></td>
                                 </tr>
                             <?php endforeach; ?>
                         </table>
                     </div>
 
-                <?php endif; ?><br/>
+                <?php endif; ?>
 
-                <div><a href="/choixducritere">retour au choix du critère</a></div>
+                <div><a href="/bo_choix_critere">retour au choix du critère</a></div>
             </div>
-
-            <!-- Ci-dessous le JavaScript pour la navigation en onglets --> 
-            <script src="http://code.jquery.com/jquery-latest.js"></script>
-            <script src="js/bootstrap.js"></script>
-
+            
             <div id="footer">
                 <?php
                 include VIEW . 'include/footer.php';
                 ?>
-            </div> 
+            </div>
+            
         </div>
     </body>
     

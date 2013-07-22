@@ -18,14 +18,14 @@
     if(isset($_SESSION['page_actuelle']) && strcmp($_SESSION['page_actuelle'], 'Espace Client') == 0){
             echo 'class="active"';
     }?>>
-        <a href="/espaceclient">Espace Client</a>
+        <a href="/espace_client">Espace Client</a>
     </li>
     
     <li <?php 
     if(isset($_SESSION['page_actuelle']) && strcmp($_SESSION['page_actuelle'], 'Qui sommes nous') == 0){
             echo 'class="active"';
     }?>>
-        <a href="/quisommesnous">La compagnie</a>
+        <a href="/la_compagnie">La compagnie</a>
     </li>
     
     <li <?php 

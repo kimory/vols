@@ -35,11 +35,11 @@ class AffichageReservationController {
                 $message = 'Vous devez saisir l\'identifiant d\'une réservation pour
 					obtenir sa description !';
             }
-            include VIEW . "displayReservation.php";
+            include VIEW . "bo_reservation.php";
         } else {
             // Si la personne n'est pas connectée en tant qu'administrateur,
             // elle n'a pas à être sur cette page, elle est renvoyée vers une page d'erreur
-            header('Location:/error2');
+            header('Location:/erreur_401');
         }
     }
 

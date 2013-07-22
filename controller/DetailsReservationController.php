@@ -29,7 +29,7 @@ class DetailsReservationController {
 			} else {
 				// Si tout est ok, on enregistre le résultat en session
 				$_SESSION['resultat_infos_reservation'] = $result;
-				header('Location:/espaceclient');
+				header('Location:/espace_client');
 			}
 			// normalement impossible d'arriver ici
 			// puisqu'on ne peut pas afficher le formulaire qui amène à ce controleur

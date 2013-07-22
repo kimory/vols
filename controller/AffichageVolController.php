@@ -35,11 +35,11 @@ class AffichageVolController {
                 $message = 'Vous devez saisir l\'identifiant d\'un vol pour
 					obtenir sa description !';
             }
-            include VIEW . "displayVol.php";
+            include VIEW . "bo_vol.php";
         } else {
             // Si la personne n'est pas connectée en tant qu'administrateur,
             // elle n'a pas à être sur cette page, elle est renvoyée vers une page d'erreur
-            header('Location:/error2');
+            header('Location:/erreur_401');
         }
     }
 

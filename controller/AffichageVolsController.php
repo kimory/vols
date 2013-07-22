@@ -29,11 +29,11 @@ class AffichageVolsController {
             } else {
                 $message = 'Le numéro d\'employé n\'est pas valide...';
             }
-            include VIEW . "displayDesVols.php";
+            include VIEW . "bo_vols.php";
         } else {
             // Si la personne n'est pas connectée en tant qu'administrateur,
             // elle n'a pas à être sur cette page, elle est renvoyée vers une page d'erreur
-            header('Location:/error2');
+            header('Location:/erreur_401');
         }
     }
 

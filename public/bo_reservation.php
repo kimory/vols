@@ -80,7 +80,7 @@ if (!isset($_SESSION)) {
 
                     <?php endif; ?>
 
-                <div><a href="/choixducritere">retour au choix du critère</a></div>
+                <div><a href="/bo_choix_critere">retour au choix du critère</a></div>
             </div>
             
             <div id="footer">

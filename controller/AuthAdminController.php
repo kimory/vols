@@ -28,7 +28,7 @@ class AuthAdminController {
 					// Si tout est ok, on enregistre le login et le password en session, et on envoie vers le back office.
 					$_SESSION['login_admin'] = $result[0];
 					$_SESSION['passwd'] = $result[1];
-					header('Location:/choixducritere');
+					header('Location:/bo_choix_critere');
 				}
 		} else {
 			// On stocke 1 message d'erreur en session

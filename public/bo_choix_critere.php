@@ -9,7 +9,7 @@ include_once("../setup.php");
 if(!User::isAdminConnected()){
     // Si un utilisateur non connecté en tant qu'admin tente d'accéder à cette page directement
     // on l'en empêche, en l'envoyant vers une page d'erreur :
-    header("Location:/error2");
+    header("Location:/erreur_401");
 }
 ?>
 

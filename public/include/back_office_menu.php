@@ -7,7 +7,7 @@
             echo 'class="active"';
         }
         ?>>
-            <a href="/choixducritere#vol" data-toggle="tab">Vol</a>
+            <a href="/bo_choix_critere#vol" data-toggle="tab">Vol</a>
         </li>
         
         <li <?php
@@ -15,7 +15,7 @@
             echo 'class="active"';
         }
         ?>>
-            <a href="/choixducritere#passager" data-toggle="tab">Passager</a>
+            <a href="/bo_choix_critere#passager" data-toggle="tab">Passager</a>
         </li>
         
         <li <?php
@@ -23,7 +23,7 @@
             echo 'class="active"';
         }
         ?>>
-            <a href="/choixducritere#employe" data-toggle="tab">Employé</a>
+            <a href="/bo_choix_critere#employe" data-toggle="tab">Employé</a>
         </li>
         
         <li <?php
@@ -31,7 +31,7 @@
             echo 'class="active"';
         }
         ?>>
-            <a href="/choixducritere#reservation" data-toggle="tab">Réservation</a>
+            <a href="/bo_choix_critere#reservation" data-toggle="tab">Réservation</a>
         </li>
         
         <li <?php
@@ -39,7 +39,7 @@
             echo 'class="active"';
         }
             ?>>
-            <a href="/choixducritere#client" data-toggle="tab">Client</a>
+            <a href="/bo_choix_critere#client" data-toggle="tab">Client</a>
         </li>
         
     </ul>

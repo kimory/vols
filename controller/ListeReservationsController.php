@@ -24,7 +24,7 @@ class ListeReservationsController {
 			} else {
 				// Si tout est ok, on enregistre le résultat en session
 				$_SESSION['resultat_liste_reservations'] = $result;
-				header('Location:/espaceclient');
+				header('Location:/espace_client');
 			}
 			// normalement impossible d'arriver ici
 			// puis qu'on ne peut pas afficher le formulaire qui amène à ce controleur

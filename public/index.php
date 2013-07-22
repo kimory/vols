@@ -19,6 +19,6 @@ try{
     $method = $class->getMethod($methodName);
     $method->invoke($instance);
 } catch (Exception $ex){
-    include VIEW . 'error.php';
+    include VIEW . 'erreur_500.php';
 }
 ?>
