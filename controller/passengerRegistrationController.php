@@ -107,7 +107,7 @@ class passengerRegistrationController {
                 if (!$un_vrai_adulte_present) {
                     $messages_erreur[] = "Désolés, il faut au minimum une personne majeure parmi les passagers.";
                     include VIEW . "passengerRegistration.php";
-                    return;
+                    return; // permet de sortir de la fonction
                 } else {
                     // On récupère en session un tableau d'objets 'Passager' :
                     $_SESSION['passagers'] = $passagers;
