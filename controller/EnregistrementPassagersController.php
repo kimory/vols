@@ -113,11 +113,11 @@ class EnregistrementPassagersController {
                     $_SESSION['passagers'] = $passagers;
 
                     if (Client::isClientConnected())
-                        header('Location:/SyntheseController');
+                        header('Location:/SyntheseC');
                     else {
                         // Une fois qu'on aura fini l'inscription, 
                         // il faudra aller sur cette page
-                        $_SESSION['pagesurlaquelleondoitaller'] = '/SyntheseController';
+                        $_SESSION['pagesurlaquelleondoitaller'] = '/SyntheseC';
                         header('Location:/connexion_client');
                     }
                 }

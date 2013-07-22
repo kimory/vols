@@ -28,7 +28,7 @@
             </div>
             
             <div id="developpement">
-                <form action="/AffichageClientController" method="POST">
+                <form action="/AffichageClientC" method="POST">
                     <label for="numclient">Nouveau numéro de client :</label>
                     <input type="text" id="numclient" name="numclient"><br>
                     <input type="submit" value="OK">

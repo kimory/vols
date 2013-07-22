@@ -49,7 +49,7 @@ $_SESSION['pagesurlaquelleondoitaller'] = $_SERVER['REQUEST_URI'];
                     if (Client::isClientConnected()) : // on affiche le bouton seulement si le client est connecté
                         ?>
                         <div id="btvision">
-                                <a href='/ListeReservationsController'><button class="btn btn-large btn-primary" type="button">Voir ses réservations</button></a>
+                                <a href='/ListeReservationsC'><button class="btn btn-large btn-primary" type="button">Voir ses réservations</button></a>
                         </div>
                         <?php
                     endif;

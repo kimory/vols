@@ -67,7 +67,7 @@ if (!isset($_SESSION)) {
                 </div>
                 
                 <div id="recherche">
-                    <form action="/PropositionsController" method="POST" >
+                    <form action="/PropositionsC" method="POST" >
                         <fieldset>
                             <h5>Votre sélection</h5>
 

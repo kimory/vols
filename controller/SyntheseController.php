@@ -56,7 +56,7 @@ class SyntheseController {
 					switch($ret)
 					{
 						case 0 : // Tout s'est bien passé, on passe à la vue suivante :
-							header('Location:/BilletController');
+							header('Location:/BilletC');
 							break;
 						case 1 :
 							$_SESSION['message'] = "Le client actuel n'existe pas.";

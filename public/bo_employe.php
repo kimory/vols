@@ -35,7 +35,7 @@ if (!isset($_SESSION)) {
             </div>
             
             <div id="developpement">
-                <form action="/AffichageEmployeController" method="POST">
+                <form action="/AffichageEmployeC" method="POST">
                     <label for="numemploye">Nouveau numéro d'employé :</label>
                     <input type="text" id="numemploye" name="numemploye"><br>
                     <input type="submit" value="OK">

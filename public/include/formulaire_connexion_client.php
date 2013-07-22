@@ -8,7 +8,7 @@ if (Client::isClientConnected())
 {
 ?>
     <div id="deconnexionuser">
-            <a href='/DeconnexionController'><button class="btn btn-large btn-primary" type="button">Déconnexion</button></a>
+            <a href='/DeconnexionC'><button class="btn btn-large btn-primary" type="button">Déconnexion</button></a>
     </div>
 <?php
 }
@@ -17,7 +17,7 @@ else
 {
 ?>      
     <div id="utilisateur">
-	<form class="form-inline" action="/AuthClientController" method="POST">
+	<form class="form-inline" action="/AuthClientC" method="POST">
             
             <div id="errorconnexionclient">
                 <?php

@@ -57,7 +57,7 @@ if (!isset($_SESSION)) {
                 </div>
                 
                 <div id="enregistrementpassager">
-                    <form action="/EnregistrementPassagersController" method="POST" >
+                    <form action="/EnregistrementPassagersC" method="POST" >
                         <fieldset>
                             <h5>Formulaire d'inscription</h5> 
 

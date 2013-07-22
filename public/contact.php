@@ -60,7 +60,7 @@ if (!isset($_SESSION)) {
                 </div>
                 
                 <div id="contact">
-                    <form action="/ContactController" method="POST" >
+                    <form action="/ContactC" method="POST" >
                         <fieldset>
                             <h5>Vos coordonnées</h5> 
 
