@@ -28,9 +28,9 @@ if (!isset($_SESSION)) {
                 <?php
                 // on inclut le menu du backoffice
                 $_SESSION['page_actuelle'] = 'Employé';
-                include('include/back_office_menu.php');
+                include('include/menu_bo.php');
                 // ici on affichera le bouton de déconnexion
-                include('include/back_office_login_form.php');
+                include('include/formulaire_auth_admin.php');
                 ?>
             </div>
             

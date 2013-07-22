@@ -42,13 +42,13 @@ $datedepartsouhaitee = $_SESSION['date_depart_souhaitee'];
                     ?>
                 </div>
                 
-		<?php include('include/back_office_login_form.php'); ?>
+		<?php include('include/formulaire_auth_admin.php'); ?>
             </div>
             
            <div id="developpement">
                 <div id="connectionuser">
                      <?php
-                        include('include/user_connection_form.php');
+                        include('include/formulaire_connexion_client.php');
 			?>
                  </div>
                

@@ -32,7 +32,7 @@ if (!isset($_SESSION)) {
                     include('include/menu_front_office.php');
                     ?>
                 </div>
-                <?php include('include/back_office_login_form.php'); ?>
+                <?php include('include/formulaire_auth_admin.php'); ?>
 
             </div>
 
@@ -41,7 +41,7 @@ if (!isset($_SESSION)) {
 					<h2>Se connecter</h2>
 					<p class='remarque'>Si vous possédez déjà un compte.</p>
                     <?php
-                    include('include/user_connection_form.php');
+                    include('include/formulaire_connexion_client.php');
                     ?>
                 </div>
                 <div id="userregistration">
@@ -53,7 +53,7 @@ if (!isset($_SESSION)) {
 					<p class='remarque'>Si vous n'êtes pas encore inscrit.<br>
                                            Vous serez automatiquement connecté à votre compte client dès l'inscription effectuée !</p>
 					<?php
-                    include('include/create_user_form.php');
+                    include('include/formulaire_creation_client.php');
                 endif;
                 ?>
 				</div>

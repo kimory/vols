@@ -36,8 +36,8 @@ if(!User::isAdminConnected()){
                 <?php
                 // on inclut le menu du backoffice
                 $_SESSION['page_actuelle'] = 'Vol';
-                include('include/back_office_menu.php');
-                 include('include/back_office_login_form.php');
+                include('include/menu_bo.php');
+                 include('include/formulaire_auth_admin.php');
                 ?>     
             </div>
             
