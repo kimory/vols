@@ -24,7 +24,7 @@ Pour la partie back office :
         - attention, il y a un pb d'affichage qui sera à corriger : Bootstrap - .tab-content - display:none; (attention à ne pas casser le style des autres pages)
 
 BDD :
-        * en local, importer la bonne version de la BDD (plus de données + autoincrement + table contact)
+        * en local, importer la bonne version de la BDD (mots de passes chiffrés)
 
 Cahier des charges :
         * PENSER À ENVOYER CHAQUE MODIF DE SUITE pour éviter les conflits !
