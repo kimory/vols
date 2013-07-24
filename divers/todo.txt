@@ -3,7 +3,6 @@
 -Créer d'autres vols : dans les 2 mois après la date de présentation au jury
 -Donner avec l'appli la liste des vols créés + identifiants
 -Ajouter une mention de la page "contact" dans le CDG ?
--Chiffrer le mot de passe du client ?
 
 Pour la réservation d'un vol :
         * gérer les allers-retours

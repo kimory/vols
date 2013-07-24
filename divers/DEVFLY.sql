@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Mer 19 Juin 2013 à 14:27
+-- Généré le: Jeu 25 Juillet 2013 à 00:30
 -- Version du serveur: 5.5.31
--- Version de PHP: 5.4.4-14
+-- Version de PHP: 5.4.4-14+deb7u3
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -48,15 +48,40 @@ CREATE TABLE IF NOT EXISTS `client` (
 --
 
 INSERT INTO `client` (`numclient`, `civilite`, `nom`, `prenom`, `adresse`, `codepostal`, `ville`, `pays`, `mail`, `telfixe`, `mobile`, `login`, `password`) VALUES
-(1, 'Mme', 'TAYLOR', 'Isabella', '13-657 Hinalo Street  Pāhoa', 'HI 96778', 'Hawaï', 'USA', 'taylorisa@live.com', '+18089656153', '+18084674486', 'isabella', 'taylor'),
-(2, 'Mme', 'SYLLA', 'Lala', '33 route de Nouasser', ' 20190', 'Rabat', 'Maroc', 'lalasylla@yahoo.fr', '+21252297797', '+21261149425', 'lalasylla', 'rabat'),
-(3, 'M', 'WILLIAMS', 'Brian', '109 Burwood Road', '3122 ', 'Hawthorn V', 'Australie', 'willamsbrian@gmail.com', '+61735642342', '+61123456789', 'brian', 'williams'),
-(4, 'M', 'VENDA', 'Jonah', '37  Barotanyi. Liechtensteinstrasse', '21 1090 ', 'Wien', 'Autriche', 'jonah@venda.com', '+4392067130', '+4362503253', 'jonah', 'venda'),
-(5, 'M', 'MOUNA', 'Karim', '448  rue Radhia Haddad Standard ', '1023', ' Montplaisir', 'Tunisie', 'mounakarim@live.com', ' +216156960', '+216988122244', 'mouna', 'karim'),
-(6, 'M', 'AJAMI', 'Abdel', '384 West day', 'PO Box 266', 'Al khawr', 'Qatar', 'abdel.ajami@gmail.com', '+9748232133', '+9746541243', 'ajami', 'qatar'),
-(7, 'M', 'BAYOL', 'Simon', '105 rue Boileau', '93000', 'Saint-Denis', 'France', 'simonbayol@yahoo.fr', '+33136786141', '+33625734641', 'simon', 'bayol'),
-(8, 'm', 'bla', 'bla', 'mon adresse', '60630', 'HOME', 'HOMEPAYS', 'kane.root@lolmail.com', '0501030603', '0308010536', 'bla', 'bla'),
-(9, 'm', 'Dupont', 'Jean', '18 rue Truc', '67000', 'Strasbourg', 'France', 'ji@ng.fr', '0123545657', '0345672542', 'dupont', 'dupont');
+(1, 'Mme', 'TAYLOR', 'Isabella', '13-657 Hinalo Street  Pāhoa', 'HI 96778', 'Hawaï', 'USA', 'taylorisa@live.com', '+18089656153', '+18084674486', 'isabella', '$5$ABCDEFGHIJKLM$jA5FTXZMzxcvhS9y0clN4/0te.a6Z2Q8JkKMEi6VqV2'),
+(2, 'Mme', 'SYLLA', 'Lala', '33 route de Nouasser', ' 20190', 'Rabat', 'Maroc', 'lalasylla@yahoo.fr', '+21252297797', '+21261149425', 'lalasylla', '$5$ABCDEFGHIJKLM$4nKJqz1VZoX9MCxevwUn5KO9EDStKX.tOLBLetjw2/D'),
+(3, 'M', 'WILLIAMS', 'Brian', '109 Burwood Road', '3122 ', 'Hawthorn V', 'Australie', 'willamsbrian@gmail.com', '+61735642342', '+61123456789', 'brian', '$5$ABCDEFGHIJKLM$wgsoKFKpU9Jfs3AC0XXadaY6isBfq5ad1n8U593Ghc5'),
+(4, 'M', 'VENDA', 'Jonah', '37  Barotanyi. Liechtensteinstrasse', '21 1090 ', 'Wien', 'Autriche', 'jonah@venda.com', '+4392067130', '+4362503253', 'jonah', '$5$ABCDEFGHIJKLM$wSPbAjoERBols/WGlsC/bTP0NaqEdR4ST8sm68zlQz5'),
+(5, 'M', 'MOUNA', 'Karim', '448  rue Radhia Haddad Standard ', '1023', ' Montplaisir', 'Tunisie', 'mounakarim@live.com', ' +216156960', '+216988122244', 'mouna', '$5$ABCDEFGHIJKLM$dM/.SZT6IL9zQkQsu1KCoc/RYxuCno5O/8iH5IxtAV8'),
+(6, 'M', 'AJAMI', 'Abdel', '384 West day', 'PO Box 266', 'Al khawr', 'Qatar', 'abdel.ajami@gmail.com', '+9748232133', '+9746541243', 'ajami', '$5$ABCDEFGHIJKLM$/mrDy8fKmmgz.59.u4iQjdvkqwqH0BXctfrhvlq9tU1'),
+(7, 'M', 'Durand', 'Simon', '105 rue Boileau', '93000', 'Saint-Denis', 'France', 'simondurand@yahoo.fr', '+33136786141', '+33625734641', 'simon', '$5$ABCDEFGHIJKLM$vjtNnZBkjiXUbpM/FMJn6xTw4.dC5BalH.3la9oWiYA'),
+(8, 'm', 'Touma', 'Patrick', '24 rue de la Tour', '38000', 'Grenoble', 'France', 'ptouma@gmail.com', '0403958473', '0637485939', 'pat', '$5$ABCDEFGHIJKLM$hoO0rXJIA5MMdymjFLshqK9xSQk0x2p9TeWrVLDEfS7'),
+(9, 'm', 'Duchemin', 'Raymond', '10 rue de la Tour', '38000', 'Grenoble', 'France', 'rduchemin@gmail.com', '0405897474', '0648759216', 'duchemin', '$5$ABCDEFGHIJKLM$HzNLAS5E00DVNQBQjyW5/RLeXETCZbZR.BVm3.8TQH3');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `contact`
+--
+
+CREATE TABLE IF NOT EXISTS `contact` (
+  `id` int(3) unsigned NOT NULL AUTO_INCREMENT,
+  `nom` varchar(100) NOT NULL,
+  `prenom` varchar(100) NOT NULL,
+  `mail` varchar(100) NOT NULL,
+  `sujet` varchar(100) NOT NULL,
+  `telephone` varchar(50) NOT NULL,
+  `message` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Contenu de la table `contact`
+--
+
+INSERT INTO `contact` (`id`, `nom`, `prenom`, `mail`, `sujet`, `telephone`, `message`) VALUES
+(1, 'Manceau', 'Edouard', 'edouard@gmail.fr', 'remboursement', '0645364758', 'Mon vol Berne - Sydney du 10/05/2013 avait plus de 10h de retard...\r\nJe souhaite le remboursement de mon billet, merci de m''indiquer la procédure à suivre !\r\nCordialement,\r\nE. Manceau'),
+(2, 'Plima', 'Roger', 'rplima@monmail.fr', 'Merci !', '0154896527', 'Merci pour votre accueil à l''aéroport de Berne, je suis agréablement surpris !');
 
 -- --------------------------------------------------------
 
@@ -187,7 +212,7 @@ CREATE TABLE IF NOT EXISTS `passager` (
   `prenom` varchar(50) NOT NULL,
   `datenaissance` date NOT NULL,
   PRIMARY KEY (`numpassager`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
 -- Contenu de la table `passager`
@@ -204,10 +229,8 @@ INSERT INTO `passager` (`numpassager`, `civilite`, `nom`, `prenom`, `datenaissan
 (8, 'M', ' WILLIAMS', 'Brian', '1966-11-27'),
 (9, 'Mme', ' WILLIAMS', 'Abbie', '2013-02-25'),
 (10, 'Mme', 'TAYLOR', 'Isabella', '1991-02-22'),
-(11, 'mme', 'Brune', 'Chocolatine', '1990-02-01'),
-(12, 'm', 'Morin', 'Bernard', '1932-05-14'),
-(13, 'm', 'Dupont', 'Jean', '1998-12-31'),
-(14, 'mme', 'Dupont', 'Sophie', '2011-06-13');
+(11, 'm', 'bernard', 'toto', '1985-06-01'),
+(12, 'm', 'lolo', 'toto', '1985-06-01');
 
 -- --------------------------------------------------------
 
@@ -225,7 +248,7 @@ CREATE TABLE IF NOT EXISTS `place` (
   KEY `numreservation` (`numreservation`),
   KEY `numvol` (`numvol`),
   KEY `numpassager` (`numpassager`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
 -- Contenu de la table `place`
@@ -242,10 +265,8 @@ INSERT INTO `place` (`numplace`, `numpassager`, `numvol`, `numreservation`, `pri
 (8, 5, 'DF7', 1, 600),
 (9, 6, 'DF7', 1, 600),
 (10, 7, 'DF3', 5, 617),
-(11, 11, 'DF2', 8, 799),
-(12, 12, 'DF5', 9, 1472),
-(13, 13, 'DF5', 9, 1472),
-(14, 14, 'DF5', 9, 50);
+(11, 11, 'DF8', 8, 617),
+(12, 12, 'DF8', 9, 617);
 
 -- --------------------------------------------------------
 
@@ -273,8 +294,8 @@ INSERT INTO `reservation` (`numreserv`, `datereserv`, `numclient`) VALUES
 (5, '2013-03-23', 1),
 (6, '2013-04-26', 4),
 (7, '2013-03-31', 3),
-(8, '2013-06-19', 8),
-(9, '2013-06-19', 9);
+(8, '2013-06-19', 9),
+(9, '2013-06-19', 1);
 
 -- --------------------------------------------------------
 
@@ -377,9 +398,9 @@ INSERT INTO `vol` (`numvol`, `lieudep`, `lieuarriv`, `dateheuredep`, `dateheurea
 -- Contraintes pour la table `place`
 --
 ALTER TABLE `place`
-  ADD CONSTRAINT `place_ibfk_6` FOREIGN KEY (`numreservation`) REFERENCES `reservation` (`numreserv`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `place_ibfk_4` FOREIGN KEY (`numpassager`) REFERENCES `passager` (`numpassager`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `place_ibfk_5` FOREIGN KEY (`numvol`) REFERENCES `vol` (`numvol`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `place_ibfk_5` FOREIGN KEY (`numvol`) REFERENCES `vol` (`numvol`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `place_ibfk_6` FOREIGN KEY (`numreservation`) REFERENCES `reservation` (`numreserv`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `reservation`
@@ -391,8 +412,8 @@ ALTER TABLE `reservation`
 -- Contraintes pour la table `travailler`
 --
 ALTER TABLE `travailler`
-  ADD CONSTRAINT `travailler_ibfk_11` FOREIGN KEY (`vol`) REFERENCES `vol` (`numvol`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `travailler_ibfk_10` FOREIGN KEY (`hotesse_steward3`) REFERENCES `employe` (`numemploye`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `travailler_ibfk_11` FOREIGN KEY (`vol`) REFERENCES `vol` (`numvol`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `travailler_ibfk_2` FOREIGN KEY (`pilote`) REFERENCES `employe` (`numemploye`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `travailler_ibfk_7` FOREIGN KEY (`copilote`) REFERENCES `employe` (`numemploye`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `travailler_ibfk_8` FOREIGN KEY (`hotesse_steward1`) REFERENCES `employe` (`numemploye`) ON DELETE CASCADE ON UPDATE CASCADE,

@@ -329,10 +329,13 @@ class MysqlDao {
 	}
 
 	public function clientLogin($login, $passwd) {
-        // renvoie un tableau avec le login et le mot de passe
+        // renvoie un tableau avec le login et le mot de passe chiffré
             $sql = "SELECT login 
                             FROM client 
                             WHERE login=:login and password=:passwd";
+            
+            // le grain de sel utilisé lors du chiffrement commence par "$5$..." -> c'est du sha256
+            $passwd = crypt($passwd, '$5$ABCDEFGHIJKLM');
 
             $stmt = $this->dbh->prepare($sql);
             $stmt->bindParam(":login", $login);
@@ -346,6 +349,7 @@ class MysqlDao {
             }
         }
 
+        // Ne pas oublier que le mot de passe enregistré est déjà chiffré
 	public function clientEstConnecte() 
 	{
 		// Renvoie "true" si le client est connecté, "false" sinon
@@ -486,7 +490,9 @@ class MysqlDao {
 			ville, pays, mail, telfixe, mobile, login, password)
 			VALUES( :civilite, :nom,:prenom, :adresse, :cp, :ville, :pays, 
 			:mail, :telFixe, :telPortable, :login, :password)";
-
+                
+                // le mot de passe sera chiffré en base :
+                $password = crypt($password, '$5$ABCDEFGHIJKLM');
 
 		$stmt = $this->dbh->prepare($sql);
 

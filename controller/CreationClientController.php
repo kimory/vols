@@ -138,9 +138,9 @@ class CreationClientController {
                     $_SESSION['messages'][] = "Impossible de se connecter avec vos identifiants.";
                     header('Location:' . $_SERVER['HTTP_REFERER']); // renvoie vers la page précédente          
                 } else {
-                    // Si tout est ok, on enregistre le login et le password en session.
+                    // Si tout est ok, on enregistre le login et le password chiffré en session.
                     $_SESSION['login'] = $login;
-                    $_SESSION['passwd'] = $password;
+                    $_SESSION['passwd'] = crypt($password, '$5$ABCDEFGHIJKLM');
 
                     // puis on va à la page précédent l'inscription
                     // ou la page définie avant d'aller sur la page d'inscription
