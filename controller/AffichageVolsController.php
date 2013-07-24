@@ -8,7 +8,7 @@ class AffichageVolsController {
 
     public function action() {
         $dao = new MysqlDao();
-        if ($dao->isAdminConnected()) {
+        if ($dao->adminEstConnecte()) {
         // On n'exécute la fonction que si l'admin est connecté
             $message = null;
 
@@ -16,7 +16,7 @@ class AffichageVolsController {
             if (isset($_GET['numemploye']) && strlen($_GET['numemploye']) != 0) {
                 // On récupère la liste des vols sur lesquels l'employé travaille
                 // sous forme de tableau d'objets Vol :
-                $tab = $dao->getVolsByEmploye($_GET['numemploye']);
+                $tab = $dao->getVolsByNumemploye($_GET['numemploye']);
 
                 // Cas d'un identifiant non valide
                 // Si qqn touche à l'URL par exemple :

@@ -8,7 +8,7 @@ class AffichageVolController {
 
     public function action() {
         $dao = new MysqlDao();
-        if ($dao->isAdminConnected()) {
+        if ($dao->adminEstConnecte()) {
         // On n'exécute la fonction que si l'admin est connecté
             $message = null;
             // On vérifie qu'un numéro de vol a été récupéré

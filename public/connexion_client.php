@@ -47,7 +47,7 @@ if (!isset($_SESSION)) {
                 <div id="userregistration">
                 <?php
                 // Si on arrive sur cette page, c'est que le client n'est pas connecté
-                if (!Client::isClientConnected()) :
+                if (!Client::clientEstConnecte()) :
 					?>
 					<h2>S'enregistrer</h2>
 					<p class='remarque'>Si vous n'êtes pas encore inscrit.<br>

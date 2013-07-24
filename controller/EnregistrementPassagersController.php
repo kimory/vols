@@ -112,7 +112,7 @@ class EnregistrementPassagersController {
                     // On récupère en session un tableau d'objets 'Passager' :
                     $_SESSION['passagers'] = $passagers;
 
-                    if (Client::isClientConnected())
+                    if (Client::clientEstConnecte())
                         header('Location:/SyntheseC');
                     else {
                         // Une fois qu'on aura fini l'inscription, 

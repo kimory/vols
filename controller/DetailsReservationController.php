@@ -10,14 +10,14 @@ class DetailsReservationController {
 
 		$dao = new MysqlDao();
 
-		if($dao->isClientConnected() && // on vérifie que le client est bien connecté
+		if($dao->clientEstConnecte() && // on vérifie que le client est bien connecté
 			isset($_GET['numreservation']) && 
 			strlen($_GET['numreservation']) > 0)
 		{
 			$numreservation = $_GET['numreservation'];
 			// On récupère un tableau de tableaux qui contient la liste des
 			// informations sur la réservation
-			$result = $dao->getReservationDetails($numreservation);
+			$result = $dao->getDetailsResaByNumresa($numreservation);
 
 			if ($result == null) 
 			{

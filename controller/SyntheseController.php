@@ -9,7 +9,7 @@ class SyntheseController {
 
 	public function action() {
 		$dao = new MysqlDao();
-		if( $dao->isClientConnected() )
+		if( $dao->clientEstConnecte() )
 		{
 			// ici on revient sur ce contrôleur pour la seconde fois (ce qui voudra dire qu'on
 			// a bien récupéré les données correctes en session auparavant.

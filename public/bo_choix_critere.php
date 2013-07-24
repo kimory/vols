@@ -6,7 +6,7 @@ if (!isset($_SESSION)) {
 }
 include_once("../setup.php");
 
-if(!User::isAdminConnected()){
+if(!User::adminEstConnecte()){
     // Si un utilisateur non connecté en tant qu'admin tente d'accéder à cette page directement
     // on l'en empêche, en l'envoyant vers une page d'erreur :
     header("Location:/erreur_401");

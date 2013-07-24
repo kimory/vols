@@ -46,7 +46,7 @@ $_SESSION['pagesurlaquelleondoitaller'] = $_SERVER['REQUEST_URI'];
                  <div id="connectionuser">
                     <?php
                     include('include/formulaire_connexion_client.php');
-                    if (Client::isClientConnected()) : // on affiche le bouton seulement si le client est connecté
+                    if (Client::clientEstConnecte()) : // on affiche le bouton seulement si le client est connecté
                         ?>
                         <div id="btvision">
                                 <a href='/ListeReservationsC'><button class="btn btn-large btn-primary" type="button">Voir ses réservations</button></a>
@@ -59,7 +59,7 @@ $_SESSION['pagesurlaquelleondoitaller'] = $_SERVER['REQUEST_URI'];
                 <div id="inscription">
                     <?php
                     // Si l'utilisateur n'est pas connecté
-                    if (!Client::isClientConnected()) {
+                    if (!Client::clientEstConnecte()) {
                         // affichage de la création d'un compte client
                         include('include/formulaire_creation_client.php');
                         // Si le client est connecté, on affiche ses réservations

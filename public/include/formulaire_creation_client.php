@@ -3,7 +3,7 @@ include_once("../setup.php");
 
 use entity\Client;
 
-if (! Client::isClientConnected()) :
+if (! Client::clientEstConnecte()) :
 
 	// on enregistre la page sur laquelle on se trouvait avant celle-ci
 	// si nous n'avons pas déjà entré une URL

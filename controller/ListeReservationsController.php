@@ -8,13 +8,13 @@ class ListeReservationsController {
 
 	public function action() {
 		$dao = new MysqlDao();
-		if($dao->isClientConnected()) // on vérifie au préalable que le client est bien connecté
+		if($dao->clientEstConnecte()) // on vérifie au préalable que le client est bien connecté
 		{
 			$login = $_SESSION['login'];
 
 			// On récupère un tableau de tableaux qui contient la liste des
 			// réservations qu'a passées le client
-			$result = $dao->getReservations($login);
+			$result = $dao->getResasByLogin($login);
 
 			if ($result == null) {
 				$_SESSION['error_message'] = 'Pas de réservation.';

@@ -57,7 +57,7 @@ class ContactController {
 
         if (empty($messages)) {
             $dao = new MysqlDao();
-            $dao->addContact($nom, $prenom, $mail, $sujet, $telephone, $message);
+            $dao->ajoutMessage($nom, $prenom, $mail, $sujet, $telephone, $message);
             include VIEW . "retour_contact.php";
         } else {
             if (isset($_POST['nom'])) {

@@ -17,7 +17,7 @@ class AuthAdminController {
 				$login = trim($_POST['login_admin']);
 				$passwd = $_POST['passwd'];
 				$dao = new MysqlDao();
-				$result = $dao->backOfficeLogin($login, $passwd);
+				$result = $dao->adminLogin($login, $passwd);
 
 				if ($result == null) {
 					$_SESSION['message_login_admin'] = 'Le login et le mot de passe saisis ne coïncident pas.';

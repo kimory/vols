@@ -8,7 +8,7 @@ class AffichagePassagerController {
 
     public function action() {
         $dao = new MysqlDao();
-        if ($dao->isAdminConnected()) {
+        if ($dao->adminEstConnecte()) {
         // On n'exécute la fonction que si l'admin est connecté
             $message = null;
 
@@ -26,7 +26,7 @@ class AffichagePassagerController {
             // récupérer les infos du passager :
             if (isset($numpassager) && strlen($numpassager) != 0) {
                 $dao = new MysqlDao();
-                $passager = $dao->getInfosPassagerById($numpassager);
+                $passager = $dao->getPassagerById($numpassager);
                 if ($passager->getNumPassager() == null) {
                     // Cas d'un identifiant non valide (= le passager n'existe pas en base) :
                     $message = 'Le passager N°' . htmlentities($numpassager, ENT_QUOTES, 'UTF-8') . ' n\'existe pas !';

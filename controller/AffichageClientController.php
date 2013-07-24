@@ -8,7 +8,7 @@ class AffichageClientController {
 
     public function action() {
 		$dao = new MysqlDao();
-		if($dao->isAdminConnected())
+		if($dao->adminEstConnecte())
                 // On n'exécute la fonction que si l'admin est connecté
 		{
 			$message = null;
@@ -25,7 +25,7 @@ class AffichageClientController {
 			// Si on a récupéré un numéro de client, on exécute la fonction pour
 			// récupérer les infos du client :
 			if (isset($numclient) && strlen($numclient) != 0) {
-				$client = $dao->getInfosClientById($numclient);
+				$client = $dao->getClientById($numclient);
 				if ($client->getId() == null) {
 					// Cas d'un identifiant non valide (= le client n'existe pas en base) :
 					$message = 'Le client N°' . htmlentities($numclient, ENT_QUOTES, 'UTF-8') . ' n\'existe pas !';

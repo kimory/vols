@@ -8,7 +8,7 @@ class AffichageReservationController {
 
     public function action() {
         $dao = new MysqlDao();
-        if ($dao->isAdminConnected()) {
+        if ($dao->adminEstConnecte()) {
         // On n'exécute la fonction que si l'admin est connecté
             $message = null;
             // On vérifie qu'un numéro de réservation a été récupéré :
@@ -25,7 +25,7 @@ class AffichageReservationController {
 
             if (isset($numreservation) && strlen($numreservation) != 0) {
                 $dao = new MysqlDao();
-                $reservation = $dao->getInfosReservationById($numreservation);
+                $reservation = $dao->getReservationById($numreservation);
                 if ($reservation->getNumReservation() == null) {
                     // Cas d'un identifiant non valide (= la réservation n'existe pas en base) :
                     $message = 'La réservation N°' . htmlentities($numreservation, ENT_QUOTES, 'UTF-8') . ' n\'existe pas !';

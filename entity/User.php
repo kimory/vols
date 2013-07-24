@@ -58,7 +58,7 @@ class User {
         $this->droits = $droits;
     }
 
-    public static function isAdminConnected() {
+    public static function adminEstConnecte() {
         return (isset($_SESSION['login_admin']) && strlen($_SESSION['login_admin']) > 0);
     }
 

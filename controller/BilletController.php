@@ -9,9 +9,9 @@ class BilletController {
 
 	public function action() {
 		$dao = new MysqlDao();
-		if( $dao->isClientConnected() && isset($_SESSION['numreservation']) )
+		if( $dao->clientEstConnecte() && isset($_SESSION['numreservation']) )
 		{
-			$resultat = $dao->getInfoBillet($_SESSION['numreservation']);
+			$resultat = $dao->getBilletByNumresa($_SESSION['numreservation']);
 			// si on a bien reçu le tableau d'informations
 			if(sizeof($resultat) > 1)
 			{

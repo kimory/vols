@@ -4,7 +4,7 @@ include_once("../setup.php");
 
 use entity\User;
 
-if (User::isAdminConnected()) {
+if (User::adminEstConnecte()) {
     // Si un administrateur est connecté, on lui propose de se déconnecter : 
     ?>
     <div id="deconnexionadmin">

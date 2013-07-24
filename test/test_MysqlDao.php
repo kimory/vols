@@ -8,14 +8,14 @@ use entity\Client;
 
 $dao = new MysqlDao();
 
-//var_dump($dao->getInfosClientById('5'));
-//var_dump($dao->getInfosPassagerById('2'));
-//var_dump($dao->getPassagersEtPlacesByReservation('4'));
+//var_dump($dao->getClientById('5'));
+//var_dump($dao->getPassagerById('2'));
+//var_dump($dao->getPassagersEtPlacesByNumresa('4'));
 
 //var_dump($dao->getVolById('DF3'));
-//var_dump($dao->getVolsByEmploye('H0002'));
+//var_dump($dao->getVolsByNumemploye('H0002'));
 
-//var_dump($dao->backOfficeLogin("admin", "admin"));
+//var_dump($dao->adminLogin("admin", "admin"));
 
 //$datedep = new DateTime(2013-12-01);
 //var_dump($dao->getPropositions("Tokyo", "Doha", $datedep, 3, 2));

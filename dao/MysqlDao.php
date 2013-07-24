@@ -120,7 +120,7 @@ class MysqlDao {
 		return $result;
 	}
 
-	public function getInfosClientById($idClient) {
+	public function getClientById($idClient) {
 		// récupère les infos sur un client en fonction de son ID
 		// et retourne un objet Client
 		$sql = "select * from client where numclient=:id";
@@ -147,7 +147,7 @@ class MysqlDao {
 			$ville, $pays, $mail, $telfixe, $telportable, $login, $password);
 	}
 
-	public function getInfosPassagerById($idPassager) {
+	public function getPassagerById($idPassager) {
 		// récupère les infos sur un passager en fonction de son ID
 		// et retourne un objet Passager
 		$sql = "SELECT passager.numpassager, civilite, nom, prenom, datenaissance, numreservation, numclient
@@ -172,7 +172,7 @@ class MysqlDao {
 			$numclient, $numreservation);
 	}
 
-	public function getInfosReservationById($idReservation) {
+	public function getReservationById($idReservation) {
 		// récupère les infos sur une réservation en fonction de son ID
 		// et retourne un objet Reservation
 		$sql = "SELECT reservation.numreserv, vol.numvol, dateheuredep, client.numclient, count( place.numpassager ) AS nbpassager
@@ -200,7 +200,7 @@ class MysqlDao {
 		return new Reservation($numreservation, null, $client, $vol, $nbpassager, $dateduvol);
 	}
 
-	public function getPassagersEtPlacesByReservation($numreservation){
+	public function getPassagersEtPlacesByNumresa($numreservation){
 		// retourne un tableau avec les noms des passagers et leurs places pour
 		// une réservation donnée.
 		$sql = "SELECT numpassager, numplace
@@ -276,7 +276,7 @@ class MysqlDao {
 	}
 
 
-	public function getVolsByEmploye($numemploye){
+	public function getVolsByNumemploye($numemploye){
 		// retourne un tableau des vols (objets) liés à un employé
 
 		$sql = "SELECT numvol, lieudep, lieuarriv, dateheuredep
@@ -307,7 +307,7 @@ class MysqlDao {
 		return $vols;
 	}
 
-	public function backOfficeLogin($login, $passwd){
+	public function adminLogin($login, $passwd){
 		// renvoie un tableau avec le login et le mot de passe chiffré
 		$sql = "SELECT login 
 			FROM user 
@@ -346,7 +346,7 @@ class MysqlDao {
             }
         }
 
-	public function isClientConnected() 
+	public function clientEstConnecte() 
 	{
 		// Renvoie "true" si le client est connecté, "false" sinon
 
@@ -379,7 +379,7 @@ class MysqlDao {
 	}
 
 	// Ne pas oublier que le mot de passe enregistré est déjà chiffré
-	public function isAdminConnected()
+	public function adminEstConnecte()
 	{
 		// Renvoie "true" si l'admin est connecté, "false" sinon
 
@@ -411,7 +411,7 @@ class MysqlDao {
 		return false;
 	}
 
-	public function getReservations($login) 
+	public function getResasByLogin($login) 
 	{
 		$sql = "SELECT DISTINCT R.numreserv AS numreservation, 
 			R.datereserv AS datereservation, 
@@ -437,7 +437,7 @@ class MysqlDao {
 		return $result;
 	}
 
-	public function getReservationDetails($numreservation)
+	public function getDetailsResaByNumresa($numreservation)
 	{
 		$sql = "SELECT 
 			R.numreserv AS numreservation, 
@@ -679,7 +679,7 @@ class MysqlDao {
 	// retourne un tableau multidimensionnel, aux indexs :
 	// 'places' = l'ensemble des informations sur les passagers (nom prenom civilite tarif place)
 	// 'vol' = l'ensemble des informations sur le vol
-	public function getInfoBillet($numreservation)
+	public function getBilletByNumresa($numreservation)
 	{
                 // le résultat final sera enregistré dans un tableau de tableaux
 		$resultat = array();
@@ -742,7 +742,7 @@ class MysqlDao {
 		return $resultat;
 	}
 
-	public function addContact($nom,$prenom,$mail,$sujet,$telephone,$message){
+	public function ajoutMessage($nom,$prenom,$mail,$sujet,$telephone,$message){
 
 		$sql = "INSERT INTO contact ( nom, prenom, mail, sujet, telephone,message) 
 			VALUES(:nom ,:prenom, :mail, :sujet, :telephone, :message)";

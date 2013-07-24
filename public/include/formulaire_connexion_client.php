@@ -4,7 +4,7 @@ include_once("../setup.php");
 use entity\Client;
 
 // Si l'utilisateur est connecté, on voit un bouton de déconnexion
-if (Client::isClientConnected())
+if (Client::clientEstConnecte())
 {
 ?>
     <div id="deconnexionuser">
