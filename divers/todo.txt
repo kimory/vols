@@ -1,8 +1,7 @@
 -Tester / Faire tester l'appli
 -Cahier des charges fini + mis en forme
--Créer d'autres vols : dans les 2-3 mois après la date de fin de projet + dans les 2 mois après la date de présentation au jury
+-Créer d'autres vols : dans les 2 mois après la date de présentation au jury
 -Donner avec l'appli la liste des vols créés + identifiants
--Validation W3C
 -Ajouter une mention de la page "contact" dans le CDG ?
 -Chiffrer le mot de passe du client ?
 
@@ -33,15 +32,5 @@ Cahier des charges :
         * ajouter une table des matières
 
 Divers à corriger / solutionner pour la V2 :
-        * voir si les vues dans le .htaccess ont du sens, on pourrait les faire passer via le contrôleur à chaque fois
-        * corriger le projet pour coller aux remarques du prof ci-dessous
-
-Remarques générales du formateur sur les projets :
-        * respecter les règles de nommage
-        * pas de traitement dans la vue !
-        * avoir un jeu de tests
-        * commenter le code
+        * validation W3C → beaucoup d'erreurs à corriger !
         * découper les grandes méthodes en sous-méthodes de 20-30 lignes
-        * indenter le code
-        * au-delà de 3 (?) niveaux d'indentation, faire une méthode
-        * si qqch se répète, penser à l'héritage !
