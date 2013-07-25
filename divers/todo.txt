@@ -28,6 +28,7 @@ BDD :
 
 Cahier des charges :
         * PENSER À ENVOYER CHAQUE MODIF DE SUITE pour éviter les conflits !
+        * mise en forme
         * ajouter une table des matières
 
 Divers à corriger / solutionner pour la V2 :
