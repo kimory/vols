@@ -6,7 +6,6 @@
 
 Pour la réservation d'un vol :
         * gérer les allers-retours
-        * IHM : reprendre la page d'enregistrement ou connection du client
 
 Pour l'espace client :
         * visualisation des billets pour impression
