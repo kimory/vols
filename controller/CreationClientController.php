@@ -26,7 +26,7 @@ class CreationClientController {
         if (!isset($_POST['civilite']) || strlen($_POST['civilite']) == 0) {
             $messages[] = "Merci d'indiquer votre civilité.";
         } else if (strcmp($_POST['civilite'], 'm') != 0 && strcmp($_POST['civilite'], 'mme') != 0) {
-            $messages[] = "Il y a un soucis dans la sélection de la civilité.";
+            $messages[] = "Il y a un souci dans la sélection de la civilité.";
         } else {
             $civilite = $_POST['civilite'];
         }
