@@ -11,16 +11,28 @@ class EnregistrementPassagersController {
 
     public function action() {
         $dao = new MysqlDao();
-        // Cas où la personne n'a pas choisi un vol parmi les
-        // propositions sur la vue précédente :
         if (isset($_POST['volchoisi']) && strlen($_POST['volchoisi']) > 0) {
             $_SESSION['volchoisi'] = $_POST['volchoisi'];
         }
 
+        // Cas où la personne n'a pas choisi un vol parmi les
+        // propositions sur la vue précédente :
         if (!isset($_SESSION['volchoisi']) || strlen($_SESSION['volchoisi']) == 0) {
             $_SESSION['msg_vol_non_choisi'] = 'Erreur : vous devez sélectionner un vol !';
             header('Location:/propositions');
         }
+
+		// Cas où la personne a choisi un numéro de vol incorrect ("bidouillage du HTML") :
+		$volcorrect = false;
+		foreach($_SESSION['vols'] as $vol){ // on parcourt les différents choix possibles
+			if($_POST['volchoisi'] === $vol->getNumvol()){
+				$volcorrect = true; // on passe le booléen à "vrai" si le vol choisi fait partie des options possibles
+			}
+		 }
+		if(!$volcorrect){
+            $_SESSION['msg_vol_non_choisi'] = 'Erreur : le vol que vous avez choisi n\'est pas correct !';
+            header('Location:/propositions');
+		}
 
         // Cas où on a déjà rempli le formulaire d'inscription des passagers :
         if (isset($_POST['civilite'], $_POST['date_de_naissance'], $_POST['nom'], $_POST['prenom'], $_SESSION['nb_passagers'])) {
