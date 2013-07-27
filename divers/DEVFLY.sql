@@ -27,18 +27,18 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `client` (
-  `numclient` int(11) NOT NULL AUTO_INCREMENT,
+  `numclient` int(15) NOT NULL AUTO_INCREMENT,
   `civilite` varchar(3) DEFAULT NULL,
   `nom` varchar(50) DEFAULT NULL,
   `prenom` varchar(50) DEFAULT NULL,
-  `adresse` varchar(50) DEFAULT NULL,
+  `adresse` varchar(100) DEFAULT NULL,
   `codepostal` varchar(10) DEFAULT NULL,
   `ville` varchar(20) DEFAULT NULL,
   `pays` varchar(20) DEFAULT NULL,
-  `mail` varchar(50) DEFAULT NULL,
+  `mail` varchar(80) DEFAULT NULL,
   `telfixe` varchar(15) DEFAULT NULL,
   `mobile` varchar(15) DEFAULT NULL,
-  `login` varchar(10) DEFAULT NULL,
+  `login` varchar(20) DEFAULT NULL,
   `password` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`numclient`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
@@ -65,12 +65,12 @@ INSERT INTO `client` (`numclient`, `civilite`, `nom`, `prenom`, `adresse`, `code
 --
 
 CREATE TABLE IF NOT EXISTS `contact` (
-  `id` int(3) unsigned NOT NULL AUTO_INCREMENT,
-  `nom` varchar(100) NOT NULL,
-  `prenom` varchar(100) NOT NULL,
-  `mail` varchar(100) NOT NULL,
+  `id` int(20) unsigned NOT NULL AUTO_INCREMENT,
+  `nom` varchar(50) NOT NULL,
+  `prenom` varchar(50) NOT NULL,
+  `mail` varchar(80) NOT NULL,
   `sujet` varchar(100) NOT NULL,
-  `telephone` varchar(50) NOT NULL,
+  `telephone` varchar(15) NOT NULL,
   `message` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
@@ -155,7 +155,7 @@ CREATE TABLE IF NOT EXISTS `employe` (
   `civilite` varchar(3) NOT NULL,
   `nom` varchar(50) NOT NULL,
   `prenom` varchar(50) NOT NULL,
-  `adresse` varchar(50) NOT NULL,
+  `adresse` varchar(100) NOT NULL,
   `codepostal` varchar(10) NOT NULL,
   `ville` varchar(20) NOT NULL,
   `pays` varchar(20) NOT NULL,
@@ -206,7 +206,7 @@ INSERT INTO `employe` (`numemploye`, `civilite`, `nom`, `prenom`, `adresse`, `co
 --
 
 CREATE TABLE IF NOT EXISTS `passager` (
-  `numpassager` int(11) NOT NULL AUTO_INCREMENT,
+  `numpassager` int(15) NOT NULL AUTO_INCREMENT,
   `civilite` varchar(3) NOT NULL,
   `nom` varchar(50) NOT NULL,
   `prenom` varchar(50) NOT NULL,
@@ -239,10 +239,10 @@ INSERT INTO `passager` (`numpassager`, `civilite`, `nom`, `prenom`, `datenaissan
 --
 
 CREATE TABLE IF NOT EXISTS `place` (
-  `numplace` int(4) NOT NULL AUTO_INCREMENT,
-  `numpassager` int(5) NOT NULL,
-  `numvol` varchar(10) NOT NULL,
-  `numreservation` int(10) NOT NULL,
+  `numplace` int(15) NOT NULL AUTO_INCREMENT,
+  `numpassager` int(15) NOT NULL,
+  `numvol` varchar(15) NOT NULL,
+  `numreservation` int(15) NOT NULL,
   `prix` float NOT NULL,
   PRIMARY KEY (`numplace`),
   KEY `numreservation` (`numreservation`),
@@ -275,9 +275,9 @@ INSERT INTO `place` (`numplace`, `numpassager`, `numvol`, `numreservation`, `pri
 --
 
 CREATE TABLE IF NOT EXISTS `reservation` (
-  `numreserv` int(11) NOT NULL AUTO_INCREMENT,
+  `numreserv` int(15) NOT NULL AUTO_INCREMENT,
   `datereserv` date NOT NULL,
-  `numclient` int(11) NOT NULL,
+  `numclient` int(15) NOT NULL,
   PRIMARY KEY (`numreserv`),
   KEY `numclient` (`numclient`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
@@ -304,12 +304,12 @@ INSERT INTO `reservation` (`numreserv`, `datereserv`, `numclient`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `travailler` (
-  `vol` varchar(10) NOT NULL,
-  `pilote` varchar(50) NOT NULL,
-  `copilote` varchar(50) NOT NULL,
-  `hotesse_steward1` varchar(50) NOT NULL,
-  `hotesse_steward2` varchar(50) NOT NULL,
-  `hotesse_steward3` varchar(50) NOT NULL,
+  `vol` varchar(15) NOT NULL,
+  `pilote` varchar(5) NOT NULL,
+  `copilote` varchar(5) NOT NULL,
+  `hotesse_steward1` varchar(5) NOT NULL,
+  `hotesse_steward2` varchar(5) NOT NULL,
+  `hotesse_steward3` varchar(5) NOT NULL,
   `date` date NOT NULL,
   KEY `vol` (`vol`,`pilote`,`copilote`,`hotesse_steward1`,`hotesse_steward2`,`hotesse_steward3`),
   KEY `pilote` (`pilote`),
@@ -344,7 +344,7 @@ INSERT INTO `travailler` (`vol`, `pilote`, `copilote`, `hotesse_steward1`, `hote
 CREATE TABLE IF NOT EXISTS `user` (
   `id` varchar(5) NOT NULL,
   `statut` varchar(20) NOT NULL,
-  `login` varchar(10) NOT NULL,
+  `login` varchar(20) NOT NULL,
   `password` varchar(100) NOT NULL,
   `droits` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
@@ -366,7 +366,7 @@ INSERT INTO `user` (`id`, `statut`, `login`, `password`, `droits`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `vol` (
-  `numvol` varchar(10) NOT NULL,
+  `numvol` varchar(15) NOT NULL,
   `lieudep` varchar(50) NOT NULL,
   `lieuarriv` varchar(50) NOT NULL,
   `dateheuredep` datetime NOT NULL,
