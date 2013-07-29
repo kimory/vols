@@ -331,8 +331,8 @@ class MysqlDao {
 	public function clientLogin($login, $passwd) {
         // renvoie un tableau avec le login et le mot de passe chiffré
             $sql = "SELECT login 
-                            FROM client 
-                            WHERE login=:login and password=:passwd";
+                    FROM client 
+                    WHERE login=:login and password=:passwd";
             
             // le grain de sel utilisé lors du chiffrement commence par "$5$..." -> c'est du sha256
             $passwd = crypt($passwd, '$5$ABCDEFGHIJKLM');
@@ -564,48 +564,25 @@ class MysqlDao {
         // prend en paramètre un tableau d'objets Passager, un numéro de
         // résa et un objet Vol
         public function associerPassagersEtPlaces($passagers, $numreservation, $vol) {
-        // recherche d'un numéro de passager
-        $sql = "SELECT numpassager 
+            // recherche d'un numéro de passager
+            $sql = "SELECT numpassager 
                     FROM passager
                     WHERE civilite=:civilite AND
                     nom=:nom AND prenom=:prenom AND 
                     datenaissance=:datenaissance";
-        $stmt = $this->dbh->prepare($sql);
+            $stmt = $this->dbh->prepare($sql);
 
-        // création d'un passager (si on ne l'a pas trouvé en base)
-        $sql2 = "INSERT INTO passager (civilite, nom, prenom, datenaissance)
+            // création d'un passager (si on ne l'a pas trouvé en base)
+            $sql2 = "INSERT INTO passager (civilite, nom, prenom, datenaissance)
                     VALUES(:civilite, :nom, :prenom, :datenaissance)";
-        $stmt2 = $this->dbh->prepare($sql2);
+            $stmt2 = $this->dbh->prepare($sql2);
 
-        // création d'une place
-        $sql3 = "INSERT INTO place (numpassager, numvol, numreservation, prix)
+            // création d'une place
+            $sql3 = "INSERT INTO place (numpassager, numvol, numreservation, prix)
                     VALUES (:numpassager, :numvol, :numreservation, :prix);";
-        $stmt3 = $this->dbh->prepare($sql3);
+            $stmt3 = $this->dbh->prepare($sql3);
 
-        foreach ($passagers as $passager) {
-            $stmt->bindParam(':civilite', $passager->getCivilite());
-            $stmt->bindParam(':nom', $passager->getNom());
-            $stmt->bindParam(':prenom', $passager->getPrenom());
-            $stmt->bindParam(':datenaissance', $passager->getDateNaissance());
-
-            $stmt->execute();
-            // si on trouve une correspondance
-            if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                $numpassager = $row['numpassager'];
-            } else { // s'il faut créer le passager
-                $dt = new DateTime($passager->getDateNaissance());
-
-                // on insère un nouveau passager
-                $stmt2->bindParam(':civilite', $passager->getCivilite());
-                $stmt2->bindParam(':nom', $passager->getNom());
-                $stmt2->bindParam(':prenom', $passager->getPrenom());
-                $stmt2->bindParam(':datenaissance', $dt->format('Y-m-d'));
-
-                if (!(true === $stmt2->execute())) {
-                    return 1; // impossible d'insérer un passager
-                }
-
-                // on récupère ensuite son numéro de passager
+            foreach ($passagers as $passager) {
                 $stmt->bindParam(':civilite', $passager->getCivilite());
                 $stmt->bindParam(':nom', $passager->getNom());
                 $stmt->bindParam(':prenom', $passager->getPrenom());
@@ -615,24 +592,47 @@ class MysqlDao {
                 // si on trouve une correspondance
                 if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     $numpassager = $row['numpassager'];
-                } else {
-                    return 2; // après insertion du passager on ne le retrouve plus
+                } else { // s'il faut créer le passager
+                    $dt = new DateTime($passager->getDateNaissance());
+
+                    // on insère un nouveau passager
+                    $stmt2->bindParam(':civilite', $passager->getCivilite());
+                    $stmt2->bindParam(':nom', $passager->getNom());
+                    $stmt2->bindParam(':prenom', $passager->getPrenom());
+                    $stmt2->bindParam(':datenaissance', $dt->format('Y-m-d'));
+
+                    if (!(true === $stmt2->execute())) {
+                        return 1; // impossible d'insérer un passager
+                    }
+
+                    // on récupère ensuite son numéro de passager
+                    $stmt->bindParam(':civilite', $passager->getCivilite());
+                    $stmt->bindParam(':nom', $passager->getNom());
+                    $stmt->bindParam(':prenom', $passager->getPrenom());
+                    $stmt->bindParam(':datenaissance', $passager->getDateNaissance());
+
+                    $stmt->execute();
+                    // si on trouve une correspondance
+                    if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                        $numpassager = $row['numpassager'];
+                    } else {
+                        return 2; // après insertion du passager on ne le retrouve plus
+                    }
+                }
+
+                // on donne une place au passager
+                $stmt3->bindParam(':numpassager', $numpassager);
+                $stmt3->bindParam(':numvol', $vol->getNumvol());
+                $stmt3->bindParam(':numreservation', $numreservation);
+                // Attention, le prix dépend de l'âge du passager :
+                $prix = ($this->payePleinTarif($passager->getDateNaissance(), $vol->getDateHeureDepart())) ? $vol->getTarif() : 50;
+                $stmt3->bindParam(':prix', $prix);
+
+                if (!(true === $stmt3->execute())) {
+                    return 3; // impossible d'insérer une place
                 }
             }
-
-            // on donne une place au passager
-            $stmt3->bindParam(':numpassager', $numpassager);
-            $stmt3->bindParam(':numvol', $vol->getNumvol());
-            $stmt3->bindParam(':numreservation', $numreservation);
-            // Attention, le prix dépend de l'âge du passager :
-            $prix = ($this->payePleinTarif($passager->getDateNaissance(), $vol->getDateHeureDepart())) ? $vol->getTarif() : 50;
-            $stmt3->bindParam(':prix', $prix);
-
-            if (!(true === $stmt3->execute())) {
-                return 3; // impossible d'insérer une place
-            }
         }
-    }
 
 	// Le dernier paramètre permet de récupérer le numéro de réservation
         // On le passe par référence.
