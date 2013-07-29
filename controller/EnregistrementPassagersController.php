@@ -13,6 +13,22 @@ class EnregistrementPassagersController {
         $dao = new MysqlDao();
         if (isset($_POST['volchoisi']) && strlen($_POST['volchoisi']) > 0) {
             $_SESSION['volchoisi'] = $_POST['volchoisi'];
+
+            // Cas où la personne a choisi un numéro de vol incorrect ("bidouillage du HTML") :
+            $volcorrect = false;
+            foreach ($_SESSION['vols'] as $vol) { // on parcourt les différents choix possibles
+                if (strcmp($_SESSION['volchoisi'], $vol->getNumvol()) == 0) {
+                    $volcorrect = true; // on passe le booléen à "vrai" si le vol choisi fait partie des options possibles
+                }
+            }
+
+            if (!$volcorrect) {
+                $_SESSION['msg_vol_non_choisi'] = 'Erreur : le vol que vous avez choisi n\'est pas correct !';
+
+                unset($_SESSION['volchoisi']);
+                header('Location:/propositions');
+                return; // on s'assure que rien ne se passe après le changement de page
+            }
         }
 
         // Cas où la personne n'a pas choisi un vol parmi les
@@ -20,19 +36,8 @@ class EnregistrementPassagersController {
         if (!isset($_SESSION['volchoisi']) || strlen($_SESSION['volchoisi']) == 0) {
             $_SESSION['msg_vol_non_choisi'] = 'Erreur : vous devez sélectionner un vol !';
             header('Location:/propositions');
+            return;
         }
-
-		// Cas où la personne a choisi un numéro de vol incorrect ("bidouillage du HTML") :
-		$volcorrect = false;
-		foreach($_SESSION['vols'] as $vol){ // on parcourt les différents choix possibles
-			if($_POST['volchoisi'] === $vol->getNumvol()){
-				$volcorrect = true; // on passe le booléen à "vrai" si le vol choisi fait partie des options possibles
-			}
-		 }
-		if(!$volcorrect){
-            $_SESSION['msg_vol_non_choisi'] = 'Erreur : le vol que vous avez choisi n\'est pas correct !';
-            header('Location:/propositions');
-		}
 
         // Cas où on a déjà rempli le formulaire d'inscription des passagers :
         if (isset($_POST['civilite'], $_POST['date_de_naissance'], $_POST['nom'], $_POST['prenom'], $_SESSION['nb_passagers'])) {
@@ -52,7 +57,7 @@ class EnregistrementPassagersController {
 
                 if (strlen($_POST['nom'][$i]) == 0 ||
                         !preg_match("/^[ A-Za-zàâäéèêëìîïôöòùûüçÀÂÄÉÈËÏÎÌÔÖÙÛÜÇ-]+$/", $_POST['nom'][$i])) {
-                // Remarque : on autorise les espaces (cf "M. de XXX")
+                    // Remarque : on autorise les espaces (cf "M. de XXX")
                     $messages_erreur[] = "Le nom n'est pas correct pour le passager " . ($i + 1) . '.';
                 }
 
@@ -88,13 +93,13 @@ class EnregistrementPassagersController {
                 // et on vérifie leur âge au départ du vol
                 $passagers = array();
                 $i = 0;
-                
+
                 // Les nombres d'adultes et d'enfants sont réinitialisés à zéro.
                 // On va calculer le nombre réel d'adultes et d'enfants
                 // (le prix à payer par le client au final en dépend !)           
                 $_SESSION['nb_adultes'] = 0;
                 $_SESSION['nb_enfants'] = 0;
-                
+
                 // Au moins une personne majeure doit voyager.
                 // On initialise la variable à "false" :
                 $un_vrai_adulte_present = false;

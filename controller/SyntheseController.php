@@ -41,15 +41,15 @@ class SyntheseController {
 
 					// on y mettra le numéro de réservation calculé
                                         // (cf il est passé par référence en paramètre
-                                        // de "ajoutReservation").                                      
+                                        // de "processusReservation").                                      
 					$numreservation = '';
-					$ret = $dao->ajoutReservation($_SESSION['login'], 
+					$ret = $dao->processusReservation($_SESSION['login'], 
 						$_SESSION['passagers'], 
 						$_SESSION['volchoisi'],
 						$numreservation);
 
                                         // Le numéro de réservation a été passé par référence
-                                        // en paramètre de "ajoutReservation".
+                                        // en paramètre de "processusReservation".
                                         // $numreservation aura donc été modifié.
 					$_SESSION['numreservation'] = $numreservation;
 

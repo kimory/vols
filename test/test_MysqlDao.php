@@ -63,6 +63,6 @@ $tableau_passagers = array(
 );
 $numreservation = ''; // on le passe par référence
 // renvoie 0 si tout se passe bien
-var_dump($dao->ajoutReservation('isabella', $tableau_passagers, 'DF1', $numreservation));
+var_dump($dao->processusReservation('isabella', $tableau_passagers, 'DF1', $numreservation));
 echo $numreservation; // on récupère le numéro de la résa créée
 ?>
