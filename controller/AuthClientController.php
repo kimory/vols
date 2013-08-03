@@ -31,15 +31,18 @@ class AuthClientController {
             // et on renvoie vers la page précédente si le login et / ou le mot de passe ne sont pas renseignés :
             $_SESSION['message_login_client'] = 'Vous devez renseigner un login et un mot de passe.';
         }
-
-            if(isset($_SESSION['message_login_client']) || ! isset($_SESSION['pagesurlaquelleondoitaller']))
-            {
-                    header('Location:' . $_SERVER['HTTP_REFERER']); // renvoie vers la page précédente
-            }
-            else
-            {
-                    header('Location:' . $_SESSION['pagesurlaquelleondoitaller']);
-            }
+        
+        if(isset($_SESSION['message_login_client']) && strlen($_SESSION['message_login_client']) > 0)
+        {
+                header('Location:' . $_SERVER['HTTP_REFERER']); // renvoie vers la page précédente
+        }
+        elseif(! isset($_SESSION['pagesurlaquelleondoitaller'])){
+                header('Location:' . $_SERVER['HTTP_REFERER']); // renvoie vers la page précédente
+        }
+        else
+        {
+                header('Location:' . $_SESSION['pagesurlaquelleondoitaller']);
+        }
     }
 }
 
