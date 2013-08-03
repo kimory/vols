@@ -16,7 +16,7 @@ RewriteRule ^la_compagnie$ la_compagnie.php [L]
 RewriteRule ^erreur_500$ erreur_500.php [L]
 RewriteRule ^erreur_401$ erreur_401.php [L]
 #méthode action par défaut
-RewriteRule ^([a-zA-Z_]+)C$ index.php?controller=$1Controller&method=action [L]
+RewriteRule ^([a-zA-Z]+)C$ index.php?controller=$1Controller&method=action [L]
 RewriteRule ^detailsReservation/([a-zA-Z0-9]+)$ index.php?controller=DetailsReservationController&method=action&numreservation=$1 [L]
 RewriteRule ^client/([a-zA-Z0-9]+)$ index.php?controller=AffichageClientController&method=action&numclient=$1 [L]
 RewriteRule ^passager/([a-zA-Z0-9]+)$ index.php?controller=AffichagePassagerController&method=action&numpassager=$1 [L]
