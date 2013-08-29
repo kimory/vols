@@ -1,5 +1,4 @@
 -Tester / Faire tester l'appli
--Cahier des charges fini + mis en forme
 -Créer d'autres vols : dans les 2 mois après la date de présentation au jury
 -Donner avec l'appli la liste des vols créés + identifiants
 -Ajouter une mention de la page "contact" dans le CDG ?
@@ -20,12 +19,7 @@ Pour la partie back office :
         - attention, il y a un pb d'affichage qui sera à corriger : Bootstrap - .tab-content - display:none; (attention à ne pas casser le style des autres pages)
 
 BDD :
-        * en local, importer la bonne version de la BDD (mots de passes chiffrés)
-
-Cahier des charges :
-        * PENSER À ENVOYER CHAQUE MODIF DE SUITE pour éviter les conflits !
-        * mise en forme
-        * ajouter une table des matières
+        * en local, importer la bonne version de la BDD
 
 Divers à corriger / solutionner pour la V2 :
         * validation W3C → beaucoup d'erreurs à corriger !
