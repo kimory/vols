@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.8.1deb1
+-- version 3.3.9
 -- http://www.phpmyadmin.net
 --
--- Client: localhost
--- Généré le: Dim 08 Septembre 2013 à 14:12
--- Version du serveur: 5.5.32-0ubuntu0.13.04.1
--- Version de PHP: 5.4.9-4ubuntu2.3
+-- Serveur: localhost
+-- Généré le : Mer 11 Septembre 2013 à 12:54
+-- Version du serveur: 5.5.8
+-- Version de PHP: 5.3.5
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -395,24 +394,29 @@ INSERT INTO `vol` (`numvol`, `lieudep`, `lieuarriv`, `dateheuredep`, `dateheurea
 --
 
 CREATE TABLE IF NOT EXISTS `vol_tmp` (
-  `numvol` int(11) NOT NULL AUTO_INCREMENT,
+  `numvol` varchar(15) NOT NULL,
   `lieudep` varchar(50) NOT NULL,
   `lieuarriv` varchar(50) NOT NULL,
   `dateheuredep` datetime NOT NULL,
-  `dateheurearriv` datetime NOT NULL,
+  `dateheurearrivee` datetime NOT NULL,
   `tarif` float NOT NULL,
+  `pilote` varchar(5) NOT NULL,
+  `copilote` varchar(5) NOT NULL,
+  `hotesse_steward1` varchar(5) NOT NULL,
+  `hotesse_steward2` varchar(5) NOT NULL,
+  `hotesse_steward3` varchar(5) NOT NULL,
   PRIMARY KEY (`numvol`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `vol_tmp`
 --
 
-INSERT INTO `vol_tmp` (`numvol`, `lieudep`, `lieuarriv`, `dateheuredep`, `dateheurearriv`, `tarif`) VALUES
-(1, 'Sydney', 'Berne', '2014-01-30 02:00:00', '2014-01-30 15:15:00', 1480),
-(2, 'Sydney', 'Berne', '2014-02-06 02:00:00', '2014-02-06 15:15:00', 1480),
-(3, 'Tokyo', 'Doha', '2014-01-15 08:10:00', '2014-01-15 20:30:00', 810),
-(4, 'Tokyo', 'Doha', '2014-01-22 08:10:00', '2014-01-22 20:30:00', 810);
+INSERT INTO `vol_tmp` (`numvol`, `lieudep`, `lieuarriv`, `dateheuredep`, `dateheurearrivee`, `tarif`, `pilote`, `copilote`, `hotesse_steward1`, `hotesse_steward2`, `hotesse_steward3`) VALUES
+('TMP1', 'Sydney', 'Berne', '2014-01-30 02:00:00', '2014-01-30 15:15:00', 1480, '', '', '', '', ''),
+('TMP2', 'Sydney', 'Berne', '2014-02-06 02:00:00', '2014-02-06 15:15:00', 1480, '', '', '', '', ''),
+('TMP3', 'Tokyo', 'Doha', '2014-01-15 08:10:00', '2014-01-15 20:30:00', 810, '', '', '', '', ''),
+('TMP4', 'Tokyo', 'Doha', '2014-01-22 08:10:00', '2014-01-22 20:30:00', 810, '', '', '', '', '');
 
 --
 -- Contraintes pour les tables exportées
@@ -442,7 +446,3 @@ ALTER TABLE `travailler`
   ADD CONSTRAINT `travailler_ibfk_7` FOREIGN KEY (`copilote`) REFERENCES `employe` (`numemploye`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `travailler_ibfk_8` FOREIGN KEY (`hotesse_steward1`) REFERENCES `employe` (`numemploye`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `travailler_ibfk_9` FOREIGN KEY (`hotesse_steward2`) REFERENCES `employe` (`numemploye`) ON DELETE CASCADE ON UPDATE CASCADE;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
