@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Jeu 19 Septembre 2013 à 18:54
+-- Généré le: Ven 20 Septembre 2013 à 00:15
 -- Version du serveur: 5.5.32-0ubuntu0.13.04.1
 -- Version de PHP: 5.4.9-4ubuntu2.3
 
@@ -412,6 +412,20 @@ INSERT INTO `vol` (`numvol`, `lieudep`, `lieuarriv`, `dateheuredep`, `dateheurea
 ('DF7', 'Ottawa', 'Washington', '2014-01-01 12:40:00', '2014-01-01 19:34:00', 600),
 ('DF8', 'Paris', 'Saint-Martin', '2013-12-30 10:30:00', '2013-12-30 13:20:00', 617),
 ('DF9', 'Addis-Abeba', 'Vienne', '2013-12-26 10:40:00', '2013-12-26 16:30:00', 893);
+
+--
+-- Déclencheurs `vol`
+--
+DROP TRIGGER IF EXISTS `suppr_vol_tmp`;
+DELIMITER //
+CREATE TRIGGER `suppr_vol_tmp` BEFORE INSERT ON `vol`
+ FOR EACH ROW BEGIN
+		-- on supprime de la table vol_tmp un vol qui a exactement les mêmes critères que le nouveau vol inséré dans la table vol
+		DELETE FROM vol_tmp WHERE lieudep = NEW.lieudep AND lieuarriv = NEW.lieuarriv AND dateheuredep = NEW.dateheuredep
+		AND dateheurearrivee = NEW.dateheurearrivee AND tarif = NEW.tarif;
+  	END
+//
+DELIMITER ;
 
 -- --------------------------------------------------------
 
