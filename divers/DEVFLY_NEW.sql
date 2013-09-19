@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 3.3.9
+-- version 3.5.8.1deb1
 -- http://www.phpmyadmin.net
 --
--- Serveur: localhost
--- Généré le : Mer 11 Septembre 2013 à 12:54
--- Version du serveur: 5.5.8
--- Version de PHP: 5.3.5
+-- Client: localhost
+-- Généré le: Jeu 19 Septembre 2013 à 07:42
+-- Version du serveur: 5.5.32-0ubuntu0.13.04.1
+-- Version de PHP: 5.4.9-4ubuntu2.3
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -330,7 +331,8 @@ INSERT INTO `travailler` (`vol`, `pilote`, `copilote`, `hotesse_steward1`, `hote
 ('DF9', 'P0002', 'C0001', 'H0005', 'H0010', 'H0015', '2013-12-26'),
 ('DF5', 'P0005', 'C0002', 'H0004', 'H0008', 'H0013', '2013-12-07'),
 ('DF6', 'P0005', 'C0002', 'H0004', 'H0008', 'H0013', '2013-12-14'),
-('DF8', 'P0003', 'C0004', 'H0018', 'H0006', 'H0011', '2013-12-30');
+('DF8', 'P0003', 'C0004', 'H0018', 'H0006', 'H0011', '2013-12-30'),
+('DF10', 'P0001', 'C0001', 'H0001', 'H0002', 'H0003', '2013-09-18');
 
 -- --------------------------------------------------------
 
@@ -378,6 +380,7 @@ CREATE TABLE IF NOT EXISTS `vol` (
 
 INSERT INTO `vol` (`numvol`, `lieudep`, `lieuarriv`, `dateheuredep`, `dateheurearrivee`, `tarif`) VALUES
 ('DF1', 'Paris', 'Saint-Martin', '2013-12-20 10:30:00', '2013-12-20 13:20:00', 617),
+('DF10', 'Rome', 'Madrid', '2013-09-18 14:05:00', '2013-09-18 18:05:00', 573),
 ('DF2', 'Doha', 'Tokyo', '2013-12-14 22:30:00', '2013-12-15 10:50:00', 799),
 ('DF3', 'Casablanca', 'Honolulu', '2013-12-24 02:20:00', '2013-12-24 18:34:00', 1524),
 ('DF4', 'Berne', 'Sydney', '2013-12-30 06:50:00', '2013-12-30 20:05:00', 1472),
@@ -446,3 +449,7 @@ ALTER TABLE `travailler`
   ADD CONSTRAINT `travailler_ibfk_7` FOREIGN KEY (`copilote`) REFERENCES `employe` (`numemploye`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `travailler_ibfk_8` FOREIGN KEY (`hotesse_steward1`) REFERENCES `employe` (`numemploye`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `travailler_ibfk_9` FOREIGN KEY (`hotesse_steward2`) REFERENCES `employe` (`numemploye`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
