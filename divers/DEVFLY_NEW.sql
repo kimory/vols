@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Jeu 19 Septembre 2013 à 07:42
+-- Généré le: Jeu 19 Septembre 2013 à 18:54
 -- Version du serveur: 5.5.32-0ubuntu0.13.04.1
 -- Version de PHP: 5.4.9-4ubuntu2.3
 
@@ -361,6 +361,29 @@ INSERT INTO `user` (`id`, `statut`, `login`, `password`, `droits`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `userjava`
+--
+
+CREATE TABLE IF NOT EXISTS `userjava` (
+  `id` varchar(5) NOT NULL,
+  `statut` varchar(20) NOT NULL,
+  `login` varchar(20) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `userjava`
+--
+
+INSERT INTO `userjava` (`id`, `statut`, `login`, `password`) VALUES
+('AD14', 'administrateur', 'admin', 'admin'),
+('CM22', 'commercial', 'vendeur', 'vendeur'),
+('DR04', 'directeur', 'general', 'general');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `vol`
 --
 
@@ -416,9 +439,9 @@ CREATE TABLE IF NOT EXISTS `vol_tmp` (
 --
 
 INSERT INTO `vol_tmp` (`numvol`, `lieudep`, `lieuarriv`, `dateheuredep`, `dateheurearrivee`, `tarif`, `pilote`, `copilote`, `hotesse_steward1`, `hotesse_steward2`, `hotesse_steward3`) VALUES
-('TMP1', 'Sydney', 'Berne', '2014-01-30 02:00:00', '2014-01-30 15:15:00', 1480, '', '', '', '', ''),
+('TMP1', 'Sydney', 'Berne', '2014-01-30 02:00:00', '2014-01-30 15:15:00', 1480, 'P0001', 'C0001', '', '', ''),
 ('TMP2', 'Sydney', 'Berne', '2014-02-06 02:00:00', '2014-02-06 15:15:00', 1480, '', '', '', '', ''),
-('TMP3', 'Tokyo', 'Doha', '2014-01-15 08:10:00', '2014-01-15 20:30:00', 810, '', '', '', '', ''),
+('TMP3', 'Tokyo', 'Doha', '2014-01-15 08:10:00', '2014-01-15 20:30:00', 810, '', '', 'H0004', '', ''),
 ('TMP4', 'Tokyo', 'Doha', '2014-01-22 08:10:00', '2014-01-22 20:30:00', 810, '', '', '', '', '');
 
 --
