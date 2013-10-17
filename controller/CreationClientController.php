@@ -80,7 +80,7 @@ class CreationClientController {
                 preg_match("/^[a-zA-Z0-9.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/", $_POST['email'])) {
             $email = $_POST['email'];
         } else {
-            $messages[] = "L'adresse mail est  incorrecte.";
+            $messages[] = "L'adresse mail est incorrecte.";
         }
 
         if (isset($_POST['telfixe']) && preg_match("/^\+?[0-9]{8,20}$/", $_POST['telfixe'])) {
