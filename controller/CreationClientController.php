@@ -33,7 +33,7 @@ class CreationClientController {
 
         if (!isset($_POST['nom']) || strlen($_POST['nom']) == 0) {
             $messages[] = "Merci d'indiquer votre nom.";
-        } else if (!preg_match("/^[a-zA-ZàâäéèêëìîïôöòùûüçÀÂÄÉÈËÏÎÌÔÖÙÛÜÇ -]+$/", $_POST['nom'])) {
+        } else if (!preg_match("/^[a-zA-ZàâäéèêëìîïôöòùûüçÀÂÄÉÈËÏÎÌÔÖÙÛÜÇ' -]+$/", $_POST['nom'])) {
             $messages[] = "Le nom saisi est incorrect.";
         } else {
             $nom = $_POST['nom'];
@@ -41,14 +41,14 @@ class CreationClientController {
 
         if (!isset($_POST['prenom']) || strlen($_POST['prenom']) == 0) {
             $messages[] = "Merci d'indiquer votre prénom.";
-        } else if (!preg_match("/^[a-zA-ZàâäéèêëìîïôöòùûüçÀÂÄÉÈËÏÎÌÔÖÙÛÜÇ -]+$/", $_POST['prenom'])) {
+        } else if (!preg_match("/^[a-zA-ZàâäéèêëìîïôöòùûüçÀÂÄÉÈËÏÎÌÔÖÙÛÜÇ' -]+$/", $_POST['prenom'])) {
             $messages[] = "Le prénom saisi est incorrect.";
         } else {
             $prenom = $_POST['prenom'];
         }
 
         if (isset($_POST['adresse']) && strlen($_POST['adresse']) > 0 &&
-                preg_match("/^[A-Za-zàâäéèêëìîïôöòùûüçÀÂÄÉÈËÏÎÌÔÖÙÛÜÇ0-9., -]+$/", $_POST['adresse'])) {
+                preg_match("/^[A-Za-zàâäéèêëìîïôöòùûüçÀÂÄÉÈËÏÎÌÔÖÙÛÜÇ0-9.,' -]+$/", $_POST['adresse'])) {
             $adresse = $_POST['adresse'];
         } else {
             $messages[] = "L'adresse est incorrecte.";
@@ -63,7 +63,7 @@ class CreationClientController {
         }
 
         if (isset($_POST['ville']) && strlen($_POST['ville']) > 0 &&
-                preg_match("/^[A-Za-zàâäéèêëìîïôöòùûüçÀÂÄÉÈËÏÎÌÔÖÙÛÜÇ-]+$/", $_POST['ville'])) {
+                preg_match("/^[A-Za-zàâäéèêëìîïôöòùûüçÀÂÄÉÈËÏÎÌÔÖÙÛÜÇ' -]+$/", $_POST['ville'])) {
             $ville = $_POST['ville'];
         } else {
             $messages[] = "La ville est incorrecte.";
