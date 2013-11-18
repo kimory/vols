@@ -4,7 +4,6 @@ if (!isset($_SESSION)) {
 }
 ?>
 
-<? header("HTTP/1.1 500 INTERNAL SERVER ERROR"); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -37,7 +36,7 @@ if (!isset($_SESSION)) {
             
             <div id="developpement">
                 <h1>Inscription confirmée</h1>
-                <p>Votre inscription a été réalisée avec succès</p>
+                <p>Votre inscription a été réalisée avec succès !</p>
             </div>
             
             <div id="footer">
