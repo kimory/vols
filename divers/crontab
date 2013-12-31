@@ -1,1 +1,0 @@
-*/5 * * * * /bin/bash $(cd /srv/web/devfly.fr/ && git pull)

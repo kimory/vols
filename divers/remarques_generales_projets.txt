@@ -1,9 +1,0 @@
-Remarques générales du formateur sur les projets :
-        * respecter les règles de nommage
-        * pas de traitement dans la vue !
-        * avoir un jeu de tests
-        * commenter le code
-        * découper les grandes méthodes en sous-méthodes de 20-30 lignes
-        * indenter le code
-        * au-delà de 3 (?) niveaux d'indentation, faire une méthode
-        * si qqch se répète, penser à l'héritage !
