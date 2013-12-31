@@ -1,6 +1,3 @@
--Tester / Faire tester l'appli
--Créer d'autres vols : dans les 2 mois après la date de présentation au jury
--Donner avec l'appli la liste des vols créés + identifiants
 -Ajouter une mention de la page "contact" dans le CDG ?
 
 Pour l'espace client :
